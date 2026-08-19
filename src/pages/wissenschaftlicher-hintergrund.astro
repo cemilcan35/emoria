@@ -1,0 +1,111 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../layouts/Base.astro';
+
+const sections = [
+  {
+    h: 'Soziales und emotionales Lernen wirkt nachweislich',
+    p: [
+      'Die bislang einflussreichste Untersuchung zu diesem Thema stammt von Durlak, Weissberg, Dymnicki, Taylor und Schellinger, veröffentlicht 2011 in der Fachzeitschrift Child Development. Die Meta-Analyse wertete 213 schulbasierte Programme zum sozialen und emotionalen Lernen mit Daten von 270.034 Schülerinnen und Schülern vom Kindergarten bis zur Oberstufe aus. Im Vergleich zu Kontrollgruppen zeigten Kinder in diesen Programmen deutlich verbesserte soziale und emotionale Fähigkeiten, positivere Einstellungen und ein besseres Sozialverhalten. Bei den schulischen Leistungen entsprach der Unterschied einem Zugewinn von elf Perzentilpunkten, ein beachtlicher Effekt für ein Programm, das eigentlich auf Gefühle und nicht auf Fachwissen zielt.',
+      'Zwölf Jahre später aktualisierten Cipriano und Kolleginnen und Kollegen diese Forschung. Ihre 2023 ebenfalls in Child Development erschienene Meta-Analyse umfasst 424 Studien aus 53 Ländern mit über 575.000 Schülerinnen und Schülern. Die Ergebnisse bestätigen die ursprünglichen Befunde und erweitern sie: Programme zum sozialen und emotionalen Lernen verbessern nicht nur Fähigkeiten und schulische Leistungen, sondern auch das Klassenklima, die Sicherheit an der Schule und die Beziehungen zwischen Gleichaltrigen.',
+    ],
+  },
+  {
+    h: 'Wie gute Programme aufgebaut sein müssen',
+    p: [
+      'Durlak und Kolleginnen und Kollegen identifizierten in ihrer Analyse vier gemeinsame Merkmale besonders wirksamer Programme, im Fachjargon als SAFE-Modell bekannt: Die Kompetenzen werden schrittweise aufgebaut (Sequenced), die Kinder beteiligen sich aktiv statt nur zuzuhören (Active), soziale und emotionale Fähigkeiten stehen gezielt im Mittelpunkt (Focused), und die Lernziele sind klar benannt (Explicit). Yubuus Gefühlsrad ist entlang genau dieser vier Prinzipien aufgebaut: Die fünf Spielschritte bauen aufeinander auf, Kinder handeln aktiv statt zuzuhören, das Ziel jeder Runde ist von Anfang an klar formuliert.',
+    ],
+  },
+  {
+    h: 'Der wirtschaftliche Nutzen früher emotionaler Bildung',
+    p: [
+      'Belfield und Kolleginnen und Kollegen vom Center for Benefit-Cost Studies in Education der Teachers College, Columbia University, untersuchten 2015 sechs bekannte SEL-Programme in den USA hinsichtlich ihres wirtschaftlichen Nutzens. Berücksichtigt wurden Kosten wie Material und Personalzeit sowie langfristige Nutzeffekte wie geringere Folgekosten durch weniger Mobbing, weniger Substanzmissbrauch und bessere schulische Abschlüsse. Im Durchschnitt über alle sechs Programme ergab sich ein Kosten-Nutzen-Verhältnis von etwa 1 zu 11: Jeder investierte Dollar erzeugte langfristig einen gesellschaftlichen Mehrwert von etwa elf Dollar.',
+    ],
+  },
+  {
+    h: 'Warum das Benennen von Gefühlen selbst schon wirkt',
+    p: [
+      'Der Neurowissenschaftler Matthew Lieberman und sein Team an der University of California, Los Angeles, zeigten 2007 in einer im Fachjournal Psychological Science veröffentlichten Studie, dass allein das Benennen eines Gefühls messbare Auswirkungen auf das Gehirn hat. Wenn Versuchspersonen ein Gefühl in Worte fassten, sank die Aktivität in der Amygdala, dem Teil des Gehirns, der für die emotionale Alarmreaktion zuständig ist, während die Aktivität im rechten ventrolateralen präfrontalen Kortex, einer für sprachlich-kognitive Verarbeitung zuständigen Hirnregion, zunahm. Dieser Effekt ist in der Forschung als Affect Labeling bekannt. Genau diesen Mechanismus übt jede Runde am Gefühlsrad, unabhängig davon, ob am Ende eine Lösung gefunden wird.',
+    ],
+  },
+  {
+    h: 'Gewaltfreie Kommunikation als Grundlage der Bedürfniskreise',
+    p: [
+      'Der letzte Spielschritt orientiert sich an der Gewaltfreien Kommunikation des Psychologen Marshall B. Rosenberg. Die Grundannahme dieses Ansatzes: Hinter jedem Gefühl steht ein Bedürfnis, und wer sein eigenes Bedürfnis versteht, kann es klarer ausdrücken, statt es über Streit, Rückzug oder Vorwürfe zu zeigen. Diese Fähigkeit lässt sich trainieren, genau das leisten die Bedürfniskreise am Ende jeder Spielrunde.',
+    ],
+  },
+  {
+    h: 'Lernen im sozialen Miteinander',
+    p: [
+      'Nach der soziokulturellen Entwicklungstheorie des Psychologen Lev Vygotsky entsteht Lernen nicht isoliert, sondern im Austausch mit anderen Menschen. Zentral ist dabei das Konzept der Zone der nächsten Entwicklung, der Bereich zwischen dem, was ein Kind bereits allein bewältigen kann, und dem, was es mit Unterstützung erreichen kann. Im Spiel übernehmen sowohl Yubuu als auch die Mitschülerinnen und Mitschüler diese unterstützende Rolle, Kinder hören einander zu und erweitern dadurch ihr eigenes Verständnis von Gefühlen.',
+    ],
+  },
+  {
+    h: 'Warum das Material bewusst physisch ist',
+    p: [
+      'Die Forschung zum Embodied Cognition, unter anderem geprägt durch Margaret Wilson und Lawrence Barsalou, zeigt, dass Denken und Lernen eng mit körperlicher Erfahrung verknüpft sind, Menschen verstehen und behalten Inhalte oft besser, wenn sie diese körperlich erleben, statt nur davon zu hören oder zu lesen. Deshalb ist Yubuus Gefühlsrad bewusst als haptisches Material gestaltet: Holz zum Anfassen, Magnete zum Selbstauflegen, Karten zum Entdecken, kein Arbeitsblatt und kein Bildschirm.',
+    ],
+  },
+  {
+    h: 'Ein ehrlicher Hinweis zum aktuellen Forschungsstand',
+    p: [
+      'Die oben genannten Studien belegen die Wirksamkeit von sozialem und emotionalem Lernen sowie der einzelnen Prinzipien, auf denen Yubuus Gefühlsrad aufbaut. Eine eigene Wirksamkeitsstudie zu Yubuus Gefühlsrad selbst existiert noch nicht, sie ist im Rahmen der Pilotprojekte ab 2027 geplant. Diese Transparenz ist uns wichtig: Wir bauen auf solider Forschung auf, versprechen aber keine Ergebnisse, die noch nicht eigens untersucht wurden.',
+    ],
+  },
+];
+
+const sources = [
+  { ref: 'Belfield, C., Bowden, B., Klapp, A., Levin, H., Shand, R., Zander, S. (2015). The Economic Value of Social and Emotional Learning. Center for Benefit-Cost Studies in Education, Teachers College, Columbia University.', href: 'https://wymancenter.org/wp-content/uploads/2020/11/Belfield-et-al-2015.pdf' },
+  { ref: 'Cipriano, C., Strambler, M. J., Naples, L. H., Ha, C., Kirk, M., Wood, M. et al. (2023). The State of Evidence for Social and Emotional Learning: A Contemporary Meta-Analysis of Universal School-Based SEL Interventions. Child Development, 94, 1181–1204.', href: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/cdev.13968', extra: { label: 'Frei zugängliches Preprint', href: 'https://osf.io/wscgq/' } },
+  { ref: 'Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., Schellinger, K. B. (2011). The Impact of Enhancing Students’ Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions. Child Development, 82(1), 405–432.', href: 'https://srcd.onlinelibrary.wiley.com/doi/10.1111/j.1467-8624.2010.01564.x', extra: { label: 'Frei zugängliches PDF', href: 'https://casel.s3.us-east-2.amazonaws.com/meta-analysis-child-development-1.pdf' } },
+  { ref: 'Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., Way, B. M. (2007). Putting Feelings Into Words: Affect Labeling Disrupts Amygdala Activity in Response to Affective Stimuli. Psychological Science, 18(5), 421–428.', href: 'https://pubmed.ncbi.nlm.nih.gov/17576282/', extra: { label: 'Frei zugängliches PDF', href: 'https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2015/05/Lieberman_AL-2007.pdf' } },
+  { ref: 'Rosenberg, M. B. (2003). Gewaltfreie Kommunikation: Eine Sprache des Lebens.', href: 'https://www.cnvc.org', label: 'Zum Konzept (Center for Nonviolent Communication)' },
+  { ref: 'Vygotsky, L. S. (1978). Mind in Society: The Development of Higher Psychological Processes.', href: 'https://archive.org/details/mindinsocietydev0000vygo', label: 'Frei zugänglicher Volltext (Archive.org)' },
+];
+---
+<Base title="Wissenschaftlicher Hintergrund — EMORIA" current=""
+  description="Die Forschung hinter Yubuus Gefühlsrad: soziales und emotionales Lernen, Affect Labeling, Gewaltfreie Kommunikation und Embodied Cognition, verständlich erklärt.">
+
+  <article class="mx-auto max-w-2xl px-6 py-28 print:py-8">
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Hintergrund</p>
+    <h1 class="mt-3 font-serif-heading text-3xl sm:text-4xl">Wissenschaftlicher Hintergrund</h1>
+    <p class="mt-6 text-[var(--color-ink-soft)]">
+      Yubuus Gefühlsrad ist kein beliebig zusammengestelltes Spiel, sondern folgt bewusst
+      mehreren anerkannten Ansätzen aus Pädagogik, Entwicklungspsychologie, Neurowissenschaft
+      und Kommunikationstheorie. Im Folgenden erklären wir, welche Forschung hinter den
+      einzelnen Bausteinen steht.
+    </p>
+
+    <div class="mt-12 space-y-10">
+      {sections.map((s) => (
+        <section>
+          <h2 class="font-[var(--font-display)] text-xl font-semibold">{s.h}</h2>
+          {s.p.map((para) => <p class="mt-3 text-[var(--color-ink-soft)]">{para}</p>)}
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-16 border-t border-[var(--color-cream-edge)] pt-10">
+      <h2 class="font-[var(--font-display)] text-xl font-semibold">Quellenverzeichnis</h2>
+      <ol class="mt-4 space-y-5">
+        {sources.map((s) => (
+          <li class="text-sm text-[var(--color-ink-soft)]">
+            {s.ref}
+            <br />
+            <a href={s.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+              {s.label ?? 'Zur Studie'}
+            </a>
+            {s.extra && (
+              <>
+                {' · '}
+                <a href={s.extra.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+                  {s.extra.label}
+                </a>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  </article>
+</Base>

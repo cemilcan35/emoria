@@ -1,0 +1,104 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../layouts/Base.astro';
+import AudienceHero from '../components/audience/AudienceHero.astro';
+import ClickBoxes from '../components/audience/ClickBoxes.astro';
+import IconRow from '../components/audience/IconRow.astro';
+import TwoCol from '../components/audience/TwoCol.astro';
+import ColoredBand from '../components/audience/ColoredBand.astro';
+import YubuuQuote from '../components/audience/YubuuQuote.astro';
+import Chips from '../components/audience/Chips.astro';
+import Accordion from '../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Für Kindergärten — EMORIA" current="Für Kindergärten"
+  description="Yubuus Gefühlsrad im Kita-Alltag: einfach einsetzbar, wissenschaftlich fundiert, für Erzieherinnen und Erzieher entwickelt.">
+
+  <AudienceHero
+    eyebrow="✦ Für Kindergärten"
+    title="Gemeinsam Gefühle entdecken, spielerisch, alltagsnah und ohne großen Vorbereitungsaufwand."
+    body="Kinder erleben jeden Tag unzählige Gefühle: Freude beim Spielen, Wut nach einem Streit, Stolz über einen Erfolg oder Traurigkeit beim Abschied von den Eltern. Doch viele Kinder können noch nicht in Worte fassen, was in ihnen vorgeht. Yubuus Gefühlsrad unterstützt pädagogische Fachkräfte dabei, Kinder spielerisch durch diese Gefühlsmomente zu begleiten, in einem sicheren Raum, ohne Leistungsdruck und ohne richtige oder falsche Antworten."
+    image="img/wheel-hero.jpg"
+    imageAlt="Yubuus Gefühlsrad im Kita-Alltag"
+  />
+
+  <ClickBoxes
+    title="Warum Yubuus Gefühlsrad?"
+    items={[
+      { icon: '🧩', title: 'Einfach im Kita-Alltag einsetzbar', text: 'Das Spiel wurde speziell für den pädagogischen Alltag entwickelt. Es lässt sich ohne aufwendige Vorbereitung in Kleingruppen oder im Einzelsetting einsetzen und flexibel an Alter, Gruppengröße und Situation anpassen.' },
+      { icon: '💛', title: 'Emotionale Kompetenzen spielerisch fördern', text: 'Kinder lernen, Gefühle wahrzunehmen, zu benennen und zu verstehen. Gleichzeitig entdecken sie, dass unterschiedliche Menschen dieselbe Situation ganz unterschiedlich erleben können. So werden Empathie, Perspektivübernahme und Sprachentwicklung auf natürliche Weise gefördert.' },
+      { icon: '🤝', title: 'Gemeinsam mit Eltern begleiten', text: 'Das Spiel eröffnet wertvolle Gesprächsanlässe, die auch nach der Spielrunde weiterwirken können. Beobachtungen aus dem Spiel lassen sich in Elterngesprächen aufgreifen und helfen dabei, die emotionale Entwicklung des Kindes gemeinsam zu begleiten.' },
+    ]}
+  />
+
+  <IconRow
+    title="So kann Yubuus Gefühlsrad eingesetzt werden"
+    items={[
+      { icon: '🌅', label: 'Morgenkreis' },
+      { icon: '👥', label: 'Kleingruppen' },
+      { icon: '🧑‍🤝‍🧑', label: 'Einzelbegleitung' },
+      { icon: '🎒', label: 'Vorschulgruppen' },
+      { icon: '💬', label: 'Konfliktgespräche' },
+      { icon: '🌱', label: 'Projekte zur emotionalen Bildung' },
+      { icon: '🕊️', label: 'Ruhiger Gesprächsimpuls nach belastenden Situationen' },
+    ]}
+  />
+
+  <TwoCol
+    title="Was macht Yubuus Gefühlsrad besonders?"
+    body="Im Mittelpunkt steht nicht das richtige Ergebnis, sondern das gemeinsame Entdecken. Yubuu bewertet keine Antworten. Stattdessen stellt Yubuu neugierige Fragen, hört aufmerksam zu und lädt Kinder dazu ein, ihre eigene Gefühlswelt kennenzulernen. Dadurch entsteht eine Atmosphäre, in der Kinder sich ernst genommen fühlen und Vertrauen entwickeln können. Das Besondere: Gefühle bleiben nicht abstrakt. Durch das Drehen des Gefühlsrads, das Zuordnen der Magnetköpfe, die Blitzkarten, die Situationskarten und die Bedürfniskreise werden Gefühle sichtbar, greifbar und verständlich."
+    image="img/flash-card.jpg"
+    imageAlt="Blitzkarte aus Yubuus Gefühlsrad"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ein Fenster in die Gefühlswelt der Kinder"
+    body="Für pädagogische Fachkräfte ist Yubuus Gefühlsrad mehr als ein Spiel, es ist auch ein Beobachtungsinstrument. Während des Spiels zeigt sich, welche Gefühle ein Kind gerade beschäftigen, wie es Situationen deutet und wo möglicherweise Gesprächsbedarf besteht. Diese Beobachtungen helfen dabei, jedes Kind individueller zu begleiten und die eigene pädagogische Arbeit gezielter auszurichten."
+  />
+
+  <TwoCol
+    reverse
+    title="Yubuu Handpuppe"
+    body="Die Handpuppe ist mehr als eine Ergänzung, sie ist ein eigenes Kommunikationswerkzeug. Kinder öffnen sich einer Puppe oft leichter als einem Erwachsenen direkt, sie schafft Nähe und gleichzeitig genug Abstand, um auch schwierige Gefühle anzusprechen. Yubuu übernimmt dabei keine belehrende Rolle, sondern fragt, staunt und hört zu, geführt von der Fachkraft als vertrauensvolle Brücke zwischen Kind und Erwachsenem."
+    image="img/yubuu-turnaround.jpg"
+    imageAlt="Yubuu Handpuppe"
+  />
+
+  <YubuuQuote quote="Hallo! Ich freue mich, dass du hier bist. Gemeinsam entdecken wir Gefühle, ganz ohne richtig oder falsch. Ich höre zu, stelle Fragen und lerne jeden Tag etwas Neues. Kommst du mit auf unsere Entdeckungsreise?" />
+
+  <Chips
+    title="Für wen eignet sich das Spiel?"
+    items={['Erzieherinnen und Erzieher', 'Integrationserzieherinnen und Integrationserzieher', 'Heilpädagoginnen und Heilpädagogen', 'Sprachförderkräfte', 'Kitaleitungen', 'Vorschulgruppen', 'Familienzentren']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'So läuft eine Spielrunde ab',
+        body: 'Eine Spielrunde folgt fünf aufeinander aufbauenden Schritten. Zuerst dreht das Kind das Gefühlsrad und nimmt seinen Magnetkopf, ein bewusster Zufallsfaktor, der auch Gefühle ins Spiel bringt, die das Kind nicht spontan gewählt hätte. Anschließend zieht das Kind eine Fragekarte und spricht kurz über das Gefühl. Danach folgt eine Blitzkarte: eine kurze Alltagssituation, bei der das Kind nur sagt, ob das Gefühl passt oder nicht. Im vierten Schritt legt das Kind seinen Magnetkopf auf eine Situationskarte, die Yubuu ohne Gesichtsausdruck zeigt. Zum Abschluss wählt das Kind aus den Bedürfniskreisen aus, was ihm in diesem Gefühl helfen würde. Eine vollständige Runde dauert etwa 25 bis 40 Minuten, je nach Gruppe und Gesprächstiefe auch länger. Am Ende führt Yubuu ein kurzes Reflexionsgespräch: Wie fühlst du dich jetzt? Hat dir das Spiel gefallen?',
+      },
+      {
+        title: 'Wissenschaftlicher Hintergrund',
+        body: 'Yubuus Gefühlsrad basiert auf mehreren anerkannten Ansätzen aus Entwicklungspsychologie und emotionaler Bildung. Die Meta-Analyse von Durlak et al. mit über 270.000 Kindern zeigt, dass strukturierte Programme zum sozialen und emotionalen Lernen Verhaltensauffälligkeiten deutlich reduzieren und das Selbstwertgefühl stärken. Der Neurowissenschaftler Matthew Lieberman konnte zeigen, dass allein das Benennen eines Gefühls beruhigend auf das kindliche Gehirn wirkt, genau das übt jede Runde am Gefühlsrad. Die Forschung zum Embodied Learning zeigt zudem, dass Kinder tiefer lernen, wenn sie körperlich handeln, statt nur zuzuhören, deshalb ist das Spielmaterial bewusst physisch gestaltet.',
+        linkHref: `${base}wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mehr zum wissenschaftlichen Hintergrund',
+      },
+      {
+        title: 'Häufige Fragen aus der Kita',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Wie lange dauert eine Spielrunde?</strong><br />Etwa 25 bis 40 Minuten, abhängig von Gruppengröße und Gesprächstiefe. Auch kürzere Varianten mit nur einzelnen Komponenten sind möglich.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Brauche ich eine Fortbildung, um das Spiel einzusetzen?</strong><br />Nein. Das Spiel ist so gestaltet, dass es ohne Zusatzausbildung sofort einsetzbar ist. Eine Einführung ist hilfreich, aber keine Voraussetzung.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Für welches Alter ist das Spiel geeignet?</strong><br />Für Kinder von vier bis sechs Jahren, mit einem eigenen Ablauf für jüngere und einem für ältere Kinder innerhalb dieser Spanne.</p>
+          <p><strong class="text-[var(--color-ink)]">Kann ich auch nur einzelne Teile des Spiels nutzen?</strong><br />Ja. Das Gefühlsrad und die Blitzkarten funktionieren auch für sich allein, etwa wenn nur wenig Zeit zur Verfügung steht.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Für Ihre Kita anfragen
+    </a>
+  </div>
+</Base>

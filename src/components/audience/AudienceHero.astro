@@ -1,0 +1,11 @@
+---
+interface Props { eyebrow: string; title: string; body: string; image: string; imageAlt: string }
+const { eyebrow, title, body, image, imageAlt } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<section class="mx-auto max-w-5xl px-6 pt-32 pb-16 text-center">
+  <img src={`${base}${image}`} alt={imageAlt} class="mx-auto mb-10 h-64 w-full max-w-2xl rounded-[var(--radius-card)] object-cover shadow-[var(--shadow-lift)] sm:h-80" />
+  <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">{eyebrow}</p>
+  <h1 class="mt-4 font-serif-heading text-3xl leading-tight sm:text-5xl">{title}</h1>
+  <p class="mx-auto mt-6 max-w-2xl text-lg text-[var(--color-ink-soft)]">{body}</p>
+</section>

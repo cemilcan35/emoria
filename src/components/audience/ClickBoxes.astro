@@ -1,0 +1,36 @@
+---
+// Three clickable boxes, side by side (stacked on mobile). Only title + icon visible; text expands on click.
+interface Item { icon: string; title: string; text: string }
+interface Props { title: string; items: Item[] }
+const { title, items } = Astro.props;
+---
+<section class="mx-auto max-w-5xl px-6 py-16">
+  <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">{title}</h2>
+  <div class="mt-10 grid gap-4 sm:grid-cols-3" data-clickboxes>
+    {items.map((it) => (
+      <button type="button" class="group rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-6 text-left transition hover:border-[var(--color-terracotta)]" data-clickbox>
+        <span class="flex items-center gap-3">
+          <span class="text-2xl" aria-hidden="true">{it.icon}</span>
+          <span class="font-[var(--font-display)] text-lg font-semibold">{it.title}</span>
+          <span class="ml-auto text-[var(--color-terracotta)] transition-transform group-aria-expanded:rotate-45" data-plus>+</span>
+        </span>
+        <p class="mt-0 max-h-0 overflow-hidden text-[var(--color-ink-soft)] opacity-0 transition-all duration-300" data-answer>
+          <span class="block pt-3">{it.text}</span>
+        </p>
+      </button>
+    ))}
+  </div>
+</section>
+<script is:inline>
+  document.querySelectorAll('[data-clickboxes]').forEach((group) => {
+    group.querySelectorAll('[data-clickbox]').forEach((box) => {
+      box.addEventListener('click', () => {
+        const answer = box.querySelector('[data-answer]');
+        const open = box.getAttribute('aria-expanded') === 'true';
+        box.setAttribute('aria-expanded', String(!open));
+        answer.style.maxHeight = open ? '0px' : answer.scrollHeight + 40 + 'px';
+        answer.style.opacity = open ? '0' : '1';
+      });
+    });
+  });
+</script>

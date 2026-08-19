@@ -1,0 +1,115 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../layouts/Base.astro';
+import AudienceHero from '../components/audience/AudienceHero.astro';
+import ClickBoxes from '../components/audience/ClickBoxes.astro';
+import IconRow from '../components/audience/IconRow.astro';
+import TwoCol from '../components/audience/TwoCol.astro';
+import ColoredBand from '../components/audience/ColoredBand.astro';
+import YubuuQuote from '../components/audience/YubuuQuote.astro';
+import Chips from '../components/audience/Chips.astro';
+import Accordion from '../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Für Schulen — EMORIA" current="Für Schulen"
+  description="Yubuus Gefühlsrad im Grundschulalltag: für Klassenrat, Schulsozialarbeit und Förderstunden, wissenschaftlich fundiert.">
+
+  <AudienceHero
+    eyebrow="✦ Für Schulen"
+    title="Soziales und emotionales Lernen gehört in jede Klasse, nicht nebenbei, sondern bewusst."
+    body="In der Grundschule lernen Kinder nicht nur Mathematik und Deutsch. Sie lernen auch, Freundschaften zu schließen, Konflikte zu bewältigen und Verantwortung für sich selbst und andere zu übernehmen. Doch Gefühle zu erleben und sie auch benennen zu können, sind zwei verschiedene Dinge. Yubuus Gefühlsrad begleitet Lehrkräfte und Schulsozialarbeitende dabei, Kindern einen geschützten Raum zu bieten, in dem sie ihre Gefühlswelt spielerisch entdecken, verstehen und darüber sprechen können."
+    image="img/wheel-wide.jpg"
+    imageAlt="Yubuus Gefühlsrad im Klassenrat"
+  />
+
+  <ClickBoxes
+    title="Warum Yubuus Gefühlsrad?"
+    items={[
+      { icon: '🧩', title: 'Flexibel im Schulalltag einsetzbar', text: 'Ob Klassenrat, Kleingruppe, Schulsozialarbeit oder Förderstunde, eine Spielrunde dauert etwa 25 bis 40 Minuten und lässt sich ohne Zusatzausbildung sofort einsetzen.' },
+      { icon: '🕊️', title: 'Konflikte verstehen statt eskalieren lassen', text: 'Kinder, die ihre Gefühle und Bedürfnisse besser verstehen, entwickeln leichter konstruktive Wege im Umgang mit Konflikten.' },
+      { icon: '💬', title: 'Einblicke für Elterngespräche', text: 'Beobachtungen aus dem Spiel zeigen, welche Themen ein Kind beschäftigen, und bilden eine wertvolle Grundlage für Elterngespräche und individuelle Förderung.' },
+    ]}
+  />
+
+  <IconRow
+    title="Wo Yubuus Gefühlsrad eingesetzt wird"
+    items={[
+      { icon: '🗣️', label: 'Klassenrat' },
+      { icon: '👥', label: 'Kleingruppen' },
+      { icon: '🤝', label: 'Schulsozialarbeit' },
+      { icon: '📘', label: 'Förderstunden' },
+      { icon: '🔁', label: 'Vertretungsstunden' },
+      { icon: '💛', label: 'Nach Konflikten in der Klasse' },
+      { icon: '🌱', label: 'Präventionsprojekte' },
+      { icon: '🌍', label: 'Inklusionsunterricht' },
+    ]}
+  />
+
+  <TwoCol
+    title="Was macht Yubuus Gefühlsrad besonders?"
+    body="Auch Grundschulkinder lernen nachhaltiger, wenn sie aktiv entdecken, ausprobieren und miteinander ins Gespräch kommen. Yubuus Gefühlsrad verbindet spielerisches Lernen mit der Förderung sozialer und emotionaler Kompetenzen. Yubuu begleitet diesen Prozess neugierig und wertschätzend. Statt Antworten vorzugeben, lädt Yubuu Kinder dazu ein, eigene Gedanken zu entwickeln und unterschiedliche Perspektiven kennenzulernen. Grundschulkinder zwischen sieben und zehn Jahren durchlaufen dabei fünf aufeinander aufbauende Schritte: Sie entdecken ein Gefühl, sprechen darüber, verbinden es mit Alltagssituationen und erkennen am Ende, welches Bedürfnis dahinter steht."
+    image="img/situation-card.jpg"
+    imageAlt="Situationskarte aus Yubuus Gefühlsrad"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ein stärkeres Klassenklima beginnt mit Gesprächen"
+    body="Ein gutes Klassenklima entsteht nicht von allein. Kinder müssen lernen, zuzuhören, unterschiedliche Perspektiven zu verstehen und Konflikte respektvoll auszutragen. Yubuus Gefühlsrad schafft einen sicheren Rahmen, in dem genau diese Fähigkeiten spielerisch geübt werden können. Dadurch werden nicht nur einzelne Kinder gestärkt, auch die Klassengemeinschaft profitiert davon. Für Lehrkräfte und Schulsozialarbeitende bietet das Spiel gleichzeitig wertvolle Einblicke in die Gefühlswelt der Kinder, eine fundierte Grundlage für Elterngespräche und individuelle Förderung."
+  />
+
+  <TwoCol
+    reverse
+    title="Yubuu Handpuppe"
+    body="Die Handpuppe ist mehr als eine Ergänzung, sie ist ein eigenes Kommunikationswerkzeug. Kinder öffnen sich einer Puppe oft leichter als einem Erwachsenen direkt, sie schafft Nähe und gleichzeitig genug Abstand, um auch schwierige Gefühle anzusprechen. Yubuu übernimmt dabei keine belehrende Rolle, sondern fragt, staunt und hört zu, geführt von der Lehrkraft oder Schulsozialarbeit als vertrauensvolle Brücke zum Kind."
+    image="img/yubuu-turnaround.jpg"
+    imageAlt="Yubuu Handpuppe"
+  />
+
+  <YubuuQuote quote="In jeder Klasse fühlt jeder etwas anderes. Lass uns gemeinsam herausfinden, wie wir darüber sprechen können." />
+
+  <Chips
+    title="Für wen eignet sich das Spiel?"
+    items={['Grundschullehrkräfte', 'Schulsozialarbeiterinnen und Schulsozialarbeiter', 'Förderschullehrkräfte', 'Beratungslehrkräfte', 'Horterzieherinnen und Horterzieher', 'Klassenleitungen', 'Inklusionspädagoginnen und Inklusionspädagogen', 'Schulpsychologischer Dienst', 'alle, die mit Grundschulkindern arbeiten']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'So läuft eine Spielrunde ab',
+        body: 'Grundschulkinder durchlaufen fünf Schritte: Ein Gefühl entdecken, darüber sprechen, es mit einer Alltagssituation verbinden, und am Ende das dahinterliegende Bedürfnis erkennen. Eine Runde dauert etwa 25 bis 40 Minuten, je nach Gesprächstiefe und Gruppengröße auch länger oder kürzer. Am Ende führt Yubuu ein kurzes Reflexionsgespräch: Wie war das Spiel für euch? Wer möchte darüber sprechen?',
+      },
+      {
+        title: 'Wissenschaftlicher Hintergrund',
+        body: 'Yubuus Gefühlsrad basiert auf mehreren anerkannten Ansätzen aus Pädagogik und Psychologie. Die Meta-Analyse von Durlak et al. mit über 270.000 Kindern zeigt, dass strukturiertes soziales und emotionales Lernen die schulischen Leistungen um durchschnittlich elf Prozent verbessert und Konflikte reduziert. Der letzte Spielschritt orientiert sich an der Gewaltfreien Kommunikation nach Marshall B. Rosenberg, das gemeinsame Lernen im Spiel an der Entwicklungstheorie von Lev Vygotsky. Zusätzlich zeigt die Forschung zum Affect Labeling, dass allein das Benennen eines Gefühls beruhigend auf das Gehirn wirkt, genau das übt jede Runde am Gefühlsrad.',
+        linkHref: `${base}wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mehr zum wissenschaftlichen Hintergrund',
+      },
+      {
+        title: 'Häufige Fragen aus der Schule',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Passt das in unseren Lehrplan, oder ist das ein Zusatzangebot?</strong><br />Yubuus Gefühlsrad ersetzt keinen Lehrplaninhalt, sondern ergänzt ihn. Es lässt sich in den Klassenrat, in Vertretungsstunden oder in Förderstunden integrieren, ohne dass dafür extra Unterrichtszeit reserviert werden muss.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Funktioniert das auch mit einer ganzen Klasse, nicht nur in Kleingruppen?</strong><br />Das Spiel ist ursprünglich für Kleingruppen bis zu sechs Kindern konzipiert. Für den Einsatz mit der ganzen Klasse empfehlen wir, mehrere Kleingruppen parallel spielen zu lassen oder das Spiel rotierend im Klassenrat einzusetzen.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kann ich das Spiel auch im Klassenrat einsetzen?</strong><br />Ja. Der Klassenrat eignet sich besonders gut, um einzelne Spielphasen oder vollständige Spielrunden gemeinsam durchzuführen.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kann ich nur einzelne Spielmaterialien nutzen?</strong><br />Ja. Je nach Zeit und Zielsetzung können das Gefühlsrad, die Blitzkarten oder die Situationskarten auch unabhängig voneinander eingesetzt werden.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Eignet sich das Spiel auch für Kinder mit besonderem Förderbedarf?</strong><br />Ja. Gerade weil es ohne Zeitdruck und ohne richtige oder falsche Antworten funktioniert, wird es häufig in der Förderschule und in der Einzelbegleitung eingesetzt.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Gibt es wissenschaftliche Nachweise für die Wirksamkeit?</strong><br />Das Konzept stützt sich auf anerkannte Forschung zum sozialen und emotionalen Lernen, unter anderem die Meta-Analyse von Durlak et al. mit über 270.000 Kindern. Eigene Wirksamkeitsstudien zu Yubuus Gefühlsrad selbst sind für die Pilotphase ab 2027 geplant.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Wer trägt die Kosten, gibt es Fördermöglichkeiten?</strong><br />Viele Schulen finanzieren Yubuus Gefühlsrad über bestehende Sachmittelbudgets oder pädagogische Fördermittel. Für Schulen prüfen wir aktuell passende Förderprogramme.</p>
+          <p><strong class="text-[var(--color-ink)]">Brauche ich eine Fortbildung, um das Spiel einzusetzen?</strong><br />Nein, das Spiel ist ohne Zusatzausbildung sofort einsetzbar. Wer möchte, kann zusätzlich einen Einführungsworkshop buchen.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-8 text-center">
+    <p class="font-serif-heading text-xl italic text-[var(--color-ink)] sm:text-2xl">
+      Kinder erinnern sich nicht nur daran, was sie gelernt haben, sondern auch daran, wie sie sich dabei gefühlt haben.
+    </p>
+  </div>
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Für Ihre Schule anfragen
+    </a>
+  </div>
+</Base>

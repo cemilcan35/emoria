@@ -1,0 +1,12 @@
+---
+// Colored background section — visually separates from the white sections around it.
+interface Props { title: string; body: string; tone?: 'terracotta' | 'petrol' }
+const { title, body, tone = 'petrol' } = Astro.props;
+const bg = tone === 'petrol' ? 'bg-[var(--color-petrol-soft)]' : 'bg-[var(--color-terracotta-soft)]';
+---
+<section class={`${bg} py-16`}>
+  <div class="mx-auto max-w-3xl px-6 text-center">
+    <h2 class="font-serif-heading text-2xl sm:text-3xl">{title}</h2>
+    <p class="mt-4 text-[var(--color-ink-soft)]">{body}</p>
+  </div>
+</section>

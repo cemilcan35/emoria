@@ -1,0 +1,17 @@
+---
+// Icon row: small icon + short label each, wraps to a new line. NOT a plain list/sentence.
+interface Item { icon: string; label: string }
+interface Props { title: string; items: Item[] }
+const { title, items } = Astro.props;
+---
+<section class="mx-auto max-w-4xl px-6 py-14">
+  <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">{title}</h2>
+  <div class="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-6">
+    {items.map((it) => (
+      <div class="flex w-24 flex-col items-center text-center">
+        <span class="flex h-14 w-14 items-center justify-center rounded-full bg-[var(--color-terracotta-soft)] text-2xl" aria-hidden="true">{it.icon}</span>
+        <span class="mt-2 text-sm text-[var(--color-ink-soft)]">{it.label}</span>
+      </div>
+    ))}
+  </div>
+</section>

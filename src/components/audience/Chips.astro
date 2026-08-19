@@ -1,0 +1,13 @@
+---
+// Small rounded chips/tags — not a plain sentence.
+interface Props { title: string; items: string[] }
+const { title, items } = Astro.props;
+---
+<section class="mx-auto max-w-3xl px-6 py-14 text-center">
+  <h2 class="font-serif-heading text-2xl sm:text-3xl">{title}</h2>
+  <div class="mt-6 flex flex-wrap justify-center gap-2.5">
+    {items.map((t) => (
+      <span class="rounded-[var(--radius-pill)] border border-[var(--color-terracotta-soft)] bg-white px-4 py-1.5 text-sm text-[var(--color-ink-soft)]">{t}</span>
+    ))}
+  </div>
+</section>

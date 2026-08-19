@@ -1,0 +1,47 @@
+---
+// Classic vertical accordion, only one item open at a time.
+interface Item { title: string; body: string; linkHref?: string; linkLabel?: string }
+interface Props { items: Item[] }
+const { items } = Astro.props;
+---
+<section class="mx-auto max-w-3xl px-6 py-16">
+  <div class="divide-y divide-[var(--color-cream-edge)] rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/60" data-accordion>
+    {items.map((it, i) => (
+      <div data-acc-item>
+        <button type="button" class="flex w-full items-center justify-between gap-4 px-6 py-5 text-left" data-acc-trigger aria-expanded={i === 0 ? 'true' : 'false'}>
+          <span class="font-[var(--font-display)] text-lg font-semibold">{it.title}</span>
+          <span class="shrink-0 text-[var(--color-terracotta)] transition-transform" data-acc-icon>+</span>
+        </button>
+        <div class="overflow-hidden px-6 text-[var(--color-ink-soft)] transition-all duration-300" data-acc-panel style={i === 0 ? '' : 'max-height:0;padding-bottom:0'}>
+          <div class="pb-6" set:html={it.body}></div>
+          {it.linkHref && (
+            <p class="pb-6">
+              <a href={it.linkHref} target="_blank" rel="noopener" class="font-semibold text-[var(--color-terracotta)] hover:underline">{it.linkLabel} →</a>
+            </p>
+          )}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+<script is:inline>
+  document.querySelectorAll('[data-accordion]').forEach((acc) => {
+    const items = [...acc.querySelectorAll('[data-acc-item]')];
+    function setOpen(target) {
+      items.forEach((item) => {
+        const trigger = item.querySelector('[data-acc-trigger]');
+        const panel = item.querySelector('[data-acc-panel]');
+        const open = item === target ? trigger.getAttribute('aria-expanded') !== 'true' : false;
+        trigger.setAttribute('aria-expanded', String(open));
+        panel.style.maxHeight = open ? panel.scrollHeight + 'px' : '0px';
+        panel.style.paddingBottom = open ? '' : '0';
+      });
+    }
+    items.forEach((item) => {
+      const trigger = item.querySelector('[data-acc-trigger]');
+      const panel = item.querySelector('[data-acc-panel]');
+      if (trigger.getAttribute('aria-expanded') === 'true') panel.style.maxHeight = panel.scrollHeight + 'px';
+      trigger.addEventListener('click', () => setOpen(item));
+    });
+  });
+</script>

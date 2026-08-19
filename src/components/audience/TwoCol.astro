@@ -1,0 +1,15 @@
+---
+// Two-column: image left, text right (image on top, text below on mobile).
+interface Props { title: string; body: string; image: string; imageAlt: string; reverse?: boolean }
+const { title, body, image, imageAlt, reverse = false } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+<section class="mx-auto max-w-5xl px-6 py-14">
+  <div class:list={["grid items-center gap-10 sm:grid-cols-2", reverse && "sm:[&>*:first-child]:order-2"]}>
+    <img src={`${base}${image}`} alt={imageAlt} class="w-full rounded-[var(--radius-card)] object-cover shadow-[var(--shadow-soft)]" />
+    <div>
+      <h2 class="font-serif-heading text-2xl sm:text-3xl">{title}</h2>
+      <p class="mt-4 text-[var(--color-ink-soft)]">{body}</p>
+    </div>
+  </div>
+</section>

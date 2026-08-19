@@ -25,6 +25,16 @@
   --color-brand-deep: #ec5f5b;
   --color-brand-soft: #ffb3af;
 
+  /* --- Audience pages (Kita / Schule / Familien): terracotta + petrol + gold --- */
+  --color-terracotta: #c96a45;
+  --color-terracotta-deep: #a8532f;
+  --color-terracotta-soft: #f1cbb5;
+  --color-petrol: #1f4a4d;
+  --color-petrol-soft: #e2edec;
+  --color-gold: #d19a3d;
+  --color-gold-soft: #f6e6c4;
+  --font-serif: "Fraunces Variable", ui-serif, Georgia, serif;
+
   /* --- Emotion legend (one color per feeling) — pulled from the wheel + logo --- */
   --color-joy: #f0b93d;          /* warm gold */
   --color-sadness: #6f8fc9;      /* blue */
@@ -72,6 +82,14 @@ h1, h2, h3, h4 {
   font-weight: 600;
   letter-spacing: -0.005em;
   color: var(--color-ink);
+}
+
+/* Audience pages (Kita/Schule/Wissenschaft) use a serif display face.
+   Defined unlayered (like the h1-h4 rule above) so it isn't beaten by
+   Tailwind's @layer utilities regardless of class order. */
+.font-serif-heading {
+  font-family: var(--font-serif);
+  font-weight: 600;
 }
 
 @media (prefers-reduced-motion: reduce) {
