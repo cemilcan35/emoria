@@ -5,15 +5,12 @@ const { current = '' } = Astro.props;
 const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
 
 const links = [
+  { href: `${base}fuer-kindergaerten`, label: 'Kindergarten' },
+  { href: `${base}fuer-schulen`, label: 'Schule' },
+  { href: `${base}fuer-eltern`, label: 'Eltern' },
   { href: `${base}about`, label: 'About' },
   { href: `${base}contact`, label: 'Contact' },
 ];
-
-const forLinks = [
-  { href: `${base}fuer-kindergaerten`, label: 'Kindergärten' },
-  { href: `${base}fuer-schulen`, label: 'Schulen' },
-];
-const isForActive = current === 'Für Kindergärten' || current === 'Für Schulen';
 ---
 
 <header class="absolute inset-x-0 top-0 z-50">
@@ -22,27 +19,6 @@ const isForActive = current === 'Für Kindergärten' || current === 'Für Schule
       EMORIA
     </a>
     <ul class="flex items-center gap-6">
-      <li class="group relative">
-        <button
-          type="button"
-          class:list={[
-            'flex items-center gap-1 font-[var(--font-body)] text-[15px] font-medium text-[var(--color-ink)] transition',
-            isForActive ? 'opacity-100' : 'opacity-75 hover:opacity-100',
-          ]}
-        >
-          Für…
-          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="mt-px" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
-        </button>
-        <ul class="invisible absolute left-1/2 top-full z-10 mt-2 w-44 -translate-x-1/2 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white p-2 opacity-0 shadow-[var(--shadow-lift)] transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-          {forLinks.map((l) => (
-            <li>
-              <a href={l.href} class="block rounded-lg px-3 py-2 font-[var(--font-body)] text-[14px] text-[var(--color-ink)] opacity-80 transition hover:bg-[var(--color-cream)] hover:opacity-100">
-                {l.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </li>
       {links.map((l) => (
         <li>
           <a

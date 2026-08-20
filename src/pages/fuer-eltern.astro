@@ -1,0 +1,23 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Für Eltern — EMORIA" current="Eltern"
+  description="Yubuus Gefühlsrad für zuhause: Familien dabei begleiten, gemeinsam über Gefühle zu sprechen.">
+
+  <section class="mx-auto max-w-2xl px-6 pb-24 pt-40 text-center">
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">✦ Für Eltern</p>
+    <h1 class="font-serif-heading mt-4 text-3xl leading-tight sm:text-5xl">Auch zuhause fängt vieles mit einem Gefühl an.</h1>
+    <p class="mx-auto mt-6 max-w-xl text-lg text-[var(--color-ink-soft)]">
+      Diese Seite ist noch im Aufbau. Hier entsteht demnächst, wie Familien Yubuus Gefühlsrad
+      zuhause nutzen können, um gemeinsam mit ihren Kindern über Gefühle ins Gespräch zu kommen.
+    </p>
+    <p class="mx-auto mt-8 max-w-xl text-sm italic text-[var(--color-ink-faint)]">
+      Placeholder copy — real text to follow.
+    </p>
+    <a href={`${base}contact`} class="mt-10 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Auf dem Laufenden bleiben
+    </a>
+  </section>
+</Base>
