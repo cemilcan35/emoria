@@ -199,21 +199,13 @@ const panels = [
       // How long Yubuu takes to arrive/settle before the first speech bubble
       // appears — the screen stays empty (just Yubuu moving in) until then.
       const ARRIVAL_DELAY_MS = 3000;
-      // Once the clip reaches its end, loop just this many trailing seconds
-      // (small idle motion / blinking) instead of freezing or replaying it all.
-      const IDLE_TAIL_SECONDS = 2.5;
 
-      // Any Yubuu dialogue video: once it reaches the end, keep looping only
-      // its last couple of seconds so Yubuu keeps making tiny idle movements
-      // instead of freezing on the final frame or replaying from the start.
+      // Any Yubuu dialogue video: once its one-time animation finishes, it
+      // stays on the final frame (no replaying/looping any part of the clip —
+      // jumping back into it creates a visible seam). A light CSS "blink"
+      // (see .story-video.is-idle) keeps Yubuu subtly alive from then on.
       document.querySelectorAll('[data-story-video]').forEach((vid) => {
-        vid.addEventListener('timeupdate', () => {
-          if (!vid.duration || !isFinite(vid.duration)) return;
-          if (vid.currentTime >= vid.duration - 0.15) {
-            vid.currentTime = Math.max(0, vid.duration - IDLE_TAIL_SECONDS);
-            if (vid.paused) vid.play().catch(() => {});
-          }
-        });
+        vid.addEventListener('ended', () => vid.classList.add('is-idle'));
       });
 
       // panels that carry a Yubuu dialogue video (Meet Yubuu, Yubuus Gefühlsrad
@@ -224,6 +216,7 @@ const panels = [
       function playPanelVideo(panel) {
         const vid = panel.querySelector('[data-story-video]');
         if (vid) {
+          vid.classList.remove('is-idle');
           vid.currentTime = 0;
           vid.play().catch(() => {});
         }
@@ -431,6 +424,18 @@ const panels = [
     .story-char { position: relative; height: 78%; justify-self: center; }
     .story-video { display: block; height: 100%; width: auto;
       filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)); }
+    /* once the one-shot animation ends, Yubuu rests on the final frame —
+       this is the only "life" that continues, a quick soft blink every
+       few seconds, so nothing about the video itself replays or jumps */
+    .story-video.is-idle { animation: idleBlink 4.6s ease-in-out infinite; }
+    @keyframes idleBlink {
+      0%, 94%, 100% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(1); }
+      96% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(.82); }
+      98% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(1); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .story-video.is-idle { animation: none; }
+    }
     .story-dialogue { display: flex; flex-direction: column; gap: 1.1rem; }
     /* colourful, kid-friendly bubble — a bright tint of the panel's own accent
        colour, hidden until Yubuu arrives and armReveal() shows it */
