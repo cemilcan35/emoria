@@ -11,12 +11,12 @@ const panels = [
   {
     id: 'home', tab: 'EMORIA', strip: '#2b2a28', bg: '#fff1e4', c: '#ff7673', ink: '#2b2a28',
     kind: 'home',
-    eyebrow: '✦ EMORIA Gefühle verstehen. Gespräche beginnen. Kinder stärken.',
+    eyebrow: '✦ Gefühle verstehen. Gespräche beginnen. Kinder stärken.',
     title: 'Willkommen bei EMORIA',
     body: 'A little universe that helps children recognise, name and talk about their feelings. Pick a door →',
   },
   {
-    id: 'meet', tab: 'Meet Yubuu', strip: '#02ae90', bg: '#eaf4ef', c: '#02ae90', ink: '#08312a',
+    id: 'meet', tab: 'Yubuu kennenlernen', strip: '#02ae90', bg: '#eaf4ef', c: '#02ae90', ink: '#08312a',
     kind: 'story', storyMode: 'meet',
     beats: [
       'Hallo! Ich bin Yubuu.',
@@ -40,11 +40,11 @@ const panels = [
     ],
   },
   {
-    id: 'why', tab: 'Why EMORIA?', strip: '#ea9f0e', bg: '#fae6bf', c: '#ea9f0e', ink: '#3d2a04',
+    id: 'why', tab: 'Warum EMORIA?', strip: '#ea9f0e', bg: '#fae6bf', c: '#ea9f0e', ink: '#3d2a04',
     kind: 'why',
-    eyebrow: 'The thinking',
-    title: 'Why EMORIA?',
-    body: 'Talking about feelings is a learned skill — and children rarely get a safe place to practise it. EMORIA turns emotional learning into play: no right or wrong answers, grounded in ten years of practice and current research. When a child can name what they feel, everything else — friendships, focus, resilience — gets a little easier.',
+    eyebrow: 'Der Gedanke dahinter',
+    title: 'Warum EMORIA?',
+    body: 'Über Gefühle zu sprechen ist eine erlernbare Fähigkeit — und Kinder bekommen selten einen sicheren Raum, sie zu üben. EMORIA macht emotionales Lernen zum Spiel: ohne richtige oder falsche Antworten, gestützt auf zehn Jahre Praxis und aktuelle Forschung. Wenn ein Kind benennen kann, was es fühlt, wird alles andere leichter — Freundschaften, Konzentration, Resilienz.',
   },
 ];
 ---
@@ -78,8 +78,8 @@ const panels = [
       <a href={`${base}fuer-kindergaerten`}>Kindergarten</a>
       <a href={`${base}fuer-schulen`}>Schule</a>
       <a href={`${base}fuer-eltern`}>Eltern</a>
-      <a href={`${base}about`}>About</a>
-      <a href={`${base}contact`}>Contact</a>
+      <a href={`${base}about`}>Über Cemil</a>
+      <a href={`${base}contact`}>Kontakt</a>
     </nav>
   </header>
 
@@ -137,8 +137,8 @@ const panels = [
                 <h2 class="why-hero">{p.title}</h2>
                 <p class="why-body">{p.body}</p>
                 <div class="why-links">
-                  <a href={`${base}about`}>About Cemil →</a>
-                  <a href={`${base}contact`}>Get in touch →</a>
+                  <a href={`${base}about`}>Über Cemil →</a>
+                  <a href={`${base}contact`}>Kontakt aufnehmen →</a>
                 </div>
               </div>
             </div>
@@ -158,7 +158,7 @@ const panels = [
                 <div class="c-text">
                   <h1 class="home-title stg">{p.title}</h1>
                   <p class="home-tag stg">{p.eyebrow}</p>
-                  <p class="home-sub stg">Das spielbasierte Lernsystem für emotionale Bildung.</p>
+                  <p class="home-sub stg">Spielerisch emotionale Bildung.</p>
                 </div>
                 <div class="c-art home-art">
                   <div class="home-video-wrap">
