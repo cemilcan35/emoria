@@ -11,8 +11,8 @@ const panels = [
   {
     id: 'home', tab: 'EMORIA', strip: '#2b2a28', bg: '#fff1e4', c: '#ff7673', ink: '#2b2a28',
     kind: 'home',
-    eyebrow: '✦ Emotional learning, through play',
-    title: 'Welcome to EMORIA',
+    eyebrow: '✦ EMORIA Gefühle verstehen. Gespräche beginnen. Kinder stärken.',
+    title: 'Willkommen bei EMORIA',
     body: 'A little universe that helps children recognise, name and talk about their feelings. Pick a door →',
   },
   {
@@ -157,7 +157,8 @@ const panels = [
               <div class="c-inner home">
                 <div class="c-text">
                   <h1 class="home-title stg">{p.title}</h1>
-                  <p class="home-tag stg">✦ Emotional learning, through play</p>
+                  <p class="home-tag stg">{p.eyebrow}</p>
+                  <p class="home-sub stg">Das spielbasierte Lernsystem für emotionale Bildung.</p>
                 </div>
                 <div class="c-art home-art">
                   <div class="home-video-wrap">
@@ -493,9 +494,10 @@ const panels = [
     .panel.is-open .eyebrow { transition-delay: .30s; }
     .panel.is-open .home-title, .panel.is-open .p-title { transition-delay: .38s; }
     .panel.is-open .home-sub, .panel.is-open .p-body { transition-delay: .48s; }
-    /* home: sequenced title -> tagline, then video flies in */
+    /* home: sequenced title -> tagline -> subline, then video flies in */
     .panel.is-open .home-title { transition-delay: .50s; }
-    .panel.is-open .home-tag { transition-delay: .80s; }
+    .panel.is-open .home-tag { transition-delay: .64s; }
+    .panel.is-open .home-sub { transition-delay: .78s; }
     .panel.is-open .p-cta { transition-delay: .58s; }
     .panel.is-open .c-art, .panel.is-open .art-yubuu, .panel.is-open .p-planet { transition-delay: .44s; }
 
