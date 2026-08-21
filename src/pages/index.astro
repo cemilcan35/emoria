@@ -157,8 +157,8 @@ const panels = [
               <div class="c-inner home">
                 <div class="c-text">
                   <h1 class="home-title stg">{p.title}</h1>
-                  <p class="home-tag stg">{p.eyebrow}</p>
                   <p class="home-sub stg">Spielerisch emotionale Bildung.</p>
+                  <p class="home-tag stg">{p.eyebrow}</p>
                 </div>
                 <div class="c-art home-art">
                   <div class="home-video-wrap">
@@ -419,10 +419,15 @@ const panels = [
     /* ---- Yubuu dialogue (Meet Yubuu + Gefühlsrad intro): Yubuu on one side,
        a single speech bubble that swaps line by line on the other ---- */
     .story { position: absolute; inset: 0; overflow: hidden; cursor: pointer;
-      padding: 92px 6vw 6vh; display: grid; grid-template-columns: .85fr 1.15fr;
+      padding: 84px 6vw 2vh; display: grid; grid-template-columns: .85fr 1.15fr;
       align-items: center; gap: 3vw; }
-    .story-char { position: relative; height: 78%; justify-self: center; }
-    .story-video { display: block; height: 100%; width: auto;
+    /* Yubuu sits small and centred within the source video's own frame, so
+       growing the container alone barely helps — the video is zoomed in
+       (scaled up + clipped) to make the character himself bigger. */
+    .story-char { position: relative; height: 100%; justify-self: center;
+      overflow: hidden; display: flex; align-items: flex-end; justify-content: center; }
+    .story-video { display: block; height: 108%; width: auto; flex-shrink: 0;
+      transform: scale(1.55); transform-origin: center 78%;
       filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)); }
     /* once the one-shot animation ends, Yubuu rests on the final frame —
        this is the only "life" that continues, a quick soft blink every
@@ -497,7 +502,7 @@ const panels = [
     .eyebrow { font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 13px; color: var(--c); }
     .home-title { font-family: 'Fredoka Variable', sans-serif; font-weight: 600; font-size: clamp(40px, 5.1vw, 78px); line-height: .98; color: var(--ink); margin: .1em 0 .3em; }
     .home-tag { font-family: 'Rubik Variable', sans-serif; font-weight: 600; font-size: clamp(15px, 1.5vw, 20px); letter-spacing: .04em; color: var(--c); margin: 0 0 .8em; }
-    .home-sub { font-size: 19px; line-height: 1.6; color: #57534c; max-width: 26rem; }
+    .home-sub { font-size: 16px; line-height: 1.6; color: #57534c; max-width: 26rem; margin: 0 0 .6em; }
     .p-title { font-family: 'Fredoka Variable', sans-serif; font-weight: 600; font-size: clamp(34px, 4.6vw, 62px); line-height: 1.03; color: var(--ink); margin: .22em 0; }
     .p-body { font-size: 18px; line-height: 1.6; color: var(--ink); opacity: .82; max-width: 26rem; }
     .p-cta { margin-top: 1.6rem; border: 0; cursor: pointer; background: var(--c); color: #fff;
@@ -556,8 +561,8 @@ const panels = [
     .panel.is-open .home-sub, .panel.is-open .p-body { transition-delay: .48s; }
     /* home: sequenced title -> tagline -> subline, then video flies in */
     .panel.is-open .home-title { transition-delay: .50s; }
-    .panel.is-open .home-tag { transition-delay: .64s; }
-    .panel.is-open .home-sub { transition-delay: .78s; }
+    .panel.is-open .home-sub { transition-delay: .64s; }
+    .panel.is-open .home-tag { transition-delay: .78s; }
     .panel.is-open .p-cta { transition-delay: .58s; }
     .panel.is-open .c-art, .panel.is-open .art-yubuu, .panel.is-open .p-planet { transition-delay: .44s; }
 
