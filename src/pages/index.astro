@@ -82,7 +82,7 @@ const panels = [
       <a href={`${base}fuer-kindergaerten`}>Kindergarten</a>
       <a href={`${base}fuer-schulen`}>Schule</a>
       <a href={`${base}fuer-eltern`}>Eltern</a>
-      <a href={`${base}about`}>Über Cemil</a>
+      <a href={`${base}about`}>Über uns</a>
       <a href={`${base}contact`}>Kontakt</a>
     </nav>
   </header>
@@ -120,7 +120,14 @@ const panels = [
           ) : p.kind === 'story' ? (
             <div class="story" data-story data-story-mode={p.storyMode}>
               <div class="story-char">
-                <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu läuft winkend ins Bild" data-story-video>
+                {p.storyMode === 'meet' && (
+                  <div class="story-door" data-story-door aria-hidden="true">
+                    <span class="door-leaf left"></span>
+                    <span class="door-leaf right"></span>
+                    <span class="door-frame"></span>
+                  </div>
+                )}
+                <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu öffnet eine Tür und kommt herein" data-story-video>
                   <source src={`${base}video/yubuu-wave-nobg.webm`} type="video/webm" />
                   <source src={`${base}video/yubuu-wave-nobg.mov`} type="video/quicktime" />
                 </video>
@@ -141,7 +148,7 @@ const panels = [
                 <h2 class="why-hero">{p.title}</h2>
                 <p class="why-body">{p.body}</p>
                 <div class="why-links">
-                  <a href={`${base}about`}>Über Cemil →</a>
+                  <a href={`${base}about`}>Über uns →</a>
                   <a href={`${base}contact`}>Kontakt aufnehmen →</a>
                 </div>
               </div>
@@ -223,6 +230,16 @@ const panels = [
           vid.classList.remove('is-idle');
           vid.currentTime = 0;
           vid.play().catch(() => {});
+        }
+        // Meet Yubuu: swing the door open right as he starts walking in,
+        // then let it fade away once he's stepped through.
+        const door = panel.querySelector('[data-story-door]');
+        if (door) {
+          door.classList.remove('is-open', 'is-away');
+          void door.offsetHeight; // reflow so re-opening replays the swing
+          requestAnimationFrame(() => door.classList.add('is-open'));
+          clearTimeout(door._awayTimer);
+          door._awayTimer = setTimeout(() => door.classList.add('is-away'), 2600);
         }
         armRevealByPanel.get(panel)?.();
       }
@@ -447,6 +464,36 @@ const panels = [
     }
     @media (prefers-reduced-motion: reduce) {
       .story-video.is-idle { animation: none; }
+    }
+    /* Meet Yubuu: a simple wooden double door he swings open and steps
+       through, timed with the video's own walk-in. Sits centred over the
+       character box, in front of the video (z-index), and swings open on
+       3D-rotated hinges before fading away once he's through. */
+    .story-door { position: absolute; inset: 8% 4%; z-index: 2; perspective: 900px;
+      display: flex; pointer-events: none;
+      filter: drop-shadow(0 16px 26px rgba(43,42,40,.22));
+      transition: opacity .6s ease .3s; }
+    .story-door.is-away { opacity: 0; }
+    .door-frame { position: absolute; inset: -4% -3%; border-radius: 8px;
+      border: 10px solid #6b4530; box-sizing: border-box; pointer-events: none; }
+    .door-leaf { position: relative; width: 50%; height: 100%;
+      background: repeating-linear-gradient(90deg, #8a5a3b 0 14px, #7c4f34 14px 16px),
+        linear-gradient(180deg, #8a5a3b, #6f4529 55%, #5c3820);
+      box-shadow: inset 0 0 0 3px rgba(0,0,0,.18), inset 0 0 26px rgba(0,0,0,.14);
+      border-radius: 3px;
+      transition: transform 1s cubic-bezier(.65,0,.35,1);
+      transform-style: preserve-3d; backface-visibility: hidden; }
+    .door-leaf.left { transform-origin: left center; }
+    .door-leaf.right { transform-origin: right center; }
+    .story-door.is-open .door-leaf.left { transform: rotateY(-112deg); }
+    .story-door.is-open .door-leaf.right { transform: rotateY(112deg); }
+    .door-leaf::after { content: ''; position: absolute; top: 50%; width: 9px; height: 9px;
+      border-radius: 50%; background: #f0c25a; box-shadow: 0 0 5px rgba(0,0,0,.45); }
+    .door-leaf.left::after { right: 12px; }
+    .door-leaf.right::after { left: 12px; }
+    @media (prefers-reduced-motion: reduce) {
+      .door-leaf { transition: none; }
+      .story-door.is-open .door-leaf.left, .story-door.is-open .door-leaf.right { transform: none; opacity: 0; }
     }
     /* dialogue column sits high, near where Yubuu's (now lower) head is, so
        the bubble tail below it visually connects to him */

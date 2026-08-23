@@ -1,74 +1,113 @@
 ---
 import Base from '../layouts/Base.astro';
 const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
-
-const grounding = [
-  { t: 'Ten years in the room', d: 'Integration daycare centres, residential youth care, intensive-support groups, special-needs and welcome schools, and family counselling — with a particular focus on families with and without a refugee or migration background.' },
-  { t: 'A deliberate path', d: 'Years first with children aged two to seven in early-years education, then into youth work and youth welfare — which sharpened one conviction: the earlier children learn to notice and express feelings, the more stably they develop.' },
-  { t: 'Grounded in the research', d: 'The method draws on developmental psychology, Vygotsky, Goleman’s emotional intelligence, and current Social-Emotional Learning research — so it holds up for professional educational settings.' },
-];
 ---
 
-<Base title="About Cemil — EMORIA" current="Über Cemil"
-  description="EMORIA was built by Cemil Can Özkaya, a Berlin social pedagogue, over ten years of working with children and families.">
+<Base title="Über uns — EMORIA" current="Über uns"
+  description="EMORIA wurde von Cemil Can Özkaya gegründet, staatlich geprüfter Erzieher mit rund zehn Jahren Erfahrung in der pädagogischen Praxis.">
   <article class="bg-[var(--color-cream)]">
     <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
-      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ About</p>
-      <h1 class="mt-3 text-4xl sm:text-6xl">Cemil Can Özkaya</h1>
-      <p class="mt-4 text-xl text-[var(--color-ink-soft)]">
-        State-recognised social pedagogue and educator · Berlin
-      </p>
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Über uns</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">Über uns</h1>
     </div>
 
-    <div class="mx-auto max-w-2xl space-y-6 px-6 pb-16 text-lg text-[var(--color-ink-soft)]">
+    <div class="mx-auto max-w-2xl space-y-6 px-6 pb-20 text-lg text-[var(--color-ink-soft)]">
       <p>
-        EMORIA didn’t start as a product. It started as a question I couldn’t put down
-        after years of working with children, young people and families: <span class="italic">how can children
-        be supported, early on, to understand their feelings, express them, and talk about
-        them with others?</span>
+        EMORIA wurde von <strong class="text-[var(--color-ink)]">Cemil Can Özkaya</strong> gegründet,
+        staatlich geprüfter Erzieher mit rund zehn Jahren Erfahrung in Integrationskitas,
+        Förderschulen, Jugendhilfeeinrichtungen und der Familienberatung.
       </p>
       <p>
-        Again and again I saw the same thing — many conflicts, misunderstandings and
-        struggles came down to one ability: being able to express a feeling, a need, a
-        boundary. And I saw how rarely children get a safe place to practise it. Many
-        families simply don’t have the tools to talk with their children about feelings —
-        not for lack of love, but for lack of support.
+        Der Anfang liegt weiter zurück, als man vermuten würde. Bereits 2020, während der
+        Ausbildung, entstand in einer Berliner Kita eine erste, einfache Version dieses
+        Spiels: ein Gefühlsrad, ein paar Karten, sechs Vorschulkinder an einem Tisch. Am
+        Ende der vierzig Minuten wurde gefragt, ob die Kinder das noch einmal machen
+        möchten. Die Antwort war ein einstimmiges Ja.
       </p>
       <p>
-        So instead of working through the same cycle with one child at a time, I set out to
-        build something with broader reach — a method parents, educators and therapists
-        could all draw on. EMORIA is the result of that practice, and of a deep conviction
-        that emotional literacy is one of the most important foundations a child can have.
+        Aus diesem Nachmittag ist über Jahre hinweg ein vollständiges pädagogisches System
+        geworden, verfeinert durch jede weitere Erfahrung in der Praxis, durch
+        Rückmeldungen von Fachkräften und vor allem durch die Kinder selbst.
+      </p>
+      <p>
+        Heute ist EMORIA ein junges Unternehmen mit einem klaren Ziel: Kindern eine
+        Sprache für ihre Gefühle zu geben, und den Menschen, die täglich mit ihnen
+        arbeiten, ein Werkzeug, das wirklich in ihren Alltag passt.
       </p>
     </div>
 
     <div class="bg-[var(--color-cream-deep)]">
-      <div class="mx-auto max-w-4xl px-6 py-20">
-        <div class="grid gap-6 md:grid-cols-3">
-          {grounding.map((g) => (
-            <div class="rounded-[var(--radius-card)] bg-white/60 p-6">
-              <h3 class="text-xl">{g.t}</h3>
-              <p class="mt-2 text-sm text-[var(--color-ink-soft)]">{g.d}</p>
-            </div>
-          ))}
-        </div>
-        <p class="mx-auto mt-10 max-w-2xl text-center text-[var(--color-ink-soft)]">
-          Cemil speaks four languages, plays seven instruments, and has built deep trust with
-          children, families and colleagues across every setting he’s worked in. That
-          practice is the foundation EMORIA is built on.
+      <div class="mx-auto max-w-2xl space-y-6 px-6 py-20 text-lg text-[var(--color-ink-soft)]">
+        <h2 class="text-center text-3xl text-[var(--color-ink)]">Über EMORIA</h2>
+        <p>
+          Kinder lernen rechnen. Kinder lernen lesen. Kinder lernen, sich die Schuhe zu
+          binden.
+        </p>
+        <p class="italic text-[var(--color-ink)]">
+          Aber wer bringt ihnen bei, über ihre Gefühle zu sprechen?
+        </p>
+        <p>
+          Emotionale Bildung steht heute in jedem Bildungsprogramm. Was in der Praxis oft
+          fehlt, ist das passende Werkzeug dafür. Pädagogische Fachkräfte haben selten die
+          Zeit, für jedes Gespräch über Gefühle eigenes Material zu entwickeln, und viele
+          bestehende Angebote bleiben bei einzelnen Karten oder Postern stehen.
+        </p>
+        <p>
+          EMORIA entwickelt wissenschaftlich fundierte, pädagogische Werkzeuge, die genau
+          hier ansetzen. Unser erstes Produkt, Yubuus Gefühlsrad, führt Kinder von vier bis
+          zehn Jahren durch einen klaren Ablauf: von der ersten Wahrnehmung eines Gefühls
+          über das Gespräch darüber bis hin zu der Frage, welches Bedürfnis eigentlich
+          dahintersteckt.
+        </p>
+        <p>
+          Im Mittelpunkt steht Yubuu, ein neugieriges Wesen ohne Geschlecht und ohne feste
+          Herkunft, geboren auf dem kleinen Planeten Lumora. Yubuu reist durch
+          verschiedene Welten, um zu verstehen, wie unterschiedlich Lebewesen fühlen.
+          Yubuu bewertet nicht, gibt keine richtigen Antworten vor, sondern fragt, staunt
+          und hört zu. Genau das macht es Kindern leicht, sich zu öffnen.
+        </p>
+        <p>
+          Yubuus Gefühlsrad ist dabei erst der Anfang. EMORIA ist als wachsendes Universum
+          angelegt, aus dem nach und nach weitere Spiele, Materialien und Geschichten
+          entstehen sollen.
         </p>
       </div>
     </div>
 
+    <div class="mx-auto max-w-2xl space-y-6 px-6 py-20 text-lg text-[var(--color-ink-soft)]">
+      <p>
+        EMORIA ist ein junges Unternehmen aus Berlin, das pädagogische Werkzeuge für
+        emotionale Bildung entwickelt.
+      </p>
+      <p>
+        Unser Ausgangspunkt ist eine Beobachtung aus der täglichen Arbeit mit Kindern: Die
+        meisten Konflikte entstehen nicht aus böser Absicht, sondern weil Kindern schlicht
+        die Worte fehlen, um zu sagen, was in ihnen vorgeht. Und pädagogischen Fachkräften
+        fehlt im vollen Alltag oft das passende Material, um genau das zu ändern.
+      </p>
+      <p>
+        Alles, was bei EMORIA entsteht, kommt deshalb aus der Praxis, nicht vom
+        Schreibtisch. Jede Komponente wurde über Jahre hinweg mit Kindern erprobt, mit
+        Fachkräften besprochen und immer wieder überarbeitet, bis sie im echten Alltag
+        funktioniert.
+      </p>
+      <p>
+        Wir glauben, dass emotionale Kompetenzen genauso selbstverständlich gefördert
+        werden sollten wie Sprache oder Mathematik. Und dass gute pädagogische Materialien
+        Fachkräften Arbeit abnehmen sollten, statt ihnen zusätzliche aufzubürden.
+      </p>
+      <p class="text-center italic text-[var(--color-ink)]">Genau daran arbeiten wir.</p>
+    </div>
+
     <div class="mx-auto max-w-3xl px-6 py-20 text-center">
       <img src={`${base}img/yubuu-cutout.png`} alt="Yubuu" class="mx-auto mb-4 h-28 w-auto drop-shadow-[0_14px_20px_rgba(43,42,40,0.16)]" />
-      <h2 class="text-3xl">Bring EMORIA to your Kita</h2>
+      <h2 class="text-3xl">Bring EMORIA in Ihre Kita</h2>
       <p class="mx-auto mt-4 max-w-lg text-[var(--color-ink-soft)]">
-        If your kindergarten or practice would like to be among the first to try EMORIA,
-        Cemil would be glad to talk.
+        Wenn Ihre Kita oder Praxis eine der ersten sein möchte, die EMORIA ausprobiert,
+        spricht Cemil gerne mit Ihnen.
       </p>
       <a href={`${base}contact`} class="mt-7 inline-block rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">
-        Get in touch
+        Kontakt aufnehmen
       </a>
     </div>
   </article>
