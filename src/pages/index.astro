@@ -72,18 +72,6 @@ const panels = [
       <source src={`${base}video/intro-yubuu-earth.webm`} type="video/webm" />
       <source src={`${base}video/intro-yubuu-earth.mp4`} type="video/mp4" />
     </video>
-    <!-- Exact copy of the real homepage hero (same classes/layout), so the
-         handoff is a plain crossfade with zero position/size jump — it just
-         sits still while the video fades out from behind it. -->
-    <div class="intro-bridge" aria-hidden="true">
-      <div class="c-inner home">
-        <div class="c-text">
-          <h1 class="home-title">Willkommen bei EMORIA</h1>
-          <p class="home-sub">Spielerisch emotionale Bildung.</p>
-          <p class="home-tag">✦ Gefühle verstehen. Gespräche beginnen. Kinder stärken.</p>
-        </div>
-      </div>
-    </div>
     <button type="button" class="intro-skip" data-intro-skip>Überspringen</button>
   </div>
 
@@ -334,8 +322,11 @@ const panels = [
     })();
   </script>
 
-  <!-- Intro splash: plays once, then fades out and hands off to the homepage,
-       replaying the home panel's Yubuu fly-in so it's visible right after. -->
+  <!-- Intro splash: plays once. On end, the video fades out and the dark
+       background crossfades to cream at the same time, quietly revealing
+       the real homepage underneath — whose title/hero are already sitting
+       there, static, the whole time. No duplicate text, no re-triggered
+       animation, so nothing moves or jumps during the handoff. -->
   <script is:inline>
     (() => {
       const intro = document.querySelector('[data-intro]');
@@ -345,32 +336,17 @@ const panels = [
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let done = false;
 
-      function reveal() {
-        intro.classList.add('is-hidden');
-        // Replay the home panel's rocket fly-in so Yubuu flies left-to-right
-        // right as the homepage is revealed, instead of already being settled.
-        const wrap = document.querySelector('.home-video-wrap');
-        if (wrap) {
-          wrap.style.animation = 'none';
-          void wrap.offsetHeight; // force reflow to restart the animation
-          wrap.style.animation = '';
-        }
-        setTimeout(() => intro.remove(), 650);
-      }
-
       function finish() {
         if (done) return;
         done = true;
-        // Stage 1: crossfade the video out into the "Willkommen bei EMORIA"
-        // title (dark bg -> cream at the same time), bridging the cut so it
-        // never jumps straight from the dark video to the cream homepage.
-        intro.classList.add('is-handoff');
-        // Stage 2: after a short hold on the title, reveal the real
-        // homepage — its own title is already sitting in the same spot.
-        setTimeout(reveal, 950);
+        intro.classList.add('is-handoff'); // video fades out, bg crossfades to cream
+        setTimeout(() => {
+          intro.classList.add('is-hidden');
+          setTimeout(() => intro.remove(), 650);
+        }, 550);
       }
 
-      if (reduceMotion || !video) { intro.classList.add('is-hidden'); reveal(); return; }
+      if (reduceMotion || !video) { intro.remove(); return; }
       video.addEventListener('ended', finish);
       video.addEventListener('error', finish);
       skip.addEventListener('click', finish);
@@ -392,13 +368,6 @@ const panels = [
     .intro-video { width: 100%; height: 100%; object-fit: cover; display: block;
       transition: opacity .55s ease; }
     .intro.is-handoff .intro-video { opacity: 0; }
-    /* bridging hero: an exact, static copy of the real homepage hero (same
-       .c-inner.home/.c-text markup, so position/size match perfectly). It
-       just fades in in place — no movement — so handing off to the real
-       one underneath is imperceptible instead of a jump. */
-    .intro-bridge { position: absolute; inset: 0; opacity: 0; pointer-events: none;
-      transition: opacity .5s ease .15s; }
-    .intro.is-handoff .intro-bridge { opacity: 1; }
     .intro-skip { position: absolute; right: clamp(1rem, 3vw, 2rem); bottom: clamp(1rem, 3vw, 2rem);
       z-index: 1; border: 1px solid rgba(255,255,255,.5); background: rgba(11,16,38,.35);
       color: #fff; font-family: 'Rubik Variable', sans-serif; font-weight: 500; font-size: 14px;
