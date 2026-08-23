@@ -16,7 +16,7 @@ const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
       </div>
 
       <nav class="flex flex-col gap-2 text-[var(--color-ink-soft)]">
-        <a href={base} class="hover:text-[var(--color-ink)]">Startseite</a>
+        <a href={`${base}?nointro=1`} class="hover:text-[var(--color-ink)]">Startseite</a>
         <a href={`${base}about`} class="hover:text-[var(--color-ink)]">Über uns</a>
         <a href={`${base}contact`} class="hover:text-[var(--color-ink)]">Kontakt</a>
         <a href={`${base}legal`} class="hover:text-[var(--color-ink)]">Impressum</a>
