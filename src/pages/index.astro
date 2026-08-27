@@ -84,6 +84,20 @@ const panels = [
       <a href={`${base}fuer-eltern`}>Eltern</a>
       <a href={`${base}about`}>Über uns</a>
       <a href={`${base}contact`}>Kontakt</a>
+      <div class="lang-switch">
+        <button type="button" class="lang-trigger" aria-label="Sprache wählen">🌐 DE</button>
+        <ul class="lang-menu">
+          <li><a href={base}>Deutsch <span>DE</span></a></li>
+          <li class="disabled" title="In Vorbereitung">English <span>EN</span></li>
+          <li class="disabled" title="In Vorbereitung">Français <span>FR</span></li>
+          <li class="disabled" title="In Vorbereitung">Español <span>ES</span></li>
+          <li class="disabled" title="In Vorbereitung">Türkçe <span>TR</span></li>
+          <li class="disabled" title="In Vorbereitung">Dansk <span>DA</span></li>
+          <li class="disabled" title="In Vorbereitung">Svenska <span>SV</span></li>
+          <li class="disabled" title="In Vorbereitung">Norsk <span>NO</span></li>
+          <li class="disabled" title="In Vorbereitung">Suomi <span>FI</span></li>
+        </ul>
+      </div>
     </nav>
   </header>
 
@@ -385,10 +399,28 @@ const panels = [
       transition: left .62s cubic-bezier(.72,0,.14,1), right .62s cubic-bezier(.72,0,.14,1); }
     .brand { background: none; border: 0; cursor: pointer; font-family: 'Fredoka Variable', sans-serif;
       font-weight: 600; font-size: 22px; letter-spacing: .02em; color: #2b2a28; }
-    .topnav { display: flex; gap: 1.5rem; }
+    .topnav { display: flex; align-items: center; gap: 1.15rem; }
     .topnav a { font-family: 'Rubik Variable', sans-serif; font-weight: 500; font-size: 15px;
       color: #2b2a28; text-decoration: none; opacity: .78; transition: opacity .2s; }
     .topnav a:hover { opacity: 1; }
+    .lang-switch { position: relative; }
+    .lang-trigger { background: none; border: 0; cursor: pointer; font-family: 'Rubik Variable', sans-serif;
+      font-weight: 500; font-size: 15px; color: #2b2a28; opacity: .78; transition: opacity .2s; }
+    .lang-trigger:hover { opacity: 1; }
+    .lang-menu { position: absolute; right: 0; top: calc(100% + 10px); z-index: 10; margin: 0;
+      list-style: none; width: 10.5rem; padding: .4rem; border-radius: 14px;
+      background: #fff; border: 1px solid #ecdcc4; box-shadow: 0 20px 48px rgba(43,42,40,.12);
+      opacity: 0; visibility: hidden; transform: translateY(-4px);
+      transition: opacity .18s ease, transform .18s ease, visibility .18s; }
+    .lang-switch:hover .lang-menu, .lang-switch:focus-within .lang-menu {
+      opacity: 1; visibility: visible; transform: none; }
+    .lang-menu li { display: flex; align-items: center; justify-content: space-between;
+      padding: .5rem .7rem; border-radius: 8px; font-family: 'Rubik Variable', sans-serif; font-size: 14px; }
+    .lang-menu li span { color: #a89f8f; }
+    .lang-menu a { display: flex; width: 100%; align-items: center; justify-content: space-between;
+      color: #2b2a28; text-decoration: none; }
+    .lang-menu li:not(.disabled):hover { background: #fff1e4; }
+    .lang-menu li.disabled { color: #a89f8f; cursor: not-allowed; }
 
     .rail { display: flex; height: 100vh; width: 100vw; overflow: hidden; background: #fff1e4;
       font-family: 'Rubik Variable', sans-serif; }

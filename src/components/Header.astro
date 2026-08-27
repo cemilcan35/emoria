@@ -11,6 +11,21 @@ const links = [
   { href: `${base}about`, label: 'Über uns' },
   { href: `${base}contact`, label: 'Kontakt' },
 ];
+
+// Language switcher. `ready: true` languages link to their translated
+// section; the rest are shown but disabled until that translation exists,
+// so the menu never points to a missing page.
+const languages = [
+  { code: 'DE', label: 'Deutsch', href: base, ready: true },
+  { code: 'EN', label: 'English', href: `${base}en/`, ready: false },
+  { code: 'FR', label: 'Français', href: `${base}fr/`, ready: false },
+  { code: 'ES', label: 'Español', href: `${base}es/`, ready: false },
+  { code: 'TR', label: 'Türkçe', href: `${base}tr/`, ready: false },
+  { code: 'DA', label: 'Dansk', href: `${base}da/`, ready: false },
+  { code: 'SV', label: 'Svenska', href: `${base}sv/`, ready: false },
+  { code: 'NO', label: 'Norsk', href: `${base}no/`, ready: false },
+  { code: 'FI', label: 'Suomi', href: `${base}fi/`, ready: false },
+];
 ---
 
 <header class="absolute inset-x-0 top-0 z-50">
@@ -32,6 +47,29 @@ const links = [
           </a>
         </li>
       ))}
+      <li class="group relative">
+        <button type="button" class="flex items-center gap-1 font-[var(--font-body)] text-[15px] font-medium text-[var(--color-ink)] opacity-75 transition hover:opacity-100" aria-label="Sprache wählen">
+          🌐 DE
+          <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="mt-px" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
+        </button>
+        <ul class="invisible absolute right-0 top-full z-10 mt-2 w-40 -translate-y-1 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white p-2 opacity-0 shadow-[var(--shadow-lift)] transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+          {languages.map((lg) => (
+            lg.ready ? (
+              <li>
+                <a href={lg.href} class="flex items-center justify-between rounded-lg px-3 py-2 font-[var(--font-body)] text-[14px] text-[var(--color-ink)] transition hover:bg-[var(--color-cream)]">
+                  <span>{lg.label}</span>
+                  <span class="text-[var(--color-ink-faint)]">{lg.code}</span>
+                </a>
+              </li>
+            ) : (
+              <li class="flex cursor-not-allowed items-center justify-between rounded-lg px-3 py-2 font-[var(--font-body)] text-[14px] text-[var(--color-ink-faint)]" title="In Vorbereitung">
+                <span>{lg.label}</span>
+                <span>{lg.code}</span>
+              </li>
+            )
+          ))}
+        </ul>
+      </li>
     </ul>
   </nav>
 </header>
