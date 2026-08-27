@@ -1,23 +1,110 @@
 ---
 import '@fontsource-variable/fraunces';
 import Base from '../layouts/Base.astro';
+import AudienceHero from '../components/audience/AudienceHero.astro';
+import ClickBoxes from '../components/audience/ClickBoxes.astro';
+import IconRow from '../components/audience/IconRow.astro';
+import TwoCol from '../components/audience/TwoCol.astro';
+import ColoredBand from '../components/audience/ColoredBand.astro';
+import YubuuQuote from '../components/audience/YubuuQuote.astro';
+import Accordion from '../components/audience/Accordion.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Base title="Für Eltern — EMORIA" current="Eltern"
-  description="Yubuus Gefühlsrad für zuhause: Familien dabei begleiten, gemeinsam über Gefühle zu sprechen.">
+  description="Wie Familien Yubuus Gefühlsrad zuhause aufgreifen können, um mit Kindern über Gefühle ins Gespräch zu kommen.">
 
-  <section class="mx-auto max-w-2xl px-6 pb-24 pt-40 text-center">
-    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">✦ Für Eltern</p>
-    <h1 class="font-serif-heading mt-4 text-3xl leading-tight sm:text-5xl">Auch zuhause fängt vieles mit einem Gefühl an.</h1>
-    <p class="mx-auto mt-6 max-w-xl text-lg text-[var(--color-ink-soft)]">
-      Diese Seite ist noch im Aufbau. Hier entsteht demnächst, wie Familien Yubuus Gefühlsrad
-      zuhause nutzen können, um gemeinsam mit ihren Kindern über Gefühle ins Gespräch zu kommen.
-    </p>
-    <p class="mx-auto mt-8 max-w-xl text-sm italic text-[var(--color-ink-faint)]">
-      Placeholder copy — real text to follow.
-    </p>
-    <a href={`${base}contact`} class="mt-10 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
-      Auf dem Laufenden bleiben
-    </a>
+  <AudienceHero
+    eyebrow="✦ Für Eltern"
+    title="Kinder lernen rechnen und lesen. Über Gefühle sprechen lernen sie nur, wenn sich jemand die Zeit dafür nimmt."
+    body="Manchmal weiß ein Kind selbst nicht, was gerade in ihm vorgeht. Es merkt nur, dass etwas nicht stimmt. Wut, Rückzug oder Tränen sind dann oft der einzige Weg, den es kennt. Kinder, die früh lernen, ihre Gefühle zu benennen, brauchen diesen Umweg seltener. Sie kommen besser durch Konflikte, fühlen sich sicherer und können sagen, was sie brauchen. Deshalb ist emotionale Bildung keine Nebensache. Sie beginnt in der Kita und in der Schule, und sie wirkt weit über die Kindheit hinaus."
+    image="img/needs-circles.jpg"
+    imageAlt="Bedürfniskreise aus Yubuus Gefühlsrad"
+  />
+
+  <ClickBoxes
+    title="Was Ihr Kind dabei lernt"
+    items={[
+      { icon: '💬', title: 'Gefühle benennen', text: 'Ein Gefühl zu erleben und es ausdrücken zu können, sind zwei verschiedene Dinge. Genau hier setzt das Spiel an.' },
+      { icon: '👀', title: 'Andere Perspektiven entdecken', text: 'Ein Kind empfindet Wut, ein anderes bei derselben Situation Angst. Kinder erleben, dass Gefühle persönlich sind.' },
+      { icon: '🌱', title: 'Das Bedürfnis dahinter erkennen', text: 'Wut kann entstehen, wenn ein Kind sich nicht gehört fühlt. Kinder lernen, neugierig auf das zu schauen, was hinter ihrem Erleben liegt.' },
+    ]}
+  />
+
+  <IconRow
+    title="Vom Gefühl zum Verständnis"
+    items={[
+      { icon: '🎡', label: 'Gefühl entdecken' },
+      { icon: '💬', label: 'Ausdrücken' },
+      { icon: '🔍', label: 'Situation verstehen' },
+      { icon: '👀', label: 'Perspektive entdecken' },
+      { icon: '🌱', label: 'Bedürfnis erkennen' },
+    ]}
+  />
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">
+    Dabei geht es nicht darum, eine richtige Antwort zu finden. Es gibt keine.
+  </p>
+
+  <TwoCol
+    title="Wut ist selten das eigentliche Problem"
+    body="Wenn Kinder ihre Gefühle noch nicht gut ausdrücken können, zeigt sich ihr Erleben über ihr Verhalten. Das Verhalten sehen wir sofort, das Gefühl dahinter nicht immer. Deshalb möchte EMORIA den Blick verändern. Nicht nur fragen: Was macht das Kind gerade? Sondern auch: Was könnte es gerade fühlen, und was braucht es vielleicht?"
+    image="img/situation-card.jpg"
+    imageAlt="Situationskarte aus Yubuus Gefühlsrad"
+  />
+
+  <ColoredBand
+    tone="terracotta"
+    title="Und was hat das mit mir als Elternteil zu tun?"
+    body="Vielleicht erzählt Ihr Kind zu Hause von Yubuu oder einem Gefühl. Vielleicht auch nicht. Beides ist völlig in Ordnung. Sie müssen das Spiel nicht nachspielen und brauchen keine pädagogische Ausbildung. Oft reicht es, zuzuhören und nachzufragen: „Wie war das für dich?“ Entscheidend ist, dass Ihr Kind merkt: Meine Gefühle dürfen da sein. Ich werde gehört."
+  />
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Kleine Impulse für zu Hause</h2>
+    <div class="mt-8 space-y-4">
+      {[
+        { t: 'Gefühle benennen', d: '„Du wirkst gerade enttäuscht.“' },
+        { t: 'Nachfragen statt raten', d: '„Möchtest du erzählen, was passiert ist?“' },
+        { t: 'Nicht sofort lösen', d: 'Manchmal braucht ein Kind zuerst Verständnis, keinen Ratschlag.' },
+        { t: 'Vorbild sein', d: 'Wenn Sie Ihre eigenen Gefühle benennen, lernt Ihr Kind, dass das normal ist.' },
+      ].map((it) => (
+        <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
+          <p><strong class="text-[var(--color-ink)]">{it.t}:</strong> <span class="text-[var(--color-ink-soft)]">{it.d}</span></p>
+        </div>
+      ))}
+    </div>
   </section>
+
+  <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
+    <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Eine gute Frage fürs nächste Elterngespräch</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">„Gab es heute eine Situation, die mein Kind besonders beschäftigt hat?“</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Diese Frage öffnet oft mehr als „War alles in Ordnung?“.</p>
+    </div>
+  </section>
+
+  <YubuuQuote quote="Manchmal beginnen die schönsten Gespräche mit einer einzigen Frage: Wie fühlst du dich heute?" />
+
+  <Accordion
+    items={[
+      {
+        title: 'So läuft eine Spielrunde ab',
+        body: 'Das Kind dreht das Gefühlsrad und setzt sich mit dem ausgewählten Gefühl auseinander. Über Fragen und Alltagssituationen wird es Schritt für Schritt genauer betrachtet, bis am Ende die Frage steht: Was brauche ich, wenn ich mich so fühle? Eine Runde dauert etwa 25 bis 40 Minuten und wird von einer pädagogischen Fachkraft begleitet.',
+      },
+      {
+        title: 'Warum emotionale Bildung wichtig ist',
+        body: 'Die Fähigkeit, eigene Gefühle wahrzunehmen und auszudrücken, hängt eng mit Selbstwahrnehmung, Empathie und dem Aufbau positiver Beziehungen zusammen. Diese Bereiche werden im wissenschaftlichen Konzept des Social Emotional Learning beschrieben. EMORIA orientiert sich an diesen Grundlagen. Wichtig ist uns dabei eine Unterscheidung: Die Forschung belegt die Bedeutung sozial-emotionaler Lernansätze insgesamt, die konkrete Wirksamkeit von EMORIA selbst muss noch systematisch untersucht werden.',
+        linkHref: `${base}wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mehr zum wissenschaftlichen Hintergrund',
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
+    <p class="text-[var(--color-ink-soft)]">
+      Wenn zu Hause ein kleines Gespräch entsteht, ist schon etwas Wichtiges passiert: Ein Kind erzählt, ein Erwachsener hört zu, und beide versuchen, einander besser zu verstehen.
+    </p>
+    <a href={`${base}contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Fragen? Schreiben Sie uns
+    </a>
+  </div>
 </Base>
