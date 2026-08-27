@@ -49,16 +49,16 @@ const panels = [
 ];
 ---
 
-<html lang="en">
+<html lang="de">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EMORIA — Emotional Learning</title>
-  <meta name="description" content="EMORIA is a play-based system that helps children recognise, name and talk about their feelings. Yubuu's Feeling Wheel is where it begins." />
+  <title>EMORIA — Emotionales Lernen</title>
+  <meta name="description" content="EMORIA ist ein spielbasiertes System, das Kindern hilft, ihre Gefühle zu erkennen, zu benennen und darüber zu sprechen. Yubuus Gefühlsrad ist der Anfang." />
   <meta name="generator" content={Astro.generator} />
   <link rel="icon" type="image/png" href={`${base}img/logo.png`} />
-  <meta property="og:title" content="EMORIA — Emotional Learning" />
-  <meta property="og:description" content="A play-based way for children to recognise, name and talk about their feelings." />
+  <meta property="og:title" content="EMORIA — Emotionales Lernen" />
+  <meta property="og:description" content="Ein spielbasierter Weg für Kinder, ihre Gefühle zu erkennen, zu benennen und darüber zu sprechen." />
   <meta property="og:type" content="website" />
 </head>
 <body>
@@ -77,7 +77,7 @@ const panels = [
 
   <!-- TOP MENU — left edge aligns to the right of the strips left of the open panel -->
   <header class="topbar" data-topbar style="left:0;right:calc(3 * var(--stripw))">
-    <button class="brand" data-open="home" aria-label="Back to start">EMORIA</button>
+    <button class="brand" data-open="home" aria-label="Zurück zum Anfang">EMORIA</button>
     <nav class="topnav">
       <a href={`${base}fuer-kindergaerten`}>Kindergarten</a>
       <a href={`${base}fuer-schulen`}>Schule</a>
@@ -166,7 +166,7 @@ const panels = [
                 </div>
                 <div class="c-art home-art">
                   <div class="home-video-wrap">
-                    <video class="home-video" autoplay loop muted playsinline preload="auto" aria-label="Yubuu flying a rocket">
+                    <video class="home-video" autoplay loop muted playsinline preload="auto" aria-label="Yubuu fliegt mit einer Rakete">
                       <source src={`${base}video/kling_yubuu_rocket_no-bg.webm`} type="video/webm" />
                       <source src={`${base}video/kling_yubuu_rocket_no-bg.mov`} type="video/quicktime" />
                     </video>
