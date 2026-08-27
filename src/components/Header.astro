@@ -1,23 +1,32 @@
 ---
 // Site header for inner pages — matches the accordion top menu.
-interface Props { current?: string }
-const { current = '' } = Astro.props;
+interface Props { current?: string; lang?: string }
+const { current = '', lang = 'de' } = Astro.props;
 const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+const prefix = lang === 'de' ? base : `${base}${lang}/`;
+
+// Per-language nav labels + a couple of chrome strings. Add an entry here
+// as each language's pages go live.
+const NAV = {
+  de: { home: 'Zur Startseite', kita: 'Kindergarten', schule: 'Schule', eltern: 'Eltern', about: 'Über uns', contact: 'Kontakt', langAria: 'Sprache wählen', prep: 'In Vorbereitung' },
+  en: { home: 'Go to homepage', kita: 'Kindergarten', schule: 'School', eltern: 'Parents', about: 'About us', contact: 'Contact', langAria: 'Choose language', prep: 'Coming soon' },
+};
+const t = NAV[lang] ?? NAV.de;
 
 const links = [
-  { href: `${base}fuer-kindergaerten`, label: 'Kindergarten' },
-  { href: `${base}fuer-schulen`, label: 'Schule' },
-  { href: `${base}fuer-eltern`, label: 'Eltern' },
-  { href: `${base}about`, label: 'Über uns' },
-  { href: `${base}contact`, label: 'Kontakt' },
+  { href: `${prefix}fuer-kindergaerten`, label: t.kita },
+  { href: `${prefix}fuer-schulen`, label: t.schule },
+  { href: `${prefix}fuer-eltern`, label: t.eltern },
+  { href: `${prefix}about`, label: t.about },
+  { href: `${prefix}contact`, label: t.contact },
 ];
 
 // Language switcher. `ready: true` languages link to their translated
 // section; the rest are shown but disabled until that translation exists,
 // so the menu never points to a missing page.
 const languages = [
-  { code: 'DE', label: 'Deutsch', href: base, ready: true },
-  { code: 'EN', label: 'English', href: `${base}en/`, ready: false },
+  { code: 'DE', label: 'Deutsch', href: `${base}?nointro=1`, ready: true },
+  { code: 'EN', label: 'English', href: `${base}en/`, ready: true },
   { code: 'FR', label: 'Français', href: `${base}fr/`, ready: false },
   { code: 'ES', label: 'Español', href: `${base}es/`, ready: false },
   { code: 'TR', label: 'Türkçe', href: `${base}tr/`, ready: false },
@@ -30,7 +39,7 @@ const languages = [
 
 <header class="absolute inset-x-0 top-0 z-50">
   <nav class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-    <a href={`${base}?nointro=1`} class="font-[var(--font-display)] text-2xl font-semibold tracking-wide text-[var(--color-ink)]" aria-label="Zur Startseite">
+    <a href={`${prefix}?nointro=1`} class="font-[var(--font-display)] text-2xl font-semibold tracking-wide text-[var(--color-ink)]" aria-label={t.home}>
       EMORIA
     </a>
     <ul class="flex items-center gap-6">
@@ -48,8 +57,8 @@ const languages = [
         </li>
       ))}
       <li class="group relative">
-        <button type="button" class="flex items-center gap-1 font-[var(--font-body)] text-[15px] font-medium text-[var(--color-ink)] opacity-75 transition hover:opacity-100" aria-label="Sprache wählen">
-          🌐 DE
+        <button type="button" class="flex items-center gap-1 font-[var(--font-body)] text-[15px] font-medium text-[var(--color-ink)] opacity-75 transition hover:opacity-100" aria-label={t.langAria}>
+          🌐 {lang.toUpperCase()}
           <svg width="10" height="6" viewBox="0 0 10 6" fill="none" class="mt-px" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" /></svg>
         </button>
         <ul class="invisible absolute right-0 top-full z-10 mt-2 w-40 -translate-y-1 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white p-2 opacity-0 shadow-[var(--shadow-lift)] transition group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
@@ -62,7 +71,7 @@ const languages = [
                 </a>
               </li>
             ) : (
-              <li class="flex cursor-not-allowed items-center justify-between rounded-lg px-3 py-2 font-[var(--font-body)] text-[14px] text-[var(--color-ink-faint)]" title="In Vorbereitung">
+              <li class="flex cursor-not-allowed items-center justify-between rounded-lg px-3 py-2 font-[var(--font-body)] text-[14px] text-[var(--color-ink-faint)]" title={t.prep}>
                 <span>{lg.label}</span>
                 <span>{lg.code}</span>
               </li>
