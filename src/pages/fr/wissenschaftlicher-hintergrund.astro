@@ -1,0 +1,111 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+
+const sections = [
+  {
+    h: "L'apprentissage social et émotionnel a des effets prouvés",
+    p: [
+      "L'étude la plus influente sur ce sujet à ce jour vient de Durlak, Weissberg, Dymnicki, Taylor et Schellinger, publiée en 2011 dans la revue Child Development. La méta-analyse a évalué 213 programmes scolaires d'apprentissage social et émotionnel, avec des données portant sur 270 034 élèves, de la maternelle au lycée. Par rapport aux groupes témoins, les enfants participant à ces programmes ont montré des compétences sociales et émotionnelles nettement améliorées, des attitudes plus positives et un meilleur comportement social. Sur le plan des résultats scolaires, la différence correspondait à un gain de onze points de percentile, un effet considérable pour un programme visant en réalité les émotions plutôt que les connaissances académiques.",
+      "Douze ans plus tard, Cipriano et ses collègues ont actualisé cette recherche. Leur méta-analyse de 2023, également publiée dans Child Development, couvre 424 études menées dans 53 pays auprès de plus de 575 000 élèves. Les résultats confirment les conclusions initiales et les élargissent : les programmes d'apprentissage social et émotionnel améliorent non seulement les compétences et les résultats scolaires, mais aussi le climat de classe, la sécurité à l'école et les relations entre pairs.",
+    ],
+  },
+  {
+    h: 'Comment doivent être structurés les bons programmes',
+    p: [
+      "Durlak et ses collègues ont identifié dans leur analyse quatre caractéristiques communes aux programmes particulièrement efficaces, connues dans le domaine sous le nom de modèle SAFE : les compétences sont construites progressivement (Sequenced), les enfants participent activement plutôt que d'écouter seulement (Active), les compétences sociales et émotionnelles sont l'objectif délibéré (Focused), et les objectifs d'apprentissage sont clairement énoncés (Explicit). La roue des émotions de Yubuu est construite exactement selon ces quatre principes : les cinq étapes du jeu s'enchaînent, les enfants agissent activement plutôt que d'écouter seulement, et l'objectif de chaque partie est clairement énoncé dès le départ.",
+    ],
+  },
+  {
+    h: "La valeur économique de l'éducation émotionnelle précoce",
+    p: [
+      "Belfield et ses collègues du Center for Benefit-Cost Studies in Education de Teachers College, Columbia University, ont examiné en 2015 six programmes SEL bien connus aux États-Unis quant à leur valeur économique. Ils ont pris en compte les coûts tels que le matériel et le temps du personnel, ainsi que les bénéfices à long terme comme la réduction des coûts liés au harcèlement, à l'abus de substances et à l'amélioration des résultats scolaires. En moyenne sur les six programmes, le rapport coût-bénéfice s'est établi à environ 1 pour 11 : chaque dollar investi a généré environ onze dollars de valeur sociale à long terme.",
+    ],
+  },
+  {
+    h: "Pourquoi nommer une émotion a déjà un effet en soi",
+    p: [
+      "Le neuroscientifique Matthew Lieberman et son équipe de l'University of California, Los Angeles, ont montré dans une étude de 2007 publiée dans Psychological Science que le simple fait de nommer une émotion a un effet mesurable sur le cerveau. Lorsque les participants mettaient une émotion en mots, l'activité diminuait dans l'amygdale, la partie du cerveau responsable de la réaction d'alarme émotionnelle, tandis que l'activité augmentait dans le cortex préfrontal ventrolatéral droit, une région responsable du traitement cognitif lié au langage. Cet effet est connu dans la recherche sous le nom d'étiquetage affectif (affect labeling). C'est exactement ce mécanisme que chaque partie de la roue des émotions entraîne, qu'une solution soit trouvée ou non à la fin.",
+    ],
+  },
+  {
+    h: 'La Communication NonViolente comme fondement des cercles de besoins',
+    p: [
+      "La dernière étape du jeu s'inspire de la Communication NonViolente développée par le psychologue Marshall B. Rosenberg. Le postulat de base de cette approche : derrière chaque émotion se cache un besoin, et celui ou celle qui comprend son propre besoin peut l'exprimer plus clairement, au lieu de le manifester par le conflit, le repli sur soi ou le reproche. C'est une compétence qui s'entraîne, exactement ce que permettent les cercles de besoins à la fin de chaque partie.",
+    ],
+  },
+  {
+    h: 'Apprendre ensemble, socialement',
+    p: [
+      "Selon la théorie du développement socioculturel du psychologue Lev Vygotsky, l'apprentissage ne se produit pas isolément, mais à travers l'échange avec d'autres personnes. Le concept central est celui de la zone proximale de développement, l'espace entre ce qu'un enfant peut déjà accomplir seul et ce qu'il peut atteindre avec un soutien. Dans le jeu, Yubuu comme les autres enfants jouent ce rôle de soutien, les enfants s'écoutent les uns les autres et élargissent ainsi leur propre compréhension des émotions.",
+    ],
+  },
+  {
+    h: 'Pourquoi le matériel est délibérément physique',
+    p: [
+      "La recherche sur la cognition incarnée (embodied cognition), notamment développée par Margaret Wilson et Lawrence Barsalou, montre que la pensée et l'apprentissage sont étroitement liés à l'expérience physique : les personnes comprennent et retiennent mieux un contenu lorsqu'elles le vivent physiquement plutôt que de simplement l'entendre ou le lire. C'est pourquoi la roue des émotions de Yubuu est délibérément conçue comme un matériel haptique : du bois à toucher, des aimants à placer, des cartes à découvrir, ni feuille d'exercice ni écran.",
+    ],
+  },
+  {
+    h: "Une note honnête sur l'état actuel de la recherche",
+    p: [
+      "Les études citées ci-dessus démontrent l'efficacité de l'apprentissage social et émotionnel, ainsi que des principes individuels sur lesquels s'appuie la roue des émotions de Yubuu. Une étude d'efficacité propre à la roue des émotions de Yubuu elle-même n'existe pas encore ; elle est prévue dans le cadre des projets pilotes à partir de 2027. Cette transparence nous tient à cœur : nous nous appuyons sur une recherche solide, mais nous ne promettons pas de résultats qui n'ont pas encore été spécifiquement étudiés.",
+    ],
+  },
+];
+
+const sources = [
+  { ref: 'Belfield, C., Bowden, B., Klapp, A., Levin, H., Shand, R., Zander, S. (2015). The Economic Value of Social and Emotional Learning. Center for Benefit-Cost Studies in Education, Teachers College, Columbia University.', href: 'https://wymancenter.org/wp-content/uploads/2020/11/Belfield-et-al-2015.pdf' },
+  { ref: 'Cipriano, C., Strambler, M. J., Naples, L. H., Ha, C., Kirk, M., Wood, M. et al. (2023). The State of Evidence for Social and Emotional Learning: A Contemporary Meta-Analysis of Universal School-Based SEL Interventions. Child Development, 94, 1181–1204.', href: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/cdev.13968', extra: { label: 'Prépublication libre d\'accès', href: 'https://osf.io/wscgq/' } },
+  { ref: 'Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., Schellinger, K. B. (2011). The Impact of Enhancing Students’ Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions. Child Development, 82(1), 405–432.', href: 'https://srcd.onlinelibrary.wiley.com/doi/10.1111/j.1467-8624.2010.01564.x', extra: { label: 'PDF libre d\'accès', href: 'https://casel.s3.us-east-2.amazonaws.com/meta-analysis-child-development-1.pdf' } },
+  { ref: 'Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., Way, B. M. (2007). Putting Feelings Into Words: Affect Labeling Disrupts Amygdala Activity in Response to Affective Stimuli. Psychological Science, 18(5), 421–428.', href: 'https://pubmed.ncbi.nlm.nih.gov/17576282/', extra: { label: 'PDF libre d\'accès', href: 'https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2015/05/Lieberman_AL-2007.pdf' } },
+  { ref: 'Rosenberg, M. B. (2003). Les mots sont des fenêtres (ou bien ce sont des murs) : Introduction à la Communication NonViolente.', href: 'https://www.cnvc.org', label: 'À propos du concept (Center for Nonviolent Communication)' },
+  { ref: 'Vygotsky, L. S. (1978). Mind in Society: The Development of Higher Psychological Processes.', href: 'https://archive.org/details/mindinsocietydev0000vygo', label: 'Texte intégral libre d\'accès (Archive.org)' },
+];
+---
+<Base lang="fr" title="Contexte scientifique — EMORIA" current=""
+  description="La recherche derrière la roue des émotions de Yubuu : apprentissage social et émotionnel, étiquetage affectif, Communication NonViolente et cognition incarnée, expliqués simplement.">
+
+  <article class="mx-auto max-w-2xl px-6 py-28 print:py-8">
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Contexte</p>
+    <h1 class="mt-3 font-serif-heading text-3xl sm:text-4xl">Contexte scientifique</h1>
+    <p class="mt-6 text-[var(--color-ink-soft)]">
+      La roue des émotions de Yubuu n'est pas un jeu assemblé au hasard, elle s'appuie
+      délibérément sur plusieurs approches reconnues issues de la pédagogie, de la psychologie
+      du développement, des neurosciences et de la théorie de la communication. Nous expliquons
+      ci-dessous la recherche derrière chaque élément.
+    </p>
+
+    <div class="mt-12 space-y-10">
+      {sections.map((s) => (
+        <section>
+          <h2 class="font-[var(--font-display)] text-xl font-semibold">{s.h}</h2>
+          {s.p.map((para) => <p class="mt-3 text-[var(--color-ink-soft)]">{para}</p>)}
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-16 border-t border-[var(--color-cream-edge)] pt-10">
+      <h2 class="font-[var(--font-display)] text-xl font-semibold">Sources</h2>
+      <ol class="mt-4 space-y-5">
+        {sources.map((s) => (
+          <li class="text-sm text-[var(--color-ink-soft)]">
+            {s.ref}
+            <br />
+            <a href={s.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+              {s.label ?? "Consulter l'étude"}
+            </a>
+            {s.extra && (
+              <>
+                {' · '}
+                <a href={s.extra.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+                  {s.extra.label}
+                </a>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  </article>
+</Base>

@@ -1,0 +1,110 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fr" title="Pour les parents — EMORIA" current="Parents"
+  description="Comment les familles peuvent utiliser la roue des émotions de Yubuu à la maison pour parler des émotions avec leurs enfants.">
+
+  <AudienceHero
+    eyebrow="✦ Pour les parents"
+    title="Les enfants apprennent à compter et à lire. Ils n'apprennent à parler de leurs émotions que si quelqu'un prend le temps de le leur montrer."
+    body="Parfois, un enfant ne sait même pas ce qui se passe en lui. Il remarque juste que quelque chose ne va pas. La colère, le repli sur soi ou les larmes sont alors souvent le seul chemin qu'il connaît. Les enfants qui apprennent tôt à nommer leurs émotions ont moins souvent besoin de ce détour. Ils traversent mieux les conflits, se sentent plus en sécurité, et savent dire ce dont ils ont besoin. C'est pourquoi l'éducation émotionnelle n'est pas un sujet secondaire. Elle commence en crèche et à l'école, et ses effets vont bien au-delà de l'enfance."
+    image="img/needs-circles.jpg"
+    imageAlt="Les cercles de besoins de la roue des émotions de Yubuu"
+  />
+
+  <ClickBoxes
+    title="Ce que votre enfant apprend"
+    items={[
+      { icon: '💬', title: 'Nommer les émotions', text: 'Vivre une émotion et pouvoir l\'exprimer sont deux choses différentes. C\'est exactement là que le jeu intervient.' },
+      { icon: '👀', title: 'Découvrir d\'autres perspectives', text: 'Un enfant ressent de la colère, un autre de la peur, face à la même situation. Les enfants découvrent que les émotions sont personnelles.' },
+      { icon: '🌱', title: 'Reconnaître le besoin derrière l\'émotion', text: 'La colère peut naître quand un enfant ne se sent pas entendu. Les enfants apprennent à rester curieux face à ce qui se cache derrière leur vécu.' },
+    ]}
+  />
+
+  <IconRow
+    title="De l'émotion à la compréhension"
+    items={[
+      { icon: '🎡', label: 'Découvrir l\'émotion' },
+      { icon: '💬', label: 'L\'exprimer' },
+      { icon: '🔍', label: 'Comprendre la situation' },
+      { icon: '👀', label: 'Découvrir une perspective' },
+      { icon: '🌱', label: 'Reconnaître le besoin' },
+    ]}
+  />
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">
+    Il ne s'agit pas de trouver la bonne réponse. Il n'y en a pas.
+  </p>
+
+  <TwoCol
+    title="La colère est rarement le vrai problème"
+    body="Quand les enfants ne savent pas encore bien exprimer leurs émotions, leur vécu se manifeste à travers leur comportement. Nous voyons le comportement tout de suite, l'émotion derrière pas toujours. C'est pourquoi EMORIA veut changer de regard. Ne pas seulement demander : que fait cet enfant en ce moment ? Mais aussi : que ressent-il peut-être, et de quoi a-t-il peut-être besoin ?"
+    image="img/situation-card.jpg"
+    imageAlt="Une carte de situation de la roue des émotions de Yubuu"
+  />
+
+  <ColoredBand
+    tone="terracotta"
+    title="Et qu'est-ce que cela a à voir avec moi, en tant que parent ?"
+    body="Peut-être que votre enfant vous parle à la maison de Yubuu ou d'une émotion. Peut-être pas. Les deux sont tout à fait normaux. Vous n'avez pas besoin de rejouer le jeu et vous n'avez besoin d'aucune formation pédagogique. Il suffit souvent d'écouter et de demander : « Comment tu as vécu ça ? » L'essentiel, c'est que votre enfant sente que ses émotions ont le droit d'exister, et qu'il est entendu."
+  />
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Petites pistes pour la maison</h2>
+    <div class="mt-8 space-y-4">
+      {[
+        { t: 'Nommer l\'émotion', d: '« Tu as l\'air déçu(e) en ce moment. »' },
+        { t: 'Demander plutôt que deviner', d: '« Tu veux me raconter ce qui s\'est passé ? »' },
+        { t: 'Ne pas résoudre tout de suite', d: 'Parfois, un enfant a d\'abord besoin d\'être compris, pas conseillé.' },
+        { t: 'Montrer l\'exemple', d: 'Quand vous nommez vos propres émotions, votre enfant apprend que c\'est normal.' },
+      ].map((it) => (
+        <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
+          <p><strong class="text-[var(--color-ink)]">{it.t} :</strong> <span class="text-[var(--color-ink-soft)]">{it.d}</span></p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
+    <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Une bonne question pour votre prochain entretien avec l'école</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">« Y a-t-il eu aujourd'hui un moment qui a particulièrement marqué mon enfant ? »</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Cette question ouvre souvent plus de dialogue que « Est-ce que tout s'est bien passé ? ».</p>
+    </div>
+  </section>
+
+  <YubuuQuote quote="Parfois, les plus belles conversations commencent par une seule question : comment te sens-tu aujourd'hui ?" />
+
+  <Accordion
+    items={[
+      {
+        title: 'Comment se déroule une partie',
+        body: 'L\'enfant fait tourner la roue des émotions et explore l\'émotion choisie. À travers des questions et des situations du quotidien, elle est examinée pas à pas, jusqu\'à la question finale : de quoi ai-je besoin quand je ressens cela ? Une partie dure environ 25 à 40 minutes et est accompagnée par un(e) professionnel(le) de l\'éducation.',
+      },
+      {
+        title: 'Pourquoi l\'éducation émotionnelle est importante',
+        body: 'La capacité à percevoir et exprimer ses propres émotions est étroitement liée à la conscience de soi, à l\'empathie et à la construction de relations positives. Ces domaines sont décrits dans le concept scientifique d\'apprentissage social et émotionnel (Social Emotional Learning). EMORIA s\'appuie sur ces fondements. Une distinction nous tient à cœur : la recherche démontre l\'importance des approches d\'apprentissage socio-émotionnel dans leur ensemble, l\'efficacité concrète d\'EMORIA elle-même doit encore être étudiée de façon systématique.',
+        linkHref: `${base}fr/wissenschaftlicher-hintergrund`,
+        linkLabel: 'En savoir plus sur le contexte scientifique',
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
+    <p class="text-[var(--color-ink-soft)]">
+      Quand une petite conversation naît à la maison, quelque chose d'important s'est déjà produit : un enfant raconte, un adulte écoute, et tous deux essaient de mieux se comprendre.
+    </p>
+    <a href={`${base}fr/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Une question ? Écrivez-nous
+    </a>
+  </div>
+</Base>

@@ -1,0 +1,104 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fr" title="Pour les crèches — EMORIA" current="Crèches"
+  description="La roue des émotions de Yubuu au quotidien en crèche : facile à utiliser, fondée sur la recherche, conçue pour les professionnel(le)s de l'éducation.">
+
+  <AudienceHero
+    eyebrow="✦ Pour les crèches"
+    title="Découvrir les émotions ensemble — de façon ludique, ancrée dans le quotidien, sans grande préparation."
+    body="Les enfants vivent d'innombrables émotions chaque jour : la joie de jouer, la colère après une dispute, la fierté d'une réussite, ou la tristesse au moment de se séparer de leurs parents. Mais beaucoup d'enfants ne savent pas encore mettre des mots sur ce qui se passe en eux. La roue des émotions de Yubuu aide les professionnel(le)s à accompagner les enfants dans ces moments de façon ludique, dans un espace sûr, sans pression de performance ni bonnes ou mauvaises réponses."
+    image="img/wheel-hero.jpg"
+    imageAlt="La roue des émotions de Yubuu au quotidien en crèche"
+  />
+
+  <ClickBoxes
+    title="Pourquoi la roue des émotions de Yubuu ?"
+    items={[
+      { icon: '🧩', title: 'Facile à intégrer au quotidien', text: 'Le jeu a été conçu spécifiquement pour la pratique éducative quotidienne. Il s\'utilise en petit groupe ou en individuel sans préparation lourde, et s\'adapte facilement à l\'âge, à la taille du groupe et à la situation.' },
+      { icon: '💛', title: 'Développe les compétences émotionnelles par le jeu', text: 'Les enfants apprennent à percevoir, nommer et comprendre leurs émotions. Ils découvrent en même temps que des personnes différentes peuvent vivre la même situation très différemment. Cela favorise naturellement l\'empathie, le changement de perspective et le développement du langage.' },
+      { icon: '🤝', title: 'Fait le lien avec les parents', text: 'Le jeu ouvre des occasions d\'échange précieuses qui continuent d\'agir bien après la partie. Les observations issues du jeu peuvent être reprises lors des entretiens avec les parents, pour accompagner ensemble le développement émotionnel de l\'enfant.' },
+    ]}
+  />
+
+  <IconRow
+    title="Comment utiliser la roue des émotions de Yubuu"
+    items={[
+      { icon: '🌅', label: 'Cercle du matin' },
+      { icon: '👥', label: 'Petits groupes' },
+      { icon: '🧑‍🤝‍🧑', label: 'Accompagnement individuel' },
+      { icon: '🎒', label: 'Groupes préscolaires' },
+      { icon: '💬', label: 'Résolution de conflits' },
+      { icon: '🌱', label: 'Projets d\'éducation émotionnelle' },
+      { icon: '🕊️', label: 'Un temps calme après un moment difficile' },
+    ]}
+  />
+
+  <TwoCol
+    title="Qu'est-ce qui rend la roue des émotions de Yubuu unique ?"
+    body="L'important n'est pas de trouver la bonne réponse, mais de découvrir ensemble. Yubuu ne juge jamais une réponse. Il pose des questions curieuses, écoute attentivement, et invite les enfants à mieux connaître leur propre monde intérieur. Cela crée une atmosphère où les enfants se sentent pris au sérieux et peuvent développer leur confiance. Ce qui le rend unique : les émotions ne restent jamais abstraites. Faire tourner la roue, associer les têtes magnétiques, les cartes éclair, les cartes de situation et les cercles de besoins rendent les émotions visibles, concrètes et compréhensibles."
+    image="img/flash-card.jpg"
+    imageAlt="Une carte éclair de la roue des émotions de Yubuu"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Une fenêtre sur le monde intérieur des enfants"
+    body="Pour les professionnel(le)s de l'éducation, la roue des émotions de Yubuu est plus qu'un jeu, c'est aussi un outil d'observation. Pendant la partie, on voit apparaître les émotions qui préoccupent un enfant, la façon dont il interprète les situations, et là où un échange pourrait être nécessaire. Ces observations aident à accompagner chaque enfant plus individuellement et à orienter son propre travail pédagogique."
+  />
+
+  <TwoCol
+    reverse
+    title="La marionnette Yubuu"
+    body="La marionnette est bien plus qu'un accessoire, c'est un véritable outil de communication. Les enfants s'ouvrent souvent plus facilement à une marionnette qu'à un adulte directement ; elle crée de la proximité tout en gardant assez de distance pour aborder des émotions difficiles. Yubuu n'adopte jamais un rôle d'enseignant, mais questionne, s'étonne et écoute, guidé par le/la professionnel(le) comme un pont de confiance entre l'enfant et l'adulte."
+    image="img/yubuu-turnaround.jpg"
+    imageAlt="La marionnette Yubuu"
+  />
+
+  <YubuuQuote quote="Bonjour ! Je suis tellement content(e) que tu sois là. Ensemble, nous allons découvrir les émotions, sans bonnes ou mauvaises réponses. J'écoute, je pose des questions et j'apprends quelque chose de nouveau chaque jour. Tu viens avec moi dans ce voyage de découverte ?" />
+
+  <Chips
+    title="À qui s'adresse le jeu ?"
+    items={['Éducateurs et éducatrices de jeunes enfants', 'Éducateurs et éducatrices en intégration', 'Éducateurs et éducatrices spécialisé(e)s', 'Orthophonistes et personnel de soutien au langage', 'Directions de crèche', 'Groupes préscolaires', 'Centres familiaux']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Comment se déroule une partie',
+        body: 'Une partie suit cinq étapes qui s\'enchaînent. D\'abord, l\'enfant fait tourner la roue des émotions et prend sa tête magnétique, un élément de hasard volontaire qui apporte aussi des émotions que l\'enfant n\'aurait pas choisies spontanément. Ensuite, l\'enfant tire une carte question et parle brièvement de l\'émotion. Vient ensuite une carte éclair : une courte situation du quotidien où l\'enfant dit simplement si l\'émotion correspond ou non. À la quatrième étape, l\'enfant place sa tête magnétique sur une carte de situation qui montre Yubuu sans expression. Enfin, l\'enfant choisit parmi les cercles de besoins ce qui pourrait l\'aider face à cette émotion. Une partie complète dure environ 25 à 40 minutes, selon le groupe et la profondeur de l\'échange, parfois plus. À la fin, Yubuu mène un court temps de réflexion : Comment te sens-tu maintenant ? As-tu aimé le jeu ?',
+      },
+      {
+        title: 'Contexte scientifique',
+        body: 'La roue des émotions de Yubuu s\'appuie sur plusieurs approches reconnues issues de la psychologie du développement et de l\'éducation émotionnelle. La méta-analyse de Durlak et al., portant sur plus de 270 000 enfants, montre que les programmes structurés d\'apprentissage socio-émotionnel réduisent nettement les troubles du comportement et renforcent l\'estime de soi. Le neuroscientifique Matthew Lieberman a montré que le simple fait de nommer une émotion a un effet apaisant sur le cerveau de l\'enfant, exactement ce que chaque partie de la roue entraîne. La recherche sur l\'apprentissage incarné montre par ailleurs que les enfants apprennent plus profondément lorsqu\'ils agissent physiquement plutôt que d\'écouter seulement, c\'est pourquoi le matériel de jeu est volontairement conçu comme un objet physique.',
+        linkHref: `${base}fr/wissenschaftlicher-hintergrund`,
+        linkLabel: 'En savoir plus sur le contexte scientifique',
+      },
+      {
+        title: 'Questions fréquentes des crèches',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Combien de temps dure une partie ?</strong><br />Environ 25 à 40 minutes, selon la taille du groupe et la profondeur de l'échange. Des versions plus courtes utilisant seulement certains éléments sont également possibles.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Ai-je besoin d'une formation pour utiliser le jeu ?</strong><br />Non. Le jeu est conçu pour être utilisable immédiatement, sans formation supplémentaire. Une initiation est utile, mais pas indispensable.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Pour quel âge le jeu est-il adapté ?</strong><br />Pour les enfants de quatre à six ans, avec un déroulé propre pour les plus jeunes et les plus grands au sein de cette tranche d'âge.</p>
+          <p><strong class="text-[var(--color-ink)]">Puis-je n'utiliser que certaines parties du jeu ?</strong><br />Oui. La roue des émotions et les cartes éclair fonctionnent très bien seules aussi, par exemple quand peu de temps est disponible.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}fr/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Contacter pour votre crèche
+    </a>
+  </div>
+</Base>

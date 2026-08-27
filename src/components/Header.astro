@@ -10,6 +10,7 @@ const prefix = lang === 'de' ? base : `${base}${lang}/`;
 const NAV = {
   de: { home: 'Zur Startseite', kita: 'Kindergarten', schule: 'Schule', eltern: 'Eltern', about: 'Über uns', contact: 'Kontakt', langAria: 'Sprache wählen', prep: 'In Vorbereitung' },
   en: { home: 'Go to homepage', kita: 'Kindergarten', schule: 'School', eltern: 'Parents', about: 'About us', contact: 'Contact', langAria: 'Choose language', prep: 'Coming soon' },
+  fr: { home: "Aller à l'accueil", kita: 'Crèches', schule: 'Écoles', eltern: 'Parents', about: 'À propos', contact: 'Contact', langAria: 'Choisir la langue', prep: 'Bientôt disponible' },
 };
 const t = NAV[lang] ?? NAV.de;
 
@@ -27,7 +28,7 @@ const links = [
 const languages = [
   { code: 'DE', label: 'Deutsch', href: `${base}?nointro=1`, ready: true },
   { code: 'EN', label: 'English', href: `${base}en/`, ready: true },
-  { code: 'FR', label: 'Français', href: `${base}fr/`, ready: false },
+  { code: 'FR', label: 'Français', href: `${base}fr/`, ready: true },
   { code: 'ES', label: 'Español', href: `${base}es/`, ready: false },
   { code: 'TR', label: 'Türkçe', href: `${base}tr/`, ready: false },
   { code: 'DA', label: 'Dansk', href: `${base}da/`, ready: false },

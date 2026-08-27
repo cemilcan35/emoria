@@ -18,6 +18,12 @@ const FOOTER = {
     home: 'Home', about: 'About us', contact: 'Contact', legal: 'Legal notice',
     copy: (y: number) => `© ${y} EMORIA · Cemil Can Özkaya, Berlin. EMORIA launches to kindergartens in April 2027.`,
   },
+  fr: {
+    tagline: 'Une manière ludique pour les enfants de reconnaître, nommer et exprimer leurs émotions. La roue des émotions de Yubuu, c\'est le début.',
+    made: 'Conçu à Berlin · pour les crèches, écoles et familles',
+    home: 'Accueil', about: 'À propos', contact: 'Contact', legal: 'Mentions légales',
+    copy: (y: number) => `© ${y} EMORIA · Cemil Can Özkaya, Berlin. EMORIA sera lancé dans les crèches en avril 2027.`,
+  },
 };
 const t = FOOTER[lang] ?? FOOTER.de;
 ---
@@ -35,7 +41,7 @@ const t = FOOTER[lang] ?? FOOTER.de;
         <a href={`${prefix}?nointro=1`} class="hover:text-[var(--color-ink)]">{t.home}</a>
         <a href={`${prefix}about`} class="hover:text-[var(--color-ink)]">{t.about}</a>
         <a href={`${prefix}contact`} class="hover:text-[var(--color-ink)]">{t.contact}</a>
-        <a href={`${base}legal`} class="hover:text-[var(--color-ink)]">{t.legal}</a>
+        <a href={`${prefix}legal`} class="hover:text-[var(--color-ink)]">{t.legal}</a>
       </nav>
     </div>
 

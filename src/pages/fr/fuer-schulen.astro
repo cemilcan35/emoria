@@ -1,0 +1,115 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fr" title="Pour les écoles — EMORIA" current="Écoles"
+  description="La roue des émotions de Yubuu au quotidien scolaire : pour le conseil de classe, le travail social scolaire et les cours de soutien, fondée sur la recherche.">
+
+  <AudienceHero
+    eyebrow="✦ Pour les écoles"
+    title="L'apprentissage social et émotionnel a sa place dans chaque classe, pas en marge, mais délibérément."
+    body="À l'école primaire, les enfants n'apprennent pas seulement les mathématiques et la lecture. Ils apprennent aussi à se faire des amis, à gérer les conflits, et à assumer des responsabilités envers eux-mêmes et les autres. Mais vivre une émotion et savoir la nommer sont deux choses différentes. La roue des émotions de Yubuu aide les enseignant(e)s et les travailleurs sociaux scolaires à saisir exactement ces moments, en offrant aux enfants un espace protégé pour découvrir, comprendre et exprimer leur monde intérieur, à travers le jeu."
+    image="img/wheel-wide.jpg"
+    imageAlt="La roue des émotions de Yubuu en conseil de classe"
+  />
+
+  <ClickBoxes
+    title="Pourquoi la roue des émotions de Yubuu ?"
+    items={[
+      { icon: '🧩', title: 'Flexible au quotidien scolaire', text: 'Que ce soit en conseil de classe, en petit groupe, en travail social scolaire ou en cours de soutien, une partie dure environ 25 à 40 minutes et s\'utilise immédiatement, sans formation supplémentaire.' },
+      { icon: '🕊️', title: 'Comprendre les conflits plutôt que les laisser dégénérer', text: 'Les enfants qui comprennent mieux leurs émotions et leurs besoins trouvent plus facilement des façons constructives de gérer les conflits.' },
+      { icon: '💬', title: 'Des repères pour les entretiens avec les parents', text: 'Les observations issues du jeu révèlent ce qui préoccupe un enfant, et constituent une base précieuse pour les entretiens avec les parents et le soutien individuel.' },
+    ]}
+  />
+
+  <IconRow
+    title="Où la roue des émotions de Yubuu est utilisée"
+    items={[
+      { icon: '🗣️', label: 'Conseil de classe' },
+      { icon: '👥', label: 'Petits groupes' },
+      { icon: '🤝', label: 'Travail social scolaire' },
+      { icon: '📘', label: 'Cours de soutien' },
+      { icon: '🔁', label: 'Cours de remplacement' },
+      { icon: '💛', label: 'Après un conflit en classe' },
+      { icon: '🌱', label: 'Projets de prévention' },
+      { icon: '🌍', label: 'Enseignement inclusif' },
+    ]}
+  />
+
+  <TwoCol
+    title="Qu'est-ce qui rend la roue des émotions de Yubuu unique ?"
+    body="Les enfants d'école primaire apprennent eux aussi plus durablement lorsqu'ils découvrent activement, expérimentent et échangent entre eux. La roue des émotions de Yubuu combine apprentissage ludique et développement des compétences sociales et émotionnelles. Yubuu accompagne ce processus avec curiosité et bienveillance. Plutôt que de donner des réponses, Yubuu invite les enfants à développer leurs propres pensées et à découvrir différentes perspectives. Les enfants de sept à dix ans traversent cinq étapes qui s'enchaînent : ils découvrent une émotion, en parlent, la relient à des situations du quotidien, et reconnaissent enfin le besoin qui se cache derrière."
+    image="img/situation-card.jpg"
+    imageAlt="Une carte de situation de la roue des émotions de Yubuu"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Un meilleur climat de classe commence par le dialogue"
+    body="Un bon climat de classe ne se crée pas tout seul. Les enfants doivent apprendre à écouter, à comprendre différentes perspectives et à gérer les conflits avec respect. La roue des émotions de Yubuu crée un cadre sûr où ces compétences peuvent être exercées à travers le jeu. Cela renforce non seulement chaque enfant, mais aussi toute la communauté de la classe. Pour les enseignant(e)s et les travailleurs sociaux scolaires, le jeu offre aussi un aperçu précieux du monde intérieur des enfants, qui vient nourrir le travail éducatif quotidien ainsi que les entretiens avec les parents et le soutien individuel."
+  />
+
+  <TwoCol
+    reverse
+    title="La marionnette Yubuu"
+    body="La marionnette est bien plus qu'un accessoire, c'est un véritable outil de communication. Les enfants s'ouvrent souvent plus facilement à une marionnette qu'à un adulte directement ; elle crée de la proximité tout en gardant assez de distance pour aborder des émotions difficiles. Yubuu n'adopte jamais un rôle d'enseignant, mais questionne, s'étonne et écoute, guidé par l'enseignant(e) ou le travailleur social scolaire comme un pont de confiance vers l'enfant."
+    image="img/yubuu-turnaround.jpg"
+    imageAlt="La marionnette Yubuu"
+  />
+
+  <YubuuQuote quote="Dans chaque classe, chacun ressent quelque chose de différent. Découvrons ensemble comment en parler." />
+
+  <Chips
+    title="À qui s'adresse le jeu ?"
+    items={['Enseignant(e)s d\'école primaire', 'Travailleurs et travailleuses sociales scolaires', 'Enseignant(e)s spécialisé(e)s', 'Conseiller(ère)s d\'orientation', 'Personnel de périscolaire', 'Professeur(e)s principaux(ales)', 'Enseignant(e)s en inclusion', 'Services de psychologie scolaire', 'toute personne travaillant avec des enfants d\'âge primaire']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Comment se déroule une partie',
+        body: 'Les enfants d\'école primaire traversent cinq étapes : découvrir une émotion, en parler, la relier à une situation du quotidien, et enfin reconnaître le besoin qui se cache derrière. Une partie dure environ 25 à 40 minutes, selon la profondeur de l\'échange et la taille du groupe, parfois plus courte ou plus longue. À la fin, Yubuu mène un court temps de réflexion : Comment était le jeu pour vous ? Qui souhaite en parler ?',
+      },
+      {
+        title: 'Contexte scientifique',
+        body: 'La roue des émotions de Yubuu s\'appuie sur plusieurs approches reconnues issues de la pédagogie et de la psychologie. La méta-analyse de Durlak et al., portant sur plus de 270 000 enfants, montre que l\'apprentissage social et émotionnel structuré améliore les résultats scolaires de onze pour cent en moyenne et réduit les conflits. La dernière étape du jeu s\'inspire de la Communication NonViolente développée par Marshall B. Rosenberg, et l\'apprentissage collaboratif du jeu de la théorie du développement de Lev Vygotsky. La recherche sur l\'étiquetage affectif montre par ailleurs que le simple fait de nommer une émotion a un effet apaisant sur le cerveau, exactement ce que chaque partie de la roue entraîne.',
+        linkHref: `${base}fr/wissenschaftlicher-hintergrund`,
+        linkLabel: 'En savoir plus sur le contexte scientifique',
+      },
+      {
+        title: 'Questions fréquentes des écoles',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Est-ce compatible avec notre programme scolaire, ou est-ce une activité en plus ?</strong><br />La roue des émotions de Yubuu ne remplace aucun contenu du programme, elle le complète. Elle s'intègre au conseil de classe, aux cours de remplacement ou de soutien, sans nécessiter de temps d'enseignement dédié.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Fonctionne-t-il avec une classe entière, pas seulement en petits groupes ?</strong><br />Le jeu a été conçu à l'origine pour des petits groupes allant jusqu'à six enfants. Pour une classe entière, nous recommandons de faire jouer plusieurs petits groupes en parallèle, ou d'utiliser le jeu à tour de rôle en conseil de classe.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Puis-je l'utiliser en conseil de classe ?</strong><br />Oui. Le conseil de classe se prête particulièrement bien à mener certaines phases du jeu ou des parties complètes ensemble.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Puis-je n'utiliser que certains éléments du matériel ?</strong><br />Oui. Selon le temps et les objectifs, la roue des émotions, les cartes éclair ou les cartes de situation peuvent aussi être utilisées indépendamment les unes des autres.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Convient-il aussi aux enfants ayant des besoins particuliers ?</strong><br />Oui. C'est justement parce qu'il fonctionne sans pression de temps et sans bonnes ou mauvaises réponses qu'il est souvent utilisé en enseignement spécialisé et en accompagnement individuel.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Existe-t-il des preuves scientifiques de son efficacité ?</strong><br />Le concept s'appuie sur des recherches reconnues sur l'apprentissage social et émotionnel, notamment la méta-analyse de Durlak et al. portant sur plus de 270 000 enfants. Une étude d'efficacité propre à la roue des émotions de Yubuu est prévue dans le cadre des projets pilotes à partir de 2027.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Qui prend en charge le coût, existe-t-il des aides ?</strong><br />De nombreuses écoles financent la roue des émotions de Yubuu via des budgets matériel existants ou des subventions pédagogiques. Nous étudions actuellement des programmes de financement adaptés aux écoles.</p>
+          <p><strong class="text-[var(--color-ink)]">Ai-je besoin d'une formation pour utiliser le jeu ?</strong><br />Non, le jeu est utilisable immédiatement, sans formation supplémentaire. Celles et ceux qui le souhaitent peuvent également réserver un atelier d'introduction.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-8 text-center">
+    <p class="font-serif-heading text-xl italic text-[var(--color-ink)] sm:text-2xl">
+      Les enfants ne se souviennent pas seulement de ce qu'ils ont appris, mais aussi de ce qu'ils ont ressenti en l'apprenant.
+    </p>
+  </div>
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}fr/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Contacter pour votre école
+    </a>
+  </div>
+</Base>

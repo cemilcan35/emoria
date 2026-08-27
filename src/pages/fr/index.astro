@@ -1,7 +1,7 @@
 ---
 import '@fontsource-variable/fredoka';
 import '@fontsource-variable/rubik';
-import '../styles/global.css';
+import '../../styles/global.css';
 
 const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
 
@@ -11,91 +11,91 @@ const panels = [
   {
     id: 'home', tab: 'EMORIA', strip: '#2b2a28', bg: '#fff1e4', c: '#ff7673', ink: '#2b2a28',
     kind: 'home',
-    eyebrow: '✦ Gefühle verstehen. Gespräche beginnen. Kinder stärken.',
-    title: 'Willkommen bei EMORIA',
-    body: 'Ein kleines Universum, das Kindern hilft, ihre Gefühle zu erkennen, zu benennen und darüber zu sprechen.',
+    eyebrow: '✦ Comprendre les émotions. Ouvrir le dialogue. Renforcer les enfants.',
+    title: 'Bienvenue chez EMORIA',
+    body: 'Un petit univers qui aide les enfants à reconnaître, nommer et exprimer leurs émotions.',
   },
   {
-    id: 'meet', tab: 'Yubuu kennenlernen', strip: '#02ae90', bg: '#eaf4ef', c: '#02ae90', ink: '#08312a',
+    id: 'meet', tab: 'Découvrir Yubuu', strip: '#02ae90', bg: '#eaf4ef', c: '#02ae90', ink: '#08312a',
     kind: 'story', storyMode: 'meet',
     beats: [
-      'Hallo! Ich bin Yubuu.',
-      'Ich komme von einem kleinen Planeten, auf dem wir oft über Gefühle sprechen.',
-      'Doch ich habe mich gefragt, wie Kinder auf anderen Welten Gefühle erleben.',
-      'Deshalb reise ich durch das Universum EMORIA.',
-      'Ich bin sehr neugierig, stelle viele Fragen und höre aufmerksam zu.',
-      'Ich bewerte niemanden, denn ich glaube, dass jedes Gefühl einen Grund hat.',
-      'Deshalb lerne ich am liebsten gemeinsam mit den Kindern, denen ich begegne.',
-      'Kommst du mit auf meine Reise?',
+      "Salut ! Je m'appelle Yubuu.",
+      "Je viens d'une petite planète où l'on parle souvent d'émotions.",
+      'Mais je me suis demandé comment les enfants ressentent leurs émotions sur d\'autres mondes.',
+      "C'est pourquoi je voyage à travers l'univers EMORIA.",
+      "Je suis très curieux, je pose beaucoup de questions et j'écoute attentivement.",
+      "Je ne juge personne, car je crois que chaque émotion a une raison d'être.",
+      "C'est pourquoi j'aime apprendre avec les enfants que je rencontre.",
+      'Tu viens avec moi dans mon voyage ?',
     ],
   },
   {
-    id: 'wheel', tab: 'Yubuus Gefühlsrad', strip: '#ff7673', bg: '#fff1e4', c: '#ff7673', ink: '#4a1f1d',
+    id: 'wheel', tab: 'La roue des émotions de Yubuu', strip: '#ff7673', bg: '#fff1e4', c: '#ff7673', ink: '#4a1f1d',
     kind: 'game', game: 'game/index.html',
-    cta: 'Spiel entdecken',
+    cta: 'Découvrir le jeu',
     beats: [
-      'Hallo, ich bin wieder da!',
-      'Hast du Lust, das Spiel auszuprobieren?',
-      'Lass uns gemeinsam deine Gefühlswelt entdecken.',
+      'Salut, me revoilà !',
+      "Tu as envie d'essayer le jeu ?",
+      'Découvrons ensemble ton monde des émotions.',
     ],
   },
   {
-    id: 'why', tab: 'Warum EMORIA?', strip: '#ea9f0e', bg: '#fae6bf', c: '#ea9f0e', ink: '#3d2a04',
+    id: 'why', tab: 'Pourquoi EMORIA ?', strip: '#ea9f0e', bg: '#fae6bf', c: '#ea9f0e', ink: '#3d2a04',
     kind: 'why',
-    eyebrow: 'Der Gedanke dahinter',
-    title: 'Warum EMORIA?',
-    body: 'Über Gefühle zu sprechen ist eine erlernbare Fähigkeit — und Kinder bekommen selten einen sicheren Raum, sie zu üben. EMORIA macht emotionales Lernen zum Spiel: ohne richtige oder falsche Antworten, gestützt auf zehn Jahre Praxis und aktuelle Forschung. Wenn ein Kind benennen kann, was es fühlt, wird alles andere leichter — Freundschaften, Konzentration, Resilienz.',
+    eyebrow: "L'idée derrière EMORIA",
+    title: 'Pourquoi EMORIA ?',
+    body: "Parler de ses émotions est une compétence qui s'apprend — et les enfants ont rarement un espace sûr pour s'y exercer. EMORIA transforme l'apprentissage émotionnel en jeu : sans bonnes ou mauvaises réponses, fondé sur dix ans de pratique et sur la recherche actuelle. Quand un enfant sait nommer ce qu'il ressent, tout le reste devient plus facile — les amitiés, la concentration, la résilience.",
   },
 ];
 ---
 
-<html lang="de">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EMORIA — Emotionales Lernen</title>
-  <meta name="description" content="EMORIA ist ein spielbasiertes System, das Kindern hilft, ihre Gefühle zu erkennen, zu benennen und darüber zu sprechen. Yubuus Gefühlsrad ist der Anfang." />
+  <title>EMORIA — Apprentissage émotionnel</title>
+  <meta name="description" content="EMORIA est un système ludique qui aide les enfants à reconnaître, nommer et exprimer leurs émotions. La roue des émotions de Yubuu, c'est le début." />
   <meta name="generator" content={Astro.generator} />
   <link rel="icon" type="image/png" href={`${base}img/logo.png`} />
-  <meta property="og:title" content="EMORIA — Emotionales Lernen" />
-  <meta property="og:description" content="Ein spielbasierter Weg für Kinder, ihre Gefühle zu erkennen, zu benennen und darüber zu sprechen." />
+  <meta property="og:title" content="EMORIA — Apprentissage émotionnel" />
+  <meta property="og:description" content="Une manière ludique pour les enfants de reconnaître, nommer et exprimer leurs émotions." />
   <meta property="og:type" content="website" />
 </head>
 <body>
   <!-- INTRO SPLASH — plays once before the homepage. When it ends, the video
-       crossfades into the "Willkommen bei EMORIA" title (bridging the cut),
+       crossfades into the "Bienvenue chez EMORIA" title (bridging the cut),
        which then hands off to the real homepage title already sitting in
        the same spot — instead of a hard cut from the dark video to the
        cream homepage. -->
   <div class="intro" id="intro" data-intro>
-    <video class="intro-video" autoplay muted playsinline preload="auto" aria-label="Yubuu fliegt zur Erde">
+    <video class="intro-video" autoplay muted playsinline preload="auto" aria-label="Yubuu vole vers la Terre">
       <source src={`${base}video/intro-yubuu-earth.webm`} type="video/webm" />
       <source src={`${base}video/intro-yubuu-earth.mp4`} type="video/mp4" />
     </video>
-    <button type="button" class="intro-skip" data-intro-skip>Überspringen</button>
+    <button type="button" class="intro-skip" data-intro-skip>Passer</button>
   </div>
 
   <!-- TOP MENU — left edge aligns to the right of the strips left of the open panel -->
   <header class="topbar" data-topbar style="left:0;right:calc(3 * var(--stripw))">
-    <button class="brand" data-open="home" aria-label="Zurück zum Anfang">EMORIA</button>
+    <button class="brand" data-open="home" aria-label="Retour au début">EMORIA</button>
     <nav class="topnav">
-      <a href={`${base}fuer-kindergaerten`}>Kindergarten</a>
-      <a href={`${base}fuer-schulen`}>Schule</a>
-      <a href={`${base}fuer-eltern`}>Eltern</a>
-      <a href={`${base}about`}>Über uns</a>
-      <a href={`${base}contact`}>Kontakt</a>
+      <a href={`${base}fr/fuer-kindergaerten`}>Crèches</a>
+      <a href={`${base}fr/fuer-schulen`}>Écoles</a>
+      <a href={`${base}fr/fuer-eltern`}>Parents</a>
+      <a href={`${base}fr/about`}>À propos</a>
+      <a href={`${base}fr/contact`}>Contact</a>
       <div class="lang-switch">
-        <button type="button" class="lang-trigger" aria-label="Sprache wählen">🌐 DE</button>
+        <button type="button" class="lang-trigger" aria-label="Choisir la langue">🌐 FR</button>
         <ul class="lang-menu">
-          <li><a href={base}>Deutsch <span>DE</span></a></li>
+          <li><a href={`${base}?nointro=1`}>Deutsch <span>DE</span></a></li>
           <li><a href={`${base}en/`}>English <span>EN</span></a></li>
           <li><a href={`${base}fr/`}>Français <span>FR</span></a></li>
-          <li class="disabled" title="In Vorbereitung">Español <span>ES</span></li>
-          <li class="disabled" title="In Vorbereitung">Türkçe <span>TR</span></li>
-          <li class="disabled" title="In Vorbereitung">Dansk <span>DA</span></li>
-          <li class="disabled" title="In Vorbereitung">Svenska <span>SV</span></li>
-          <li class="disabled" title="In Vorbereitung">Norsk <span>NO</span></li>
-          <li class="disabled" title="In Vorbereitung">Suomi <span>FI</span></li>
+          <li class="disabled" title="Bientôt disponible">Español <span>ES</span></li>
+          <li class="disabled" title="Bientôt disponible">Türkçe <span>TR</span></li>
+          <li class="disabled" title="Bientôt disponible">Dansk <span>DA</span></li>
+          <li class="disabled" title="Bientôt disponible">Svenska <span>SV</span></li>
+          <li class="disabled" title="Bientôt disponible">Norsk <span>NO</span></li>
+          <li class="disabled" title="Bientôt disponible">Suomi <span>FI</span></li>
         </ul>
       </div>
     </nav>
@@ -115,7 +115,7 @@ const panels = [
             <div class="wheelstage" data-wheelstage>
               <div class="story wheel-intro" data-story data-story-mode="wheel-intro">
                 <div class="story-char">
-                  <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu schwebt winkend im Bild" data-story-video>
+                  <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu flotte et fait un signe de la main" data-story-video>
                     <source src={`${base}video/yubuu-wheel-nobg.webm`} type="video/webm" />
                     <source src={`${base}video/yubuu-wheel-nobg.mov`} type="video/quicktime" />
                   </video>
@@ -129,12 +129,12 @@ const panels = [
                   <button type="button" class="p-cta wheel-cta" data-wheel-start>{p.cta}</button>
                 </div>
               </div>
-              <iframe class="game-frame" data-wheel-frame src={`${base}${p.game}`} title="Yubuus Gefühlsrad" loading="lazy"></iframe>
+              <iframe class="game-frame" data-wheel-frame src={`${base}${p.game}`} title="La roue des émotions de Yubuu" loading="lazy"></iframe>
             </div>
           ) : p.kind === 'story' ? (
             <div class="story" data-story data-story-mode={p.storyMode}>
               <div class="story-char">
-                <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu läuft winkend ins Bild" data-story-video>
+                <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu entre en marchant, en faisant signe" data-story-video>
                   <source src={`${base}video/yubuu-wave-nobg.webm`} type="video/webm" />
                   <source src={`${base}video/yubuu-wave-nobg.mov`} type="video/quicktime" />
                 </video>
@@ -145,7 +145,7 @@ const panels = [
                     <p class="bubble-line" data-beat={i}>{bt}</p>
                   ))}
                 </div>
-                <p class="s-hint" data-hint>Klicke oder scrolle, um fortzufahren →</p>
+                <p class="s-hint" data-hint>Clique ou fais défiler pour continuer →</p>
               </div>
             </div>
           ) : p.kind === 'why' ? (
@@ -155,8 +155,8 @@ const panels = [
                 <h2 class="why-hero">{p.title}</h2>
                 <p class="why-body">{p.body}</p>
                 <div class="why-links">
-                  <a href={`${base}about`}>Über uns →</a>
-                  <a href={`${base}contact`}>Kontakt aufnehmen →</a>
+                  <a href={`${base}fr/about`}>À propos →</a>
+                  <a href={`${base}fr/contact`}>Contacter →</a>
                 </div>
               </div>
             </div>
@@ -175,12 +175,12 @@ const panels = [
               <div class="c-inner home">
                 <div class="c-text">
                   <h1 class="home-title stg">{p.title}</h1>
-                  <p class="home-sub stg">Spielerisch emotionale Bildung.</p>
+                  <p class="home-sub stg">Une éducation émotionnelle ludique.</p>
                   <p class="home-tag stg">{p.eyebrow}</p>
                 </div>
                 <div class="c-art home-art">
                   <div class="home-video-wrap">
-                    <video class="home-video" autoplay loop muted playsinline preload="auto" aria-label="Yubuu fliegt mit einer Rakete">
+                    <video class="home-video" autoplay loop muted playsinline preload="auto" aria-label="Yubuu pilotant une fusée">
                       <source src={`${base}video/kling_yubuu_rocket_no-bg.webm`} type="video/webm" />
                       <source src={`${base}video/kling_yubuu_rocket_no-bg.mov`} type="video/quicktime" />
                     </video>
@@ -282,8 +282,8 @@ const panels = [
           if (hint) {
             hint.classList.toggle('hide', atLast && mode !== 'meet');
             hint.textContent = idx === 0
-              ? 'Klicke oder scrolle, um fortzufahren →'
-              : (mode === 'meet' && atLast ? 'Weiter zum Gefühlsrad →' : 'Weiter →');
+              ? 'Clique ou fais défiler pour continuer →'
+              : (mode === 'meet' && atLast ? 'Direction la roue des émotions →' : 'Continue →');
           }
           if (ctaBtn) ctaBtn.classList.toggle('is-shown', atLast);
         }
