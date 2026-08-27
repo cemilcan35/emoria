@@ -1,0 +1,110 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="en" title="For Parents — EMORIA" current="Parents"
+  description="How families can use Yubuu's Feeling Wheel at home to start conversations with children about feelings.">
+
+  <AudienceHero
+    eyebrow="✦ For Parents"
+    title="Children learn to count and read. They only learn to talk about feelings when someone takes the time for it."
+    body="Sometimes a child doesn't even know what's going on inside them. They just notice that something is off. Anger, withdrawal or tears are then often the only path they know. Children who learn early to name their feelings need that detour less often. They get through conflict better, feel safer, and can say what they need. That's why emotional education isn't a side issue. It begins in Kita and school, and its effects reach far beyond childhood."
+    image="img/needs-circles.jpg"
+    imageAlt="Needs circles from Yubuu's Feeling Wheel"
+  />
+
+  <ClickBoxes
+    title="What your child learns"
+    items={[
+      { icon: '💬', title: 'Naming feelings', text: 'Experiencing a feeling and being able to express it are two different things. This is exactly where the game comes in.' },
+      { icon: '👀', title: 'Discovering other perspectives', text: 'One child feels anger, another fear, in the very same situation. Children experience that feelings are personal.' },
+      { icon: '🌱', title: 'Recognising the need behind it', text: 'Anger can arise when a child doesn\'t feel heard. Children learn to stay curious about what lies behind their own experience.' },
+    ]}
+  />
+
+  <IconRow
+    title="From feeling to understanding"
+    items={[
+      { icon: '🎡', label: 'Discover the feeling' },
+      { icon: '💬', label: 'Express it' },
+      { icon: '🔍', label: 'Understand the situation' },
+      { icon: '👀', label: 'Discover a perspective' },
+      { icon: '🌱', label: 'Recognise the need' },
+    ]}
+  />
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">
+    It's not about finding the right answer. There isn't one.
+  </p>
+
+  <TwoCol
+    title="Anger is rarely the real problem"
+    body="When children can't yet express their feelings well, their inner experience shows up in their behaviour. We see the behaviour right away, the feeling behind it not always. That's why EMORIA wants to shift the perspective. Not just asking: What is this child doing right now? But also: What might they be feeling, and what might they need?"
+    image="img/situation-card.jpg"
+    imageAlt="A situation card from Yubuu's Feeling Wheel"
+  />
+
+  <ColoredBand
+    tone="terracotta"
+    title="And what does this have to do with me as a parent?"
+    body="Maybe your child talks at home about Yubuu or a feeling. Maybe not. Both are completely fine. You don't have to replay the game and you don't need any educational training. Often it's enough to listen and ask: “What was that like for you?” What matters is that your child notices: my feelings are allowed to be here. I am heard."
+  />
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Small prompts for home</h2>
+    <div class="mt-8 space-y-4">
+      {[
+        { t: 'Name the feeling', d: '"You seem disappointed right now."' },
+        { t: 'Ask instead of guessing', d: '"Would you like to tell me what happened?"' },
+        { t: "Don't fix it right away", d: 'Sometimes a child first needs understanding, not advice.' },
+        { t: 'Be a role model', d: 'When you name your own feelings, your child learns that this is normal.' },
+      ].map((it) => (
+        <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
+          <p><strong class="text-[var(--color-ink)]">{it.t}:</strong> <span class="text-[var(--color-ink-soft)]">{it.d}</span></p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
+    <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">A good question for your next parent-teacher conversation</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">"Was there a moment today that really stuck with my child?"</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">This question often opens up more than "Was everything okay?".</p>
+    </div>
+  </section>
+
+  <YubuuQuote quote="Sometimes the loveliest conversations begin with a single question: How do you feel today?" />
+
+  <Accordion
+    items={[
+      {
+        title: 'How a round of the game works',
+        body: 'The child spins the Feeling Wheel and engages with the chosen feeling. Through questions and everyday situations, it\'s explored step by step, until the final question: What do I need when I feel this way? A round takes about 25 to 40 minutes and is guided by an educator.',
+      },
+      {
+        title: 'Why emotional education matters',
+        body: 'The ability to notice and express one\'s own feelings is closely linked to self-awareness, empathy and building positive relationships. These areas are described in the scientific concept of Social Emotional Learning. EMORIA is grounded in these foundations. One distinction matters to us: research supports the value of social-emotional learning approaches overall, the concrete effectiveness of EMORIA itself still needs to be studied systematically.',
+        linkHref: `${base}en/wissenschaftlicher-hintergrund`,
+        linkLabel: 'More on the scientific background',
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
+    <p class="text-[var(--color-ink-soft)]">
+      When a small conversation happens at home, something important has already occurred: a child tells, an adult listens, and both try to understand each other a little better.
+    </p>
+    <a href={`${base}en/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Questions? Write to us
+    </a>
+  </div>
+</Base>

@@ -1,0 +1,108 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+---
+
+<Base lang="en" title="About us — EMORIA" current="About us"
+  description="EMORIA was founded by Cemil Can Özkaya, a state-certified educator with around ten years of experience in early-years practice.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ About us</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">About us</h1>
+    </div>
+
+    <div class="mx-auto max-w-2xl space-y-6 px-6 pb-20 text-lg text-[var(--color-ink-soft)]">
+      <p>
+        EMORIA was founded by <strong class="text-[var(--color-ink)]">Cemil Can Özkaya</strong>,
+        a state-certified educator with around ten years of experience in integration
+        kindergartens, special-needs schools, youth welfare organisations and family counselling.
+      </p>
+      <p>
+        The beginning goes back further than you'd expect. Already in 2020, during his training,
+        a first, simple version of this game came together in a Berlin kindergarten: a feeling
+        wheel, a few cards, six preschoolers around a table. At the end of the forty minutes, the
+        children were asked whether they'd like to do it again. The answer was a unanimous yes.
+      </p>
+      <p>
+        Over the years, that afternoon grew into a complete educational system, refined through
+        every further experience in practice, through feedback from professionals, and above all
+        through the children themselves.
+      </p>
+      <p>
+        Today, EMORIA is a young company with a clear goal: to give children a language for their
+        feelings, and to give the people who work with them every day a tool that truly fits into
+        their daily routine.
+      </p>
+    </div>
+
+    <div class="bg-[var(--color-cream-deep)]">
+      <div class="mx-auto max-w-2xl space-y-6 px-6 py-20 text-lg text-[var(--color-ink-soft)]">
+        <h2 class="text-center text-3xl text-[var(--color-ink)]">About EMORIA</h2>
+        <p>
+          Children learn to count. Children learn to read. Children learn to tie their shoes.
+        </p>
+        <p class="italic text-[var(--color-ink)]">
+          But who teaches them to talk about their feelings?
+        </p>
+        <p>
+          Emotional education is part of every education programme today. What's often missing
+          in practice is the right tool for it. Educators rarely have the time to develop their
+          own material for every conversation about feelings, and many existing offerings never
+          go beyond a few cards or posters.
+        </p>
+        <p>
+          EMORIA develops research-based educational tools that address exactly this. Our first
+          product, Yubuu's Feeling Wheel, guides children aged four to ten through a clear
+          process: from first noticing a feeling, through talking about it, to the question of
+          what need actually lies behind it.
+        </p>
+        <p>
+          At the centre is Yubuu, a curious being with no fixed gender and no fixed origin, born
+          on the small planet Lumora. Yubuu travels through different worlds to understand how
+          differently living beings feel. Yubuu doesn't judge, doesn't hand out correct answers,
+          but asks, wonders and listens. That's exactly what makes it easy for children to open up.
+        </p>
+        <p>
+          Yubuu's Feeling Wheel is just the beginning. EMORIA is designed as a growing universe,
+          from which more games, materials and stories will emerge over time.
+        </p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-2xl space-y-6 px-6 py-20 text-lg text-[var(--color-ink-soft)]">
+      <p>
+        EMORIA is a young company from Berlin that develops educational tools for emotional
+        education.
+      </p>
+      <p>
+        Our starting point is an observation from daily work with children: most conflicts don't
+        come from bad intentions, but simply because children lack the words to say what's going
+        on inside them. And educators, in their full daily routine, often lack the right material
+        to change exactly that.
+      </p>
+      <p>
+        Everything created at EMORIA therefore comes from practice, not from a desk. Every
+        component has been tested with children over years, discussed with professionals and
+        revised again and again until it works in real everyday life.
+      </p>
+      <p>
+        We believe emotional competence should be nurtured just as naturally as language or
+        maths. And that good educational materials should take work off professionals' hands,
+        not add to it.
+      </p>
+      <p class="text-center italic text-[var(--color-ink)]">That's exactly what we're working on.</p>
+    </div>
+
+    <div class="mx-auto max-w-3xl px-6 py-20 text-center">
+      <img src={`${base}img/yubuu-cutout.png`} alt="Yubuu" class="mx-auto mb-4 h-28 w-auto drop-shadow-[0_14px_20px_rgba(43,42,40,0.16)]" />
+      <h2 class="text-3xl">Bring EMORIA to your Kita</h2>
+      <p class="mx-auto mt-4 max-w-lg text-[var(--color-ink-soft)]">
+        If your kindergarten or practice would like to be among the first to try EMORIA,
+        Cemil would be glad to talk.
+      </p>
+      <a href={`${base}en/contact`} class="mt-7 inline-block rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">
+        Get in touch
+      </a>
+    </div>
+  </article>
+</Base>

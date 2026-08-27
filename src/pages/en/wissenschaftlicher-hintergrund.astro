@@ -1,0 +1,110 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+
+const sections = [
+  {
+    h: 'Social and emotional learning has proven effects',
+    p: [
+      'The most influential study on this topic to date comes from Durlak, Weissberg, Dymnicki, Taylor and Schellinger, published in 2011 in the journal Child Development. The meta-analysis evaluated 213 school-based social and emotional learning programmes with data from 270,034 students from kindergarten through to upper secondary school. Compared to control groups, children in these programmes showed clearly improved social and emotional skills, more positive attitudes and better social behaviour. In terms of academic performance, the difference amounted to a gain of eleven percentile points, a substantial effect for a programme actually aimed at feelings rather than subject knowledge.',
+      'Twelve years later, Cipriano and colleagues updated this research. Their 2023 meta-analysis, also published in Child Development, covers 424 studies from 53 countries with over 575,000 students. The results confirm the original findings and extend them: social and emotional learning programmes improve not only skills and academic performance, but also classroom climate, school safety and peer relationships.',
+    ],
+  },
+  {
+    h: 'How good programmes need to be structured',
+    p: [
+      'Durlak and colleagues identified four common features of especially effective programmes in their analysis, known in the field as the SAFE model: skills are built step by step (Sequenced), children participate actively rather than just listening (Active), social and emotional skills are the deliberate focus (Focused), and learning goals are clearly stated (Explicit). Yubuu\'s Feeling Wheel is built along exactly these four principles: the five game steps build on one another, children act actively rather than just listening, and the goal of each round is clearly stated from the start.',
+    ],
+  },
+  {
+    h: 'The economic value of early emotional education',
+    p: [
+      'Belfield and colleagues at the Center for Benefit-Cost Studies in Education at Teachers College, Columbia University, examined six well-known SEL programmes in the US in 2015 for their economic value. They accounted for costs such as materials and staff time, as well as long-term benefits like reduced downstream costs from less bullying, less substance abuse and better educational outcomes. Averaged across all six programmes, the cost-benefit ratio came out at roughly 1 to 11: every dollar invested generated around eleven dollars of long-term social value.',
+    ],
+  },
+  {
+    h: 'Why naming a feeling already has an effect',
+    p: [
+      'Neuroscientist Matthew Lieberman and his team at the University of California, Los Angeles, showed in a 2007 study published in Psychological Science that simply naming a feeling has a measurable effect on the brain. When participants put a feeling into words, activity decreased in the amygdala, the part of the brain responsible for the emotional alarm response, while activity increased in the right ventrolateral prefrontal cortex, a region responsible for language-based cognitive processing. This effect is known in research as affect labelling. This is exactly the mechanism every round of the Feeling Wheel practises, regardless of whether a solution is found at the end.',
+    ],
+  },
+  {
+    h: 'Nonviolent Communication as the basis for the needs circles',
+    p: [
+      'The final step of the game draws on the Nonviolent Communication approach developed by psychologist Marshall B. Rosenberg. The core premise of this approach: behind every feeling is a need, and someone who understands their own need can express it more clearly, instead of showing it through conflict, withdrawal or blame. This is a skill that can be trained, which is exactly what the needs circles at the end of every round do.',
+    ],
+  },
+  {
+    h: 'Learning together, socially',
+    p: [
+      'According to the sociocultural developmental theory of psychologist Lev Vygotsky, learning doesn\'t happen in isolation, but through exchange with other people. Central to this is the concept of the zone of proximal development, the space between what a child can already manage alone and what they can achieve with support. In the game, both Yubuu and the other children take on this supportive role, children listen to one another and, in doing so, expand their own understanding of feelings.',
+    ],
+  },
+  {
+    h: 'Why the material is deliberately physical',
+    p: [
+      'Research on embodied cognition, shaped among others by Margaret Wilson and Lawrence Barsalou, shows that thinking and learning are closely tied to physical experience, people understand and retain content better when they experience it physically rather than just hearing or reading about it. That\'s why Yubuu\'s Feeling Wheel is deliberately designed as a haptic material: wood to touch, magnets to place, cards to discover, no worksheet and no screen.',
+    ],
+  },
+  {
+    h: 'An honest note on the current state of research',
+    p: [
+      'The studies cited above demonstrate the effectiveness of social and emotional learning, as well as of the individual principles Yubuu\'s Feeling Wheel is built on. A dedicated effectiveness study of Yubuu\'s Feeling Wheel itself does not yet exist; it\'s planned as part of the pilot projects starting in 2027. This transparency matters to us: we build on solid research, but we don\'t promise results that haven\'t been specifically studied yet.',
+    ],
+  },
+];
+
+const sources = [
+  { ref: 'Belfield, C., Bowden, B., Klapp, A., Levin, H., Shand, R., Zander, S. (2015). The Economic Value of Social and Emotional Learning. Center for Benefit-Cost Studies in Education, Teachers College, Columbia University.', href: 'https://wymancenter.org/wp-content/uploads/2020/11/Belfield-et-al-2015.pdf' },
+  { ref: 'Cipriano, C., Strambler, M. J., Naples, L. H., Ha, C., Kirk, M., Wood, M. et al. (2023). The State of Evidence for Social and Emotional Learning: A Contemporary Meta-Analysis of Universal School-Based SEL Interventions. Child Development, 94, 1181–1204.', href: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/cdev.13968', extra: { label: 'Free preprint', href: 'https://osf.io/wscgq/' } },
+  { ref: 'Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., Schellinger, K. B. (2011). The Impact of Enhancing Students’ Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions. Child Development, 82(1), 405–432.', href: 'https://srcd.onlinelibrary.wiley.com/doi/10.1111/j.1467-8624.2010.01564.x', extra: { label: 'Free PDF', href: 'https://casel.s3.us-east-2.amazonaws.com/meta-analysis-child-development-1.pdf' } },
+  { ref: 'Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., Way, B. M. (2007). Putting Feelings Into Words: Affect Labeling Disrupts Amygdala Activity in Response to Affective Stimuli. Psychological Science, 18(5), 421–428.', href: 'https://pubmed.ncbi.nlm.nih.gov/17576282/', extra: { label: 'Free PDF', href: 'https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2015/05/Lieberman_AL-2007.pdf' } },
+  { ref: 'Rosenberg, M. B. (2003). Nonviolent Communication: A Language of Life.', href: 'https://www.cnvc.org', label: 'About the concept (Center for Nonviolent Communication)' },
+  { ref: 'Vygotsky, L. S. (1978). Mind in Society: The Development of Higher Psychological Processes.', href: 'https://archive.org/details/mindinsocietydev0000vygo', label: 'Free full text (Archive.org)' },
+];
+---
+<Base lang="en" title="Scientific Background — EMORIA" current=""
+  description="The research behind Yubuu's Feeling Wheel: social and emotional learning, affect labelling, Nonviolent Communication and embodied cognition, explained clearly.">
+
+  <article class="mx-auto max-w-2xl px-6 py-28 print:py-8">
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Background</p>
+    <h1 class="mt-3 font-serif-heading text-3xl sm:text-4xl">Scientific Background</h1>
+    <p class="mt-6 text-[var(--color-ink-soft)]">
+      Yubuu's Feeling Wheel isn't a game put together at random, it deliberately follows several
+      recognised approaches from education, developmental psychology, neuroscience and
+      communication theory. Below, we explain the research behind each building block.
+    </p>
+
+    <div class="mt-12 space-y-10">
+      {sections.map((s) => (
+        <section>
+          <h2 class="font-[var(--font-display)] text-xl font-semibold">{s.h}</h2>
+          {s.p.map((para) => <p class="mt-3 text-[var(--color-ink-soft)]">{para}</p>)}
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-16 border-t border-[var(--color-cream-edge)] pt-10">
+      <h2 class="font-[var(--font-display)] text-xl font-semibold">Sources</h2>
+      <ol class="mt-4 space-y-5">
+        {sources.map((s) => (
+          <li class="text-sm text-[var(--color-ink-soft)]">
+            {s.ref}
+            <br />
+            <a href={s.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+              {s.label ?? 'Read the study'}
+            </a>
+            {s.extra && (
+              <>
+                {' · '}
+                <a href={s.extra.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+                  {s.extra.label}
+                </a>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  </article>
+</Base>
