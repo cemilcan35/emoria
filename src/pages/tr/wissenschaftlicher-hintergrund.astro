@@ -1,0 +1,111 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+
+const sections = [
+  {
+    h: 'Sosyal ve duygusal öğrenmenin etkisi kanıtlanmıştır',
+    p: [
+      'Bu konudaki en etkili araştırma, 2011 yılında Child Development dergisinde yayımlanan Durlak, Weissberg, Dymnicki, Taylor ve Schellinger\'e ait. Meta-analiz, anaokulundan liseye kadar 270.034 öğrenciye ait verilerle 213 okul temelli sosyal ve duygusal öğrenme programını değerlendirdi. Kontrol gruplarıyla karşılaştırıldığında, bu programlara katılan çocuklar belirgin şekilde gelişmiş sosyal ve duygusal beceriler, daha olumlu tutumlar ve daha iyi sosyal davranış gösterdi. Akademik başarıda bu fark, on bir persentil puanlık bir kazanıma denk geliyordu; aslında duyguları hedefleyen bir program için oldukça dikkat çekici bir etki.',
+      'On iki yıl sonra Cipriano ve meslektaşları bu araştırmayı güncelledi. Yine Child Development\'ta 2023\'te yayımlanan meta-analizleri, 53 ülkede 575.000\'den fazla öğrenciyle yürütülen 424 çalışmayı kapsıyor. Sonuçlar ilk bulguları doğruluyor ve genişletiyor: Sosyal ve duygusal öğrenme programları sadece becerileri ve akademik başarıyı değil, sınıf iklimini, okul güvenliğini ve akran ilişkilerini de iyileştiriyor.',
+    ],
+  },
+  {
+    h: 'İyi programlar nasıl yapılandırılmalı',
+    p: [
+      'Durlak ve meslektaşları analizlerinde, özellikle etkili programların ortak dört özelliğini belirlediler; alanda SAFE modeli olarak bilinir: Beceriler kademeli olarak inşa edilir (Sequenced), çocuklar sadece dinlemek yerine aktif olarak katılır (Active), sosyal ve duygusal beceriler bilinçli olarak odak noktasıdır (Focused), ve öğrenme hedefleri açıkça belirtilir (Explicit). Yubuu\'nun Duygu Çarkı tam olarak bu dört ilkeye göre tasarlandı: Oyunun beş adımı birbiri üzerine kurulur, çocuklar sadece dinlemek yerine aktif olarak hareket eder, ve her turun hedefi baştan itibaren açıkça ortaya konur.',
+    ],
+  },
+  {
+    h: 'Erken duygusal eğitimin ekonomik değeri',
+    p: [
+      'Teachers College, Columbia University\'deki Center for Benefit-Cost Studies in Education\'dan Belfield ve meslektaşları, 2015 yılında ABD\'deki altı bilinen SEL programını ekonomik değerleri açısından inceledi. Malzeme ve personel zamanı gibi maliyetlerin yanı sıra, daha az zorbalık, daha az madde kullanımı ve daha iyi akademik sonuçlar gibi uzun vadeli faydalar da hesaba katıldı. Altı program ortalamasında maliyet-fayda oranı yaklaşık 1\'e 11 çıktı: Yatırılan her dolar, uzun vadede yaklaşık on bir dolarlık toplumsal değer yarattı.',
+    ],
+  },
+  {
+    h: 'Bir duyguyu adlandırmak neden tek başına bir etkiye sahip',
+    p: [
+      'Nörobilimci Matthew Lieberman ve University of California, Los Angeles\'taki ekibi, 2007\'de Psychological Science dergisinde yayımlanan bir çalışmada, bir duyguyu sadece adlandırmanın bile beyin üzerinde ölçülebilir bir etkisi olduğunu gösterdi. Katılımcılar bir duyguyu kelimelere döktüğünde, duygusal alarm tepkisinden sorumlu beyin bölgesi olan amigdaladaki aktivite azaldı, dil-bilişsel işlemden sorumlu bir bölge olan sağ ventrolateral prefrontal kortekste ise aktivite arttı. Bu etki, araştırmalarda "affect labeling" (duygu etiketleme) olarak biliniyor. Duygu çarkının her turu, sonunda bir çözüm bulunsun ya da bulunmasın, tam olarak bu mekanizmayı çalıştırıyor.',
+    ],
+  },
+  {
+    h: 'İhtiyaç çemberlerinin temeli olarak Şiddetsiz İletişim',
+    p: [
+      'Oyunun son adımı, psikolog Marshall B. Rosenberg tarafından geliştirilen Şiddetsiz İletişim\'den (Nonviolent Communication) ilham alıyor. Bu yaklaşımın temel varsayımı: Her duygunun arkasında bir ihtiyaç vardır, ve kendi ihtiyacını anlayan kişi, onu çatışma, geri çekilme ya da suçlama yoluyla göstermek yerine daha açık bir şekilde ifade edebilir. Bu, eğitilebilecek bir beceri, ve her oyun turunun sonundaki ihtiyaç çemberleri tam olarak bunu sağlıyor.',
+    ],
+  },
+  {
+    h: 'Sosyal ortamda birlikte öğrenmek',
+    p: [
+      'Psikolog Lev Vygotsky\'nin sosyokültürel gelişim teorisine göre öğrenme izole bir şekilde değil, başkalarıyla etkileşim içinde gerçekleşir. Merkezi kavram, bir çocuğun tek başına zaten yapabildiği şey ile destekle ulaşabileceği şey arasındaki alan olan yakınsal gelişim alanıdır. Oyunda hem Yubuu hem de diğer çocuklar bu destekleyici rolü üstlenir, çocuklar birbirini dinler ve böylece kendi duygu anlayışlarını genişletir.',
+    ],
+  },
+  {
+    h: 'Materyal neden bilinçli olarak fiziksel',
+    p: [
+      'Özellikle Margaret Wilson ve Lawrence Barsalou tarafından geliştirilen bedenlenmiş biliş (embodied cognition) araştırması, düşünme ve öğrenmenin fiziksel deneyimle yakından bağlantılı olduğunu gösteriyor: İnsanlar bir içeriği sadece duyup okumak yerine bedensel olarak yaşadıklarında genellikle daha iyi anlıyor ve hatırlıyor. Bu yüzden Yubuu\'nun Duygu Çarkı bilinçli olarak dokunsal bir materyal olarak tasarlandı: Dokunulacak ahşap, yerleştirilecek mıknatıslar, keşfedilecek kartlar, çalışma kağıdı ya da ekran yok.',
+    ],
+  },
+  {
+    h: 'Mevcut araştırma durumu hakkında dürüst bir not',
+    p: [
+      'Yukarıda belirtilen çalışmalar, sosyal ve duygusal öğrenmenin ve Yubuu\'nun Duygu Çarkı\'nın dayandığı bireysel ilkelerin etkinliğini kanıtlıyor. Yubuu\'nun Duygu Çarkı\'nın kendisine dair bir etkinlik çalışması henüz mevcut değil; bu, 2027\'den itibaren pilot projeler kapsamında planlanıyor. Bu şeffaflık bizim için önemli: Sağlam araştırmalara dayanıyoruz, ama henüz özel olarak incelenmemiş sonuçlar vaat etmiyoruz.',
+    ],
+  },
+];
+
+const sources = [
+  { ref: 'Belfield, C., Bowden, B., Klapp, A., Levin, H., Shand, R., Zander, S. (2015). The Economic Value of Social and Emotional Learning. Center for Benefit-Cost Studies in Education, Teachers College, Columbia University.', href: 'https://wymancenter.org/wp-content/uploads/2020/11/Belfield-et-al-2015.pdf' },
+  { ref: 'Cipriano, C., Strambler, M. J., Naples, L. H., Ha, C., Kirk, M., Wood, M. et al. (2023). The State of Evidence for Social and Emotional Learning: A Contemporary Meta-Analysis of Universal School-Based SEL Interventions. Child Development, 94, 1181–1204.', href: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/cdev.13968', extra: { label: 'Serbest erişimli ön baskı', href: 'https://osf.io/wscgq/' } },
+  { ref: 'Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., Schellinger, K. B. (2011). The Impact of Enhancing Students’ Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions. Child Development, 82(1), 405–432.', href: 'https://srcd.onlinelibrary.wiley.com/doi/10.1111/j.1467-8624.2010.01564.x', extra: { label: 'Serbest erişimli PDF', href: 'https://casel.s3.us-east-2.amazonaws.com/meta-analysis-child-development-1.pdf' } },
+  { ref: 'Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., Way, B. M. (2007). Putting Feelings Into Words: Affect Labeling Disrupts Amygdala Activity in Response to Affective Stimuli. Psychological Science, 18(5), 421–428.', href: 'https://pubmed.ncbi.nlm.nih.gov/17576282/', extra: { label: 'Serbest erişimli PDF', href: 'https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2015/05/Lieberman_AL-2007.pdf' } },
+  { ref: 'Rosenberg, M. B. (2003). Nonviolent Communication: A Language of Life.', href: 'https://www.cnvc.org', label: 'Kavram hakkında (Center for Nonviolent Communication)' },
+  { ref: 'Vygotsky, L. S. (1978). Mind in Society: The Development of Higher Psychological Processes.', href: 'https://archive.org/details/mindinsocietydev0000vygo', label: 'Serbest erişimli tam metin (Archive.org)' },
+];
+---
+<Base lang="tr" title="Bilimsel Arka Plan — EMORIA" current=""
+  description="Yubuu'nun Duygu Çarkı'nın arkasındaki araştırma: sosyal ve duygusal öğrenme, affect labeling, Şiddetsiz İletişim ve embodied cognition, sade bir dille anlatılıyor.">
+
+  <article class="mx-auto max-w-2xl px-6 py-28 print:py-8">
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Arka Plan</p>
+    <h1 class="mt-3 font-serif-heading text-3xl sm:text-4xl">Bilimsel Arka Plan</h1>
+    <p class="mt-6 text-[var(--color-ink-soft)]">
+      Yubuu'nun Duygu Çarkı gelişigüzel bir araya getirilmiş bir oyun değil; bilinçli olarak
+      pedagoji, gelişim psikolojisi, nörobilim ve iletişim teorisinden gelen çeşitli kabul
+      görmüş yaklaşımları takip ediyor. Aşağıda, her bileşenin arkasında hangi araştırmanın
+      olduğunu açıklıyoruz.
+    </p>
+
+    <div class="mt-12 space-y-10">
+      {sections.map((s) => (
+        <section>
+          <h2 class="font-[var(--font-display)] text-xl font-semibold">{s.h}</h2>
+          {s.p.map((para) => <p class="mt-3 text-[var(--color-ink-soft)]">{para}</p>)}
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-16 border-t border-[var(--color-cream-edge)] pt-10">
+      <h2 class="font-[var(--font-display)] text-xl font-semibold">Kaynakça</h2>
+      <ol class="mt-4 space-y-5">
+        {sources.map((s) => (
+          <li class="text-sm text-[var(--color-ink-soft)]">
+            {s.ref}
+            <br />
+            <a href={s.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+              {s.label ?? 'Çalışmaya git'}
+            </a>
+            {s.extra && (
+              <>
+                {' · '}
+                <a href={s.extra.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+                  {s.extra.label}
+                </a>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  </article>
+</Base>

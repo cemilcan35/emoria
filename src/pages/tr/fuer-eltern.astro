@@ -1,0 +1,110 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="tr" title="Aileler İçin — EMORIA" current="Aileler"
+  description="Ailelerin Yubuu'nun Duygu Çarkı'nı evde nasıl kullanarak çocuklarıyla duygular hakkında sohbet edebileceği.">
+
+  <AudienceHero
+    eyebrow="✦ Aileler İçin"
+    title="Çocuklar sayı saymayı ve okumayı öğrenir. Duyguları hakkında konuşmayı ise ancak biri buna zaman ayırırsa öğrenirler."
+    body="Bazen bir çocuk içinde neler olduğunu kendisi de bilmez. Sadece bir şeylerin yolunda gitmediğini hisseder. Öfke, geri çekilme ya da gözyaşları o an bildiği tek yol olur. Duygularını erken adlandırmayı öğrenen çocuklar bu dolambaçlı yola daha az ihtiyaç duyar. Çatışmalarla daha iyi başa çıkar, kendilerini daha güvende hisseder ve ihtiyaçlarını dile getirebilirler. Bu yüzden duygusal eğitim ikincil bir konu değildir. Anaokulunda ve okulda başlar, ve etkisi çocukluğun çok ötesine uzanır."
+    image="img/needs-circles.jpg"
+    imageAlt="Yubuu'nun Duygu Çarkı'ndan ihtiyaç çemberleri"
+  />
+
+  <ClickBoxes
+    title="Çocuğunuz bu sırada ne öğrenir"
+    items={[
+      { icon: '💬', title: 'Duyguları adlandırmak', text: 'Bir duyguyu yaşamak ile onu ifade edebilmek iki farklı şeydir. Oyun tam da burada devreye girer.' },
+      { icon: '👀', title: 'Farklı bakış açılarını keşfetmek', text: 'Bir çocuk öfke duyarken, aynı durumda başka bir çocuk korku hissedebilir. Çocuklar duyguların kişisel olduğunu deneyimler.' },
+      { icon: '🌱', title: 'Arkasındaki ihtiyacı fark etmek', text: 'Öfke, bir çocuk kendini duyulmamış hissettiğinde ortaya çıkabilir. Çocuklar, yaşadıklarının arkasında yatana meraklı bir gözle bakmayı öğrenir.' },
+    ]}
+  />
+
+  <IconRow
+    title="Duygudan anlayışa"
+    items={[
+      { icon: '🎡', label: 'Duyguyu keşfet' },
+      { icon: '💬', label: 'İfade et' },
+      { icon: '🔍', label: 'Durumu anla' },
+      { icon: '👀', label: 'Bakış açısını keşfet' },
+      { icon: '🌱', label: 'İhtiyacı fark et' },
+    ]}
+  />
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">
+    Burada amaç doğru bir cevap bulmak değildir. Zaten doğru cevap yoktur.
+  </p>
+
+  <TwoCol
+    title="Öfke nadiren gerçek sorundur"
+    body="Çocuklar duygularını henüz iyi ifade edemediğinde, yaşadıkları davranışlarına yansır. Davranışı hemen görürüz, ama arkasındaki duyguyu her zaman görmeyiz. Bu yüzden EMORIA bakış açısını değiştirmek istiyor. Sadece şunu sormak yerine: Çocuk şu an ne yapıyor? Ayrıca şunu da sormak: Şu an ne hissediyor olabilir, ve belki neye ihtiyacı var?"
+    image="img/situation-card.jpg"
+    imageAlt="Yubuu'nun Duygu Çarkı'ndan durum kartı"
+  />
+
+  <ColoredBand
+    tone="terracotta"
+    title="Peki bunun benimle ebeveyn olarak ne ilgisi var?"
+    body="Belki çocuğunuz evde Yubuu'dan ya da bir duygudan bahseder. Belki de bahsetmez. İkisi de tamamen normaldir. Oyunu yeniden oynamanıza ya da pedagojik bir eğitime sahip olmanıza gerek yok. Çoğu zaman dinlemek ve sormak yeterlidir: „Bu senin için nasıldı?“ Önemli olan, çocuğunuzun şunu hissetmesidir: Duygularım orada olabilir. Beni duyuyorlar."
+  />
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Evde küçük ipuçları</h2>
+    <div class="mt-8 space-y-4">
+      {[
+        { t: 'Duyguları adlandırmak', d: '„Şu an hayal kırıklığına uğramış görünüyorsun.“' },
+        { t: 'Tahmin etmek yerine sormak', d: '„Ne olduğunu anlatmak ister misin?“' },
+        { t: 'Hemen çözüme koşmamak', d: 'Bazen bir çocuğun önce ihtiyacı olan şey öğüt değil, anlayıştır.' },
+        { t: 'Örnek olmak', d: 'Kendi duygularınızı adlandırdığınızda, çocuğunuz bunun normal olduğunu öğrenir.' },
+      ].map((it) => (
+        <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
+          <p><strong class="text-[var(--color-ink)]">{it.t}:</strong> <span class="text-[var(--color-ink-soft)]">{it.d}</span></p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
+    <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Bir sonraki veli görüşmesi için güzel bir soru</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">„Bugün çocuğumu özellikle meşgul eden bir durum oldu mu?“</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Bu soru genellikle „Her şey yolunda mıydı?“ sorusundan daha fazlasını açar.</p>
+    </div>
+  </section>
+
+  <YubuuQuote quote="Bazen en güzel sohbetler tek bir soruyla başlar: Bugün nasıl hissediyorsun?" />
+
+  <Accordion
+    items={[
+      {
+        title: 'Bir oyun turu nasıl işler',
+        body: 'Çocuk duygu çarkını çevirir ve seçilen duyguyla ilgilenir. Sorular ve günlük yaşam durumları aracılığıyla adım adım daha ayrıntılı incelenir, sonunda şu soruya varılır: Böyle hissettiğimde neye ihtiyacım var? Bir tur yaklaşık 25 ila 40 dakika sürer ve bir pedagojik uzman tarafından yürütülür.',
+      },
+      {
+        title: 'Duygusal eğitim neden önemli',
+        body: 'Kendi duygularını fark etme ve ifade etme becerisi, öz farkındalık, empati ve olumlu ilişkiler kurmayla yakından bağlantılıdır. Bu alanlar, Sosyal Duygusal Öğrenme\'nin (Social Emotional Learning) bilimsel kavramında tanımlanır. EMORIA bu temellere dayanır. Bizim için önemli olan bir ayrım var: Araştırmalar sosyal-duygusal öğrenme yaklaşımlarının genel önemini kanıtlıyor, EMORIA\'nın kendisinin somut etkinliği ise henüz sistematik olarak incelenmemiştir.',
+        linkHref: `${base}tr/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Bilimsel arka plan hakkında daha fazlası',
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
+    <p class="text-[var(--color-ink-soft)]">
+      Evde küçük bir sohbet başladığında, aslında önemli bir şey olmuş demektir: Bir çocuk anlatır, bir yetişkin dinler, ve ikisi de birbirini daha iyi anlamaya çalışır.
+    </p>
+    <a href={`${base}tr/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Sorularınız mı var? Bize yazın
+    </a>
+  </div>
+</Base>

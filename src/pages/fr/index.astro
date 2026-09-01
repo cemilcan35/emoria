@@ -91,7 +91,7 @@ const panels = [
           <li><a href={`${base}en/`}>English <span>EN</span></a></li>
           <li><a href={`${base}fr/`}>Français <span>FR</span></a></li>
           <li class="disabled" title="Bientôt disponible">Español <span>ES</span></li>
-          <li class="disabled" title="Bientôt disponible">Türkçe <span>TR</span></li>
+          <li><a href={`${base}tr/`}>Türkçe <span>TR</span></a></li>
           <li class="disabled" title="Bientôt disponible">Dansk <span>DA</span></li>
           <li class="disabled" title="Bientôt disponible">Svenska <span>SV</span></li>
           <li class="disabled" title="Bientôt disponible">Norsk <span>NO</span></li>
@@ -150,7 +150,7 @@ const panels = [
             </div>
           ) : p.kind === 'why' ? (
             <div class="why">
-              <img class="why-yubuu" src={`${base}img/yubuu-cutout.png`} alt="Yubuu pointing" />
+              <img class="why-yubuu" src={`${base}img/yubuu-rocket.png`} alt="Yubuu pointing" />
               <div class="why-text">
                 <h2 class="why-hero">{p.title}</h2>
                 <p class="why-body">{p.body}</p>
@@ -198,7 +198,7 @@ const panels = [
               </div>
               <div class="c-art">
                 <span class="p-planet stg"></span>
-                <img class="art-yubuu stg" src={`${base}img/yubuu-cutout.png`} alt="Yubuu" />
+                <img class="art-yubuu stg" src={`${base}img/yubuu-rocket.png`} alt="Yubuu" />
               </div>
             </div>
           )}

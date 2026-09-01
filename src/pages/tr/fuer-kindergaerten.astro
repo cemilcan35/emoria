@@ -1,0 +1,96 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="tr" title="Anaokulları İçin — EMORIA" current="Anaokulu"
+  description="Anaokulu günlük hayatında Yubuu'nun Duygu Çarkı: kolay uygulanabilir, bilimsel temelli, eğitimciler için geliştirildi.">
+
+  <AudienceHero
+    eyebrow="✦ Anaokulları İçin"
+    title="Duyguları birlikte keşfedin — oyunla, günlük hayata yakın ve büyük bir hazırlık gerektirmeden."
+    body="Çocuklar her gün sayısız duygu yaşar: oyun oynarken sevinç, bir kavgadan sonra öfke, bir başarı sonrası gurur ya da ebeveynlerinden ayrılırken üzüntü. Ama birçok çocuk içlerinde olup biteni henüz kelimelere dökemez. Yubuu'nun Duygu Çarkı, pedagojik uzmanların çocuklara bu duygu anlarında oyunla eşlik etmesine yardımcı olur — güvenli bir alanda, performans baskısı olmadan ve doğru ya da yanlış cevap olmadan."
+    image="img/wheel-hero.jpg"
+    imageAlt="Anaokulu günlük hayatında Yubuu'nun Duygu Çarkı"
+  />
+
+  <ClickBoxes
+    title="Neden Yubuu'nun Duygu Çarkı?"
+    items={[
+      { icon: '🧩', title: 'Anaokulu günlük hayatında kolayca kullanılır', text: 'Oyun, özellikle pedagojik günlük hayat için geliştirildi. Kapsamlı bir hazırlık gerektirmeden küçük gruplarda ya da bire bir kullanılabilir ve yaşa, grup büyüklüğüne ve duruma esnek şekilde uyarlanabilir.' },
+      { icon: '💛', title: 'Duygusal becerileri oyunla destekler', text: 'Çocuklar duyguları fark etmeyi, adlandırmayı ve anlamayı öğrenir. Aynı zamanda farklı insanların aynı durumu çok farklı şekilde yaşayabileceğini keşfederler. Böylece empati, bakış açısı alma ve dil gelişimi doğal bir şekilde desteklenir.' },
+      { icon: '🤝', title: 'Ailelerle birlikte eşlik eder', text: 'Oyun, tur bittikten sonra da etkisini sürdürebilecek değerli sohbet fırsatları açar. Oyundan elde edilen gözlemler veli görüşmelerinde ele alınabilir ve çocuğun duygusal gelişimine birlikte eşlik etmeye yardımcı olur.' },
+    ]}
+  />
+
+  <IconRow
+    title="Yubuu'nun Duygu Çarkı nasıl kullanılabilir"
+    items={[
+      { icon: '🌅', label: 'Sabah çemberi' },
+      { icon: '👥', label: 'Küçük gruplar' },
+      { icon: '🧑‍🤝‍🧑', label: 'Bireysel eşlik' },
+      { icon: '🎒', label: 'Okul öncesi gruplar' },
+      { icon: '💬', label: 'Çatışma görüşmeleri' },
+      { icon: '🌱', label: 'Duygusal eğitim projeleri' },
+      { icon: '🕊️', label: 'Zorlayıcı durumlardan sonra sakin bir sohbet imkanı' },
+    ]}
+  />
+
+  <TwoCol
+    title="Yubuu'nun Duygu Çarkı'nı özel kılan ne?"
+    body="Merkezde doğru sonuç değil, birlikte keşfetmek vardır. Yubuu hiçbir cevabı değerlendirmez. Bunun yerine Yubuu meraklı sorular sorar, dikkatle dinler ve çocukları kendi duygu dünyalarını tanımaya davet eder. Böylece çocukların ciddiye alındığını hissettiği ve güven geliştirebildiği bir atmosfer oluşur. Özel olan şu: Duygular soyut kalmaz. Duygu çarkının çevrilmesi, mıknatıs kafaların eşleştirilmesi, blitz kartları, durum kartları ve ihtiyaç çemberleri sayesinde duygular görünür, elle tutulur ve anlaşılır hale gelir."
+    image="img/flash-card.jpg"
+    imageAlt="Yubuu'nun Duygu Çarkı'ndan blitz kartı"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Çocukların duygu dünyasına açılan bir pencere"
+    body="Pedagojik uzmanlar için Yubuu'nun Duygu Çarkı sadece bir oyun değil, aynı zamanda bir gözlem aracıdır. Oyun sırasında bir çocuğu şu an hangi duyguların meşgul ettiği, durumları nasıl yorumladığı ve nerede sohbet ihtiyacı olabileceği ortaya çıkar. Bu gözlemler her çocuğa daha bireysel eşlik etmeye ve kendi pedagojik çalışmayı daha hedefli yönlendirmeye yardımcı olur."
+  />
+
+  <YubuuQuote quote="Merhaba! Burada olmana çok sevindim. Birlikte duyguları keşfedeceğiz, hiç doğru ya da yanlış olmadan. Dinliyorum, sorular soruyorum ve her gün yeni bir şey öğreniyorum. Keşif yolculuğumuza katılır mısın?" />
+
+  <Chips
+    title="Oyun kimler için uygun?"
+    items={['Anaokulu eğitimcileri', 'Entegrasyon eğitimcileri', 'Özel eğitim uzmanları', 'Dil destek uzmanları', 'Anaokulu müdürleri', 'Okul öncesi gruplar', 'Aile merkezleri']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Bir oyun turu nasıl işler',
+        body: 'Bir oyun turu, birbiri üzerine kurulan beş adımdan oluşur. Önce çocuk duygu çarkını çevirir ve mıknatıs kafasını alır — çocuğun kendiliğinden seçmeyeceği duyguları da oyuna dahil eden, bilinçli bir tesadüf faktörü. Ardından çocuk bir soru kartı çeker ve duygu hakkında kısaca konuşur. Sonra bir blitz kartı gelir: çocuğun sadece duygunun uyup uymadığını söylediği kısa bir günlük yaşam durumu. Dördüncü adımda çocuk, Yubuu\'nun yüz ifadesi olmadan gösterildiği bir durum kartına mıknatıs kafasını yerleştirir. Sonunda çocuk, bu duyguda kendisine ne yardımcı olacağını ihtiyaç çemberlerinden seçer. Tam bir tur, gruba ve sohbetin derinliğine bağlı olarak yaklaşık 25 ila 40 dakika, bazen daha uzun sürer. Sonunda Yubuu kısa bir değerlendirme sohbeti yapar: Şimdi nasıl hissediyorsun? Oyun hoşuna gitti mi?',
+      },
+      {
+        title: 'Bilimsel Arka Plan',
+        body: 'Yubuu\'nun Duygu Çarkı, gelişim psikolojisi ve duygusal eğitimden gelen çeşitli kabul görmüş yaklaşımlara dayanır. Durlak ve arkadaşlarının 270.000\'den fazla çocukla yaptığı meta-analiz, sosyal ve duygusal öğrenmeye yönelik yapılandırılmış programların davranış sorunlarını belirgin şekilde azalttığını ve öz saygıyı güçlendirdiğini gösteriyor. Nörobilimci Matthew Lieberman, bir duyguyu sadece adlandırmanın bile çocuğun beyni üzerinde sakinleştirici bir etkisi olduğunu gösterebildi — tam olarak her duygu çarkı turunda pratik edilen şey bu. Embodied Learning araştırması ayrıca çocukların sadece dinlemek yerine bedensel olarak hareket ettiklerinde daha derinlemesine öğrendiğini gösteriyor, bu yüzden oyun materyali bilinçli olarak fiziksel olarak tasarlandı.',
+        linkHref: `${base}tr/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Bilimsel arka plan hakkında daha fazlası',
+      },
+      {
+        title: 'Anaokulundan sık sorulan sorular',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Bir oyun turu ne kadar sürer?</strong><br />Grup büyüklüğüne ve sohbetin derinliğine bağlı olarak yaklaşık 25 ila 40 dakika. Sadece tek tük bileşenlerle daha kısa versiyonlar da mümkündür.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyunu kullanmak için bir eğitime ihtiyacım var mı?</strong><br />Hayır. Oyun, ek eğitim olmadan hemen kullanılabilecek şekilde tasarlandı. Bir tanıtım faydalı olabilir, ama bir ön koşul değildir.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun hangi yaş grubuna uygun?</strong><br />Dört ile altı yaş arasındaki çocuklar için, bu aralık içinde daha küçük ve daha büyük çocuklar için ayrı bir akışla.</p>
+          <p><strong class="text-[var(--color-ink)]">Oyunun sadece tek tük bölümlerini de kullanabilir miyim?</strong><br />Evet. Duygu çarkı ve blitz kartları tek başlarına da işlev görür, örneğin zamanın kısıtlı olduğu durumlarda.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}tr/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Anaokulunuz İçin Bilgi Alın
+    </a>
+  </div>
+</Base>

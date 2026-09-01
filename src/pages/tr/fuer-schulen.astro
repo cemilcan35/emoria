@@ -1,0 +1,107 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="tr" title="Okullar İçin — EMORIA" current="Okul"
+  description="İlkokul günlük hayatında Yubuu'nun Duygu Çarkı: sınıf meclisi, okul sosyal hizmeti ve destek dersleri için, bilimsel temelli.">
+
+  <AudienceHero
+    eyebrow="✦ Okullar İçin"
+    title="Sosyal ve duygusal öğrenme her sınıfa aittir — yan bir konu olarak değil, bilinçli bir şekilde."
+    body="İlkokulda çocuklar sadece matematik ve dil öğrenmez. Aynı zamanda arkadaşlık kurmayı, çatışmaları çözmeyi ve kendileri ile başkaları için sorumluluk almayı da öğrenirler. Ama duyguları yaşamak ile onları adlandırabilmek iki farklı şeydir. Yubuu'nun Duygu Çarkı, öğretmenlere ve okul sosyal hizmeti çalışanlarına, çocuklara duygu dünyalarını oyunla keşfedip anlayabilecekleri ve bunlar hakkında konuşabilecekleri korunaklı bir alan sunmada eşlik eder."
+    image="img/wheel-wide.jpg"
+    imageAlt="Sınıf meclisinde Yubuu'nun Duygu Çarkı"
+  />
+
+  <ClickBoxes
+    title="Neden Yubuu'nun Duygu Çarkı?"
+    items={[
+      { icon: '🧩', title: 'Okul günlük hayatında esnek şekilde kullanılır', text: 'İster sınıf meclisi, ister küçük grup, okul sosyal hizmeti ya da destek dersi olsun — bir oyun turu yaklaşık 25 ila 40 dakika sürer ve ek eğitim olmadan hemen kullanılabilir.' },
+      { icon: '🕊️', title: 'Çatışmaları tırmandırmak yerine anlamak', text: 'Duygularını ve ihtiyaçlarını daha iyi anlayan çocuklar, çatışmalarla başa çıkmada daha kolay yapıcı yollar geliştirir.' },
+      { icon: '💬', title: 'Veli görüşmeleri için içgörüler', text: 'Oyundan elde edilen gözlemler bir çocuğu hangi konuların meşgul ettiğini gösterir ve veli görüşmeleri ile bireysel destek için değerli bir temel oluşturur.' },
+    ]}
+  />
+
+  <IconRow
+    title="Yubuu'nun Duygu Çarkı nerede kullanılır"
+    items={[
+      { icon: '🗣️', label: 'Sınıf meclisi' },
+      { icon: '👥', label: 'Küçük gruplar' },
+      { icon: '🤝', label: 'Okul sosyal hizmeti' },
+      { icon: '📘', label: 'Destek dersleri' },
+      { icon: '🔁', label: 'Vekil dersler' },
+      { icon: '💛', label: 'Sınıfta çatışmalardan sonra' },
+      { icon: '🌱', label: 'Önleme projeleri' },
+      { icon: '🌍', label: 'Kaynaştırma eğitimi' },
+    ]}
+  />
+
+  <TwoCol
+    title="Yubuu'nun Duygu Çarkı'nı özel kılan ne?"
+    body="İlkokul çocukları da aktif olarak keşfettiklerinde, denediklerinde ve birbirleriyle sohbete girdiklerinde daha kalıcı öğrenirler. Yubuu'nun Duygu Çarkı, oyunla öğrenmeyi sosyal ve duygusal becerilerin desteklenmesiyle birleştirir. Yubuu bu sürece meraklı ve takdir edici bir şekilde eşlik eder. Cevapları dayatmak yerine Yubuu, çocukları kendi düşüncelerini geliştirmeye ve farklı bakış açılarını tanımaya davet eder. Yedi ile on yaş arasındaki ilkokul çocukları bu sırada birbiri üzerine kurulan beş adımdan geçer: Bir duyguyu keşfederler, onun hakkında konuşurlar, günlük yaşam durumlarıyla ilişkilendirirler ve sonunda arkasında hangi ihtiyacın olduğunu fark ederler."
+    image="img/situation-card.jpg"
+    imageAlt="Yubuu'nun Duygu Çarkı'ndan durum kartı"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Daha güçlü bir sınıf iklimi sohbetlerle başlar"
+    body="İyi bir sınıf iklimi kendiliğinden oluşmaz. Çocukların dinlemeyi, farklı bakış açılarını anlamayı ve çatışmaları saygılı bir şekilde çözmeyi öğrenmesi gerekir. Yubuu'nun Duygu Çarkı, tam olarak bu becerilerin oyunla pratik edilebileceği güvenli bir çerçeve sunar. Böylece sadece tek tek çocuklar değil, sınıf topluluğu da bundan yararlanır. Öğretmenler ve okul sosyal hizmeti çalışanları için oyun aynı zamanda çocukların duygu dünyasına değerli bir içgörü sunar — veli görüşmeleri ve bireysel destek için sağlam bir temel."
+  />
+
+  <YubuuQuote quote="Her sınıfta herkes farklı bir şey hissediyor. Bunun hakkında nasıl konuşabileceğimizi birlikte bulalım." />
+
+  <Chips
+    title="Oyun kimler için uygun?"
+    items={['İlkokul öğretmenleri', 'Okul sosyal hizmeti çalışanları', 'Özel eğitim öğretmenleri', 'Rehber öğretmenler', 'Gündüz bakım eğitimcileri', 'Sınıf öğretmenleri', 'Kaynaştırma pedagogları', 'Okul psikolojik danışmanlık hizmeti', 'ilkokul çocuklarıyla çalışan herkes']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Bir oyun turu nasıl işler',
+        body: 'İlkokul çocukları beş adımdan geçer: Bir duyguyu keşfetmek, onun hakkında konuşmak, bir günlük yaşam durumuyla ilişkilendirmek ve sonunda arkasındaki ihtiyacı fark etmek. Bir tur yaklaşık 25 ila 40 dakika sürer, sohbetin derinliğine ve grup büyüklüğüne bağlı olarak daha uzun ya da kısa olabilir. Sonunda Yubuu kısa bir değerlendirme sohbeti yapar: Oyun sizin için nasıldı? Kim bunun hakkında konuşmak ister?',
+      },
+      {
+        title: 'Bilimsel Arka Plan',
+        body: 'Yubuu\'nun Duygu Çarkı, pedagoji ve psikolojiden gelen çeşitli kabul görmüş yaklaşımlara dayanır. Durlak ve arkadaşlarının 270.000\'den fazla çocukla yaptığı meta-analiz, yapılandırılmış sosyal ve duygusal öğrenmenin akademik başarıyı ortalama yüzde on bir oranında artırdığını ve çatışmaları azalttığını gösteriyor. Oyunun son adımı Marshall B. Rosenberg\'in Şiddetsiz İletişimi\'nden, oyunda birlikte öğrenme ise Lev Vygotsky\'nin gelişim teorisinden ilham alır. Ayrıca Affect Labeling araştırması, bir duyguyu sadece adlandırmanın bile beyin üzerinde sakinleştirici bir etkisi olduğunu gösteriyor — tam olarak her duygu çarkı turunda pratik edilen şey bu.',
+        linkHref: `${base}tr/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Bilimsel arka plan hakkında daha fazlası',
+      },
+      {
+        title: 'Okuldan sık sorulan sorular',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Bu müfredatımıza uyuyor mu, yoksa ek bir teklif mi?</strong><br />Yubuu'nun Duygu Çarkı müfredat içeriğinin yerini almaz, onu tamamlar. Sınıf meclisine, vekil derslere ya da destek derslerine entegre edilebilir, bunun için ekstra ders saati ayırmaya gerek kalmadan.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Bu, sadece küçük gruplarda değil, tüm sınıfla da çalışır mı?</strong><br />Oyun aslında altı çocuğa kadar küçük gruplar için tasarlandı. Tüm sınıfla kullanım için birkaç küçük grubun paralel oynamasını ya da oyunun sınıf meclisinde dönüşümlü kullanılmasını öneriyoruz.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyunu sınıf meclisinde de kullanabilir miyim?</strong><br />Evet. Sınıf meclisi, tek tek oyun aşamalarını ya da tam oyun turlarını birlikte yürütmek için özellikle uygundur.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Sadece tek tük oyun materyallerini kullanabilir miyim?</strong><br />Evet. Zamana ve hedefe bağlı olarak duygu çarkı, blitz kartları ya da durum kartları birbirinden bağımsız olarak da kullanılabilir.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun özel destek ihtiyacı olan çocuklar için de uygun mu?</strong><br />Evet. Zaman baskısı olmadan ve doğru ya da yanlış cevap olmadan çalıştığı için, özellikle özel eğitim okullarında ve bireysel eşlikte sıkça kullanılıyor.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Etkinliğine dair bilimsel kanıtlar var mı?</strong><br />Konsept, sosyal ve duygusal öğrenme üzerine kabul görmüş araştırmalara dayanıyor, bunlar arasında Durlak ve arkadaşlarının 270.000'den fazla çocukla yaptığı meta-analiz de var. Yubuu'nun Duygu Çarkı'nın kendisine dair etkinlik çalışmaları 2027'den itibaren pilot aşama için planlanıyor.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Maliyetleri kim karşılıyor, destek imkanları var mı?</strong><br />Birçok okul Yubuu'nun Duygu Çarkı'nı mevcut malzeme bütçeleri ya da pedagojik destek fonları üzerinden finanse ediyor. Okullar için şu anda uygun destek programlarını araştırıyoruz.</p>
+          <p><strong class="text-[var(--color-ink)]">Oyunu kullanmak için bir eğitime ihtiyacım var mı?</strong><br />Hayır, oyun ek eğitim olmadan hemen kullanılabilir. İsteyenler ek olarak bir tanıtım çalıştayı da rezerve edebilir.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-8 text-center">
+    <p class="font-serif-heading text-xl italic text-[var(--color-ink)] sm:text-2xl">
+      Çocuklar sadece ne öğrendiklerini değil, o sırada nasıl hissettiklerini de hatırlarlar.
+    </p>
+  </div>
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}tr/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Okulunuz İçin Bilgi Alın
+    </a>
+  </div>
+</Base>

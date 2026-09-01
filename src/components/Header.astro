@@ -12,6 +12,7 @@ const NAV = {
   en: { home: 'Go to homepage', kita: 'Kindergarten', schule: 'School', eltern: 'Parents', about: 'About us', contact: 'Contact', langAria: 'Choose language', prep: 'Coming soon' },
   fr: { home: "Aller à l'accueil", kita: 'Crèches', schule: 'Écoles', eltern: 'Parents', about: 'À propos', contact: 'Contact', langAria: 'Choisir la langue', prep: 'Bientôt disponible' },
   es: { home: 'Ir al inicio', kita: 'Guarderías', schule: 'Colegios', eltern: 'Familias', about: 'Sobre nosotros', contact: 'Contacto', langAria: 'Elegir idioma', prep: 'Próximamente' },
+  tr: { home: 'Ana sayfaya git', kita: 'Anaokulu', schule: 'Okul', eltern: 'Aileler', about: 'Hakkımızda', contact: 'İletişim', langAria: 'Dil seçin', prep: 'Yakında' },
 };
 const t = NAV[lang] ?? NAV.de;
 
@@ -31,7 +32,7 @@ const languages = [
   { code: 'EN', label: 'English', href: `${base}en/`, ready: true },
   { code: 'FR', label: 'Français', href: `${base}fr/`, ready: true },
   { code: 'ES', label: 'Español', href: `${base}es/`, ready: false },
-  { code: 'TR', label: 'Türkçe', href: `${base}tr/`, ready: false },
+  { code: 'TR', label: 'Türkçe', href: `${base}tr/`, ready: true },
   { code: 'DA', label: 'Dansk', href: `${base}da/`, ready: false },
   { code: 'SV', label: 'Svenska', href: `${base}sv/`, ready: false },
   { code: 'NO', label: 'Norsk', href: `${base}no/`, ready: false },

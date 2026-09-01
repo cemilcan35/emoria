@@ -11,91 +11,87 @@ const panels = [
   {
     id: 'home', tab: 'EMORIA', strip: '#2b2a28', bg: '#fff1e4', c: '#ff7673', ink: '#2b2a28',
     kind: 'home',
-    eyebrow: '✦ Understand feelings. Start conversations. Strengthen children.',
-    title: 'Welcome to EMORIA',
-    body: 'A little universe that helps children recognise, name and talk about their feelings.',
+    eyebrow: '✦ Duyguları anlamak. Sohbetleri başlatmak. Çocukları güçlendirmek.',
+    title: "EMORIA'ya Hoş Geldiniz",
+    body: 'Çocukların duygularını tanımasına, adlandırmasına ve bunlar hakkında konuşmasına yardımcı olan küçük bir evren.',
   },
   {
-    id: 'meet', tab: 'Meet Yubuu', strip: '#02ae90', bg: '#eaf4ef', c: '#02ae90', ink: '#08312a',
+    id: 'meet', tab: "Yubuu'yu Tanı", strip: '#02ae90', bg: '#eaf4ef', c: '#02ae90', ink: '#08312a',
     kind: 'story', storyMode: 'meet',
     beats: [
-      "Hi! I'm Yubuu.",
-      'I come from a small planet where we talk about feelings a lot.',
-      'But I started wondering how children on other worlds experience feelings.',
-      'So I travel through the EMORIA universe.',
-      "I'm very curious, I ask lots of questions, and I listen closely.",
-      "I don't judge anyone, because I believe every feeling has a reason.",
-      "That's why I love learning together with the children I meet.",
-      'Will you come along on my journey?',
+      'Merhaba! Ben Yubuu.',
+      'Duygular hakkında sık sık konuştuğumuz küçük bir gezegenden geliyorum.',
+      'Ama başka dünyalardaki çocukların duyguları nasıl yaşadığını merak ettim.',
+      'Bu yüzden EMORIA evreninde yolculuk ediyorum.',
+      'Çok meraklıyımdır, bir sürü soru sorarım ve dikkatle dinlerim.',
+      'Kimseyi yargılamam, çünkü her duygunun bir nedeni olduğuna inanırım.',
+      'Bu yüzden en çok, karşılaştığım çocuklarla birlikte öğrenmeyi severim.',
+      'Benimle yolculuğa çıkar mısın?',
     ],
   },
   {
-    id: 'wheel', tab: "Yubuu's Feeling Wheel", strip: '#ff7673', bg: '#fff1e4', c: '#ff7673', ink: '#4a1f1d',
+    id: 'wheel', tab: "Yubuu'nun Duygu Çarkı", strip: '#ff7673', bg: '#fff1e4', c: '#ff7673', ink: '#4a1f1d',
     kind: 'game', game: 'game/index.html',
-    cta: 'Discover the game',
+    cta: 'Oyunu Keşfet',
     beats: [
-      "Hi, I'm back!",
-      'Do you feel like trying the game?',
-      "Let's discover your world of feelings together.",
+      'Merhaba, yine buradayım!',
+      'Oyunu denemek ister misin?',
+      'Hadi birlikte duygu dünyanı keşfedelim.',
     ],
   },
   {
-    id: 'why', tab: 'Why EMORIA?', strip: '#ea9f0e', bg: '#fae6bf', c: '#ea9f0e', ink: '#3d2a04',
+    id: 'why', tab: 'Neden EMORIA?', strip: '#ea9f0e', bg: '#fae6bf', c: '#ea9f0e', ink: '#3d2a04',
     kind: 'why',
-    eyebrow: 'The thinking behind it',
-    title: 'Why EMORIA?',
-    body: 'Talking about feelings is a skill that can be learned — and children rarely get a safe space to practise it. EMORIA turns emotional learning into play: no right or wrong answers, grounded in ten years of practice and current research. When a child can name what they feel, everything else gets easier — friendships, focus, resilience.',
+    eyebrow: 'Arkasındaki fikir',
+    title: 'Neden EMORIA?',
+    body: 'Duygular hakkında konuşmak öğrenilebilir bir beceridir — ve çocuklar bunu pratik yapabilecekleri güvenli bir alan bulmakta nadiren şanslıdır. EMORIA duygusal öğrenmeyi bir oyuna dönüştürür: doğru ya da yanlış cevap yoktur, on yıllık pratik ve güncel araştırmalara dayanır. Bir çocuk ne hissettiğini adlandırabildiğinde, geri kalan her şey kolaylaşır — arkadaşlıklar, odaklanma, dayanıklılık.',
   },
 ];
 ---
 
-<html lang="en">
+<html lang="tr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>EMORIA — Emotional Learning</title>
-  <meta name="description" content="EMORIA is a play-based system that helps children recognise, name and talk about their feelings. Yubuu's Feeling Wheel is where it begins." />
+  <title>EMORIA — Duygusal Öğrenme</title>
+  <meta name="description" content="EMORIA, çocukların duygularını tanımasına, adlandırmasına ve bunlar hakkında konuşmasına yardımcı olan oyun tabanlı bir sistemdir. Yubuu'nun Duygu Çarkı başlangıcı." />
   <meta name="generator" content={Astro.generator} />
   <link rel="icon" type="image/png" href={`${base}img/logo.png`} />
-  <meta property="og:title" content="EMORIA — Emotional Learning" />
-  <meta property="og:description" content="A play-based way for children to recognise, name and talk about their feelings." />
+  <meta property="og:title" content="EMORIA — Duygusal Öğrenme" />
+  <meta property="og:description" content="Çocukların duygularını tanıması, adlandırması ve bunlar hakkında konuşması için oyun tabanlı bir yol." />
   <meta property="og:type" content="website" />
 </head>
 <body>
-  <!-- INTRO SPLASH — plays once before the homepage. When it ends, the video
-       crossfades into the "Welcome to EMORIA" title (bridging the cut),
-       which then hands off to the real homepage title already sitting in
-       the same spot — instead of a hard cut from the dark video to the
-       cream homepage. -->
+  <!-- INTRO SPLASH — plays once before the homepage. -->
   <div class="intro" id="intro" data-intro>
-    <video class="intro-video" autoplay muted playsinline preload="auto" aria-label="Yubuu flying to Earth">
+    <video class="intro-video" autoplay muted playsinline preload="auto" aria-label="Yubuu Dünya'ya uçuyor">
       <source src={`${base}video/intro-yubuu-earth.webm`} type="video/webm" />
       <source src={`${base}video/intro-yubuu-earth.mp4`} type="video/mp4" />
     </video>
-    <button type="button" class="intro-skip" data-intro-skip>Skip</button>
+    <button type="button" class="intro-skip" data-intro-skip>Geç</button>
   </div>
 
-  <!-- TOP MENU — left edge aligns to the right of the strips left of the open panel -->
+  <!-- TOP MENU -->
   <header class="topbar" data-topbar style="left:0;right:calc(3 * var(--stripw))">
-    <button class="brand" data-open="home" aria-label="Back to the start">EMORIA</button>
+    <button class="brand" data-open="home" aria-label="Başa dön">EMORIA</button>
     <nav class="topnav">
-      <a href={`${base}en/fuer-kindergaerten`}>Kindergarten</a>
-      <a href={`${base}en/fuer-schulen`}>School</a>
-      <a href={`${base}en/fuer-eltern`}>Parents</a>
-      <a href={`${base}en/about`}>About us</a>
-      <a href={`${base}en/contact`}>Contact</a>
+      <a href={`${base}tr/fuer-kindergaerten`}>Anaokulu</a>
+      <a href={`${base}tr/fuer-schulen`}>Okul</a>
+      <a href={`${base}tr/fuer-eltern`}>Aileler</a>
+      <a href={`${base}tr/about`}>Hakkımızda</a>
+      <a href={`${base}tr/contact`}>İletişim</a>
       <div class="lang-switch">
-        <button type="button" class="lang-trigger" aria-label="Choose language">🌐 EN</button>
+        <button type="button" class="lang-trigger" aria-label="Dil seçin">🌐 TR</button>
         <ul class="lang-menu">
           <li><a href={`${base}?nointro=1`}>Deutsch <span>DE</span></a></li>
           <li><a href={`${base}en/`}>English <span>EN</span></a></li>
           <li><a href={`${base}fr/`}>Français <span>FR</span></a></li>
-          <li class="disabled" title="Coming soon">Español <span>ES</span></li>
+          <li class="disabled" title="Yakında">Español <span>ES</span></li>
           <li><a href={`${base}tr/`}>Türkçe <span>TR</span></a></li>
-          <li class="disabled" title="Coming soon">Dansk <span>DA</span></li>
-          <li class="disabled" title="Coming soon">Svenska <span>SV</span></li>
-          <li class="disabled" title="Coming soon">Norsk <span>NO</span></li>
-          <li class="disabled" title="Coming soon">Suomi <span>FI</span></li>
+          <li class="disabled" title="Yakında">Dansk <span>DA</span></li>
+          <li class="disabled" title="Yakında">Svenska <span>SV</span></li>
+          <li class="disabled" title="Yakında">Norsk <span>NO</span></li>
+          <li class="disabled" title="Yakında">Suomi <span>FI</span></li>
         </ul>
       </div>
     </nav>
@@ -115,7 +111,7 @@ const panels = [
             <div class="wheelstage" data-wheelstage>
               <div class="story wheel-intro" data-story data-story-mode="wheel-intro">
                 <div class="story-char">
-                  <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu floating and waving" data-story-video>
+                  <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu sallayarak beliriyor" data-story-video>
                     <source src={`${base}video/yubuu-wheel-nobg.webm`} type="video/webm" />
                     <source src={`${base}video/yubuu-wheel-nobg.mov`} type="video/quicktime" />
                   </video>
@@ -129,12 +125,12 @@ const panels = [
                   <button type="button" class="p-cta wheel-cta" data-wheel-start>{p.cta}</button>
                 </div>
               </div>
-              <iframe class="game-frame" data-wheel-frame src={`${base}${p.game}`} title="Yubuu's Feeling Wheel" loading="lazy"></iframe>
+              <iframe class="game-frame" data-wheel-frame src={`${base}${p.game}`} title="Yubuu'nun Duygu Çarkı" loading="lazy"></iframe>
             </div>
           ) : p.kind === 'story' ? (
             <div class="story" data-story data-story-mode={p.storyMode}>
               <div class="story-char">
-                <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu walking in, waving" data-story-video>
+                <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu el sallayarak giriyor" data-story-video>
                   <source src={`${base}video/yubuu-wave-nobg.webm`} type="video/webm" />
                   <source src={`${base}video/yubuu-wave-nobg.mov`} type="video/quicktime" />
                 </video>
@@ -145,7 +141,7 @@ const panels = [
                     <p class="bubble-line" data-beat={i}>{bt}</p>
                   ))}
                 </div>
-                <p class="s-hint" data-hint>Click or scroll to continue →</p>
+                <p class="s-hint" data-hint>Devam etmek için tıkla ya da kaydır →</p>
               </div>
             </div>
           ) : p.kind === 'why' ? (
@@ -155,8 +151,8 @@ const panels = [
                 <h2 class="why-hero">{p.title}</h2>
                 <p class="why-body">{p.body}</p>
                 <div class="why-links">
-                  <a href={`${base}en/about`}>About us →</a>
-                  <a href={`${base}en/contact`}>Get in touch →</a>
+                  <a href={`${base}tr/about`}>Hakkımızda →</a>
+                  <a href={`${base}tr/contact`}>İletişime geç →</a>
                 </div>
               </div>
             </div>
@@ -175,12 +171,12 @@ const panels = [
               <div class="c-inner home">
                 <div class="c-text">
                   <h1 class="home-title stg">{p.title}</h1>
-                  <p class="home-sub stg">Playful emotional education.</p>
+                  <p class="home-sub stg">Oyunla duygusal eğitim.</p>
                   <p class="home-tag stg">{p.eyebrow}</p>
                 </div>
                 <div class="c-art home-art">
                   <div class="home-video-wrap">
-                    <video class="home-video" autoplay loop muted playsinline preload="auto" aria-label="Yubuu flying a rocket">
+                    <video class="home-video" autoplay loop muted playsinline preload="auto" aria-label="Yubuu bir roketle uçuyor">
                       <source src={`${base}video/kling_yubuu_rocket_no-bg.webm`} type="video/webm" />
                       <source src={`${base}video/kling_yubuu_rocket_no-bg.mov`} type="video/quicktime" />
                     </video>
@@ -214,21 +210,12 @@ const panels = [
       const panels = [...rail.querySelectorAll('.panel')];
       const n = panels.length;
 
-      // How long Yubuu takes to arrive/settle before the first speech bubble
-      // appears — the screen stays empty (just Yubuu moving in) until then.
       const ARRIVAL_DELAY_MS = 3000;
 
-      // Any Yubuu dialogue video: once its one-time animation finishes, it
-      // stays on the final frame (no replaying/looping any part of the clip —
-      // jumping back into it creates a visible seam). A light CSS "blink"
-      // (see .story-video.is-idle) keeps Yubuu subtly alive from then on.
       document.querySelectorAll('[data-story-video]').forEach((vid) => {
         vid.addEventListener('ended', () => vid.classList.add('is-idle'));
       });
 
-      // panels that carry a Yubuu dialogue video (Meet Yubuu, Yubuus Gefühlsrad
-      // intro) replay it from the start each time their panel is opened, and
-      // re-arm that panel's speech-bubble reveal (see armReveal below).
       const armRevealByPanel = new WeakMap();
 
       function playPanelVideo(panel) {
@@ -245,22 +232,14 @@ const panels = [
         const idx = panels.findIndex((p) => p.dataset.panel === id);
         if (idx < 0) return;
         panels.forEach((p, i) => p.classList.toggle('is-open', i === idx));
-        // menu starts to the right of the strips left of the open panel,
-        // and ends to the left of the strips right of it.
         topbar.style.left = `calc(${idx} * var(--stripw))`;
         topbar.style.right = `calc(${n - 1 - idx} * var(--stripw))`;
         playPanelVideo(panels[idx]);
       }
 
-      // strip buttons + the logo (data-open="home") share the handler
       document.querySelectorAll('[data-open]').forEach((btn) =>
         btn.addEventListener('click', () => setOpen(btn.dataset.open)));
 
-      // ---- Yubuu dialogues (Meet Yubuu + the Gefühlsrad intro): the bubble
-      // stays hidden while Yubuu moves in; once it arrives, the first line
-      // appears, and a click/scroll reveals the next one at a time. On the
-      // Meet Yubuu panel, advancing past the last line opens the Gefühlsrad
-      // panel. On the Gefühlsrad intro, the last line reveals the CTA button.
       document.querySelectorAll('[data-story]').forEach((story) => {
         const panel = story.closest('.panel');
         const mode = story.dataset.storyMode;
@@ -282,14 +261,12 @@ const panels = [
           if (hint) {
             hint.classList.toggle('hide', atLast && mode !== 'meet');
             hint.textContent = idx === 0
-              ? 'Click or scroll to continue →'
-              : (mode === 'meet' && atLast ? "On to the Feeling Wheel →" : 'Keep going →');
+              ? 'Devam etmek için tıkla ya da kaydır →'
+              : (mode === 'meet' && atLast ? "Duygu Çarkı'na geç →" : 'Devam →');
           }
           if (ctaBtn) ctaBtn.classList.toggle('is-shown', atLast);
         }
 
-        // resets the dialogue to "nothing shown yet" and, after Yubuu has
-        // had time to arrive, reveals the first speech bubble
         function armReveal() {
           revealed = false;
           idx = 0;
@@ -312,7 +289,6 @@ const panels = [
           show(idx + 1);
         });
 
-        // scroll advances/retreats the reveal instead of scrolling the page
         let lock = 0;
         story.addEventListener('wheel', (e) => {
           if (!isOpen() || !revealed) return;
@@ -326,7 +302,6 @@ const panels = [
 
       setOpen('home');
 
-      // ---- Gefühlsrad: "Spiel entdecken" swaps the Yubuu intro for the game ----
       document.querySelectorAll('[data-wheel-start]').forEach((btn) => {
         btn.addEventListener('click', (e) => {
           e.stopPropagation();
@@ -336,11 +311,6 @@ const panels = [
     })();
   </script>
 
-  <!-- Intro splash: plays once. On end, the video fades out and the dark
-       background crossfades to cream at the same time, quietly revealing
-       the real homepage underneath — whose title/hero are already sitting
-       there, static, the whole time. No duplicate text, no re-triggered
-       animation, so nothing moves or jumps during the handoff. -->
   <script is:inline>
     (() => {
       const intro = document.querySelector('[data-intro]');
@@ -348,14 +318,13 @@ const panels = [
       const video = intro.querySelector('video');
       const skip = intro.querySelector('[data-intro-skip]');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      // "Homepage" link (next to the logo) skips the intro entirely via ?nointro=1
       const skipIntro = new URLSearchParams(location.search).has('nointro');
       let done = false;
 
       function finish() {
         if (done) return;
         done = true;
-        intro.classList.add('is-handoff'); // video fades out, bg crossfades to cream
+        intro.classList.add('is-handoff');
         setTimeout(() => {
           intro.classList.add('is-hidden');
           setTimeout(() => intro.remove(), 650);
@@ -366,7 +335,6 @@ const panels = [
       video.addEventListener('ended', finish);
       video.addEventListener('error', finish);
       skip.addEventListener('click', finish);
-      // Safety net in case autoplay is blocked or the video stalls.
       setTimeout(finish, 14000);
     })();
   </script>
@@ -375,7 +343,6 @@ const panels = [
     :root { --stripw: 4.75rem; }
     body { margin: 0; }
 
-    /* ---- Intro splash: full-screen, plays once, fades out silently ---- */
     .intro { position: fixed; inset: 0; z-index: 100; background: #0b1026;
       display: flex; align-items: center; justify-content: center; overflow: hidden;
       opacity: 1; transition: opacity .6s ease, background-color .7s ease; }
@@ -393,7 +360,6 @@ const panels = [
     .intro.is-handoff .intro-skip { opacity: 0; pointer-events: none; }
     @media (prefers-reduced-motion: reduce) { .intro { display: none; } }
 
-    /* TOP MENU */
     .topbar { position: fixed; top: 0; z-index: 40; height: 66px; display: flex; align-items: center;
       justify-content: space-between; padding: 0 clamp(1.2rem, 2.6vw, 2.2rem);
       transition: left .62s cubic-bezier(.72,0,.14,1), right .62s cubic-bezier(.72,0,.14,1); }
@@ -429,7 +395,6 @@ const panels = [
       transition: width .62s cubic-bezier(.72,0,.14,1); overflow: hidden; }
     .panel.is-open { width: calc(100vw - (3 * var(--stripw))); }
 
-    /* collapsed strip */
     .strip { position: absolute; inset: 0; z-index: 3; width: 100%; height: 100%; border: 0; cursor: pointer;
       background: var(--strip); color: #fff; font-family: 'Fredoka Variable', sans-serif; font-weight: 600;
       font-size: 18px; letter-spacing: .01em; display: flex; align-items: center; justify-content: center;
@@ -438,15 +403,12 @@ const panels = [
     .strip:hover { filter: brightness(1.08); }
     .panel.is-open .strip { opacity: 0; pointer-events: none; }
 
-    /* expanded content — fixed to the open width so it doesn't reflow while animating */
     .content { position: absolute; top: 0; left: 0; height: 100%; width: calc(100vw - (3 * var(--stripw)));
       background: var(--bg); opacity: 0; pointer-events: none; transition: opacity .3s ease; }
     .panel.is-open .content { opacity: 1; pointer-events: auto; transition-delay: .18s; }
-    /* embedded self-contained game — fills the open panel, below the top menu */
     .game-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
       padding-top: 66px; box-sizing: border-box; background: #fff1e4; }
 
-    /* ---- Wheel stage: Yubuu's greeting first, "Spiel entdecken" swaps to the game ---- */
     .wheelstage { position: absolute; inset: 0; }
     .wheel-intro { opacity: 1; transition: opacity .4s ease; }
     .wheelstage .game-frame { opacity: 0; pointer-events: none; transition: opacity .4s ease; }
@@ -456,23 +418,14 @@ const panels = [
       transition: opacity .4s ease, transform .4s ease; }
     .wheel-cta.is-shown { opacity: 1; transform: none; pointer-events: auto; }
 
-    /* ---- Yubuu dialogue (Meet Yubuu + Gefühlsrad intro): Yubuu on one side,
-       a single speech bubble that swaps line by line on the other ---- */
     .story { position: absolute; inset: 0; overflow: hidden; cursor: pointer;
       padding: 84px 6vw 2vh; display: grid; grid-template-columns: .85fr 1.15fr;
       align-items: stretch; gap: 3vw; }
-    /* Yubuu sits lower, so the bubble above reads as coming out of his head.
-       He also sits small and centred within the source video's own frame, so
-       growing the container alone barely helped — the video is zoomed in
-       (scaled up + clipped) to make the character himself bigger. */
     .story-char { position: relative; height: 82%; align-self: end; justify-self: center;
       overflow: hidden; display: flex; align-items: flex-end; justify-content: center; }
     .story-video { display: block; height: 108%; width: auto; flex-shrink: 0;
       transform: scale(1.55); transform-origin: center 78%;
       filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)); }
-    /* once the one-shot animation ends, Yubuu rests on the final frame —
-       this is the only "life" that continues, a quick soft blink every
-       few seconds, so nothing about the video itself replays or jumps */
     .story-video.is-idle { animation: idleBlink 4.6s ease-in-out infinite; }
     @keyframes idleBlink {
       0%, 94%, 100% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(1); }
@@ -482,14 +435,8 @@ const panels = [
     @media (prefers-reduced-motion: reduce) {
       .story-video.is-idle { animation: none; }
     }
-    /* dialogue column sits high, near where Yubuu's (now lower) head is, so
-       the bubble tail below it visually connects to him */
     .story-dialogue { display: flex; flex-direction: column; gap: 1.1rem;
       align-self: start; margin-top: 15vh; }
-    /* colourful, kid-friendly bubble — a bright tint of the panel's own accent
-       colour, hidden until Yubuu arrives and armReveal() shows it. Tail sits
-       at the bottom-left, pointing down toward Yubuu's head. Reveal/line
-       changes use a playful bounce ("pop") instead of a plain fade. */
     .bubble { position: relative; max-width: 34rem;
       background: color-mix(in srgb, var(--c) 30%, #fff 70%);
       border: 3px solid color-mix(in srgb, var(--c) 55%, #fff 45%);
@@ -527,7 +474,6 @@ const panels = [
       .bubble::before { display: none; }
     }
 
-    /* ---- Why EMORIA: Yubuu anchored bottom-left, pointing at wide text on the right ---- */
     .why { position: absolute; inset: 0; }
     .why-yubuu { position: absolute; left: 2%; bottom: 0; height: calc(100% - 80px); width: auto;
       max-width: none; z-index: 1; pointer-events: none;
@@ -563,9 +509,7 @@ const panels = [
       font-family: 'Fredoka Variable', sans-serif; font-weight: 600; font-size: 16px; padding: .8rem 1.7rem; border-radius: 999px; }
 
     .c-art { position: relative; height: 62%; }
-    /* home landing: Yubuu rocket video (transparent) replaces the static mascot */
     .home-art { height: 100%; display: flex; align-items: center; justify-content: center; }
-    /* wrapper carries the one-shot fly-in from the left; the inner video keeps floating */
     .home-video-wrap { width: min(80%, 440px); transform: translateX(-135vw); opacity: 0; will-change: transform; }
     .panel.is-open .home-video-wrap { animation: flyIn 1.15s cubic-bezier(.16,.7,.24,1) 1.2s forwards; }
     .home-video { display: block; width: 100%; height: auto;
@@ -583,7 +527,6 @@ const panels = [
     .p-planet { position: absolute; top: 4%; right: 8%; width: 88px; height: 88px; border-radius: 50%;
       background: radial-gradient(circle at 38% 32%, #fff, color-mix(in srgb, var(--c) 55%, #fff) 55%, var(--c));
       box-shadow: 0 12px 30px rgba(0,0,0,.12); }
-    /* home starfield — scattered twinkling stars behind the whole panel */
     .home-wrap { position: absolute; inset: 0; }
     .starfield { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
     .c-inner.home { position: relative; z-index: 1; }
@@ -607,13 +550,11 @@ const panels = [
     .s19{ top: 46%; left: 15%; font-size: 12px; } .s20 { top: 24%; left: 45%; font-size: 14px; }
     .s21{ top: 62%; left: 54%; font-size: 12px; } .s22 { top: 84%; left: 14%; font-size: 16px; }
 
-    /* staggered reveal */
     .stg { opacity: 0; transform: translateY(22px); }
     .panel.is-open .stg { opacity: 1; transform: none; transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); }
     .panel.is-open .eyebrow { transition-delay: .30s; }
     .panel.is-open .home-title, .panel.is-open .p-title { transition-delay: .38s; }
     .panel.is-open .home-sub, .panel.is-open .p-body { transition-delay: .48s; }
-    /* home: sequenced title -> tagline -> subline, then video flies in */
     .panel.is-open .home-title { transition-delay: .50s; }
     .panel.is-open .home-sub { transition-delay: .64s; }
     .panel.is-open .home-tag { transition-delay: .78s; }
