@@ -17,9 +17,9 @@ const NAV = {
 const t = NAV[lang] ?? NAV.de;
 
 const links = [
-  { href: `${prefix}fuer-kindergaerten`, label: t.kita },
-  { href: `${prefix}fuer-schulen`, label: t.schule },
-  { href: `${prefix}fuer-eltern`, label: t.eltern },
+  { href: `${prefix}fuer-kindergaerten`, label: t.kita, icon: 'audience-kindergarten.png' },
+  { href: `${prefix}fuer-schulen`, label: t.schule, icon: 'audience-schule.png' },
+  { href: `${prefix}fuer-eltern`, label: t.eltern, icon: 'audience-eltern.png' },
   { href: `${prefix}about`, label: t.about },
   ...(lang === 'de' ? [{ href: `${prefix}ueber-emoria`, label: t.emoria }] : []),
   { href: `${prefix}contact`, label: t.contact },
@@ -52,10 +52,11 @@ const languages = [
           <a
             href={l.href}
             class:list={[
-              'font-[var(--font-body)] text-[15px] font-medium text-[var(--color-ink)] transition',
+              'flex items-center gap-2 font-[var(--font-body)] text-[15px] font-medium text-[var(--color-ink)] transition',
               current === l.label ? 'opacity-100' : 'opacity-75 hover:opacity-100',
             ]}
           >
+            {l.icon && <img src={`${base}img/${l.icon}`} alt="" aria-hidden="true" class="h-7 w-7 rounded-[9px] object-cover shadow-sm" />}
             {l.label}
           </a>
         </li>
@@ -102,7 +103,8 @@ const languages = [
   >
     <button type="button" class="absolute right-5 top-5 flex h-11 w-11 items-center justify-center border-0 bg-transparent text-xl text-[var(--color-ink)]" data-header-drawer-close aria-label={t.menuClose}>✕</button>
     {links.map((l) => (
-      <a href={l.href} class="flex min-h-11 items-center border-b border-[var(--color-cream-edge)] py-3 font-[var(--font-display)] text-lg font-semibold text-[var(--color-ink)]">
+      <a href={l.href} class="flex min-h-11 items-center gap-3 border-b border-[var(--color-cream-edge)] py-3 font-[var(--font-display)] text-lg font-semibold text-[var(--color-ink)]">
+        {l.icon && <img src={`${base}img/${l.icon}`} alt="" aria-hidden="true" class="h-10 w-10 rounded-xl object-cover shadow-sm" />}
         {l.label}
       </a>
     ))}
