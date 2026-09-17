@@ -566,7 +566,7 @@ const panels = [
     }
 
     .why { position: absolute; inset: 0; }
-    .why-yubuu { position: absolute; left: 2%; bottom: 0; height: calc(100% - 80px); width: auto;
+    .why-yubuu { position: absolute; left: 3%; bottom: 8%; width: min(32%, 460px); height: auto;
       max-width: none; z-index: 1; pointer-events: none;
       filter: drop-shadow(0 22px 34px rgba(43,42,40,.20)); }
     .why-text { position: absolute; right: 8.5%; top: 0; bottom: 0; width: 52%;
@@ -582,11 +582,10 @@ const panels = [
       color: var(--c); text-decoration: none; filter: brightness(.85); }
     .why-links a:hover { text-decoration: underline; }
     @media (max-width: 1100px) {
-      .why-yubuu { opacity: .16; left: -8%; }
+      .why-yubuu { display: none; }
       .why-text { width: 86%; right: 6%; padding-top: 15vh; }
     }
     @media (max-width: 768px) {
-      .why-yubuu { opacity: .12; height: 70%; }
       .why-text { width: 90%; right: 5%; padding-top: 18vh; }
       .why-hero { font-size: clamp(32px, 9vw, 52px); }
       .why-body { font-size: 16px; max-width: none; }

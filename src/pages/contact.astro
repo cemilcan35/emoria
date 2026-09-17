@@ -1,11 +1,14 @@
 ---
 import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <Base title="Kontakt — EMORIA" current="Kontakt"
   description="Interesse, EMORIA in Ihre Kita zu bringen, oder möchten Sie auf dem Laufenden bleiben? Schreiben Sie Cemil.">
   <article class="bg-[var(--color-cream)]">
-    <div class="mx-auto max-w-2xl px-6 pb-10 pt-36 text-center">
+    <div class="relative mx-auto max-w-2xl px-6 pb-10 pt-36 text-center">
+      <img src={`${base}img/yubuu-wink-grass.png`} alt="Yubuu winkt" loading="lazy"
+        class="pointer-events-none absolute left-full top-10 ml-6 hidden h-40 w-auto drop-shadow-[0_16px_26px_rgba(43,42,40,0.16)] xl:block" />
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Kontakt</p>
       <h1 class="mt-3 text-4xl sm:text-6xl">Sagen Sie hallo.</h1>
       <p class="mt-5 text-lg text-[var(--color-ink-soft)]">

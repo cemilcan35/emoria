@@ -8,11 +8,11 @@ const prefix = lang === 'de' ? base : `${base}${lang}/`;
 // Per-language nav labels + a couple of chrome strings. Add an entry here
 // as each language's pages go live.
 const NAV = {
-  de: { home: 'Zur Startseite', kita: 'Kindergarten', schule: 'Schule', eltern: 'Eltern', about: 'Über uns', contact: 'Kontakt', langAria: 'Sprache wählen', prep: 'In Vorbereitung' },
-  en: { home: 'Go to homepage', kita: 'Kindergarten', schule: 'School', eltern: 'Parents', about: 'About us', contact: 'Contact', langAria: 'Choose language', prep: 'Coming soon' },
-  fr: { home: "Aller à l'accueil", kita: 'Crèches', schule: 'Écoles', eltern: 'Parents', about: 'À propos', contact: 'Contact', langAria: 'Choisir la langue', prep: 'Bientôt disponible' },
-  es: { home: 'Ir al inicio', kita: 'Guarderías', schule: 'Colegios', eltern: 'Familias', about: 'Sobre nosotros', contact: 'Contacto', langAria: 'Elegir idioma', prep: 'Próximamente' },
-  tr: { home: 'Ana sayfaya git', kita: 'Anaokulu', schule: 'Okul', eltern: 'Aileler', about: 'Hakkımızda', contact: 'İletişim', langAria: 'Dil seçin', prep: 'Yakında' },
+  de: { home: 'Zur Startseite', kita: 'Kindergarten', schule: 'Schule', eltern: 'Eltern', about: 'Über uns', contact: 'Kontakt', langAria: 'Sprache wählen', prep: 'In Vorbereitung', menuOpen: 'Menü öffnen', menuClose: 'Menü schließen', langLabel: 'Sprache' },
+  en: { home: 'Go to homepage', kita: 'Kindergarten', schule: 'School', eltern: 'Parents', about: 'About us', contact: 'Contact', langAria: 'Choose language', prep: 'Coming soon', menuOpen: 'Open menu', menuClose: 'Close menu', langLabel: 'Language' },
+  fr: { home: "Aller à l'accueil", kita: 'Crèches', schule: 'Écoles', eltern: 'Parents', about: 'À propos', contact: 'Contact', langAria: 'Choisir la langue', prep: 'Bientôt disponible', menuOpen: 'Ouvrir le menu', menuClose: 'Fermer le menu', langLabel: 'Langue' },
+  es: { home: 'Ir al inicio', kita: 'Guarderías', schule: 'Colegios', eltern: 'Familias', about: 'Sobre nosotros', contact: 'Contacto', langAria: 'Elegir idioma', prep: 'Próximamente', menuOpen: 'Abrir menú', menuClose: 'Cerrar menú', langLabel: 'Idioma' },
+  tr: { home: 'Ana sayfaya git', kita: 'Anaokulu', schule: 'Okul', eltern: 'Aileler', about: 'Hakkımızda', contact: 'İletişim', langAria: 'Dil seçin', prep: 'Yakında', menuOpen: 'Menüyü aç', menuClose: 'Menüyü kapat', langLabel: 'Dil' },
 };
 const t = NAV[lang] ?? NAV.de;
 
@@ -45,7 +45,7 @@ const languages = [
     <a href={`${prefix}?nointro=1`} class="font-[var(--font-display)] text-2xl font-semibold tracking-wide text-[var(--color-ink)]" aria-label={t.home}>
       EMORIA
     </a>
-    <ul class="flex items-center gap-6">
+    <ul class="hidden items-center gap-6 md:flex">
       {links.map((l) => (
         <li>
           <a
@@ -83,5 +83,76 @@ const languages = [
         </ul>
       </li>
     </ul>
+
+    <button type="button" class="flex h-11 w-11 flex-shrink-0 flex-col items-center justify-center gap-[5px] border-0 bg-transparent md:hidden" data-header-menu-toggle aria-label={t.menuOpen} aria-expanded="false" aria-controls="headerDrawer">
+      <span class="block h-[2px] w-[22px] rounded-full bg-[var(--color-ink)]"></span>
+      <span class="block h-[2px] w-[22px] rounded-full bg-[var(--color-ink)]"></span>
+      <span class="block h-[2px] w-[22px] rounded-full bg-[var(--color-ink)]"></span>
+    </button>
   </nav>
 </header>
+
+<div class="fixed inset-0 z-[90] invisible" data-header-drawer id="headerDrawer" aria-hidden="true">
+  <div class="absolute inset-0 bg-[var(--color-ink)]/45 opacity-0 transition-opacity duration-300" data-header-drawer-backdrop></div>
+  <nav
+    class="absolute right-0 top-0 flex h-full w-[min(82vw,320px)] translate-x-full flex-col gap-1 overflow-y-auto bg-[var(--color-cream)] px-6 pb-8 pt-20 shadow-[-12px_0_40px_rgba(43,42,40,0.18)] transition-transform duration-300"
+    data-header-drawer-panel
+    aria-label={t.langAria}
+  >
+    <button type="button" class="absolute right-5 top-5 flex h-11 w-11 items-center justify-center border-0 bg-transparent text-xl text-[var(--color-ink)]" data-header-drawer-close aria-label={t.menuClose}>✕</button>
+    {links.map((l) => (
+      <a href={l.href} class="flex min-h-11 items-center border-b border-[var(--color-cream-edge)] py-3 font-[var(--font-display)] text-lg font-semibold text-[var(--color-ink)]">
+        {l.label}
+      </a>
+    ))}
+    <div class="mt-5 flex flex-col gap-1">
+      <p class="mb-1 text-xs font-semibold uppercase tracking-[0.1em] text-[var(--color-ink-faint)]">{t.langLabel}</p>
+      {languages.filter((lg) => lg.ready).map((lg) => (
+        <a href={lg.href} class="flex min-h-11 items-center justify-between py-2 font-[var(--font-body)] text-base font-medium text-[var(--color-ink)]">
+          <span>{lg.label}</span>
+          <span class="text-[var(--color-ink-faint)]">{lg.code}</span>
+        </a>
+      ))}
+    </div>
+  </nav>
+</div>
+
+<script is:inline>
+  (() => {
+    document.querySelectorAll('[data-header-menu-toggle]').forEach((menuBtn) => {
+      const drawer = document.querySelector('[data-header-drawer]');
+      if (!drawer) return;
+      const backdrop = drawer.querySelector('[data-header-drawer-backdrop]');
+      const panel = drawer.querySelector('[data-header-drawer-panel]');
+      const closeBtn = drawer.querySelector('[data-header-drawer-close]');
+
+      function open() {
+        drawer.classList.remove('invisible');
+        drawer.setAttribute('aria-hidden', 'false');
+        menuBtn.setAttribute('aria-expanded', 'true');
+        requestAnimationFrame(() => {
+          backdrop.classList.remove('opacity-0');
+          panel.classList.remove('translate-x-full');
+        });
+        document.body.classList.add('overflow-hidden');
+      }
+      function close() {
+        backdrop.classList.add('opacity-0');
+        panel.classList.add('translate-x-full');
+        menuBtn.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('overflow-hidden');
+        setTimeout(() => {
+          drawer.classList.add('invisible');
+          drawer.setAttribute('aria-hidden', 'true');
+        }, 300);
+      }
+      menuBtn.addEventListener('click', open);
+      closeBtn?.addEventListener('click', close);
+      backdrop?.addEventListener('click', close);
+      drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !drawer.classList.contains('invisible')) close();
+      });
+    });
+  })();
+</script>

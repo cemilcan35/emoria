@@ -54,6 +54,8 @@ const sections = [
   },
 ];
 
+const base = import.meta.env.BASE_URL;
+
 const sources = [
   { ref: 'Belfield, C., Bowden, B., Klapp, A., Levin, H., Shand, R., Zander, S. (2015). The Economic Value of Social and Emotional Learning. Center for Benefit-Cost Studies in Education, Teachers College, Columbia University.', href: 'https://wymancenter.org/wp-content/uploads/2020/11/Belfield-et-al-2015.pdf' },
   { ref: 'Cipriano, C., Strambler, M. J., Naples, L. H., Ha, C., Kirk, M., Wood, M. et al. (2023). The State of Evidence for Social and Emotional Learning: A Contemporary Meta-Analysis of Universal School-Based SEL Interventions. Child Development, 94, 1181–1204.', href: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/cdev.13968', extra: { label: 'Frei zugängliches Preprint', href: 'https://osf.io/wscgq/' } },
@@ -66,7 +68,9 @@ const sources = [
 <Base title="Wissenschaftlicher Hintergrund — EMORIA" current=""
   description="Die Forschung hinter Yubuus Gefühlsrad: soziales und emotionales Lernen, Affect Labeling, Gewaltfreie Kommunikation und Embodied Cognition, verständlich erklärt.">
 
-  <article class="mx-auto max-w-2xl px-6 py-28 print:py-8">
+  <article class="relative mx-auto max-w-2xl px-6 py-28 print:py-8">
+    <img src={`${base}img/yubuu-telescope.png`} alt="Yubuu mit Fernrohr auf Sternkarten" loading="lazy"
+      class="pointer-events-none absolute left-full top-16 ml-8 hidden h-52 w-auto drop-shadow-[0_18px_28px_rgba(43,42,40,0.16)] xl:block print:hidden" />
     <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Hintergrund</p>
     <h1 class="mt-3 font-serif-heading text-3xl sm:text-4xl">Wissenschaftlicher Hintergrund</h1>
     <p class="mt-6 text-[var(--color-ink-soft)]">
