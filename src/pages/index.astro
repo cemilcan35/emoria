@@ -402,6 +402,9 @@ const panels = [
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       // "Homepage" link (next to the logo) skips the intro entirely via ?nointro=1
       const skipIntro = new URLSearchParams(location.search).has('nointro');
+      // Only ever play the intro once per visitor, not on every reload/return visit
+      let alreadySeen = false;
+      try { alreadySeen = localStorage.getItem('emoria-intro-seen') === '1'; } catch {}
       let done = false;
 
       function finish() {
@@ -414,7 +417,8 @@ const panels = [
         }, 550);
       }
 
-      if (reduceMotion || skipIntro || !video) { intro.remove(); return; }
+      if (reduceMotion || skipIntro || alreadySeen || !video) { intro.remove(); return; }
+      try { localStorage.setItem('emoria-intro-seen', '1'); } catch {}
       video.addEventListener('ended', finish);
       video.addEventListener('error', finish);
       skip.addEventListener('click', finish);

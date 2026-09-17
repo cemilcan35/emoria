@@ -368,6 +368,8 @@ const panels = [
       const skip = intro.querySelector('[data-intro-skip]');
       const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       const skipIntro = new URLSearchParams(location.search).has('nointro');
+      let alreadySeen = false;
+      try { alreadySeen = localStorage.getItem('emoria-intro-seen') === '1'; } catch {}
       let done = false;
 
       function finish() {
@@ -380,7 +382,8 @@ const panels = [
         }, 550);
       }
 
-      if (reduceMotion || skipIntro || !video) { intro.remove(); return; }
+      if (reduceMotion || skipIntro || alreadySeen || !video) { intro.remove(); return; }
+      try { localStorage.setItem('emoria-intro-seen', '1'); } catch {}
       video.addEventListener('ended', finish);
       video.addEventListener('error', finish);
       skip.addEventListener('click', finish);
