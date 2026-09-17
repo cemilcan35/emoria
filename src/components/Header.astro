@@ -8,7 +8,7 @@ const prefix = lang === 'de' ? base : `${base}${lang}/`;
 // Per-language nav labels + a couple of chrome strings. Add an entry here
 // as each language's pages go live.
 const NAV = {
-  de: { home: 'Zur Startseite', kita: 'Kindergarten', schule: 'Schule', eltern: 'Eltern', about: 'Über uns', contact: 'Kontakt', langAria: 'Sprache wählen', prep: 'In Vorbereitung', menuOpen: 'Menü öffnen', menuClose: 'Menü schließen', langLabel: 'Sprache' },
+  de: { home: 'Zur Startseite', kita: 'Kindergarten', schule: 'Schule', eltern: 'Eltern', about: 'Über uns', emoria: 'Über EMORIA', contact: 'Kontakt', langAria: 'Sprache wählen', prep: 'In Vorbereitung', menuOpen: 'Menü öffnen', menuClose: 'Menü schließen', langLabel: 'Sprache' },
   en: { home: 'Go to homepage', kita: 'Kindergarten', schule: 'School', eltern: 'Parents', about: 'About us', contact: 'Contact', langAria: 'Choose language', prep: 'Coming soon', menuOpen: 'Open menu', menuClose: 'Close menu', langLabel: 'Language' },
   fr: { home: "Aller à l'accueil", kita: 'Crèches', schule: 'Écoles', eltern: 'Parents', about: 'À propos', contact: 'Contact', langAria: 'Choisir la langue', prep: 'Bientôt disponible', menuOpen: 'Ouvrir le menu', menuClose: 'Fermer le menu', langLabel: 'Langue' },
   es: { home: 'Ir al inicio', kita: 'Guarderías', schule: 'Colegios', eltern: 'Familias', about: 'Sobre nosotros', contact: 'Contacto', langAria: 'Elegir idioma', prep: 'Próximamente', menuOpen: 'Abrir menú', menuClose: 'Cerrar menú', langLabel: 'Idioma' },
@@ -21,6 +21,7 @@ const links = [
   { href: `${prefix}fuer-schulen`, label: t.schule },
   { href: `${prefix}fuer-eltern`, label: t.eltern },
   { href: `${prefix}about`, label: t.about },
+  ...(lang === 'de' ? [{ href: `${prefix}ueber-emoria`, label: t.emoria }] : []),
   { href: `${prefix}contact`, label: t.contact },
 ];
 

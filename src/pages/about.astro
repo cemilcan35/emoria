@@ -4,112 +4,46 @@ const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
 ---
 
 <Base title="Über uns — EMORIA" current="Über uns"
-  description="EMORIA wurde von Cemil Can Özkaya gegründet, staatlich geprüfter Erzieher mit rund zehn Jahren Erfahrung in der pädagogischen Praxis.">
+  description="Der Gründer von EMORIA hat mehr als zehn Jahre Erfahrung in unterschiedlichen sozialen und pädagogischen Bereichen gesammelt.">
   <article class="bg-[var(--color-cream)]">
     <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Über uns</p>
       <h1 class="mt-3 text-4xl sm:text-6xl">Über uns</h1>
     </div>
 
-    <div class="mx-auto max-w-2xl space-y-6 px-6 pb-20 text-lg text-[var(--color-ink-soft)]">
-      <p>
-        EMORIA wurde von <strong class="text-[var(--color-ink)]">Cemil Can Özkaya</strong> gegründet,
-        staatlich geprüfter Erzieher mit rund zehn Jahren Erfahrung in Integrationskitas,
-        Förderschulen, Jugendhilfeeinrichtungen und der Familienberatung.
-      </p>
-      <p>
-        Der Anfang liegt weiter zurück, als man vermuten würde. Bereits 2020, während der
-        Ausbildung, entstand in einer Berliner Kita eine erste, einfache Version dieses
-        Spiels: ein Gefühlsrad, ein paar Karten, sechs Vorschulkinder an einem Tisch. Am
-        Ende der vierzig Minuten wurde gefragt, ob die Kinder das noch einmal machen
-        möchten. Die Antwort war ein einstimmiges Ja.
-      </p>
-      <p>
-        Aus diesem Nachmittag ist über Jahre hinweg ein vollständiges pädagogisches System
-        geworden, verfeinert durch jede weitere Erfahrung in der Praxis, durch
-        Rückmeldungen von Fachkräften und vor allem durch die Kinder selbst.
-      </p>
-      <p>
-        Heute ist EMORIA ein junges Unternehmen mit einem klaren Ziel: Kindern eine
-        Sprache für ihre Gefühle zu geben, und den Menschen, die täglich mit ihnen
-        arbeiten, ein Werkzeug, das wirklich in ihren Alltag passt.
-      </p>
-    </div>
-
-    <div class="bg-[var(--color-cream-deep)]">
-      <div class="mx-auto max-w-2xl space-y-6 px-6 py-20 text-lg text-[var(--color-ink-soft)]">
-        <h2 class="text-center text-3xl text-[var(--color-ink)]">Über EMORIA</h2>
+    <div class="mx-auto grid max-w-3xl items-start gap-10 px-6 pb-24 sm:grid-cols-[auto_1fr]">
+      <img src={`${base}img/yubuu-headshot.png`} alt="Yubuu" loading="lazy"
+        class="mx-auto h-40 w-auto drop-shadow-[0_16px_26px_rgba(43,42,40,0.16)] sm:h-52" />
+      <div class="space-y-6 text-lg text-[var(--color-ink-soft)]">
         <p>
-          Kinder lernen rechnen. Kinder lernen lesen. Kinder lernen, sich die Schuhe zu
-          binden.
-        </p>
-        <p class="italic text-[var(--color-ink)]">
-          Aber wer bringt ihnen bei, über ihre Gefühle zu sprechen?
+          Der Gründer von EMORIA hat mehr als zehn Jahre Erfahrung in unterschiedlichen
+          sozialen und pädagogischen Bereichen gesammelt: in Integrationskitas, Schulen
+          wie Förderschulen, intensiven Wohngruppen, Beratungsstellen sowie der Jugend-
+          und Familienhilfe.
         </p>
         <p>
-          Emotionale Bildung steht heute in jedem Bildungsprogramm. Was in der Praxis oft
-          fehlt, ist das passende Werkzeug dafür. Pädagogische Fachkräfte haben selten die
-          Zeit, für jedes Gespräch über Gefühle eigenes Material zu entwickeln, und viele
-          bestehende Angebote bleiben bei einzelnen Karten oder Postern stehen.
+          Aus all diesen Erfahrungen wurde eines immer deutlicher: Gefühle bestimmen
+          unser Leben und unsere Entscheidungen weit mehr, als uns oft bewusst ist. Sie
+          beeinflussen, wie wir auf andere zugehen, wie wir mit Konflikten umgehen und
+          wie wir uns selbst verstehen. Und doch haben viele Erwachsene selbst erst spät
+          oder nie gelernt, darüber zu sprechen. Das ist eine Lücke, die oft unbemerkt an
+          die nächste Generation weitergegeben wird.
         </p>
         <p>
-          EMORIA entwickelt wissenschaftlich fundierte, pädagogische Werkzeuge, die genau
-          hier ansetzen. Unser erstes Produkt, Yubuus Gefühlsrad, führt Kinder von vier bis
-          zehn Jahren durch einen klaren Ablauf: von der ersten Wahrnehmung eines Gefühls
-          über das Gespräch darüber bis hin zu der Frage, welches Bedürfnis eigentlich
-          dahintersteckt.
+          Genau deshalb war es dem Gründer wichtig, dass Kinder und Jugendliche schon
+          früh lernen, ihre Gefühle zu erkennen und darüber sprechen zu können. Jedes
+          Kind sollte im Bildungssystem die Möglichkeit haben, seine Gefühle
+          kennenzulernen und darüber sprechen zu dürfen, unabhängig davon, in welcher
+          Einrichtung es aufwächst. Wenn Kinder es nicht in der Kita, in der Schule oder
+          im Elternhaus lernen, wo dann?
         </p>
-        <p>
-          Im Mittelpunkt steht Yubuu, ein neugieriges Wesen ohne Geschlecht und ohne feste
-          Herkunft, geboren auf dem kleinen Planeten Lumora. Yubuu reist durch
-          verschiedene Welten, um zu verstehen, wie unterschiedlich Lebewesen fühlen.
-          Yubuu bewertet nicht, gibt keine richtigen Antworten vor, sondern fragt, staunt
-          und hört zu. Genau das macht es Kindern leicht, sich zu öffnen.
-        </p>
-        <img src={`${base}img/yubuu-spaceship.png`} alt="Yubuu reist durch das Universum" loading="lazy"
-          class="mx-auto w-full max-w-md rounded-[1.75rem] shadow-[var(--shadow-lift)]" />
-        <p>
-          Yubuus Gefühlsrad ist dabei erst der Anfang. EMORIA ist als wachsendes Universum
-          angelegt, aus dem nach und nach weitere Spiele, Materialien und Geschichten
-          entstehen sollen.
-        </p>
+        <p class="italic text-[var(--color-ink)]">Aus dieser Überzeugung ist EMORIA entstanden.</p>
       </div>
     </div>
 
-    <div class="mx-auto max-w-2xl space-y-6 px-6 py-20 text-lg text-[var(--color-ink-soft)]">
-      <p>
-        EMORIA ist ein junges Unternehmen aus Berlin, das pädagogische Werkzeuge für
-        emotionale Bildung entwickelt.
-      </p>
-      <p>
-        Unser Ausgangspunkt ist eine Beobachtung aus der täglichen Arbeit mit Kindern: Die
-        meisten Konflikte entstehen nicht aus böser Absicht, sondern weil Kindern schlicht
-        die Worte fehlen, um zu sagen, was in ihnen vorgeht. Und pädagogischen Fachkräften
-        fehlt im vollen Alltag oft das passende Material, um genau das zu ändern.
-      </p>
-      <p>
-        Alles, was bei EMORIA entsteht, kommt deshalb aus der Praxis, nicht vom
-        Schreibtisch. Jede Komponente wurde über Jahre hinweg mit Kindern erprobt, mit
-        Fachkräften besprochen und immer wieder überarbeitet, bis sie im echten Alltag
-        funktioniert.
-      </p>
-      <p>
-        Wir glauben, dass emotionale Kompetenzen genauso selbstverständlich gefördert
-        werden sollten wie Sprache oder Mathematik. Und dass gute pädagogische Materialien
-        Fachkräften Arbeit abnehmen sollten, statt ihnen zusätzliche aufzubürden.
-      </p>
-      <p class="text-center italic text-[var(--color-ink)]">Genau daran arbeiten wir.</p>
-    </div>
-
-    <div class="mx-auto max-w-3xl px-6 py-20 text-center">
-      <img src={`${base}img/yubuu-asteroid.png`} alt="Yubuu" class="mx-auto mb-4 h-28 w-auto drop-shadow-[0_14px_20px_rgba(43,42,40,0.16)]" />
-      <h2 class="text-3xl">Bring EMORIA in Ihre Kita</h2>
-      <p class="mx-auto mt-4 max-w-lg text-[var(--color-ink-soft)]">
-        Wenn Ihre Kita oder Praxis eine der ersten sein möchte, die EMORIA ausprobiert,
-        spricht Cemil gerne mit Ihnen.
-      </p>
-      <a href={`${base}contact`} class="mt-7 inline-block rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">
-        Kontakt aufnehmen
+    <div class="mx-auto max-w-2xl px-6 pb-20 text-center">
+      <a href={`${base}ueber-emoria`} class="font-[var(--font-body)] font-semibold text-[var(--color-brand)] hover:text-[var(--color-brand-deep)]">
+        Mehr über EMORIA →
       </a>
     </div>
   </article>

@@ -46,6 +46,7 @@ const t = FOOTER[lang] ?? FOOTER.de;
       <nav class="flex flex-col gap-2 text-[var(--color-ink-soft)]">
         <a href={`${prefix}?nointro=1`} class="hover:text-[var(--color-ink)]">{t.home}</a>
         <a href={`${prefix}about`} class="hover:text-[var(--color-ink)]">{t.about}</a>
+        {lang === 'de' && <a href={`${prefix}ueber-emoria`} class="hover:text-[var(--color-ink)]">Über EMORIA</a>}
         <a href={`${prefix}contact`} class="hover:text-[var(--color-ink)]">{t.contact}</a>
         <a href={`${prefix}legal`} class="hover:text-[var(--color-ink)]">{t.legal}</a>
       </nav>
