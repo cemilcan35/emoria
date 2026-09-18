@@ -1,9 +1,9 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Yubuu's Feeling Wheel — play a round</title>
+<title>Yubuus Gefühlsrad — spiel eine Runde</title>
 <style>
   /* ---- Self-hosted fonts (GDPR-safe, no CDN) ---- */
   @font-face {
@@ -163,6 +163,42 @@
   .pick-card.chosen { z-index: 5; cursor: default; }
   .pick-card.dismiss { opacity: 0; transform: scale(.82); pointer-events: none; }
 
+  /* ---- question cards: the real EMORIA cards (front: question, back: deck design) ----
+     Front and back share one shape (576:534) so the flip never changes size. */
+  .card-spread.q-spread { padding: 22px 34px 30px; }
+  .pick-card.q { width: clamp(112px, 17vw, 176px); height: auto; aspect-ratio: 576 / 534; }
+  .pick-card.q .cface {
+    padding: 0; border-radius: 6.5% / 7%; gap: 0;
+    box-shadow: 0 2px 6px rgba(43,42,40,.14), 0 14px 30px rgba(43,42,40,.16);
+  }
+  .pick-card.q .cback {
+    background: #f7efe0 url("assets/cards/back.webp") center / cover no-repeat;
+    border: 1px solid rgba(124,88,54,.18);
+  }
+  .pick-card.q .cback small {
+    left: 50%; right: auto; bottom: 9px; transform: translateX(-50%); white-space: nowrap;
+    padding: 3px 11px; border-radius: 999px; background: rgba(255,250,240,.86);
+    color: var(--ink-soft); font-size: .68rem; letter-spacing: .02em; text-transform: none; opacity: 1;
+  }
+  .pick-card.q .cfront { background: #6e457a; border: 0; }
+  .pick-card.q .cfront img { width: 100%; height: 100%; display: block; object-fit: fill; }
+  /* uniform purple rim so the slightly different screenshot crops all read as one frame */
+  .pick-card.q .cfront::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    box-shadow: inset 0 0 0 5px #6e457a;
+  }
+  .pick-card.q.chosen { width: min(480px, 100%, 56vh); }
+  /* the deck the card was drawn from: two backs peeking out behind the chosen question */
+  .deck-behind {
+    position: absolute; z-index: 1; pointer-events: none; border-radius: 6.5% / 7%;
+    background: #f7efe0 url("assets/cards/back.webp") center / cover no-repeat;
+    border: 1px solid rgba(124,88,54,.18);
+    box-shadow: 0 2px 6px rgba(43,42,40,.12), 0 10px 24px rgba(43,42,40,.14);
+    opacity: 0; transform: translate(0, 0) rotate(0deg);
+    transition: transform .55s cubic-bezier(.2,.85,.25,1), opacity .35s ease;
+  }
+  .deck-behind.out { opacity: 1; transform: translate(var(--dx), var(--dy)) rotate(var(--rot)); }
+
   /* ---- step 3 fit prompt (after a blitzcard is revealed) ---- */
   .fit-block { display: none; text-align: center; margin-top: 6px; animation: rise .45s ease both; }
   .fit-block.show { display: block; }
@@ -275,6 +311,9 @@
     .sit-cards { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
     .main { min-height: 0; }
     .feeling-name { font-size: 1.6rem; }
+    .card-spread.q-spread { padding: 14px 8px 22px; }
+    .pick-card.q { width: clamp(96px, 35vw, 140px); }
+    .card-spread { gap: 12px; }
   }
   @media (prefers-reduced-motion: reduce) {
     * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
@@ -284,21 +323,21 @@
 <body>
   <main class="stage" aria-live="polite">
     <div class="topbar" id="topbar" style="display:none">
-      <ol class="steps" id="steps" aria-label="Round steps — click to jump">
+      <ol class="steps" id="steps" aria-label="Schritte der Runde — zum Springen anklicken">
         <li></li><li></li><li></li><li></li><li></li>
       </ol>
-      <button class="btn ghost small" id="startOver" type="button">Start over</button>
+      <button class="btn ghost small" id="startOver" type="button">Neu starten</button>
     </div>
 
     <div class="main" id="main">
       <!-- INTRO -->
       <section class="panel active" data-step="intro">
         <div class="intro-wrap">
-          <img src="assets/yubuu-guide.png" alt="Yubuu, a small green space traveller" />
+          <img src="assets/yubuu-guide.png" alt="Yubuu, ein kleines grünes Wesen aus dem Weltraum" />
           <div>
             <p class="lead">Yubuu kennenlernen</p>
             <h2>Hilfst du mir, Gefühle zu verstehen?</h2>
-            <p class="body">Ich reise durch die Galaxie und besuche Planeten, auf denen Wesen alle möglichen Gefühle haben, die ich noch nicht verstehe. Ich bin keine Lehrerin, nur neugierig. Spiel eine Runde mit mir und zeig mir, wie sich ein Gefühl anfühlt.</p>
+            <p class="body">Ich reise durch die Galaxie und besuche Planeten, auf denen Wesen alle möglichen Gefühle haben, die ich noch nicht verstehe. Ich bin keine Lehrkraft, nur neugierig. Spiel eine Runde mit mir und zeig mir, wie sich ein Gefühl anfühlt.</p>
             <div class="btn-row"><button class="btn" data-go="spin">Los geht's</button></div>
           </div>
         </div>
@@ -309,12 +348,12 @@
         <div class="spin-stage">
           <div class="wheel-hold">
             <div class="pointer"></div>
-            <svg class="wheel" viewBox="-170 -170 340 340" role="img" aria-label="A wheel of twelve feeling faces">
+            <svg class="wheel" viewBox="-170 -170 340 340" role="img" aria-label="Ein Rad mit zwölf Gefühlsgesichtern">
               <g class="rot" id="rot"></g>
             </svg>
           </div>
           <div id="spinIntro">
-            <div class="btn-row"><button class="btn" id="spinBtn">Spin the wheel</button></div>
+            <div class="btn-row"><button class="btn" id="spinBtn">Rad drehen</button></div>
           </div>
           <div class="result" id="result">
             <div class="feeling-badge">
@@ -322,8 +361,8 @@
               <div class="feeling-name"><span id="rName"></span> <span class="dot" id="rDot" style="display:inline-block;vertical-align:middle;margin-left:6px"></span></div>
             </div>
             <div class="btn-row">
-              <button class="btn" data-go="question">Yes, this is my feeling</button>
-              <button class="btn ghost" id="respin">I'd rather spin again</button>
+              <button class="btn" data-go="question">Ja, das ist mein Gefühl</button>
+              <button class="btn ghost" id="respin">Ich drehe lieber nochmal</button>
             </div>
           </div>
         </div>
@@ -331,23 +370,23 @@
 
       <!-- QUESTION -->
       <section class="panel" data-step="question">
-        <div class="card-spread" id="qSpread" aria-label="Face-down question cards — pick one"></div>
+        <div class="card-spread" id="qSpread" aria-label="Verdeckte Fragekarten — zieh eine"></div>
         <div class="btn-row" style="justify-content:center">
-          <button class="btn" data-go="flash" id="qNext" disabled>Next</button>
+          <button class="btn" data-go="flash" id="qNext" disabled>Weiter</button>
         </div>
       </section>
 
       <!-- FLASH / BLITZCARDS -->
       <section class="panel" data-step="flash">
-        <div class="card-spread" id="fSpread" aria-label="Face-down blitz cards — pick one"></div>
+        <div class="card-spread" id="fSpread" aria-label="Verdeckte Blitzkarten — zieh eine"></div>
         <div class="fit-block" id="fFit">
           <div class="two-btn" id="fBtns">
-            <button class="btn" data-fit="yes">Yes, it fits</button>
-            <button class="btn ghost" data-fit="no">For me it's different</button>
+            <button class="btn" data-fit="yes">Ja, das passt</button>
+            <button class="btn ghost" data-fit="no">Bei mir ist es anders</button>
           </div>
         </div>
         <div class="btn-row" style="justify-content:center">
-          <button class="btn" data-go="situation" id="fNext" disabled>Next</button>
+          <button class="btn" data-go="situation" id="fNext" disabled>Weiter</button>
         </div>
       </section>
 
@@ -355,10 +394,10 @@
       <section class="panel" data-step="situation">
         <div class="sit-cards" id="sitCards"></div>
         <div class="place-row" id="placeRow">
-          <img class="token" id="sitToken" draggable="false" alt="Drag to give Yubuu your feeling" />
+          <img class="token" id="sitToken" draggable="false" alt="Zieh dein Gefühl auf Yubuu" />
         </div>
         <div class="btn-row" style="justify-content:center">
-          <button class="btn" data-go="needs" id="sNext" disabled>Next</button>
+          <button class="btn" data-go="needs" id="sNext" disabled>Weiter</button>
         </div>
       </section>
 
@@ -366,26 +405,26 @@
       <section class="panel" data-step="needs">
         <div class="needs-grid" id="needsGrid"></div>
         <div class="btn-row" style="justify-content:center">
-          <button class="btn" data-go="close" id="nNext" disabled>Finish the round</button>
+          <button class="btn" data-go="close" id="nNext" disabled>Runde beenden</button>
         </div>
       </section>
 
       <!-- CLOSE -->
       <section class="panel" data-step="close">
         <div class="adult-note">
-          In a Kita, a pedagogue guides this round with two to four children at once — spinning, drawing, and placing in turn. The wheel doesn't teach the "right" feeling. It gives children the words for what they already carry, and a calm place to say it out loud.
+          In der Kita begleitet eine pädagogische Fachkraft diese Runde mit zwei bis vier Kindern gleichzeitig: Sie drehen, ziehen Karten und legen der Reihe nach. Das Rad bringt den Kindern kein „richtiges“ Gefühl bei. Es gibt ihnen Worte für das, was sie ohnehin in sich tragen, und einen ruhigen Ort, es laut auszusprechen.
         </div>
-        <div class="btn-row"><button class="btn" data-go="spin" id="again">Play another round</button></div>
+        <div class="btn-row"><button class="btn" data-go="spin" id="again">Noch eine Runde spielen</button></div>
       </section>
     </div>
 
     <div class="narration">
       <img src="assets/yubuu-guide.png" alt="" aria-hidden="true" />
       <div class="bubble" id="say"></div>
-      <div class="feeling-tag" id="feelingTag" hidden aria-label="Your feeling for this round">
+      <div class="feeling-tag" id="feelingTag" hidden aria-label="Dein Gefühl in dieser Runde">
         <img id="tagHead" alt="" />
         <span class="tag-label">
-          <span class="tag-small">Your feeling</span>
+          <span class="tag-small">Dein Gefühl</span>
           <span class="tag-name" id="tagName"></span>
         </span>
       </div>
@@ -399,67 +438,76 @@
   // face <-> name pairing is PROVISIONAL placeholder art; Cemil confirms the
   // canonical 12 later. Order matches the site's DemoWheel + emotion legend.
   const EMOTIONS = [
-    { name: "Joy",        head: "head-08", color: "#f0b93d" },
-    { name: "Calm",       head: "head-05", color: "#8fb8a6" },
-    { name: "Sadness",    head: "head-03", color: "#6f8fc9" },
-    { name: "Fear",       head: "head-04", color: "#9a8bc6" },
-    { name: "Curiosity",  head: "head-09", color: "#55a79f" },
-    { name: "Surprise",   head: "head-02", color: "#e79a52" },
-    { name: "Love",       head: "head-12", color: "#e5868f" },
-    { name: "Excitement", head: "head-06", color: "#ec7fa0" },
-    { name: "Pride",      head: "head-07", color: "#d3a24a" },
-    { name: "Jealousy",   head: "head-11", color: "#7fa86a" },
-    { name: "Shyness",    head: "head-10", color: "#e6b09b" },
-    { name: "Anger",      head: "head-01", color: "#d95f3b" },
+    { name: "Freude",        head: "head-08", color: "#f0b93d" },
+    { name: "Ruhe",       head: "head-05", color: "#8fb8a6" },
+    { name: "Traurigkeit",    head: "head-03", color: "#6f8fc9" },
+    { name: "Angst",       head: "head-04", color: "#9a8bc6" },
+    { name: "Neugier",  head: "head-09", color: "#55a79f" },
+    { name: "Überraschung",   head: "head-02", color: "#e79a52" },
+    { name: "Liebe",       head: "head-12", color: "#e5868f" },
+    { name: "Aufregung", head: "head-06", color: "#ec7fa0" },
+    { name: "Stolz",      head: "head-07", color: "#d3a24a" },
+    { name: "Eifersucht",   head: "head-11", color: "#7fa86a" },
+    { name: "Schüchternheit",    head: "head-10", color: "#e6b09b" },
+    { name: "Wut",      head: "head-01", color: "#d95f3b" },
   ];
   const headSrc = (h) => `assets/heads/${h}.png`;
 
+  // the 14 printed question cards (front = question art, all sharing the deck back)
   const QUESTIONS = [
-    "When did you last feel this way?",
-    "What helps you when you feel like this?",
-    "Where do you notice this feeling in your body?",
-    "If this feeling had a colour, which one would it be?",
-    "Is this feeling a friend, or not so much?",
-    "Who do you like to be near when you feel this way?",
+    { img: "q-01", text: "Was ist passiert, als du so gefühlt hast?" },
+    { img: "q-02", text: "Warst du alleine oder war jemand bei dir?" },
+    { img: "q-03", text: "Was hast du dann gemacht?" },
+    { img: "q-04", text: "Warst du zuhause oder woanders?" },
+    { img: "q-05", text: "War das Gefühl stark oder ein bisschen?" },
+    { img: "q-06", text: "Wie lange hatte das Gefühl gedauert?" },
+    { img: "q-07", text: "Was ist danach passiert?" },
+    { img: "q-08", text: "Hast du das jemandem erzählt?" },
+    { img: "q-09", text: "Was macht dein Mund, wenn du so fühlst?" },
+    { img: "q-10", text: "Was machen deine Hände, wenn du so fühlst?" },
+    { img: "q-11", text: "Möchtest du dich bewegen oder lieber sitzen?" },
+    { img: "q-12", text: "Möchtest du dann weinen oder lachen?" },
+    { img: "q-13", text: "Bekommst du Energie oder wirst du müde?" },
+    { img: "q-14", text: "Möchtest du dann alleine sein oder bei jemandem?" },
   ];
 
   const FLASH = [
-    { emoji: "⛈️", text: "When it thunders and lightning flashes outside…" },
-    { emoji: "🎈", text: "When it's my turn in front of everyone…" },
-    { emoji: "🎁", text: "When someone hands me a surprise…" },
-    { emoji: "🌙", text: "When the lights go out at bedtime…" },
+    { emoji: "⛈️", text: "Wenn es draußen donnert und blitzt …" },
+    { emoji: "🎈", text: "Wenn ich vor allen dran bin …" },
+    { emoji: "🎁", text: "Wenn mir jemand eine Überraschung überreicht …" },
+    { emoji: "🌙", text: "Wenn beim Schlafengehen das Licht ausgeht …" },
   ];
 
   // face target = fraction of the COVER-CROPPED box (x & diameter of box width, y of box height).
   // oy = object-position Y for the scene (frames each image inside the uniform 5:6 box).
   const SITUATIONS = [
-    { img: "sit-1", title: "Your ice cream falls on the ground.",         oy: 30, fx: .470, fy: .315, fd: .30 },
-    { img: "sit-2", title: "You make a mistake, and others laugh.",        oy: 34, fx: .365, fy: .265, fd: .30 },
-    { img: "sit-3", title: "You do something for the first time, alone.",  oy: 30, fx: .665, fy: .400, fd: .30 },
-    { img: "sit-4", title: "You share something with someone.",           oy: 40, fx: .330, fy: .420, fd: .30 },
+    { img: "sit-1", title: "Dein Eis fällt auf den Boden.",         oy: 30, fx: .470, fy: .315, fd: .30 },
+    { img: "sit-2", title: "Du machst einen Fehler und die anderen lachen.",        oy: 34, fx: .365, fy: .265, fd: .30 },
+    { img: "sit-3", title: "Du schaffst etwas zum ersten Mal alleine.",  oy: 30, fx: .665, fy: .400, fd: .30 },
+    { img: "sit-4", title: "Du teilst etwas mit jemandem.",           oy: 40, fx: .330, fy: .420, fd: .30 },
   ];
 
   // z = per-image zoom for the circular thumb. Most cards have a baked-in dashed
   // border + edge margin; a slight zoom crops it out cleanly. Tuned per image.
   const NEEDS = [
-    { label: "A hug",              img: "need-01", z: 1.06 },
-    { label: "Talking to someone", img: "need-02", z: 1.15 },
-    { label: "Playing",            img: "need-06", z: 1.15 },
-    { label: "Being outside",      img: "need-08", z: 1.14 },
-    { label: "Listening to music", img: "need-11", z: 1.14 },
-    { label: "Drawing",            img: "need-10", z: 1.15 },
-    { label: "A quiet, cozy spot", img: "need-05", z: 1.16 },
-    { label: "Sleep",              img: "need-04", z: 1.13 },
+    { label: "Eine Umarmung",              img: "need-01", z: 1.06 },
+    { label: "Mit jemandem reden", img: "need-02", z: 1.15 },
+    { label: "Spielen",            img: "need-06", z: 1.15 },
+    { label: "Draußen sein",      img: "need-08", z: 1.14 },
+    { label: "Musik hören", img: "need-11", z: 1.14 },
+    { label: "Malen",            img: "need-10", z: 1.15 },
+    { label: "Ein ruhiger, gemütlicher Ort", img: "need-05", z: 1.16 },
+    { label: "Schlafen",              img: "need-04", z: 1.13 },
   ];
 
   const SAY = {
-    intro:     "Hello! I'm so glad you're here.",
-    spin:      "This is my feeling wheel! Give it a spin — whichever feeling it lands on becomes yours for the round. There's no right or wrong one to get.",
-    question:  "Now pick one of my question cards. Tap any one — there's no wrong card to choose.",
-    flash:     "These are my blitz cards — little moments I collected on my travels. Pick one!",
-    situation: "Look, that's me in three moments — but I have no face yet! Drag your feeling onto the moment where it fits. If a moment doesn't speak to you, you can change its card.",
-    needs:     "Every feeling is pointing at something it needs. What would help you right now? Pick one.",
-    close:     "Thank you for teaching me! You found a feeling, sat with it, and found what it needs. Nothing was scored — nothing was wrong. Shall we go around once more?",
+    intro:     "Hallo! Ich freue mich so, dass du da bist.",
+    spin:      "Das ist mein Gefühlsrad! Dreh es einmal – das Gefühl, bei dem es stehen bleibt, gehört für diese Runde dir. Es gibt kein richtiges oder falsches Gefühl.",
+    question:  "Jetzt darfst du eine meiner Fragekarten ziehen. Tipp auf eine Karte – keine Karte ist falsch.",
+    flash:     "Das sind meine Blitzkarten – kleine Momente, die ich auf meinen Reisen gesammelt habe. Zieh eine!",
+    situation: "Schau, das bin ich in drei Momenten – aber mir fehlt noch das Gesicht! Zieh dein Gefühl auf den Moment, zu dem es passt. Wenn dir ein Moment nichts sagt, kannst du die Karte tauschen.",
+    needs:     "Hinter jedem Gefühl steckt etwas, das es braucht. Was würde dir gerade helfen? Such dir eins aus.",
+    close:     "Danke, dass du mir geholfen hast! Du hast ein Gefühl gefunden, es ein Stück begleitet und entdeckt, was es braucht. Nichts wurde bewertet – nichts war falsch. Sollen wir noch eine Runde drehen?",
   };
 
   const ORDER = ["intro", "spin", "question", "flash", "situation", "needs", "close"];
@@ -516,10 +564,11 @@
 
   // clickable step dots — jump straight to that step
   const STEP_ORDER = ["spin", "question", "flash", "situation", "needs"];
+  const STEP_LABEL = ["Rad", "Frage", "Blitzkarte", "Situation", "Bedürfnis"];
   stepDots.forEach((d, i) => {
     d.setAttribute("role", "button");
     d.setAttribute("tabindex", "0");
-    d.setAttribute("aria-label", `Go to step ${i + 1}: ${STEP_ORDER[i]}`);
+    d.setAttribute("aria-label", `Zu Schritt ${i + 1} springen: ${STEP_LABEL[i]}`);
     const jump = () => go(STEP_ORDER[i]);
     d.addEventListener("click", jump);
     d.addEventListener("keydown", (e) => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); jump(); } });
@@ -592,7 +641,7 @@
       spinIntro.style.display = "none";
       svgWheel.classList.add("is-dim");
       result.classList.add("show");
-      say.textContent = `Ooh — ${chosen.name}! Is this a feeling you know? That one is yours now. If it doesn't feel right, you can always spin again — you choose.`;
+      say.textContent = `Oh – ${chosen.name}! Kennst du dieses Gefühl? Das gehört jetzt dir. Wenn es sich nicht richtig anfühlt, kannst du jederzeit nochmal drehen – du entscheidest.`;
       spinning = false;
       $("#respin").disabled = false;
     }, dur + 80);
@@ -605,18 +654,19 @@
 
   // build a row of face-down cards; clicking one glides it to centre and flips it
   function buildSpread(spread, kindClass, items, renderFront, onReveal) {
+    const isQ = kindClass === "q";
     spread.classList.remove("picked");
+    spread.classList.toggle("q-spread", isQ);
     spread.innerHTML = "";
-    const mark = kindClass === "b" ? "!" : "?";
-    const label = kindClass === "b" ? "a blitz card" : "a question card";
+    const label = isQ ? "eine Fragekarte" : "eine Blitzkarte";
     items.forEach((item) => {
       const card = document.createElement("div");
       card.className = "pick-card " + kindClass;
       card.setAttribute("role", "button");
       card.setAttribute("tabindex", "0");
-      card.setAttribute("aria-label", "Turn over " + label);
+      card.setAttribute("aria-label", "Karte umdrehen: " + label);
       card.innerHTML =
-        `<div class="cface cback"><span class="cmark">${mark}</span><small>tap to turn over</small></div>` +
+        `<div class="cface cback">${isQ ? "" : '<span class="cmark">!</span>'}<small>antippen zum Umdrehen</small></div>` +
         `<div class="cface cfront">${renderFront(item)}</div>`;
       const pick = () => choosePick(spread, card, item, onReveal);
       card.addEventListener("click", pick);
@@ -629,44 +679,67 @@
     if (spread.classList.contains("picked")) return;
     spread.classList.add("picked");
     const others = $$(".pick-card", spread).filter((c) => c !== card);
-    card.setAttribute("aria-label", "Chosen card");
+    card.setAttribute("aria-label", "Gezogene Karte");
 
     if (reduceMotion()) {
       others.forEach((c) => c.remove());
       card.classList.add("chosen", "flipped");
-      if (onReveal) onReveal(item);
+      if (onReveal) onReveal(item, card);
       return;
     }
 
-    // measure while siblings still occupy the layout, then fade them and FLIP
+    // measure while siblings still occupy the layout, then fade them and FLIP.
+    // Question cards also grow to reading size, so the FLIP carries a scale too.
     const first = card.getBoundingClientRect();
     others.forEach((c) => c.classList.add("dismiss"));
     setTimeout(() => {
       others.forEach((c) => (c.style.display = "none"));
       card.classList.add("chosen");
       const last = card.getBoundingClientRect();
-      const dx = first.left - last.left, dy = first.top - last.top;
+      const s0 = first.width / last.width;
+      const dx = (first.left + first.width / 2) - (last.left + last.width / 2);
+      const dy = (first.top + first.height / 2) - (last.top + last.height / 2);
+      const endScale = spread.classList.contains("q-spread") ? 1 : 1.14;
       card.style.transition = "none";
-      card.style.transform = `translate(${dx}px, ${dy}px)`;
+      card.style.transform = `translate(${dx}px, ${dy}px) scale(${s0}) rotateY(0deg)`;
       void card.offsetWidth; // force reflow so the invert takes hold
       card.style.transition = "";
-      card.style.transform = "translate(0,0) scale(1.14) rotateY(180deg)";
+      card.style.transform = `translate(0px, 0px) scale(${endScale}) rotateY(180deg)`;
       let done = false;
-      const finish = () => { if (done) return; done = true; if (onReveal) onReveal(item); };
+      const finish = () => { if (done) return; done = true; if (onReveal) onReveal(item, card); };
       card.addEventListener("transitionend", (e) => { if (e.propertyName === "transform") finish(); }, { once: true });
       setTimeout(finish, 850); // fallback — transitionend is flaky for transforms
       setTimeout(() => others.forEach((c) => c.remove()), 120);
     }, 220);
   }
 
+  // two card backs peek out behind the drawn question — the deck it came from
+  function addDeckBehind(spread, card) {
+    $$(".deck-behind", spread).forEach((d) => d.remove());
+    [[-5, -16, 9], [4, 14, 13]].forEach(([rot, dx, dy]) => {
+      const d = document.createElement("div");
+      d.className = "deck-behind";
+      d.style.left = card.offsetLeft + "px";
+      d.style.top = card.offsetTop + "px";
+      d.style.width = card.offsetWidth + "px";
+      d.style.height = card.offsetHeight + "px";
+      d.style.setProperty("--rot", rot + "deg");
+      d.style.setProperty("--dx", dx + "px");
+      d.style.setProperty("--dy", dy + "px");
+      spread.insertBefore(d, card);
+      requestAnimationFrame(() => requestAnimationFrame(() => d.classList.add("out")));
+    });
+  }
+
   // ---------------- QUESTION (step 2) ----------------
   function setupQuestion() {
     $("#qNext").disabled = true;
     buildSpread($("#qSpread"), "q", shuffle(QUESTIONS).slice(0, 5),
-      (q) => `<span class="q-text">${q}</span>`,
-      () => {
+      (q) => `<img src="assets/cards/${q.img}.webp" alt="Fragekarte: ${q.text}" draggable="false" />`,
+      (q, card) => {
+        addDeckBehind($("#qSpread"), card);
         $("#qNext").disabled = false;
-        say.textContent = "Ooh, a good one! Say your answer out loud, or just think it — I'm listening either way. There's no wrong answer. When you're ready, go on.";
+        say.textContent = "Oh, eine gute Frage! Sag deine Antwort laut oder denk sie nur – ich höre dir in beiden Fällen zu. Es gibt keine falsche Antwort. Wenn du bereit bist, geht es weiter.";
       });
   }
 
@@ -679,15 +752,15 @@
       (f) => `<span class="b-emoji">${f.emoji}</span><span class="b-text">${f.text}</span>`,
       () => {
         $("#fFit").classList.add("show");
-        say.textContent = "Hmm — does your feeling fit this moment? Some children would say yes, some would say no. Both are right — that's the whole secret.";
+        say.textContent = "Hmm – passt dein Gefühl zu diesem Moment? Manche Kinder sagen ja, manche sagen nein. Beides ist richtig – das ist das ganze Geheimnis.";
       });
   }
   $$("#fBtns .btn").forEach((b) =>
     b.addEventListener("click", () => {
       const yes = b.dataset.fit === "yes";
       say.textContent = yes
-        ? "Good! And if a friend felt the opposite about the very same moment — that would be right too."
-        : "That's completely okay. The same moment can bring a different feeling to each of us. There's no wrong answer.";
+        ? "Gut! Und wenn ein Freund bei genau demselben Moment das Gegenteil fühlt – wäre das genauso richtig."
+        : "Das ist völlig in Ordnung. Derselbe Moment kann bei jedem von uns ein anderes Gefühl auslösen. Es gibt keine falsche Antwort.";
       $$("#fBtns .btn").forEach((x) => (x.disabled = true));
       $("#fNext").disabled = false;
     })
@@ -708,14 +781,14 @@
   function sitCardInner(s) {
     return `
       <div class="sit-img-hold">
-        <img class="scene" style="--oy:${s.oy}%" src="assets/situations/${s.img}.png" alt="An everyday moment; Yubuu has no face yet" />
+        <img class="scene" style="--oy:${s.oy}%" src="assets/situations/${s.img}.png" alt="Ein Alltagsmoment – Yubuu hat noch kein Gesicht" />
         <div class="face-slot" style="left:${s.fx * 100}%;top:${s.fy * 100}%;width:${s.fd * 100}%;aspect-ratio:1">
           <div class="ring"></div><img class="faceHead" src="${headSrc(chosen.head)}" alt="" />
         </div>
       </div>
       <figcaption>${s.title}</figcaption>
-      <button class="change-btn" type="button" aria-label="Show a different moment">
-        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Change it
+      <button class="change-btn" type="button" aria-label="Einen anderen Moment zeigen">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>Tauschen
       </button>`;
   }
 
@@ -737,7 +810,7 @@
     card.dataset.img = spare.img;
     card.innerHTML = sitCardInner(spare);
     wireSitCard(card);
-    say.textContent = "A different moment — pick whichever one feels closest to your feeling.";
+    say.textContent = "Ein anderer Moment – such dir den aus, der am besten zu deinem Gefühl passt.";
   }
 
   function setupSituation() {
@@ -760,7 +833,7 @@
     $$(".sit-card .ring", sitCards).forEach((r) => (r.style.display = "none"));
     $$(".change-btn", sitCards).forEach((b) => (b.style.display = "none"));
     $("#placeRow").style.display = "none";
-    say.textContent = "Now I feel it too. Another child might choose a different moment — and that would fit just as well.";
+    say.textContent = "Jetzt fühle ich es auch. Ein anderes Kind könnte einen anderen Moment wählen – und das würde genauso gut passen.";
     $("#sNext").disabled = false;
   }
 
@@ -815,7 +888,7 @@
         $$(".need", needsGrid).forEach((x) => x.classList.remove("sel"));
         b.classList.add("sel");
         needsGrid.classList.add("chosen");
-        say.textContent = `"${NEEDS[b.dataset.i].label}" — that's a good thing to know about yourself.`;
+        say.textContent = `„${NEEDS[b.dataset.i].label}“ – schön, dass du das über dich weißt.`;
         $("#nNext").disabled = false;
       })
     );
