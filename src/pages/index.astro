@@ -75,56 +75,46 @@ const panels = [
     <button type="button" class="intro-skip" data-intro-skip>Überspringen</button>
   </div>
 
-  <!-- TOP MENU — left edge aligns to the right of the strips left of the open panel -->
+  <!-- TOP MENU — left edge aligns to the right of the strips left of the open panel.
+       Two tiers: a quiet utility row (brand + secondary links), and the three
+       audience tabs hanging off its bottom edge like register tabs. -->
   <header class="topbar" data-topbar style="left:0;right:calc(3 * var(--stripw))">
-    <button class="brand" data-open="home" aria-label="Zurück zum Anfang">EMORIA</button>
-    <nav class="topnav" data-desktop-nav>
-      <a class="topnav-audience" href={`${base}fuer-kindergaerten`}><img src={`${base}img/audience-kindergarten.png`} alt="" aria-hidden="true" />Kindergarten</a>
-      <a class="topnav-audience" href={`${base}fuer-schulen`}><img src={`${base}img/audience-schule.png`} alt="" aria-hidden="true" />Schule</a>
-      <a class="topnav-audience" href={`${base}fuer-eltern`}><img src={`${base}img/audience-eltern.png`} alt="" aria-hidden="true" />Eltern</a>
-      <a href={`${base}about`}>Über uns</a>
-      <a href={`${base}ueber-emoria`}>Über EMORIA</a>
-      <a href={`${base}contact`}>Kontakt</a>
-      <div class="lang-switch">
-        <button type="button" class="lang-trigger" aria-label="Sprache wählen">🌐 DE</button>
-        <ul class="lang-menu">
-          <li><a href={base}>Deutsch <span>DE</span></a></li>
-          <li><a href={`${base}en/`}>English <span>EN</span></a></li>
-          <li><a href={`${base}fr/`}>Français <span>FR</span></a></li>
-          <li class="disabled" title="In Vorbereitung">Español <span>ES</span></li>
-          <li><a href={`${base}tr/`}>Türkçe <span>TR</span></a></li>
-          <li class="disabled" title="In Vorbereitung">Dansk <span>DA</span></li>
-          <li class="disabled" title="In Vorbereitung">Svenska <span>SV</span></li>
-          <li class="disabled" title="In Vorbereitung">Norsk <span>NO</span></li>
-          <li class="disabled" title="In Vorbereitung">Suomi <span>FI</span></li>
-        </ul>
-      </div>
+    <div class="topbar-row">
+      <button class="brand" data-open="home" aria-label="Zurück zum Anfang">EMORIA</button>
+      <nav class="topnav" aria-label="Weitere Seiten">
+        <a href={`${base}ueber-emoria`}>Über EMORIA</a>
+        <a href={`${base}contact`}>Kontakt</a>
+        <div class="lang-switch">
+          <button type="button" class="lang-trigger" aria-label="Sprache wählen">🌐 DE</button>
+          <ul class="lang-menu">
+            <li><a href={base}>Deutsch <span>DE</span></a></li>
+            <li><a href={`${base}en/`}>English <span>EN</span></a></li>
+            <li><a href={`${base}fr/`}>Français <span>FR</span></a></li>
+            <li class="disabled" title="In Vorbereitung">Español <span>ES</span></li>
+            <li><a href={`${base}tr/`}>Türkçe <span>TR</span></a></li>
+            <li class="disabled" title="In Vorbereitung">Dansk <span>DA</span></li>
+            <li class="disabled" title="In Vorbereitung">Svenska <span>SV</span></li>
+            <li class="disabled" title="In Vorbereitung">Norsk <span>NO</span></li>
+            <li class="disabled" title="In Vorbereitung">Suomi <span>FI</span></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+    <nav class="aud-tabs" aria-label="Bereiche">
+      <a class="aud-tab" href={`${base}fuer-kindergaerten`}>
+        <img src={`${base}img/audience-kindergarten.png`} alt="" aria-hidden="true" />
+        <span class="aud-txt"><b>Kindergarten</b><span>Für Kitas und Vorschule</span></span>
+      </a>
+      <a class="aud-tab" href={`${base}fuer-schulen`}>
+        <img src={`${base}img/audience-schule.png`} alt="" aria-hidden="true" />
+        <span class="aud-txt"><b>Schule</b><span>Für die Grundschule</span></span>
+      </a>
+      <a class="aud-tab" href={`${base}fuer-eltern`}>
+        <img src={`${base}img/audience-eltern.png`} alt="" aria-hidden="true" />
+        <span class="aud-txt"><b>Eltern</b><span>Für zuhause</span></span>
+      </a>
     </nav>
-    <button type="button" class="menu-btn" data-menu-toggle aria-label="Menü öffnen" aria-expanded="false" aria-controls="mobileDrawer">
-      <span></span><span></span><span></span>
-    </button>
   </header>
-
-  <!-- MOBILE DRAWER — full nav for <768px, off-canvas from the right -->
-  <div class="drawer" data-mobile-drawer id="mobileDrawer" aria-hidden="true">
-    <div class="drawer-backdrop" data-drawer-backdrop></div>
-    <nav class="drawer-panel" data-drawer-panel aria-label="Hauptnavigation">
-      <button type="button" class="drawer-close" data-drawer-close aria-label="Menü schließen">✕</button>
-      <a class="drawer-audience" href={`${base}fuer-kindergaerten`}><img src={`${base}img/audience-kindergarten.png`} alt="" aria-hidden="true" />Kindergarten</a>
-      <a class="drawer-audience" href={`${base}fuer-schulen`}><img src={`${base}img/audience-schule.png`} alt="" aria-hidden="true" />Schule</a>
-      <a class="drawer-audience" href={`${base}fuer-eltern`}><img src={`${base}img/audience-eltern.png`} alt="" aria-hidden="true" />Eltern</a>
-      <a href={`${base}about`}>Über uns</a>
-      <a href={`${base}ueber-emoria`}>Über EMORIA</a>
-      <a href={`${base}contact`}>Kontakt</a>
-      <div class="drawer-langs">
-        <p class="drawer-langs-label">Sprache</p>
-        <a href={base}>Deutsch <span>DE</span></a>
-        <a href={`${base}en/`}>English <span>EN</span></a>
-        <a href={`${base}fr/`}>Français <span>FR</span></a>
-        <a href={`${base}tr/`}>Türkçe <span>TR</span></a>
-      </div>
-    </nav>
-  </div>
 
   <div class="rail" data-rail>
     {panels.map((p, i) => (
@@ -351,33 +341,6 @@ const panels = [
 
       setOpen('home');
 
-      // ---- Mobile drawer: hamburger opens/closes the off-canvas nav ----
-      const menuBtn = document.querySelector('[data-menu-toggle]');
-      const drawer = document.querySelector('[data-mobile-drawer]');
-      const drawerBackdrop = document.querySelector('[data-drawer-backdrop]');
-      const drawerClose = document.querySelector('[data-drawer-close]');
-      if (menuBtn && drawer) {
-        function openDrawer() {
-          drawer.classList.add('is-open');
-          drawer.setAttribute('aria-hidden', 'false');
-          menuBtn.setAttribute('aria-expanded', 'true');
-          document.body.classList.add('drawer-lock');
-        }
-        function closeDrawer() {
-          drawer.classList.remove('is-open');
-          drawer.setAttribute('aria-hidden', 'true');
-          menuBtn.setAttribute('aria-expanded', 'false');
-          document.body.classList.remove('drawer-lock');
-        }
-        menuBtn.addEventListener('click', openDrawer);
-        drawerClose?.addEventListener('click', closeDrawer);
-        drawerBackdrop?.addEventListener('click', closeDrawer);
-        drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeDrawer));
-        document.addEventListener('keydown', (e) => {
-          if (e.key === 'Escape' && drawer.classList.contains('is-open')) closeDrawer();
-        });
-      }
-
       // ---- Gefühlsrad: "Spiel entdecken" swaps the Yubuu intro for the game ----
       document.querySelectorAll('[data-wheel-start]').forEach((btn) => {
         btn.addEventListener('click', (e) => {
@@ -451,25 +414,26 @@ const panels = [
     .intro.is-handoff .intro-skip { opacity: 0; pointer-events: none; }
     @media (prefers-reduced-motion: reduce) { .intro { display: none; } }
 
-    /* TOP MENU */
-    .topbar { position: fixed; top: 0; z-index: 40; height: 66px; display: flex; align-items: center;
-      justify-content: space-between; padding: 0 clamp(1.2rem, 2.6vw, 2.2rem);
+    /* TOP MENU — two tiers: quiet utility row, then the audience tabs */
+    .topbar { position: fixed; top: 0; z-index: 40; display: flex; flex-direction: column;
+      padding: 10px clamp(1.2rem, 2.6vw, 2.2rem) 0;
       transition: left .62s cubic-bezier(.72,0,.14,1), right .62s cubic-bezier(.72,0,.14,1); }
+    .topbar-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     .brand { background: none; border: 0; cursor: pointer; font-family: 'Fredoka Variable', sans-serif;
-      font-weight: 600; font-size: 22px; letter-spacing: .02em; color: #2b2a28; }
-    .topnav { display: flex; align-items: center; gap: 1.15rem; }
-    .topnav a { font-family: 'Rubik Variable', sans-serif; font-weight: 500; font-size: 15px;
-      color: #2b2a28; text-decoration: none; opacity: .78; transition: opacity .2s;
-      display: inline-flex; align-items: center; min-height: 44px; }
+      font-weight: 600; font-size: 22px; letter-spacing: .02em; color: #2b2a28; padding: 0; }
+
+    /* secondary links — deliberately quieter than the audience tabs */
+    .topnav { display: flex; align-items: center; gap: 1rem; }
+    .topnav a { font-family: 'Rubik Variable', sans-serif; font-weight: 500; font-size: 13px;
+      color: #2b2a28; text-decoration: none; opacity: .7; transition: opacity .2s;
+      display: inline-flex; align-items: center; min-height: 34px; }
     .topnav a:hover { opacity: 1; }
-    .topnav-audience { gap: .45rem; }
-    .topnav-audience img { width: 50px; height: 50px; border-radius: 14px; object-fit: cover;
-      box-shadow: 0 2px 6px rgba(43,42,40,.2); }
     .lang-switch { position: relative; }
     .lang-trigger { background: none; border: 0; cursor: pointer; font-family: 'Rubik Variable', sans-serif;
-      font-weight: 500; font-size: 15px; color: #2b2a28; opacity: .78; transition: opacity .2s; }
+      font-weight: 500; font-size: 13px; color: #2b2a28; opacity: .7; transition: opacity .2s;
+      min-height: 34px; padding: 0; }
     .lang-trigger:hover { opacity: 1; }
-    .lang-menu { position: absolute; right: 0; top: calc(100% + 10px); z-index: 10; margin: 0;
+    .lang-menu { position: absolute; right: 0; top: calc(100% + 8px); z-index: 10; margin: 0;
       list-style: none; width: 10.5rem; padding: .4rem; border-radius: 14px;
       background: #fff; border: 1px solid #ecdcc4; box-shadow: 0 20px 48px rgba(43,42,40,.12);
       opacity: 0; visibility: hidden; transform: translateY(-4px);
@@ -484,43 +448,41 @@ const panels = [
     .lang-menu li:not(.disabled):hover { background: #fff1e4; }
     .lang-menu li.disabled { color: #a89f8f; cursor: not-allowed; }
 
-    /* ---- Hamburger button: hidden on desktop, shown <=768px ---- */
-    .menu-btn { display: none; flex-direction: column; justify-content: center; align-items: center;
-      gap: 5px; width: 44px; height: 44px; border: 0; background: none; cursor: pointer; flex-shrink: 0; }
-    .menu-btn span { display: block; width: 22px; height: 2px; background: #2b2a28; border-radius: 2px; }
-
-    /* ---- Mobile drawer: off-canvas nav, all links + languages ---- */
-    .drawer { position: fixed; inset: 0; z-index: 90; visibility: hidden; }
-    .drawer.is-open { visibility: visible; }
-    .drawer-backdrop { position: absolute; inset: 0; background: rgba(43,42,40,.45);
-      opacity: 0; transition: opacity .28s ease; }
-    .drawer.is-open .drawer-backdrop { opacity: 1; }
-    .drawer-panel { position: absolute; top: 0; right: 0; height: 100%; width: min(82vw, 320px);
-      background: #fff1e4; box-shadow: -12px 0 40px rgba(43,42,40,.18);
-      display: flex; flex-direction: column; gap: .3rem; padding: 5rem 1.6rem 2rem;
-      transform: translateX(100%); transition: transform .32s cubic-bezier(.32,.72,.35,1); overflow-y: auto; }
-    .drawer.is-open .drawer-panel { transform: none; }
-    .drawer-panel a { font-family: 'Fredoka Variable', sans-serif; font-weight: 600; font-size: 19px;
-      color: #2b2a28; text-decoration: none; padding: .85rem .2rem; border-bottom: 1px solid #ecdcc4;
-      min-height: 44px; display: flex; align-items: center; }
-    .drawer-audience { gap: .7rem; }
-    .drawer-audience img { width: 68px; height: 68px; border-radius: 18px; object-fit: cover;
-      box-shadow: 0 2px 8px rgba(43,42,40,.2); }
-    .drawer-close { position: absolute; top: 1.2rem; right: 1.2rem; width: 44px; height: 44px;
-      border: 0; background: none; font-size: 20px; cursor: pointer; color: #2b2a28; }
-    .drawer-langs { margin-top: 1.2rem; display: flex; flex-direction: column; gap: .2rem; }
-    .drawer-langs-label { font-family: 'Rubik Variable', sans-serif; font-size: 12px; font-weight: 600;
-      letter-spacing: .1em; text-transform: uppercase; color: #a89f8f; margin: 0 0 .3rem; }
-    .drawer-langs a { font-family: 'Rubik Variable', sans-serif; font-weight: 500; font-size: 16px;
-      display: flex; justify-content: space-between; border-bottom: none; padding: .6rem .2rem; }
-    .drawer-langs a span { color: #a89f8f; }
-    body.drawer-lock { overflow: hidden; }
+    /* ---- audience tabs: register tabs hanging off the header's bottom edge ---- */
+    .aud-tabs { display: flex; align-items: flex-end; gap: 6px; margin-top: 8px;
+      border-bottom: 1px solid rgba(43,42,40,.10); }
+    .aud-tab { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: #2b2a28;
+      background: rgba(255,255,255,.66); border: 1px solid rgba(43,42,40,.08); border-bottom: 0;
+      border-radius: 15px 15px 0 0; padding: 7px 16px 8px 7px;
+      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
+      transition: background .2s, transform .2s; }
+    .aud-tab:hover { background: #fff; transform: translateY(-2px); }
+    .aud-tab img { width: 46px; height: 46px; border-radius: 13px; object-fit: cover; flex: none;
+      box-shadow: 0 2px 6px rgba(43,42,40,.2); }
+    .aud-txt { display: flex; flex-direction: column; line-height: 1.2; }
+    .aud-txt b { font-family: 'Fredoka Variable', sans-serif; font-weight: 600; font-size: 15px; }
+    .aud-txt span { font-family: 'Rubik Variable', sans-serif; font-size: 11.5px; color: #8a8378; }
 
     @media (max-width: 768px) {
-      .topnav { display: none; }
-      .menu-btn { display: flex; }
-      .topbar { left: 0 !important; right: 0 !important; padding: 0 1rem; }
-      .brand { font-size: 19px; }
+      /* the rail's colour strips run full height behind the header, so on phones
+         the bar becomes an opaque sheet instead of floating over them */
+      .topbar { left: 0 !important; right: 0 !important; padding: 8px .8rem 0;
+        background: #fff8ef; box-shadow: 0 2px 10px rgba(43,42,40,.08); }
+      .brand { font-size: 18px; }
+      .topnav { gap: .7rem; }
+      .topnav a, .lang-trigger { font-size: 11.5px; min-height: 30px; }
+      .aud-tabs { gap: 4px; margin-top: 6px; border-bottom: 0; }
+      .aud-tab { flex: 1 1 0; min-width: 0; flex-direction: column; justify-content: center;
+        gap: .2rem; padding: 7px 4px 8px; border-radius: 13px 13px 0 0;
+        background: #fff; border-color: rgba(43,42,40,.09); }
+      .aud-tab img { width: 34px; height: 34px; border-radius: 10px; }
+      .aud-txt { align-items: center; }
+      .aud-txt b { font-size: 11.5px; }
+      .aud-txt span { display: none; }
+    }
+    @media (max-width: 380px) {
+      .aud-txt b { font-size: 11px; }
+      .topnav a, .lang-trigger { font-size: 11px; }
     }
 
     .rail { display: flex; height: 100vh; width: 100vw; overflow: hidden; background: #fff1e4;
@@ -546,7 +508,7 @@ const panels = [
     .panel.is-open .content { opacity: 1; pointer-events: auto; transition-delay: .18s; }
     /* embedded self-contained game — fills the open panel, below the top menu */
     .game-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-      padding-top: 66px; box-sizing: border-box; background: #fff1e4; }
+      padding-top: 122px; box-sizing: border-box; background: #fff1e4; }
 
     /* ---- Wheel stage: Yubuu's greeting first, "Spiel entdecken" swaps to the game ---- */
     .wheelstage { position: absolute; inset: 0; }
@@ -561,7 +523,7 @@ const panels = [
     /* ---- Yubuu dialogue (Meet Yubuu + Gefühlsrad intro): Yubuu on one side,
        a single speech bubble that swaps line by line on the other ---- */
     .story { position: absolute; inset: 0; overflow: hidden; cursor: pointer;
-      padding: 84px 6vw 2vh; display: grid; grid-template-columns: .85fr 1.15fr;
+      padding: 136px 6vw 2vh; display: grid; grid-template-columns: .85fr 1.15fr;
       align-items: stretch; gap: 3vw; }
     /* Yubuu sits lower, so the bubble above reads as coming out of his head.
        He also sits small and centred within the source video's own frame, so
@@ -623,7 +585,7 @@ const panels = [
       .bubble-line.is-shown, .bubble.is-visible { animation: none; }
     }
     @media (max-width: 820px) {
-      .story { grid-template-columns: 1fr; padding-top: 76px; display: flex;
+      .story { grid-template-columns: 1fr; padding-top: 120px; display: flex;
         flex-direction: column; justify-content: center; align-items: stretch; }
       .story-char { display: none; }
       .story-dialogue { margin-top: 0; }
