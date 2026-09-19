@@ -481,7 +481,12 @@ const panels = [
     }
     @media (max-width: 380px) {
       .aud-txt b { font-size: 11px; }
-      .topnav a, .lang-trigger { font-size: 11px; }
+      /* on the narrowest phones the four links would wrap onto two lines —
+         shrink them and keep each one on a single line instead */
+      .topnav { gap: .5rem; }
+      .topnav a, .lang-trigger { font-size: 10.5px; white-space: nowrap; }
+      .brand { font-size: 16px; }
+      .topbar { padding-inline: .6rem; }
     }
 
     .rail { display: flex; height: 100vh; width: 100vw; overflow: hidden; background: #fff1e4;
