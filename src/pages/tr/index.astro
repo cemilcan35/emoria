@@ -75,7 +75,7 @@ const panels = [
   <!-- TOP MENU — two tiers: a quiet utility row, and the audience tabs below it -->
   <header class="topbar" data-topbar style="left:0;right:calc(3 * var(--stripw))">
     <div class="topbar-row">
-      <button class="brand" data-open="home" aria-label="Başa dön">EMORIA</button>
+      <button class="brand" data-open="home" aria-label="Başa dön"><span class="brand-name">EMORIA</span><span class="brand-sub">Social and Emotional Learning</span></button>
       <nav class="topnav">
         <a href={`${base}tr/about`}>Hakkımızda</a>
         <a href={`${base}tr/contact`}>İletişim</a>
@@ -384,15 +384,19 @@ const panels = [
       padding: 10px clamp(1.2rem, 2.6vw, 2.2rem) 0;
       transition: left .62s cubic-bezier(.72,0,.14,1), right .62s cubic-bezier(.72,0,.14,1); }
     .topbar-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .brand { background: none; border: 0; cursor: pointer; font-family: 'Fredoka Variable', sans-serif;
-      font-weight: 600; font-size: 22px; letter-spacing: .02em; color: #2b2a28; padding: 0; }
+    .brand { background: none; border: 0; cursor: pointer; color: #2b2a28; padding: 0;
+      display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; text-align: left; }
+    .brand-name { font-family: 'Fredoka Variable', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: .02em; }
+    .brand-sub { font-family: 'Rubik Variable', sans-serif; font-weight: 500; font-size: 10.5px;
+      letter-spacing: .07em; text-transform: uppercase; color: #8a8378; margin-top: 3px; }
 
     /* secondary links — deliberately quieter than the audience tabs */
     .topnav { display: flex; align-items: center; gap: 1rem; }
     .topnav a { font-family: 'Rubik Variable', sans-serif; font-weight: 500; font-size: 13px;
-      color: #2b2a28; text-decoration: none; opacity: .7; transition: opacity .2s;
-      display: inline-flex; align-items: center; min-height: 34px; }
-    .topnav a:hover { opacity: 1; }
+      color: #2b2a28; text-decoration: none; opacity: .78; transition: opacity .2s, border-color .2s;
+      display: inline-flex; align-items: center; min-height: 34px;
+      border-bottom: 2px solid rgba(255,118,115,.55); padding-bottom: 1px; }
+    .topnav a:hover { opacity: 1; border-bottom-color: #ff7673; }
     .lang-switch { position: relative; }
     .lang-trigger { background: none; border: 0; cursor: pointer; font-family: 'Rubik Variable', sans-serif;
       font-weight: 500; font-size: 13px; color: #2b2a28; opacity: .7; transition: opacity .2s;
@@ -414,7 +418,7 @@ const panels = [
     .lang-menu li.disabled { color: #a89f8f; cursor: not-allowed; }
 
     /* ---- audience tabs: register tabs hanging off the header's bottom edge ---- */
-    .aud-tabs { display: flex; align-items: flex-end; gap: 6px; margin-top: 8px;
+    .aud-tabs { display: flex; align-items: flex-end; justify-content: center; gap: 6px; margin-top: 8px;
       border-bottom: 1px solid rgba(43,42,40,.10); }
     .aud-tab { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: #2b2a28;
       background: rgba(255,255,255,.66); border: 1px solid rgba(43,42,40,.08); border-bottom: 0;
