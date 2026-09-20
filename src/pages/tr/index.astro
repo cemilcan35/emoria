@@ -125,7 +125,7 @@ const panels = [
             <div class="wheelstage" data-wheelstage>
               <div class="story wheel-intro" data-story data-story-mode="wheel-intro">
                 <div class="story-char">
-                  <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu sallayarak beliriyor" data-story-video>
+                  <video class="story-video" style="--bh:.873;--cx:.50;--bo:.069" muted playsinline preload="auto" aria-label="Yubuu sallayarak beliriyor" data-story-video>
                     <source src={`${base}video/yubuu-wheel-nobg.webm`} type="video/webm" />
                     <source src={`${base}video/yubuu-wheel-nobg.mov`} type="video/quicktime" />
                   </video>
@@ -144,7 +144,7 @@ const panels = [
           ) : p.kind === 'story' ? (
             <div class="story" data-story data-story-mode={p.storyMode}>
               <div class="story-char">
-                <video class="story-video" muted playsinline preload="auto" aria-label="Yubuu el sallayarak giriyor" data-story-video>
+                <video class="story-video" style="--bh:.823;--cx:.49;--bo:.067" muted playsinline preload="auto" aria-label="Yubuu el sallayarak giriyor" data-story-video>
                   <source src={`${base}video/yubuu-wave-nobg.webm`} type="video/webm" />
                   <source src={`${base}video/yubuu-wave-nobg.mov`} type="video/quicktime" />
                 </video>
@@ -190,7 +190,7 @@ const panels = [
                 </div>
                 <div class="c-art home-art">
                   <div class="home-video-wrap">
-                    <video class="home-video" autoplay loop muted playsinline preload="auto" aria-label="Yubuu bir roketle uçuyor">
+                    <video class="home-video" style="--bx:.1443;--bw:.688" autoplay loop muted playsinline preload="auto" aria-label="Yubuu bir roketle uçuyor">
                       <source src={`${base}video/kling_yubuu_rocket_no-bg.webm`} type="video/webm" />
                       <source src={`${base}video/kling_yubuu_rocket_no-bg.mov`} type="video/quicktime" />
                     </video>
@@ -388,7 +388,7 @@ const panels = [
       display: flex; flex-direction: column; align-items: flex-start; line-height: 1.05; text-align: left; }
     .brand-name { font-family: 'Fredoka Variable', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: .02em; }
     .brand-sub { font-family: 'Rubik Variable', sans-serif; font-weight: 500; font-size: 10.5px;
-      letter-spacing: .07em; text-transform: uppercase; color: #8a8378; margin-top: 3px; }
+      letter-spacing: .07em; text-transform: uppercase; color: #8a8378; margin-top: 3px; white-space: nowrap; }
 
     /* secondary links — deliberately quieter than the audience tabs */
     .topnav { display: flex; align-items: center; gap: 1rem; }
@@ -438,6 +438,8 @@ const panels = [
       .topbar { left: 0 !important; right: 0 !important; padding: 8px .8rem 0;
         background: #fff8ef; box-shadow: 0 2px 10px rgba(43,42,40,.08); }
       .brand { font-size: 18px; }
+      /* the tagline may wrap here — the links need the room more than it does */
+      .brand-sub { font-size: 8.5px; letter-spacing: .04em; white-space: normal; max-width: 15ch; }
       .topnav { gap: .7rem; }
       .topnav a, .lang-trigger { font-size: 11.5px; min-height: 30px; }
       .aud-tabs { gap: 4px; margin-top: 6px; border-bottom: 0; }
@@ -493,10 +495,20 @@ const panels = [
     .story { position: absolute; inset: 0; overflow: hidden; cursor: pointer;
       padding: 136px 6vw 2vh; display: grid; grid-template-columns: .85fr 1.15fr;
       align-items: stretch; gap: 3vw; }
-    .story-char { position: relative; height: 82%; align-self: end; justify-self: center;
-      overflow: hidden; display: flex; align-items: flex-end; justify-content: center; }
-    .story-video { display: block; height: 108%; width: auto; flex-shrink: 0;
-      transform: scale(1.55); transform-origin: center 78%;
+    /* no overflow clipping here: the frame around Yubuu is transparent, and the
+       panel itself already clips at its edge — so a wide gesture (arms out) can
+       never be cut off mid-animation */
+    .story-char { position: relative; height: 82%; align-self: end; }
+    /* Yubuu only fills part of the source frame, with empty space all around
+       him. Rather than blowing the whole frame up and letting the box cut the
+       overflow (which sliced his antennae off), each video carries its own
+       measured bounds — --bh is how much of the frame's height he spans,
+       --cx where his centre sits across it, --bo the gap under his feet — and
+       those bounds are mapped onto the box. He fills it top to bottom, and
+       nothing of him can fall outside it. */
+    .story-video { position: absolute; left: 50%; bottom: calc(-100% * var(--bo) / var(--bh));
+      height: calc(100% / var(--bh)); width: auto; max-width: none;
+      transform: translateX(calc(var(--cx) * -100%)); pointer-events: none; z-index: 1;
       filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)); }
     .story-video.is-idle { animation: idleBlink 4.6s ease-in-out infinite; }
     @keyframes idleBlink {
@@ -508,7 +520,7 @@ const panels = [
       .story-video.is-idle { animation: none; }
     }
     .story-dialogue { display: flex; flex-direction: column; gap: 1.1rem;
-      align-self: start; margin-top: 15vh; }
+      align-self: start; margin-top: 15vh; position: relative; z-index: 2; }
     .bubble { position: relative; max-width: 34rem;
       background: color-mix(in srgb, var(--c) 30%, #fff 70%);
       border: 3px solid color-mix(in srgb, var(--c) 55%, #fff 45%);
@@ -591,7 +603,11 @@ const panels = [
     .home-art { height: 100%; display: flex; align-items: center; justify-content: center; }
     .home-video-wrap { width: min(80%, 440px); transform: translateX(-135vw); opacity: 0; will-change: transform; }
     .panel.is-open .home-video-wrap { animation: flyIn 1.15s cubic-bezier(.16,.7,.24,1) 1.2s forwards; }
-    .home-video { display: block; width: 100%; height: auto;
+    /* same idea as the story videos: the rocket only covers part of its frame,
+       so it is sized and nudged by its own measured bounds instead of leaving
+       a wide transparent margin around it */
+    .home-video { display: block; width: calc(100% / var(--bw)); max-width: none;
+      margin-left: calc(-100% * var(--bx) / var(--bw)); height: auto;
       filter: drop-shadow(0 24px 34px rgba(43,42,40,.16)); animation: hfloat 6s ease-in-out infinite; }
     @keyframes hfloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-16px); } }
     @keyframes flyIn { 0% { transform: translateX(-135vw) rotate(-8deg); opacity: 0; }
