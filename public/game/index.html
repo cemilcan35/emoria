@@ -215,7 +215,7 @@
 
   /* ---- situation cards (3, drag target) ---- */
   /* width capped so Yubuu's bubble — the only instruction — stays above the fold */
-  .sit-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; max-width: 820px; margin-inline: auto; align-items: stretch; }
+  .sit-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 1040px; margin-inline: auto; align-items: stretch; }
   .sit-card {
     margin: 0; cursor: pointer; outline: 3px dashed transparent; outline-offset: 4px;
     transition: outline-color .15s, transform .15s, box-shadow .2s;
@@ -227,23 +227,21 @@
     text-align: center; padding: 11px 12px; border-top: 1px solid var(--cream-edge); background: var(--cream);
     flex: 1 0 auto; display: flex; align-items: center; justify-content: center; /* absorbs slack so button stays put */
   }
-  /* uniform image box: every scene is cropped to the same shape via cover, so all
-     cards are the same height and the change/caption row never shifts */
-  .sit-img-hold { position: relative; line-height: 0; aspect-ratio: 5 / 6; overflow: hidden; }
-  .sit-img-hold img.scene {
-    width: 100%; height: 100%; display: block;
-    object-fit: cover; object-position: center var(--oy, 34%); transform: scale(1.06);
-  }
+  /* the printed cards are shown whole — never cropped — so the face slot's
+     fractions line up with the blank face the illustration leaves empty */
+  .sit-img-hold { position: relative; line-height: 0; aspect-ratio: 1232 / 864; }
+  .sit-img-hold img.scene { width: 100%; height: 100%; display: block; object-fit: fill; }
   .face-slot {
     position: absolute; transform: translate(-50%,-50%); border-radius: 50%;
     display: grid; place-items: center;
   }
   .face-slot .ring {
-    position: absolute; inset: 0; border-radius: 50%; border: 2.5px dashed rgba(43,42,40,.35);
+    position: absolute; inset: -6%; border-radius: 50%; border: 2px dashed rgba(43,42,40,.45);
     animation: pulse 1.6s ease-in-out infinite;
   }
   @keyframes pulse { 0%,100% { opacity: .4; } 50% { opacity: .9; } }
-  .face-slot img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; opacity: 0; transform: scale(.4); }
+  .face-slot img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; opacity: 0; transform: scale(.4);
+    box-shadow: 0 1px 4px rgba(43,42,40,.25); }
   .face-slot.filled img { opacity: 1; transform: scale(1); transition: opacity .35s, transform .45s cubic-bezier(.2,1.4,.4,1); }
   .face-slot.filled .ring { display: none; }
   .place-row { display: flex; align-items: center; gap: 14px; margin-top: 18px; justify-content: center; }
@@ -278,6 +276,7 @@
 
   /* ---- narration (persistent Yubuu — he is the sole guide) ---- */
   .narration { display: flex; align-items: flex-start; gap: 14px; border-top: 1px solid var(--cream-edge); padding-top: 18px; flex-wrap: wrap; }
+  .narration[hidden] { display: none; }
   .narration img { width: 96px; flex: none; filter: drop-shadow(0 6px 12px rgba(43,42,40,.15)); }
   .bubble {
     position: relative; margin-top: 24px; background: var(--cream); border: 1px solid var(--cream-edge);
@@ -333,7 +332,7 @@
       <!-- INTRO -->
       <section class="panel active" data-step="intro">
         <div class="intro-wrap">
-          <img src="assets/yubuu-guide.png" alt="Yubuu, ein kleines grünes Wesen aus dem Weltraum" />
+          <img src="assets/yubuu-hello.png" alt="Yubuu, ein kleines grünes Wesen aus dem Weltraum" />
           <div>
             <p class="lead">Yubuu kennenlernen</p>
             <h2>Hilfst du mir, Gefühle zu verstehen?</h2>
@@ -371,8 +370,9 @@
       <!-- QUESTION -->
       <section class="panel" data-step="question">
         <div class="card-spread" id="qSpread" aria-label="Verdeckte Fragekarten — zieh eine"></div>
-        <div class="btn-row" style="justify-content:center">
+        <div class="btn-row" style="justify-content:center" id="qBtns">
           <button class="btn" data-go="flash" id="qNext" disabled>Weiter</button>
+          <button class="btn ghost" id="qAgain" disabled hidden>Andere Karte ziehen</button>
         </div>
       </section>
 
@@ -419,7 +419,7 @@
     </div>
 
     <div class="narration">
-      <img src="assets/yubuu-guide.png" alt="" aria-hidden="true" />
+      <img src="assets/yubuu-face.png" alt="" aria-hidden="true" />
       <div class="bubble" id="say"></div>
       <div class="feeling-tag" id="feelingTag" hidden aria-label="Dein Gefühl in dieser Runde">
         <img id="tagHead" alt="" />
@@ -478,13 +478,18 @@
     { emoji: "🌙", text: "Wenn beim Schlafengehen das Licht ausgeht …" },
   ];
 
-  // face target = fraction of the COVER-CROPPED box (x & diameter of box width, y of box height).
-  // oy = object-position Y for the scene (frames each image inside the uniform 5:6 box).
+  // fx/fy = centre of the card's blank face, fd = its diameter — both as a
+  // fraction of the card's own width/height, so the drawn feeling head lands
+  // exactly on the face the illustration leaves empty.
   const SITUATIONS = [
-    { img: "sit-1", title: "Dein Eis fällt auf den Boden.",         oy: 30, fx: .470, fy: .315, fd: .30 },
-    { img: "sit-2", title: "Du machst einen Fehler und die anderen lachen.",        oy: 34, fx: .365, fy: .265, fd: .30 },
-    { img: "sit-3", title: "Du schaffst etwas zum ersten Mal alleine.",  oy: 30, fx: .665, fy: .400, fd: .30 },
-    { img: "sit-4", title: "Du teilst etwas mit jemandem.",           oy: 40, fx: .330, fy: .420, fd: .30 },
+    { img: "sit-erstes-mal",     title: "Du schaffst etwas zum ersten Mal alleine.",        fx: .6055, fy: .5324, fd: .1006 },
+    { img: "sit-gewinnen",       title: "Yubuu gewinnt!",                                   fx: .3912, fy: .4259, fd: .1169 },
+    { img: "sit-erster-kita-tag",title: "Dein erster Tag in der Kita.",                     fx: .5325, fy: .5532, fd: .0877 },
+    { img: "sit-geburtstag",     title: "Geburtstag eines Freundes.",                       fx: .5609, fy: .4630, fd: .0779 },
+    { img: "sit-neuer-freund",   title: "Yubuu lernt einen neuen Freund kennen.",           fx: .6250, fy: .4560, fd: .1071 },
+    { img: "sit-mittagessen",    title: "Beim Mittagessen gibt es etwas, das du nicht magst.", fx: .5373, fy: .4884, fd: .1071 },
+    { img: "sit-teilen",         title: "Du teilst etwas mit jemandem.",                    fx: .3994, fy: .5417, fd: .0974 },
+    { img: "sit-einladung",      title: "Ein anderes Kind lädt Yubuu ein, gemeinsam zu spielen.", fx: .3701, fy: .4699, fd: .1071 },
   ];
 
   // z = per-image zoom for the circular thumb. Most cards have a baked-in dashed
@@ -530,6 +535,8 @@
     panels[step].classList.add("active");
     say.textContent = SAY[step] || "";
     topbar.style.display = step === "intro" ? "none" : "flex";
+    // on the intro Yubuu is already there, full size — one of him is enough
+    $(".narration").hidden = step === "intro";
     const idx = STEP_INDEX[step];
     stepDots.forEach((d, i) => {
       const isNow = i === idx;
@@ -734,14 +741,22 @@
   // ---------------- QUESTION (step 2) ----------------
   function setupQuestion() {
     $("#qNext").disabled = true;
+    const again = $("#qAgain");
+    again.hidden = true; again.disabled = true;
     buildSpread($("#qSpread"), "q", shuffle(QUESTIONS).slice(0, 5),
       (q) => `<img src="assets/cards/${q.img}.webp" alt="Fragekarte: ${q.text}" draggable="false" />`,
       (q, card) => {
         addDeckBehind($("#qSpread"), card);
         $("#qNext").disabled = false;
-        say.textContent = "Oh, eine gute Frage! Sag deine Antwort laut oder denk sie nur – ich höre dir in beiden Fällen zu. Es gibt keine falsche Antwort. Wenn du bereit bist, geht es weiter.";
+        again.hidden = false; again.disabled = false;
+        say.textContent = "Oh, eine gute Frage! Sag deine Antwort laut oder denk sie nur – ich höre dir in beiden Fällen zu. Es gibt keine falsche Antwort. Wenn du magst, kannst du auch eine andere Karte ziehen.";
       });
   }
+  // a question you don't like is never a dead end — lay the cards out again
+  $("#qAgain").addEventListener("click", () => {
+    setupQuestion();
+    say.textContent = "Kein Problem – such dir eine andere Karte aus. Keine Karte ist falsch.";
+  });
 
   // ---------------- FLASH / BLITZCARDS (step 3) ----------------
   function setupFlash() {
@@ -781,7 +796,7 @@
   function sitCardInner(s) {
     return `
       <div class="sit-img-hold">
-        <img class="scene" style="--oy:${s.oy}%" src="assets/situations/${s.img}.png" alt="Ein Alltagsmoment – Yubuu hat noch kein Gesicht" />
+        <img class="scene" src="assets/situations/${s.img}.webp" alt="Ein Alltagsmoment – Yubuu hat noch kein Gesicht" />
         <div class="face-slot" style="left:${s.fx * 100}%;top:${s.fy * 100}%;width:${s.fd * 100}%;aspect-ratio:1">
           <div class="ring"></div><img class="faceHead" src="${headSrc(chosen.head)}" alt="" />
         </div>
