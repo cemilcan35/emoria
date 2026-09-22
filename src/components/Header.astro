@@ -8,19 +8,38 @@ const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
 const prefix = lang === 'de' ? base : `${base}${lang}/`;
 
 const NAV = {
-  de: { home: 'Zur Startseite', about: 'Über uns', emoria: 'Über EMORIA', contact: 'Kontakt', langAria: 'Sprache wählen', prep: 'In Vorbereitung' },
-  en: { home: 'Go to homepage', about: 'About us', contact: 'Contact', langAria: 'Choose language', prep: 'Coming soon' },
-  fr: { home: "Aller à l'accueil", about: 'À propos', contact: 'Contact', langAria: 'Choisir la langue', prep: 'Bientôt disponible' },
-  es: { home: 'Ir al inicio', about: 'Sobre nosotros', contact: 'Contacto', langAria: 'Elegir idioma', prep: 'Próximamente' },
-  tr: { home: 'Ana sayfaya git', about: 'Hakkımızda', contact: 'İletişim', langAria: 'Dil seçin', prep: 'Yakında' },
+  de: { home: 'Zur Startseite', about: 'Über uns', emoria: 'Über EMORIA', contact: 'Kontakt', langAria: 'Sprache wählen', prep: 'In Vorbereitung',
+        groups: 'Zielgruppe', kita: 'Kindergarten', schule: 'Schule', logo: 'Logopädie', psych: 'Kinderpsychologie', eltern: 'Eltern' },
+  en: { home: 'Go to homepage', about: 'About us', contact: 'Contact', langAria: 'Choose language', prep: 'Coming soon',
+        groups: 'Who it is for', kita: 'Kindergarten', schule: 'School', eltern: 'Parents' },
+  fr: { home: "Aller à l'accueil", about: 'À propos', contact: 'Contact', langAria: 'Choisir la langue', prep: 'Bientôt disponible',
+        groups: 'Pour qui', kita: 'Crèches', schule: 'Écoles', eltern: 'Parents' },
+  es: { home: 'Ir al inicio', about: 'Sobre nosotros', contact: 'Contacto', langAria: 'Elegir idioma', prep: 'Próximamente',
+        groups: 'Para quién', kita: 'Guarderías', schule: 'Colegios', eltern: 'Familias' },
+  tr: { home: 'Ana sayfaya git', about: 'Hakkımızda', contact: 'İletişim', langAria: 'Dil seçin', prep: 'Yakında',
+        groups: 'Hedef kitle', kita: 'Anaokulu', schule: 'Okul', eltern: 'Aileler' },
 };
 const t = NAV[lang] ?? NAV.de;
+
+// the audience pages live behind one "Zielgruppe" entry now — Logopädie and
+// Kinderpsychologie exist in German only so far
+const audience = [
+  { href: `${prefix}fuer-kindergaerten`, label: t.kita, icon: 'audience-kindergarten.png' },
+  { href: `${prefix}fuer-schulen`, label: t.schule, icon: 'audience-schule.png' },
+  ...(lang === 'de' ? [
+    { href: `${prefix}fuer-logopaedie`, label: t.logo, icon: 'audience-logopaedie.png' },
+    { href: `${prefix}fuer-kinderpsychologie`, label: t.psych, icon: 'audience-kinderpsychologie.png' },
+  ] : []),
+  { href: `${prefix}fuer-eltern`, label: t.eltern, icon: 'audience-eltern.png' },
+];
 
 const links = [
   { href: `${prefix}about`, label: t.about },
   ...(lang === 'de' ? [{ href: `${prefix}ueber-emoria`, label: t.emoria }] : []),
   { href: `${prefix}contact`, label: t.contact },
 ];
+
+const inAudience = audience.some((a) => a.label === current);
 
 // `ready: true` languages link to their translated section; the rest are shown
 // but disabled until that translation exists.
@@ -43,7 +62,23 @@ const languages = [
     <span class="brand-sub">Social and Emotional Learning</span>
   </a>
 
-  <nav class="head-nav" aria-label={t.about}>
+  <nav class="head-nav" aria-label={t.groups}>
+    <div class="aud-switch">
+      <button type="button" class:list={['aud-trigger', inAudience && 'is-current']} aria-haspopup="true" aria-expanded="false">
+        {t.groups}
+        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+      </button>
+      <ul class="aud-menu">
+        {audience.map((a) => (
+          <li>
+            <a href={a.href} class:list={[current === a.label && 'is-current']}>
+              <img src={`${base}img/${a.icon}`} alt="" aria-hidden="true" />
+              <span>{a.label}</span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
     {links.map((l) => (
       <a href={l.href} class:list={[current === l.label && 'is-current']}>{l.label}</a>
     ))}
@@ -83,6 +118,29 @@ const languages = [
   .site-head .head-nav > a:hover { opacity: 1; border-bottom-color: var(--color-brand); }
   .site-head .head-nav > a.is-current { opacity: 1; border-bottom-color: var(--color-brand); }
 
+  /* Zielgruppe: one entry that drops the five audience pages down on hover */
+  .site-head .aud-switch { position: relative; }
+  .site-head .aud-trigger { display: inline-flex; align-items: center; gap: 5px; background: none;
+    border: 0; border-bottom: 2px solid rgba(255,118,115,.55); padding: 0 0 1px; cursor: pointer;
+    font-family: var(--font-body); font-weight: 500; font-size: 13px; color: var(--color-ink);
+    opacity: .78; min-height: 34px; transition: opacity .2s, border-color .2s; }
+  .site-head .aud-switch:hover .aud-trigger,
+  .site-head .aud-trigger.is-current { opacity: 1; border-bottom-color: var(--color-brand); }
+  .site-head .aud-menu { position: absolute; left: 50%; transform: translate(-50%, -4px); top: calc(100% + 8px);
+    z-index: 10; margin: 0; list-style: none; width: 15rem; padding: .4rem; border-radius: 16px;
+    background: #fff; border: 1px solid var(--color-cream-edge); box-shadow: var(--shadow-lift);
+    opacity: 0; visibility: hidden;
+    transition: opacity .18s ease, transform .18s ease, visibility .18s; }
+  .site-head .aud-switch:hover .aud-menu,
+  .site-head .aud-switch:focus-within .aud-menu { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+  .site-head .aud-menu a { display: flex; align-items: center; gap: .65rem; padding: .45rem .55rem;
+    border-radius: 11px; text-decoration: none; color: var(--color-ink);
+    font-family: var(--font-body); font-size: 14px; font-weight: 500; }
+  .site-head .aud-menu a:hover { background: var(--color-cream); }
+  .site-head .aud-menu a.is-current { background: var(--color-cream); font-weight: 600; }
+  .site-head .aud-menu img { width: 34px; height: 34px; border-radius: 10px; object-fit: cover; flex: none;
+    box-shadow: 0 1px 4px rgba(43,42,40,.18); }
+
   .site-head .lang-switch { position: relative; }
   .site-head .lang-trigger { background: none; border: 0; cursor: pointer; font-family: var(--font-body);
     font-weight: 500; font-size: 13px; color: var(--color-ink); opacity: .78; min-height: 34px; padding: 0;
@@ -108,11 +166,12 @@ const languages = [
     .site-head .brand-name { font-size: 18px; }
     .site-head .brand-sub { font-size: 8.5px; letter-spacing: .04em; white-space: normal; max-width: 15ch; }
     .site-head .head-nav { gap: .7rem; }
-    .site-head .head-nav > a, .site-head .lang-trigger { font-size: 11.5px; min-height: 30px; }
+    .site-head .head-nav > a, .site-head .lang-trigger, .site-head .aud-trigger { font-size: 11.5px; min-height: 30px; }
+    .site-head .aud-menu { width: 13.5rem; }
   }
   @media (max-width: 380px) {
     .site-head .head-nav { gap: .5rem; }
-    .site-head .head-nav > a, .site-head .lang-trigger { font-size: 10.5px; white-space: nowrap; }
+    .site-head .head-nav > a, .site-head .lang-trigger, .site-head .aud-trigger { font-size: 10.5px; white-space: nowrap; }
     .site-head .brand-name { font-size: 16px; }
     .site-head .brand-sub { font-size: 8.5px; letter-spacing: .05em; }
   }

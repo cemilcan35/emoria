@@ -1,0 +1,97 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../layouts/Base.astro';
+import AudienceHero from '../components/audience/AudienceHero.astro';
+import ClickBoxes from '../components/audience/ClickBoxes.astro';
+import IconRow from '../components/audience/IconRow.astro';
+import TwoCol from '../components/audience/TwoCol.astro';
+import ColoredBand from '../components/audience/ColoredBand.astro';
+import YubuuQuote from '../components/audience/YubuuQuote.astro';
+import Chips from '../components/audience/Chips.astro';
+import Accordion from '../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Für Kinderpsychologie — EMORIA" current="Kinderpsychologie"
+  description="Yubuus Gefühlsrad in der kinderpsychologischen Praxis: ein niedrigschwelliger, spielerischer Zugang zur Gefühlswelt eines Kindes.">
+
+  <AudienceHero
+    eyebrow="✦ Für Kinderpsychologie"
+    title="Ein niedrigschwelliger Zugang zur Gefühlswelt eines Kindes, spielerisch, strukturiert, ohne Druck."
+    body="Kinder, die in psychologische Betreuung kommen, sprechen oft nicht leicht über das, was sie beschäftigt. Direkte Fragen erzeugen manchmal genau die Abwehr, die man eigentlich lösen möchte. Yubuus Gefühlsrad schafft einen spielerischen Umweg zum selben Ziel: Das Kind spricht über ein Gefühl, das gerade „zufällig“ auf dem Rad erschienen ist, nicht über sich selbst, und genau das macht es leichter."
+    image="img/wheel-wide.jpg"
+    imageAlt="Yubuus Gefühlsrad in der kinderpsychologischen Praxis"
+  />
+
+  <ClickBoxes
+    title="Warum Yubuus Gefühlsrad?"
+    items={[
+      { icon: '🎯', title: 'Ein Umweg, der ans Ziel führt', text: 'Weil die Gefühle über das Drehen des Rads scheinbar zufällig ausgewählt werden, fühlt sich das Gespräch für das Kind weniger wie eine direkte Konfrontation an. Es entsteht Distanz zur eigenen Person, gerade genug, um trotzdem ehrlich zu bleiben.' },
+      { icon: '🔍', title: 'Ein strukturiertes Beobachtungsinstrument', text: 'Welche Gefühle erkennt das Kind sicher, bei welchen zögert es? Wie deutet es Alltagssituationen, welche Bedürfnisse benennt es? Diese Beobachtungen entstehen nebenbei, im Spiel, nicht in einer Testsituation.' },
+      { icon: '🕊️', title: 'Kein Richtig, kein Falsch, kein Druck', text: 'Yubuu bewertet nichts. Für Kinder, die im Alltag häufig auf ihr Verhalten angesprochen werden, ist das ein spürbar anderer Umgang, der Vertrauen aufbaut, bevor überhaupt über Schwieriges gesprochen wird.' },
+    ]}
+  />
+
+  <IconRow
+    title="So kann Yubuus Gefühlsrad eingesetzt werden"
+    items={[
+      { icon: '🧑‍⚕️', label: 'Einzeltherapie' },
+      { icon: '📋', label: 'Diagnostisches Erstgespräch' },
+      { icon: '🕊️', label: 'Nachgespräch nach belastenden Situationen' },
+      { icon: '📈', label: 'Verlaufsdokumentation' },
+      { icon: '👪', label: 'Vorbereitung eines Elterngesprächs' },
+      { icon: '🌱', label: 'Ressourcenorientierte Gespräche' },
+    ]}
+  />
+
+  <TwoCol
+    title="Was macht Yubuus Gefühlsrad besonders?"
+    body="Im Mittelpunkt steht nicht die richtige Antwort, sondern das gemeinsame Entdecken. Yubuu bewertet keine Antworten, sondern fragt, staunt und hört zu, das senkt die Hemmschwelle, gerade bei Kindern, die gelernt haben, ihre Gefühle zu verstecken oder zu kontrollieren. Gefühle bleiben dabei nicht abstrakt: Durch das Drehen des Gefühlsrads, das Zuordnen der Magnetköpfe, die Blitzkarten, die Situationskarten und die Bedürfniskreise werden sie sichtbar, greifbar und besprechbar, auch für Kinder, die sich verbal schwer öffnen."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Situationskarte aus Yubuus Gefühlsrad"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ein Fenster in die innere Welt Ihrer kleinen Patient:innen"
+    body="Für Kinderpsychologinnen und Kinderpsychologen ist Yubuus Gefühlsrad mehr als ein Spiel, es ist ein strukturiertes Beobachtungsinstrument. Wie reagiert ein Kind auf bestimmte Situationskarten? Welche Bedürfnisse benennt es, welche fehlen ihm sichtlich? Diese Beobachtungen lassen sich über mehrere Sitzungen hinweg verfolgen und liefern eine fundierte, nachvollziehbare Grundlage für Diagnostik, Therapieplanung und Berichte."
+  />
+
+  <YubuuQuote
+    quote="Hallo! Du musst mir nichts über dich erzählen, wenn du nicht möchtest. Aber wenn du magst, dreh das Rad, und wir schauen gemeinsam, was dabei herauskommt."
+    image="yubuu-butterfly.png" imageAlt="Yubuu mit einem Schmetterling" />
+
+  <Chips
+    title="Für wen eignet sich das Spiel?"
+    items={['Kinderpsychologinnen und Kinderpsychologen', 'Kinder- und Jugendlichenpsychotherapeutinnen und -therapeuten', 'Fachkräfte in Erziehungs- und Familienberatungsstellen', 'Sozialpädiatrische Zentren', 'Kinder- und Jugendpsychiatrische Praxen']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'So läuft eine Spielrunde ab',
+        body: 'Eine Spielrunde folgt fünf aufeinander aufbauenden Schritten. Das Kind dreht das Gefühlsrad und nimmt seinen Magnetkopf, ein bewusster Zufallsfaktor, der auch Gefühle ins Spiel bringt, die das Kind nicht spontan gewählt hätte. Anschließend zieht es eine Fragekarte und spricht kurz über das Gefühl. Danach folgt eine Blitzkarte: eine kurze Alltagssituation, bei der das Kind nur sagt, ob das Gefühl passt oder nicht. Im vierten Schritt legt das Kind seinen Magnetkopf auf eine Situationskarte, die Yubuu ohne Gesichtsausdruck zeigt. Zum Abschluss wählt es aus den Bedürfniskreisen aus, was ihm in diesem Gefühl helfen würde. Bei einem oder zwei Kindern dauert eine vollständige Runde etwa 10 bis 20 Minuten.',
+      },
+      {
+        title: 'Wissenschaftlicher Hintergrund',
+        body: 'Yubuus Gefühlsrad basiert auf mehreren anerkannten Ansätzen aus Entwicklungspsychologie und emotionaler Bildung. Die Meta-Analyse von Durlak et al. mit über 270.000 Kindern zeigt, dass strukturierte Programme zum sozialen und emotionalen Lernen Verhaltensauffälligkeiten deutlich reduzieren und das Selbstwertgefühl stärken. Der Neurowissenschaftler Matthew Lieberman konnte zeigen, dass allein das Benennen eines Gefühls beruhigend auf das kindliche Gehirn wirkt, genau das übt jede Runde am Gefühlsrad.',
+        linkHref: `${base}wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mehr zum wissenschaftlichen Hintergrund',
+      },
+      {
+        title: 'Häufige Fragen aus der psychologischen Praxis',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Eignet sich das Spiel für Kinder mit Ängsten oder Verhaltensauffälligkeiten?</strong><br />Ja, der spielerische, indirekte Zugang eignet sich besonders für Kinder, denen direkte Fragen schwerfallen.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kann ich das Spiel für die Diagnostik nutzen?</strong><br />Es ersetzt keine standardisierten diagnostischen Verfahren, liefert aber wertvolle, dokumentierbare Beobachtungen als Ergänzung.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Funktioniert das Spiel im Einzelsetting?</strong><br />Ja, dafür wurde es mitentwickelt. Bei ein bis zwei Kindern dauert eine Runde nur 10 bis 20 Minuten.</p>
+          <p><strong class="text-[var(--color-ink)]">Was, wenn ein Kind nicht antworten möchte?</strong><br />Das ist ausdrücklich in Ordnung. Schweigen ist eine gültige Antwort, kein Ausbleiben einer Leistung.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Für Ihre Praxis anfragen
+    </a>
+  </div>
+</Base>

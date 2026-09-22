@@ -81,6 +81,16 @@ const panels = [
     <div class="topbar-row">
       <button class="brand" data-open="home" aria-label="Retour au début"><span class="brand-name">EMORIA</span><span class="brand-sub">Social and Emotional Learning</span></button>
       <nav class="topnav">
+        <div class="aud-switch">
+          <button type="button" class="aud-trigger" aria-haspopup="true" aria-expanded="false">Pour qui
+            <svg width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" /></svg>
+          </button>
+          <ul class="aud-menu">
+            <li><a href={`${base}fr/fuer-kindergaerten`}><img src={`${base}img/audience-kindergarten.png`} alt="" aria-hidden="true" /><span>Crèches</span></a></li>
+            <li><a href={`${base}fr/fuer-schulen`}><img src={`${base}img/audience-schule.png`} alt="" aria-hidden="true" /><span>Écoles</span></a></li>
+            <li><a href={`${base}fr/fuer-eltern`}><img src={`${base}img/audience-eltern.png`} alt="" aria-hidden="true" /><span>Parents</span></a></li>
+          </ul>
+        </div>
         <a href={`${base}fr/about`}>À propos</a>
         <a href={`${base}fr/contact`}>Contact</a>
         <div class="lang-switch">
@@ -99,20 +109,6 @@ const panels = [
         </div>
       </nav>
     </div>
-    <nav class="aud-tabs" aria-label="Domaines">
-      <a class="aud-tab" href={`${base}fr/fuer-kindergaerten`}>
-        <img src={`${base}img/audience-kindergarten.png`} alt="" aria-hidden="true" />
-        <span class="aud-txt"><b>Crèches</b><span>Pour crèches et maternelles</span></span>
-      </a>
-      <a class="aud-tab" href={`${base}fr/fuer-schulen`}>
-        <img src={`${base}img/audience-schule.png`} alt="" aria-hidden="true" />
-        <span class="aud-txt"><b>Écoles</b><span>Pour l’école primaire</span></span>
-      </a>
-      <a class="aud-tab" href={`${base}fr/fuer-eltern`}>
-        <img src={`${base}img/audience-eltern.png`} alt="" aria-hidden="true" />
-        <span class="aud-txt"><b>Parents</b><span>Pour la maison</span></span>
-      </a>
-    </nav>
   </header>
 
   <div class="rail" data-rail>
@@ -451,20 +447,27 @@ const panels = [
     .lang-menu li:not(.disabled):hover { background: #fff1e4; }
     .lang-menu li.disabled { color: #a89f8f; cursor: not-allowed; }
 
-    /* ---- audience tabs: register tabs hanging off the header's bottom edge ---- */
-    .aud-tabs { display: flex; align-items: flex-end; justify-content: center; gap: 6px; margin-top: 8px;
-      border-bottom: 1px solid rgba(43,42,40,.10); }
-    .aud-tab { display: flex; align-items: center; gap: .6rem; text-decoration: none; color: #2b2a28;
-      background: rgba(255,255,255,.66); border: 1px solid rgba(43,42,40,.08); border-bottom: 0;
-      border-radius: 15px 15px 0 0; padding: 7px 16px 8px 7px;
-      backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
-      transition: background .2s, transform .2s; }
-    .aud-tab:hover { background: #fff; transform: translateY(-2px); }
-    .aud-tab img { width: 46px; height: 46px; border-radius: 13px; object-fit: cover; flex: none;
-      box-shadow: 0 2px 6px rgba(43,42,40,.2); }
-    .aud-txt { display: flex; flex-direction: column; line-height: 1.2; }
-    .aud-txt b { font-family: 'Fredoka Variable', sans-serif; font-weight: 600; font-size: 15px; }
-    .aud-txt span { font-family: 'Rubik Variable', sans-serif; font-size: 11.5px; color: #8a8378; }
+    /* ---- Zielgruppe: one entry that drops the audience pages down on hover ---- */
+    .aud-switch { position: relative; }
+    .aud-trigger { display: inline-flex; align-items: center; gap: 5px; background: none; border: 0;
+      border-bottom: 2px solid rgba(255,118,115,.55); padding: 0 0 1px; cursor: pointer;
+      font-family: 'Rubik Variable', sans-serif; font-weight: 500; font-size: 13px; color: #2b2a28;
+      opacity: .78; min-height: 34px; transition: opacity .2s, border-color .2s; }
+    .aud-switch:hover .aud-trigger { opacity: 1; border-bottom-color: #ff7673; }
+    .aud-menu { position: absolute; left: 50%; transform: translate(-50%, -4px); top: calc(100% + 8px);
+      z-index: 10; margin: 0; list-style: none; width: 15rem; padding: .4rem; border-radius: 16px;
+      background: #fff; border: 1px solid #ecdcc4; box-shadow: 0 20px 48px rgba(43,42,40,.16);
+      opacity: 0; visibility: hidden;
+      transition: opacity .18s ease, transform .18s ease, visibility .18s; }
+    .aud-switch:hover .aud-menu, .aud-switch:focus-within .aud-menu {
+      opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+    .aud-menu li { display: block; }
+    .aud-menu a { display: flex; align-items: center; gap: .65rem; padding: .45rem .55rem;
+      border-radius: 11px; text-decoration: none; color: #2b2a28;
+      font-family: 'Rubik Variable', sans-serif; font-size: 14px; font-weight: 500; }
+    .aud-menu a:hover { background: #fff1e4; }
+    .aud-menu img { width: 34px; height: 34px; border-radius: 10px; object-fit: cover; flex: none;
+      box-shadow: 0 1px 4px rgba(43,42,40,.18); }
 
     @media (max-width: 768px) {
       /* the rail's colour strips run full height behind the header, so on phones
@@ -476,14 +479,8 @@ const panels = [
       .brand-sub { font-size: 8.5px; letter-spacing: .04em; white-space: normal; max-width: 15ch; }
       .topnav { gap: .7rem; }
       .topnav a, .lang-trigger { font-size: 11.5px; min-height: 30px; }
-      .aud-tabs { gap: 4px; margin-top: 6px; border-bottom: 0; }
-      .aud-tab { flex: 1 1 0; min-width: 0; flex-direction: column; justify-content: center;
-        gap: .2rem; padding: 7px 4px 8px; border-radius: 13px 13px 0 0;
-        background: #fff; border-color: rgba(43,42,40,.09); }
-      .aud-tab img { width: 34px; height: 34px; border-radius: 10px; }
-      .aud-txt { align-items: center; }
-      .aud-txt b { font-size: 11.5px; }
-      .aud-txt span { display: none; }
+      .aud-trigger { font-size: 11.5px; min-height: 30px; }
+      .aud-menu { width: 13.5rem; }
     }
     @media (max-width: 380px) {
       .aud-txt b { font-size: 11px; }
@@ -518,7 +515,7 @@ const panels = [
     .panel.is-open .content { opacity: 1; pointer-events: auto; transition-delay: .18s; }
     /* embedded self-contained game — fills the open panel, below the top menu */
     .game-frame { position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
-      padding-top: 122px; box-sizing: border-box; background: #fff1e4; }
+      padding-top: 74px; box-sizing: border-box; background: #fff1e4; }
 
     /* ---- Wheel stage: Yubuu's greeting first, "Spiel entdecken" swaps to the game ---- */
     .wheelstage { position: absolute; inset: 0; }
@@ -533,7 +530,7 @@ const panels = [
     /* ---- Yubuu dialogue (Meet Yubuu + Gefühlsrad intro): Yubuu on one side,
        a single speech bubble that swaps line by line on the other ---- */
     .story { position: absolute; inset: 0; overflow: hidden; cursor: pointer;
-      padding: 136px 6vw 2vh; display: grid; grid-template-columns: .85fr 1.15fr;
+      padding: 92px 6vw 2vh; display: grid; grid-template-columns: .85fr 1.15fr;
       align-items: stretch; gap: 3vw; }
     /* Yubuu sits lower, so the bubble above reads as coming out of his head.
        He also sits small and centred within the source video's own frame, so
@@ -605,7 +602,7 @@ const panels = [
       .bubble-line.is-shown, .bubble.is-visible { animation: none; }
     }
     @media (max-width: 820px) {
-      .story { grid-template-columns: 1fr; padding-top: 120px; display: flex;
+      .story { grid-template-columns: 1fr; padding-top: 92px; display: flex;
         flex-direction: column; justify-content: center; align-items: stretch; }
       .story-char { display: none; }
       .story-dialogue { margin-top: 0; }

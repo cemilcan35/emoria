@@ -1,0 +1,97 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../layouts/Base.astro';
+import AudienceHero from '../components/audience/AudienceHero.astro';
+import ClickBoxes from '../components/audience/ClickBoxes.astro';
+import IconRow from '../components/audience/IconRow.astro';
+import TwoCol from '../components/audience/TwoCol.astro';
+import ColoredBand from '../components/audience/ColoredBand.astro';
+import YubuuQuote from '../components/audience/YubuuQuote.astro';
+import Chips from '../components/audience/Chips.astro';
+import Accordion from '../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Für Logopädie — EMORIA" current="Logopädie"
+  description="Yubuus Gefühlsrad in der logopädischen Praxis: emotionaler Wortschatz, Spontansprache und Sprechanlässe, die von selbst entstehen.">
+
+  <AudienceHero
+    eyebrow="✦ Für Logopädie"
+    title="Wo Sprache und Gefühl zusammenkommen, spielerisch, strukturiert, sofort einsetzbar."
+    body="Viele Kinder in der logopädischen Praxis tun sich nicht nur mit Lauten und Sätzen schwer, sondern auch damit, in Worte zu fassen, was sie fühlen. Emotionaler und sprachlicher Wortschatz hängen eng zusammen: Wer kein Wort für ein Gefühl hat, kann es schwer ausdrücken, egal wie gut die Artikulation sitzt. Yubuus Gefühlsrad verbindet beides in einer einzigen, kurzen Übung."
+    image="img/wheel-wide.jpg"
+    imageAlt="Yubuus Gefühlsrad in der logopädischen Praxis"
+  />
+
+  <ClickBoxes
+    title="Warum Yubuus Gefühlsrad?"
+    items={[
+      { icon: '🗣️', title: 'Emotionaler Wortschatz als echter Sprachschatz', text: 'Das Spiel übt gezielt Gefühlswörter, von einfachen Grundgefühlen bis zu differenzierteren Begriffen wie Enttäuschung oder Stolz. Anders als isolierte Wortlisten entstehen diese Begriffe im echten, für das Kind bedeutsamen Kontext, nicht auswendig gelernt, sondern erlebt.' },
+      { icon: '🧑‍⚕️', title: 'Für das Einzelsetting entwickelt', text: 'Bei ein bis zwei Kindern dauert eine Runde etwa 10 bis 20 Minuten und lässt sich ohne Vorbereitung in eine reguläre Therapiesitzung integrieren, als eigenständige Übung oder als Einstieg vor der eigentlichen Sprachförderung.' },
+      { icon: '🧩', title: 'Sprechanlässe, die von selbst entstehen', text: 'Statt vorgegebener Übungssätze entstehen echte, spontane Äußerungen: Das Kind beschreibt eine Situation, begründet seine Wahl, erzählt von eigenen Erlebnissen. Genau diese Spontansprache ist oft schwerer zu üben als geführte Sätze, und genau die regt das Spiel an.' },
+    ]}
+  />
+
+  <IconRow
+    title="So kann Yubuus Gefühlsrad eingesetzt werden"
+    items={[
+      { icon: '🗣️', label: 'Sprachförderstunde' },
+      { icon: '🧑‍⚕️', label: 'Einzeltherapie' },
+      { icon: '🔤', label: 'Wortschatzarbeit' },
+      { icon: '💬', label: 'Spontansprache anregen' },
+      { icon: '📈', label: 'Verlaufsdokumentation' },
+      { icon: '👪', label: 'Elterngespräch vorbereiten' },
+    ]}
+  />
+
+  <TwoCol
+    title="Was macht Yubuus Gefühlsrad besonders?"
+    body="Im Mittelpunkt steht nicht die richtige Antwort, sondern das gemeinsame Entdecken. Yubuu bewertet nichts, sondern fragt, staunt und hört zu, das nimmt Kindern den Leistungsdruck, den viele aus dem Sprachtraining bereits kennen. Gefühle bleiben dabei nicht abstrakt: Durch das Drehen des Gefühlsrads, das Zuordnen der Magnetköpfe, die Blitzkarten, die Situationskarten und die Bedürfniskreise entstehen konkrete Sprechanlässe, die sich natürlich anfühlen statt geübt."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Situationskarte aus Yubuus Gefühlsrad"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ein Fenster in den Sprachstand Ihrer kleinen Patient:innen"
+    body="Für Logopädinnen und Logopäden ist Yubuus Gefühlsrad mehr als ein Spiel, es zeigt unmittelbar, über welchen emotionalen Wortschatz ein Kind bereits verfügt und wo noch Lücken bestehen. Kann das Kind ein Gefühl selbstständig benennen, oder braucht es Hilfestellung? Nutzt es einfache oder bereits differenzierte Begriffe? Diese Beobachtungen lassen sich direkt in die Therapieplanung und Verlaufsdokumentation übernehmen."
+  />
+
+  <YubuuQuote
+    quote="Hallo! Ich kenne noch nicht alle Wörter für Gefühle, deshalb frage ich dich. Wie nennst du das, was du gerade fühlst?"
+    image="yubuu-crystal.png" imageAlt="Yubuu mit einem leuchtenden Kristall" />
+
+  <Chips
+    title="Für wen eignet sich das Spiel?"
+    items={['Logopädinnen und Logopäden', 'Sprachtherapeutinnen und Sprachtherapeuten', 'Fachkräfte in Frühförderstellen', 'Sprachheilpädagoginnen und Sprachheilpädagogen', 'Praxen für Sprach-, Sprech- und Stimmtherapie']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'So läuft eine Spielrunde ab',
+        body: 'Eine Spielrunde folgt fünf aufeinander aufbauenden Schritten. Das Kind dreht das Gefühlsrad und nimmt seinen Magnetkopf, ein bewusster Zufallsfaktor, der auch Gefühle ins Spiel bringt, die das Kind nicht spontan gewählt hätte. Anschließend zieht es eine Fragekarte und spricht kurz über das Gefühl. Danach folgt eine Blitzkarte: eine kurze Alltagssituation, bei der das Kind nur sagt, ob das Gefühl passt oder nicht. Im vierten Schritt legt das Kind seinen Magnetkopf auf eine Situationskarte, die Yubuu ohne Gesichtsausdruck zeigt. Zum Abschluss wählt es aus den Bedürfniskreisen aus, was ihm in diesem Gefühl helfen würde. Bei einem oder zwei Kindern dauert eine vollständige Runde etwa 10 bis 20 Minuten.',
+      },
+      {
+        title: 'Wissenschaftlicher Hintergrund',
+        body: 'Yubuus Gefühlsrad basiert auf mehreren anerkannten Ansätzen aus Entwicklungspsychologie und emotionaler Bildung. Die Meta-Analyse von Durlak et al. mit über 270.000 Kindern zeigt, dass strukturierte Programme zum sozialen und emotionalen Lernen Verhaltensauffälligkeiten deutlich reduzieren und das Selbstwertgefühl stärken. Die Forschung zum Embodied Learning zeigt zudem, dass Kinder tiefer lernen, wenn sie körperlich handeln, statt nur zuzuhören, deshalb ist das Spielmaterial bewusst physisch gestaltet.',
+        linkHref: `${base}wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mehr zum wissenschaftlichen Hintergrund',
+      },
+      {
+        title: 'Häufige Fragen aus der logopädischen Praxis',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Eignet sich das Spiel für Kinder mit Sprachentwicklungsstörungen?</strong><br />Ja, gerade für diese Kinder ist der spielerische, druckfreie Zugang besonders wertvoll. Die physischen Elemente ermöglichen Ausdruck, auch wenn die passenden Worte noch fehlen.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Ersetzt das Spiel gezieltes Wortschatztraining?</strong><br />Nein, es ergänzt es. Statt isolierter Übungen entstehen Gefühlswörter im echten, bedeutsamen Kontext.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Funktioniert das Spiel im Einzelsetting?</strong><br />Ja, dafür wurde es mitentwickelt. Bei ein bis zwei Kindern dauert eine Runde nur 10 bis 20 Minuten.</p>
+          <p><strong class="text-[var(--color-ink)]">Brauche ich eine Fortbildung?</strong><br />Nein, das Spiel ist ohne Zusatzausbildung sofort einsetzbar.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
+      Für Ihre Praxis anfragen
+    </a>
+  </div>
+</Base>
