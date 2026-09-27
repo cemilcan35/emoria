@@ -26,8 +26,8 @@
     --ink-faint: #8a8378;
     --brand: #4f9a94;
     --brand-deep: #3d7d78;
-    --wood-l: #c39a6b;
-    --wood-d: #9c6f44;
+    --wood-l: #d3ae80;
+    --wood-d: #b3835a;
     --wood-edge: #7c5836;
     --radius-card: 1.25rem;
     --radius-pill: 999px;
@@ -102,16 +102,29 @@
 
   /* ---- spin / wheel ---- */
   .spin-stage { display: flex; flex-direction: column; align-items: center; gap: 22px; }
-  .wheel-hold { position: relative; width: 100%; max-width: 420px; margin: 0 auto; }
+  .wheel-hold { position: relative; width: 100%; max-width: min(470px, 78vmin); margin: 0 auto; }
   .pointer {
     position: absolute; top: -4px; left: 50%; transform: translateX(-50%); z-index: 3;
     width: 0; height: 0; border-left: 12px solid transparent; border-right: 12px solid transparent;
     border-top: 20px solid var(--ink); filter: drop-shadow(0 2px 2px rgba(0,0,0,.18));
   }
-  svg.wheel { width: 100%; display: block; }
+  svg.wheel { width: 100%; display: block; overflow: visible; }
   svg.wheel g.rot { transform-origin: center; transform-box: fill-box; }
   .wheel-dim { transition: opacity .5s, filter .5s; }
-  .is-dim { opacity: .5; filter: saturate(.7); }
+  /* the wheel settles back rather than dropping out of sight — the drawn
+     feeling is what should hold the eye */
+  svg.wheel { transition: opacity .8s ease, filter .8s ease, transform .8s ease; }
+  .is-dim { opacity: .42; filter: saturate(.55) blur(.6px); transform: scale(.94); }
+  /* one seat on the wheel stays empty for the rest of the round */
+  svg.wheel g.seat { transition: opacity .5s ease .25s; }
+  svg.wheel g.seat.is-empty { opacity: 0; }
+
+  /* the drawn feeling, lifted out of the wheel towards the child */
+  .lift { position: absolute; inset: 0; display: grid; place-items: center;
+    pointer-events: none; opacity: 0; }
+  .lift img { width: 30%; display: block; filter: drop-shadow(0 10px 18px rgba(43,42,40,.24));
+    will-change: transform; }
+  .lift.is-out { opacity: 1; }
 
   .result { display: none; }
   .result.show { display: flex; flex-direction: column; align-items: center; gap: 4px; animation: rise .5s ease both; }
@@ -152,7 +165,25 @@
   }
   .pick-card .cback { color: #fff; }
   .pick-card.q .cback { background: linear-gradient(155deg, #57a49d, #3d7d78); }
-  .pick-card.b .cback { background: linear-gradient(155deg, #f0b93d, #d17f28); }
+  /* the blitz cards belong to the same deck: same back artwork, cropped to
+     their own portrait shape rather than stretched */
+  .pick-card.b .cback {
+    background: #f7efe0 url("assets/cards/back.webp") center / cover no-repeat;
+    border: 1px solid rgba(124,88,54,.18); color: var(--ink-soft);
+  }
+  .pick-card.b .cback small {
+    left: 50%; right: auto; bottom: 12px; transform: translateX(-50%); white-space: nowrap;
+    padding: 3px 11px; border-radius: 999px; background: rgba(255,250,240,.86);
+    color: var(--ink-soft); font-size: .66rem; letter-spacing: .02em; text-transform: none; opacity: 1;
+  }
+  /* front: an empty, finished-looking card until the artwork arrives */
+  .pick-card.b .cfront { padding: 0; background: var(--cream); overflow: hidden; }
+  .pick-card.b .cfront img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pick-card.b .b-placeholder {
+    width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 14px; padding: 22px; text-align: center;
+    background: linear-gradient(170deg, #fdf6e8, #f3e6cf);
+  }
   .pick-card .cmark { font-family: var(--font-display); font-size: 3.2rem; font-weight: 600; opacity: .96; }
   .pick-card .cback small { position: absolute; bottom: 15px; left: 0; right: 0; font-size: .66rem; letter-spacing: .16em; text-transform: uppercase; opacity: .85; }
   .pick-card .cfront { transform: rotateY(180deg); background: var(--cream); border: 1px solid var(--cream-edge); gap: 12px; }
@@ -215,7 +246,10 @@
 
   /* ---- situation cards (3, drag target) ---- */
   /* width capped so Yubuu's bubble — the only instruction — stays above the fold */
-  .sit-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: 1040px; margin-inline: auto; align-items: stretch; }
+  .sit-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 13px; width: 100%; margin-inline: auto; align-items: stretch; }
+  /* a swapped card fades through instead of the whole row reflowing */
+  .sit-card { transition: opacity .28s ease, outline-color .15s, transform .15s, box-shadow .2s; }
+  .sit-card.swapping { opacity: 0; }
   .sit-card {
     margin: 0; cursor: pointer; outline: 3px dashed transparent; outline-offset: 4px;
     transition: outline-color .15s, transform .15s, box-shadow .2s;
@@ -303,11 +337,14 @@
   .feeling-tag .tag-small { font-size: .72rem; text-transform: uppercase; letter-spacing: .13em; color: var(--ink-faint); font-weight: 600; }
   .feeling-tag .tag-name { font-family: var(--font-display); font-weight: 600; font-size: 1.5rem; color: var(--ink); }
 
+  @media (max-width: 900px) {
+    .sit-cards { grid-template-columns: repeat(2, 1fr); max-width: 660px; }
+  }
   @media (max-width: 640px) {
     .intro-wrap { grid-template-columns: 100px 1fr; gap: 16px; }
     .spin-grid { grid-template-columns: 1fr; }
     .needs-grid { grid-template-columns: repeat(2, 1fr); }
-    .sit-cards { grid-template-columns: 1fr; max-width: 300px; margin: 0 auto; }
+    .sit-cards { grid-template-columns: 1fr 1fr; gap: 10px; max-width: 460px; margin: 0 auto; }
     .main { min-height: 0; }
     .feeling-name { font-size: 1.6rem; }
     .card-spread.q-spread { padding: 14px 8px 22px; }
@@ -347,16 +384,23 @@
         <div class="spin-stage">
           <div class="wheel-hold">
             <div class="pointer"></div>
-            <svg class="wheel" viewBox="-170 -170 340 340" role="img" aria-label="Ein Rad mit zwölf Gefühlsgesichtern">
+            <svg class="wheel" viewBox="-172 -172 344 344" role="img" aria-label="Ein Rad mit zwölf Gefühlsgesichtern">
+              <defs>
+                <filter id="headShadow" x="-35%" y="-35%" width="170%" height="170%">
+                  <feDropShadow dx="0" dy="2.4" stdDeviation="2.2" flood-color="#2b2a28" flood-opacity=".30" />
+                </filter>
+                <radialGradient id="hub"><stop offset="0" stop-color="#fff" /><stop offset="1" stop-color="#c9b79a" /></radialGradient>
+              </defs>
               <g class="rot" id="rot"></g>
             </svg>
+            <!-- the drawn feeling lifts out of the wheel and settles here -->
+            <div class="lift" id="lift" aria-hidden="true"><img id="liftHead" alt="" /></div>
           </div>
           <div id="spinIntro">
             <div class="btn-row"><button class="btn" id="spinBtn">Rad drehen</button></div>
           </div>
           <div class="result" id="result">
             <div class="feeling-badge">
-              <img class="head" id="rHead" alt="" />
               <div class="feeling-name"><span id="rName"></span> <span class="dot" id="rDot" style="display:inline-block;vertical-align:middle;margin-left:6px"></span></div>
             </div>
             <div class="btn-row">
@@ -471,6 +515,8 @@
     { img: "q-14", text: "Möchtest du dann alleine sein oder bei jemandem?" },
   ];
 
+  // Blitz cards. Give an entry an `img` (file in assets/blitz/) as soon as the
+  // printed card art is ready — nothing else has to change.
   const FLASH = [
     { emoji: "⛈️", text: "Wenn es draußen donnert und blitzt …" },
     { emoji: "🎈", text: "Wenn ich vor allen dran bin …" },
@@ -510,7 +556,7 @@
     spin:      "Das ist mein Gefühlsrad! Dreh es einmal – das Gefühl, bei dem es stehen bleibt, gehört für diese Runde dir. Es gibt kein richtiges oder falsches Gefühl.",
     question:  "Jetzt darfst du eine meiner Fragekarten ziehen. Tipp auf eine Karte – keine Karte ist falsch.",
     flash:     "Das sind meine Blitzkarten – kleine Momente, die ich auf meinen Reisen gesammelt habe. Zieh eine!",
-    situation: "Schau, das bin ich in drei Momenten – aber mir fehlt noch das Gesicht! Zieh dein Gefühl auf den Moment, zu dem es passt. Wenn dir ein Moment nichts sagt, kannst du die Karte tauschen.",
+    situation: "Schau, das bin ich in vier Momenten – aber mir fehlt noch das Gesicht! Zieh dein Gefühl auf den Moment, zu dem es passt. Wenn dir ein Moment nichts sagt, kannst du die Karte tauschen.",
     needs:     "Hinter jedem Gefühl steckt etwas, das es braucht. Was würde dir gerade helfen? Such dir eins aus.",
     close:     "Danke, dass du mir geholfen hast! Du hast ein Gefühl gefunden, es ein Stück begleitet und entdeckt, was es braucht. Nichts wurde bewertet – nichts war falsch. Sollen wir noch eine Runde drehen?",
   };
@@ -582,48 +628,97 @@
   });
 
   // ---------------- WHEEL ----------------
-  const SEG = 30, R = 150, R_DISC = 104, RD = 30;
-  const NS = "http://www.w3.org/2000/svg";
+  // Twelve seats around a wooden disc. Each head is a transparent cut-out that
+  // sits on its own seat, turned to face outwards so it follows the rim the way
+  // the magnets do on the real wheel.
+  const SEG = 30, R = 152, R_SEAT = 116, HEAD = 70;
   const rot = $("#rot");
   const toXY = (deg, r) => [r * Math.cos((deg * Math.PI) / 180), r * Math.sin((deg * Math.PI) / 180)];
+  const f = (n) => n.toFixed(2);
 
   function buildWheel() {
-    let inner = `<circle cx="0" cy="0" r="${R + 8}" fill="${css('--wood-edge')}" />`;
+    let inner = `<circle cx="0" cy="0" r="${R + 9}" fill="${css('--wood-edge')}" />`;
     for (let i = 0; i < 12; i++) {
       const a0 = i * SEG, a1 = a0 + SEG;
       const [x0, y0] = toXY(a0, R), [x1, y1] = toXY(a1, R);
       const fill = i % 2 === 0 ? css("--wood-l") : css("--wood-d");
-      inner += `<path d="M 0 0 L ${x0.toFixed(2)} ${y0.toFixed(2)} A ${R} ${R} 0 0 1 ${x1.toFixed(2)} ${y1.toFixed(2)} Z" fill="${fill}" stroke="${css('--wood-edge')}" stroke-width="1.5"/>`;
+      inner += `<path d="M 0 0 L ${f(x0)} ${f(y0)} A ${R} ${R} 0 0 1 ${f(x1)} ${f(y1)} Z" fill="${fill}" stroke="${css('--wood-edge')}" stroke-width="1.4"/>`;
     }
-    // face discs at segment centres
+    // a peg between every pair of seats, like the dowels on the real wheel
+    for (let i = 0; i < 12; i++) {
+      const [px, py] = toXY(i * SEG, R - 2);
+      inner += `<circle cx="${f(px)}" cy="${f(py)}" r="4.2" fill="${css('--wood-l')}" stroke="${css('--wood-edge')}" stroke-width="1"/>`;
+    }
+    // heads: centred on their seat, rotated so "up" points out of the wheel
     for (let i = 0; i < 12; i++) {
       const m = i * SEG + SEG / 2;
-      const [dx, dy] = toXY(m, R_DISC);
-      const cid = `clip${i}`;
-      inner += `<clipPath id="${cid}"><circle cx="${dx.toFixed(2)}" cy="${dy.toFixed(2)}" r="${RD}"/></clipPath>`;
-      inner += `<circle cx="${dx.toFixed(2)}" cy="${dy.toFixed(2)}" r="${RD + 2}" fill="#fff"/>`;
-      inner += `<image href="${headSrc(EMOTIONS[i].head)}" x="${(dx - RD).toFixed(2)}" y="${(dy - RD).toFixed(2)}" width="${RD * 2}" height="${RD * 2}" clip-path="url(#${cid})" preserveAspectRatio="xMidYMid slice"/>`;
-      inner += `<circle cx="${dx.toFixed(2)}" cy="${dy.toFixed(2)}" r="${RD}" fill="none" stroke="#fff" stroke-width="2"/>`;
+      const [dx, dy] = toXY(m, R_SEAT);
+      inner += `<g class="seat" data-seat="${i}" transform="translate(${f(dx)} ${f(dy)}) rotate(${f(m + 90)})">` +
+               `<image href="${headSrc(EMOTIONS[i].head)}" x="${f(-HEAD / 2)}" y="${f(-HEAD / 2)}" ` +
+               `width="${HEAD}" height="${HEAD}" filter="url(#headShadow)" /></g>`;
     }
-    // hub
-    inner += `<circle cx="0" cy="0" r="24" fill="#f4ecdb" stroke="${css('--wood-edge')}" stroke-width="2"/>`;
-    inner += `<circle cx="0" cy="0" r="10" fill="url(#hub)"/>`;
-    inner += `<radialGradient id="hub"><stop offset="0" stop-color="#fff"/><stop offset="1" stop-color="#c9b79a"/></radialGradient>`;
+    inner += `<circle cx="0" cy="0" r="25" fill="#f4ecdb" stroke="${css('--wood-edge')}" stroke-width="2"/>`;
+    inner += `<circle cx="0" cy="0" r="10.5" fill="url(#hub)"/>`;
     rot.innerHTML = inner;
   }
   function css(v) { return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  const seatEl = (i) => rot.querySelector(`[data-seat="${i}"]`);
 
-  let rotation = 0, spinning = false;
+  let rotation = 0, spinning = false, emptySeat = null;
   const svgWheel = $("svg.wheel");
   const spinBtn = $("#spinBtn");
   const spinIntro = $("#spinIntro");
   const result = $("#result");
+  const lift = $("#lift"), liftHead = $("#liftHead");
+
+  function fillAllSeats() {
+    $$("g.seat", rot).forEach((g) => g.classList.remove("is-empty"));
+    emptySeat = null;
+  }
 
   function resetSpin() {
     result.classList.remove("show");
     spinIntro.style.display = "";
     spinBtn.disabled = false;
     svgWheel.classList.remove("is-dim");
+    lift.classList.remove("is-out");
+    lift.style.transition = "none";
+    liftHead.style.transition = "none";
+    liftHead.style.transform = "";
+    fillAllSeats();
+  }
+
+  // Lifts the drawn head off its seat and floats it towards the child: it
+  // starts exactly where the seat is, then drifts to the centre while growing.
+  function liftOut(i) {
+    const seat = seatEl(i);
+    const hold = $(".wheel-hold");
+    const from = seat.getBoundingClientRect();
+    const box = hold.getBoundingClientRect();
+    const dx = (from.left + from.width / 2) - (box.left + box.width / 2);
+    const dy = (from.top + from.height / 2) - (box.top + box.height / 2);
+    const startScale = from.width / (box.width * 0.30);
+
+    liftHead.src = headSrc(EMOTIONS[i].head);
+    lift.style.transition = "none";
+    liftHead.style.transition = "none";
+    liftHead.style.transform = `translate(${dx}px, ${dy}px) scale(${startScale})`;
+    void liftHead.offsetWidth;                       // land the start frame first
+
+    lift.classList.add("is-out");
+    if (reduceMotion()) {
+      liftHead.style.transform = "translate(0px, 0px) scale(1)";
+    } else {
+      liftHead.style.transition = "transform 1.5s cubic-bezier(.22,.68,.24,1)";
+      liftHead.style.transform = "translate(0px, 0px) scale(1.06)";
+      // a breath at the end, so it settles rather than stops dead
+      setTimeout(() => {
+        liftHead.style.transition = "transform .7s ease-out";
+        liftHead.style.transform = "translate(0px, 0px) scale(1)";
+      }, 1520);
+    }
+    seat.classList.add("is-empty");                  // the seat stays empty from here
+    emptySeat = i;
   }
 
   function spin() {
@@ -631,27 +726,50 @@
     spinning = true;
     spinBtn.disabled = true;
     $("#respin").disabled = true;
+    lift.classList.remove("is-out");
+    fillAllSeats();
+
+    // never land on a seat that is already gone
     const i = Math.floor(Math.random() * 12);
     const mid = i * SEG + SEG / 2;
     const base = ((rotation % 360) + 360) % 360;
     const target = 270 - mid;
-    const dur = matchMedia("(prefers-reduced-motion: reduce)").matches ? 400 : 3600;
-    rotation = rotation - base + target + (4 + Math.floor(Math.random() * 3)) * 360;
-    rot.style.transition = `transform ${dur}ms cubic-bezier(.17,.67,.16,1)`;
-    rot.style.transform = `rotate(${rotation}deg)`;
+    const slow = reduceMotion();
+    const dur = slow ? 400 : 4200;
+    const turns = (5 + Math.floor(Math.random() * 3)) * 360;
+    const end = rotation - base + target + turns;
+
+    // wind-up, long free spin, then a soft settle onto the pointer
+    if (slow) {
+      rot.style.transition = `transform ${dur}ms ease-out`;
+      rot.style.transform = `rotate(${end}deg)`;
+    } else {
+      const overshoot = end + 4.5;
+      rot.style.transition = "none";
+      rot.style.transform = `rotate(${rotation}deg)`;
+      void rot.getBoundingClientRect();
+      rot.style.transition = `transform ${dur - 700}ms cubic-bezier(.24,.02,.14,1)`;
+      rot.style.transform = `rotate(${overshoot}deg)`;
+      setTimeout(() => {
+        rot.style.transition = "transform 700ms cubic-bezier(.33,1,.5,1)";
+        rot.style.transform = `rotate(${end}deg)`;
+      }, dur - 700);
+    }
+    rotation = end;
+
     // reveal off a timer — transitionend is unreliable for SVG transforms
     setTimeout(() => {
       chosen = EMOTIONS[i];
-      $("#rHead").src = headSrc(chosen.head);
       $("#rName").textContent = chosen.name;
       $("#rDot").style.background = chosen.color;
       spinIntro.style.display = "none";
       svgWheel.classList.add("is-dim");
-      result.classList.add("show");
+      liftOut(i);
+      setTimeout(() => result.classList.add("show"), slow ? 0 : 900);
       say.textContent = `Oh – ${chosen.name}! Kennst du dieses Gefühl? Das gehört jetzt dir. Wenn es sich nicht richtig anfühlt, kannst du jederzeit nochmal drehen – du entscheidest.`;
       spinning = false;
       $("#respin").disabled = false;
-    }, dur + 80);
+    }, dur + 120);
   }
   spinBtn.addEventListener("click", spin);
   $("#respin").addEventListener("click", () => { resetSpin(); spin(); });
@@ -673,7 +791,7 @@
       card.setAttribute("tabindex", "0");
       card.setAttribute("aria-label", "Karte umdrehen: " + label);
       card.innerHTML =
-        `<div class="cface cback">${isQ ? "" : '<span class="cmark">!</span>'}<small>antippen zum Umdrehen</small></div>` +
+        `<div class="cface cback"><small>antippen zum Umdrehen</small></div>` +
         `<div class="cface cfront">${renderFront(item)}</div>`;
       const pick = () => choosePick(spread, card, item, onReveal);
       card.addEventListener("click", pick);
@@ -764,7 +882,11 @@
     $("#fNext").disabled = true;
     $$("#fBtns .btn").forEach((b) => (b.disabled = false));
     buildSpread($("#fSpread"), "b", shuffle(FLASH),
-      (f) => `<span class="b-emoji">${f.emoji}</span><span class="b-text">${f.text}</span>`,
+      // `img` wins once the printed blitz cards exist; until then the card
+      // shows its moment as text on a clean face — no layout change needed later
+      (f) => f.img
+        ? `<img src="assets/blitz/${f.img}.webp" alt="Blitzkarte: ${f.text}" draggable="false" />`
+        : `<span class="b-placeholder"><span class="b-emoji">${f.emoji}</span><span class="b-text">${f.text}</span></span>`,
       () => {
         $("#fFit").classList.add("show");
         say.textContent = "Hmm – passt dein Gefühl zu diesem Moment? Manche Kinder sagen ja, manche sagen nein. Beides ist richtig – das ist das ganze Geheimnis.";
@@ -816,22 +938,33 @@
     });
   }
 
-  // swap this card for a situation not currently shown on any card
+  // Swap this card for a moment that is not on the table right now. The seat
+  // itself never disappears — it fades, takes the new card, and fades back —
+  // so the row keeps its four cards and nothing jumps.
+  const SIT_ON_TABLE = 4;
   function changeCard(card) {
     if (sitPlaced) return;
     const shown = new Set($$(".sit-card", sitCards).map((c) => c.dataset.img));
     const spare = shuffle(SITUATIONS).find((s) => !shown.has(s.img));
-    if (!spare) return; // pool exhausted (only when every situation is already on screen)
-    card.dataset.img = spare.img;
-    card.innerHTML = sitCardInner(spare);
-    wireSitCard(card);
+    if (!spare) return; // every moment we have is already on the table
+    const swapIn = () => {
+      card.dataset.img = spare.img;
+      card.innerHTML = sitCardInner(spare);
+      wireSitCard(card);
+      card.classList.remove("swapping");
+    };
+    if (reduceMotion()) { swapIn(); }
+    else {
+      card.classList.add("swapping");
+      setTimeout(swapIn, 280);
+    }
     say.textContent = "Ein anderer Moment – such dir den aus, der am besten zu deinem Gefühl passt.";
   }
 
   function setupSituation() {
     if (!chosen) chosen = rand(EMOTIONS); // e.g. jumped here via a step dot
     sitPlaced = false;
-    const picks = shuffle(SITUATIONS).slice(0, 3);
+    const picks = shuffle(SITUATIONS).slice(0, SIT_ON_TABLE);
     sitCards.innerHTML = picks.map((s) =>
       `<figure class="sit-card card" data-img="${s.img}">${sitCardInner(s)}</figure>`).join("");
     tok.src = headSrc(chosen.head);
