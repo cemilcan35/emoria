@@ -278,6 +278,12 @@
     box-shadow: 0 1px 4px rgba(43,42,40,.25); }
   .face-slot.filled img { opacity: 1; transform: scale(1); transition: opacity .35s, transform .45s cubic-bezier(.2,1.4,.4,1); }
   .face-slot.filled .ring { display: none; }
+  /* one button that swaps the whole table, for when no moment fits at all */
+  .sit-refresh { display: flex; flex-direction: column; align-items: center; gap: 7px; margin-top: 18px; }
+  .sit-refresh[hidden] { display: none; }
+  .sit-refresh .btn { display: inline-flex; align-items: center; gap: 7px; }
+  .sit-refresh-hint { margin: 0; color: var(--ink-faint); font-size: .86rem; text-align: center; max-width: 42ch; }
+
   .place-row { display: flex; align-items: center; gap: 14px; margin-top: 18px; justify-content: center; }
   .token {
     width: 74px; height: 74px; border-radius: 50%; object-fit: cover; cursor: grab;
@@ -437,6 +443,13 @@
       <!-- SITUATION -->
       <section class="panel" data-step="situation">
         <div class="sit-cards" id="sitCards"></div>
+        <div class="sit-refresh" id="sitRefresh">
+          <button class="btn ghost small" id="sitRefreshBtn" type="button">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            Andere Momente zeigen
+          </button>
+          <p class="sit-refresh-hint">Passt keiner dieser Momente zu deinem Gefühl? Dann zeige ich dir vier andere.</p>
+        </div>
         <div class="place-row" id="placeRow">
           <img class="token" id="sitToken" draggable="false" alt="Zieh dein Gefühl auf Yubuu" />
         </div>
@@ -961,6 +974,33 @@
     say.textContent = "Ein anderer Moment – such dir den aus, der am besten zu deinem Gefühl passt.";
   }
 
+  // Swap the whole table at once: the four moments that are not on it right now
+  // come up first, so a refresh always genuinely changes what the child sees.
+  function refreshSituations() {
+    if (sitPlaced) return;
+    const shown = new Set($$(".sit-card", sitCards).map((c) => c.dataset.img));
+    const fresh = shuffle(SITUATIONS.filter((s) => !shown.has(s.img)));
+    const rest = shuffle(SITUATIONS.filter((s) => shown.has(s.img)));
+    const picks = fresh.concat(rest).slice(0, SIT_ON_TABLE);
+    const cards = $$(".sit-card", sitCards);
+
+    const swapIn = () => {
+      cards.forEach((card, k) => {
+        card.dataset.img = picks[k].img;
+        card.innerHTML = sitCardInner(picks[k]);
+        wireSitCard(card);
+        card.classList.remove("swapping");
+      });
+    };
+    if (reduceMotion()) { swapIn(); }
+    else {
+      cards.forEach((c) => c.classList.add("swapping"));
+      setTimeout(swapIn, 280);
+    }
+    say.textContent = "Kein Problem – hier sind andere Momente. Such dir den aus, der am besten zu deinem Gefühl passt.";
+  }
+  $("#sitRefreshBtn").addEventListener("click", refreshSituations);
+
   function setupSituation() {
     if (!chosen) chosen = rand(EMOTIONS); // e.g. jumped here via a step dot
     sitPlaced = false;
@@ -969,6 +1009,7 @@
       `<figure class="sit-card card" data-img="${s.img}">${sitCardInner(s)}</figure>`).join("");
     tok.src = headSrc(chosen.head);
     tok.style.opacity = "";
+    $("#sitRefresh").hidden = false;
     $("#placeRow").style.display = "";
     $("#sNext").disabled = true;
     $$(".sit-card", sitCards).forEach(wireSitCard);
@@ -980,6 +1021,7 @@
     card.querySelector(".face-slot").classList.add("filled");
     $$(".sit-card .ring", sitCards).forEach((r) => (r.style.display = "none"));
     $$(".change-btn", sitCards).forEach((b) => (b.style.display = "none"));
+    $("#sitRefresh").hidden = true;
     $("#placeRow").style.display = "none";
     say.textContent = "Jetzt fühle ich es auch. Ein anderes Kind könnte einen anderen Moment wählen – und das würde genauso gut passen.";
     $("#sNext").disabled = false;
