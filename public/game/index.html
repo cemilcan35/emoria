@@ -176,9 +176,14 @@
     padding: 3px 11px; border-radius: 999px; background: rgba(255,250,240,.86);
     color: var(--ink-soft); font-size: .66rem; letter-spacing: .02em; text-transform: none; opacity: 1;
   }
-  /* front: an empty, finished-looking card until the artwork arrives */
-  .pick-card.b .cfront { padding: 0; background: var(--cream); overflow: hidden; }
+  /* the blitz cards are portrait; show each one whole, never cropped, so no
+     part of its wording is lost */
+  .pick-card.b { width: clamp(120px, 17vw, 184px); height: auto; aspect-ratio: 0.78; }
+  .pick-card.b .cface { border-radius: 7% / 5.5%;
+    box-shadow: 0 2px 6px rgba(43,42,40,.14), 0 14px 30px rgba(43,42,40,.16); }
+  .pick-card.b .cfront { padding: 0; background: #fdf8ee; overflow: hidden; }
   .pick-card.b .cfront img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .pick-card.b.chosen { width: min(380px, 86vw, 52vh); }
   .pick-card.b .b-placeholder {
     width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;
     justify-content: center; gap: 14px; padding: 22px; text-align: center;
@@ -233,6 +238,7 @@
   /* ---- step 3 fit prompt (after a blitzcard is revealed) ---- */
   .fit-block { display: none; text-align: center; margin-top: 6px; animation: rise .45s ease both; }
   .fit-block.show { display: block; }
+  .card-spread.b-spread { padding-bottom: 6px; }
 
   /* ---- step 4 "change it" footer button ---- */
   .change-btn {
@@ -528,13 +534,16 @@
     { img: "q-14", text: "Möchtest du dann alleine sein oder bei jemandem?" },
   ];
 
-  // Blitz cards. Give an entry an `img` (file in assets/blitz/) as soon as the
-  // printed card art is ready — nothing else has to change.
+  // The printed blitz cards. The wording is on the card itself — `text` is only
+  // read out to screen readers.
   const FLASH = [
-    { emoji: "⛈️", text: "Wenn es draußen donnert und blitzt …" },
-    { emoji: "🎈", text: "Wenn ich vor allen dran bin …" },
-    { emoji: "🎁", text: "Wenn mir jemand eine Überraschung überreicht …" },
-    { emoji: "🌙", text: "Wenn beim Schlafengehen das Licht ausgeht …" },
+    { img: "blitz-nicht-klappt",      text: "Wenn ich etwas immer wieder versuche, aber es einfach nicht klappt …" },
+    { img: "blitz-schlafenszeit",     text: "Wenn es Schlafenszeit ist, aber ich noch weiterspielen möchte …" },
+    { img: "blitz-bild-zeigen",       text: "Wenn ich ein Bild fertig gemalt habe und es jemandem zeige …" },
+    { img: "blitz-lieblingskleidung", text: "Wenn mein Lieblingskleidungsstück schmutzig wird oder kaputtgeht …" },
+    { img: "blitz-warten",            text: "Wenn ich beim Gruppenspiel auf meinen Zug warte …" },
+    { img: "blitz-verlieren",         text: "Wenn ich ein Spiel verliere und die andere Seite jubelt …" },
+    { img: "blitz-freund-spielen",    text: "Wenn ein Freund zu mir kommt und mit mir spielen möchte …" },
   ];
 
   // fx/fy = centre of the card's blank face, fd = its diameter — both as a
@@ -795,6 +804,7 @@
     const isQ = kindClass === "q";
     spread.classList.remove("picked");
     spread.classList.toggle("q-spread", isQ);
+    spread.classList.toggle("b-spread", !isQ);
     spread.innerHTML = "";
     const label = isQ ? "eine Fragekarte" : "eine Blitzkarte";
     items.forEach((item) => {
@@ -837,7 +847,7 @@
       const s0 = first.width / last.width;
       const dx = (first.left + first.width / 2) - (last.left + last.width / 2);
       const dy = (first.top + first.height / 2) - (last.top + last.height / 2);
-      const endScale = spread.classList.contains("q-spread") ? 1 : 1.14;
+      const endScale = 1;
       card.style.transition = "none";
       card.style.transform = `translate(${dx}px, ${dy}px) scale(${s0}) rotateY(0deg)`;
       void card.offsetWidth; // force reflow so the invert takes hold
@@ -894,7 +904,7 @@
     $("#fFit").classList.remove("show");
     $("#fNext").disabled = true;
     $$("#fBtns .btn").forEach((b) => (b.disabled = false));
-    buildSpread($("#fSpread"), "b", shuffle(FLASH),
+    buildSpread($("#fSpread"), "b", shuffle(FLASH).slice(0, 5),
       // `img` wins once the printed blitz cards exist; until then the card
       // shows its moment as text on a clean face — no layout change needed later
       (f) => f.img
