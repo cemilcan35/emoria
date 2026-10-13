@@ -158,8 +158,12 @@ const panels = [
           <source src={`${base}video/yubuu-wave-nobg.mov`} type="video/quicktime" />
         </video>
         </div>
-        <div class="bubble">
-          <p class="bubble-line is-shown">{panels[1].beats.join(' ')}</p>
+        <div class="speech" aria-label="Yubuu spricht">
+          <p class="sb sb-1"><span>Ich komme von <b class="lumora">Lumora</b>, einem Planeten ganz weit weg.</span></p>
+          <p class="sb sb-2"><span>Ich möchte wissen, wie Kinder auf anderen Welten ihre Gefühle zeigen.</span></p>
+          <p class="sb sb-3"><span>Ich bin neugierig, stelle viele Fragen und höre gut zu.</span></p>
+          <p class="sb sb-4"><span>Ich finde: Jedes Gefühl hat einen Grund. Darum bewerte ich niemanden.</span></p>
+          <a class="speech-cta" href={`${base}ueber-emoria`}>Kommst du mit auf meine Reise?</a>
         </div>
       </div>
     </div>
@@ -469,7 +473,31 @@ const panels = [
        not lost in the frame, with the same measured bounds used there */
     .block-story .story-video { position: absolute; left: 50%; bottom: 0; height: calc(100% / var(--bh)); width: auto; max-width: none;
       transform: translateX(calc(var(--cx) * -100%)); }
-    .block-story .bubble { max-width: none; opacity: 1; transform: none; pointer-events: auto; }
+    .speech { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; padding-top: 4px; }
+    .sb { margin: 0; background: #fff; color: #2b2a28; font-family: 'Fredoka Variable', sans-serif; font-size: 18px; line-height: 1.4;
+      padding: 12px 18px; border-radius: 22px; border-bottom-left-radius: 6px; max-width: 30rem; box-shadow: 0 1px 0 rgba(43,42,40,.06), 0 6px 14px rgba(43,42,40,.06);
+      animation: sbIn .5s cubic-bezier(.2,.7,.2,1) both; }
+    .sb .lumora { font-weight: 600; color: #02ae90; }
+    .sb-1 { margin-left: 0; animation-delay: .0s; }
+    .sb-2 { margin-left: 16px; animation-delay: .1s; }
+    .sb-3 { margin-left: 32px; animation-delay: .2s; }
+    .sb-4 { margin-left: 16px; animation-delay: .3s; }
+    @keyframes sbIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+    .speech-cta { margin-top: 8px; margin-left: 0; align-self: flex-start; display: inline-block; background: #02ae90; color: #fff; font-family: 'Fredoka Variable', sans-serif;
+      font-weight: 600; font-size: 16px; padding: 12px 22px; border-radius: 999px; text-decoration: none; box-shadow: 0 6px 16px rgba(2,174,144,.28); transition: background .2s; }
+    .speech-cta:hover { background: #02967c; }
+    @media (prefers-reduced-motion: reduce) { .sb { animation: none; } }
+    @media (max-width: 900px) {
+      .block-meet .block-story { grid-template-columns: 1fr; justify-items: center; }
+      .block-meet .speech { align-items: flex-start; width: 100%; max-width: 30rem; }
+      .sb-2, .sb-4 { margin-left: 12px; }
+      .sb-3 { margin-left: 16px; }
+    }
+    @media (max-width: 480px) {
+      .sb { font-size: 17px; }
+      .sb-2, .sb-4 { margin-left: 10px; }
+      .sb-3 { margin-left: 16px; }
+    }
     .block-story .bubble-line { display: block; }
     .block-cta-row { margin-top: 26px; }
     .block .p-cta { display: inline-block; margin-top: 0; text-decoration: none; background: #ff7673; color: #fff; font-family: 'Fredoka Variable', sans-serif; font-weight: 600; font-size: 16px; padding: .8rem 1.7rem; border-radius: 999px; transition: background .2s; }
