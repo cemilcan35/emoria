@@ -31,7 +31,7 @@ const panels = [
   },
   {
     id: 'wheel', tab: 'Yubuus Gefühlsrad', strip: '#ff7673', bg: '#fff1e4', c: '#ff7673', ink: '#4a1f1d',
-    kind: 'game', game: 'game/index.html',
+    kind: 'game', game: 'spiel/',
     cta: 'Spiel entdecken',
     beats: [
       'Hallo, ich bin wieder da!',
@@ -175,7 +175,7 @@ const panels = [
       <h2 class="block-title">Dreh das Rad und entdecke dein Gefühl.</h2>
       <p class="block-body">Ein spielerischer Weg für Kinder, ihre Gefühle zu erkennen, zu benennen und darüber zu sprechen.</p>
       <div class="block-cta-row">
-        <a class="p-cta" href={`${base}game/index.html`}>Spiel entdecken</a>
+        <a class="p-cta" href={`${base}spiel/`}>Spiel entdecken</a>
       </div>
     </div>
   </section>
@@ -493,10 +493,21 @@ const panels = [
       .sb-2, .sb-4 { margin-left: 12px; }
       .sb-3 { margin-left: 16px; }
     }
-    @media (max-width: 480px) {
-      .sb { font-size: 17px; }
+    @media (max-width: 640px) {
+      .block-meet { padding-top: 40px; padding-bottom: 48px; }
+      .block-meet .block-story { gap: 8px; margin-top: 8px; }
+      .block-meet .story-char { height: 230px; }
+      .block-meet .story-video { height: 230px; }
+      .block-meet .speech { width: 100%; max-width: 100%; gap: 10px; padding-top: 0; align-items: stretch; }
+      .sb { animation: none; opacity: 1; transform: none; max-width: 100%; font-size: 17px; line-height: 1.45;
+        padding: 12px 16px; border-radius: 20px; border-bottom-left-radius: 6px; }
+      .sb-1, .sb-2, .sb-3, .sb-4 { margin-left: 0; margin-right: 0; }
       .sb-2, .sb-4 { margin-left: 10px; }
       .sb-3 { margin-left: 16px; }
+      .speech-cta { align-self: center; margin: 10px auto 0; font-size: 16px; padding: 12px 24px; }
+    }
+    @media (prefers-reduced-motion: no-preference) and (max-width: 640px) {
+      .sb { animation: none; }
     }
     .block-story .bubble-line { display: block; }
     .block-cta-row { margin-top: 26px; }

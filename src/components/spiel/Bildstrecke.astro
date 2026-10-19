@@ -1,0 +1,168 @@
+---
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import { STATIONS, FACH_TITLE, FACH_POINTS, FACH_MATERIAL } from '../../data/spiel';
+
+interface Props { lang?: string }
+const { lang = 'de' } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const prefix = lang === 'de' ? base : `${base}${lang}/`;
+
+// Fehlt ein Bild, zeigt die Seite einen Platzhalter mit dem Dateinamen.
+const DIR = 'public/img/spielablauf';
+const imageSrc = (file: string) =>
+  existsSync(join(process.cwd(), DIR, file)) ? `${base}img/spielablauf/${file}` : null;
+const materialSrc = imageSrc(FACH_MATERIAL.image);
+---
+
+<!-- TODO Übersetzung: vorerst deutscher Text, siehe src/data/spiel.ts -->
+<script is:inline>
+  // Stationen nur verstecken, wenn JavaScript läuft und keine Bewegung reduziert ist
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('js');
+  }
+</script>
+
+<header class="spiel-intro">
+  <p class="eyebrow">Spielablauf</p>
+  <h1>So wird Yubuus Gefühlsrad gespielt</h1>
+</header>
+
+<nav class="spiel-progress" aria-label="Stationen der Bildstrecke">
+  {STATIONS.map((s, i) => (
+    <a href={`#schritt-${i + 1}`} data-dot={i + 1} aria-label={`Station ${i + 1}: ${s.heading}`}></a>
+  ))}
+</nav>
+
+<ol class="stations">
+  {STATIONS.map((s, i) => {
+    const src = imageSrc(s.image);
+    return (
+      <li class:list={['station', i % 2 === 1 && 'is-flip']} id={`schritt-${i + 1}`} data-station>
+        <figure class="station-media">
+          {src ? (
+            <img src={src} alt={s.alt} width="1200" height="900" loading="lazy" decoding="async" />
+          ) : (
+            <div class="placeholder" role="img" aria-label={`Platzhalter: ${s.image}`}>
+              <span>{s.image}</span>
+            </div>
+          )}
+        </figure>
+        <div class="station-text">
+          <p class="marke">{s.marke}</p>
+          <h2>{s.heading}</h2>
+          <p class="yubuu">{s.yubuu}</p>
+          <p class="erklaerung">{s.text}</p>
+        </div>
+      </li>
+    );
+  })}
+</ol>
+
+<section class="fach" aria-labelledby="fach-titel">
+  <div class="fach-box">
+    <h2 id="fach-titel">{FACH_TITLE}</h2>
+    <ul>
+      {FACH_POINTS.map((p) => <li>{p}</li>)}
+    </ul>
+    {materialSrc ? (
+      <figure class="fach-media">
+        <img src={materialSrc} alt={FACH_MATERIAL.alt} width="1200" height="800" loading="lazy" decoding="async" />
+      </figure>
+    ) : (
+      <div class="placeholder fach-media" role="img" aria-label={`Platzhalter: ${FACH_MATERIAL.image}`}>
+        <span>{FACH_MATERIAL.image}</span>
+      </div>
+    )}
+    <div class="fach-cta">
+      <a class="p-cta" href={`${prefix}contact`}>Kontakt aufnehmen</a>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (() => {
+    const stations = document.querySelectorAll('[data-station]');
+    const dots = document.querySelectorAll('.spiel-progress a');
+    if (!('IntersectionObserver' in window)) {
+      stations.forEach((s) => s.classList.add('is-in'));
+      return;
+    }
+    const reveal = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-in');
+          reveal.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    stations.forEach((s) => reveal.observe(s));
+
+    const active = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (!e.isIntersecting) return;
+        const n = e.target.id.replace('schritt-', '');
+        dots.forEach((d) => d.classList.toggle('is-active', d.dataset.dot === n));
+      });
+    }, { rootMargin: '-45% 0px -45% 0px' });
+    stations.forEach((s) => active.observe(s));
+  })();
+</script>
+
+<style>
+  .spiel-intro { text-align: center; padding: 56px 16px 28px; }
+  .spiel-intro .eyebrow { font-family: var(--font-body); font-size: 14px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-terracotta); margin: 0 0 8px; }
+  .spiel-intro h1 { font-family: var(--font-display); font-weight: 600; font-size: clamp(30px, 4.5vw, 44px); color: var(--color-ink); margin: 0; line-height: 1.15; }
+
+  /* Fortschritt: Punkte am rechten Rand, auf dem Handy ausgeblendet */
+  .spiel-progress { position: fixed; right: 18px; top: 50%; transform: translateY(-50%); display: flex; flex-direction: column; gap: 10px; z-index: 5; }
+  .spiel-progress a { width: 9px; height: 9px; border-radius: 50%; background: var(--color-cream-edge); transition: background .3s, transform .3s; }
+  .spiel-progress a.is-active { background: var(--color-brand); transform: scale(1.35); }
+  .spiel-progress a:focus-visible { outline: 2px solid var(--color-petrol); outline-offset: 3px; }
+
+  .stations { list-style: none; margin: 0 auto; padding: 24px 16px 56px; max-width: 1040px; display: grid; gap: 64px; }
+  .station { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; scroll-margin-top: 90px; }
+  .station.is-flip .station-media { order: 2; }
+
+  .station-media { margin: 0; aspect-ratio: 4 / 3; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-soft); background: var(--color-cream-deep); }
+  .station-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .placeholder { width: 100%; height: 100%; display: grid; place-items: center; padding: 16px; box-sizing: border-box; background: var(--color-cream-deep); color: var(--color-ink-faint); font-family: var(--font-body); font-size: 14px; text-align: center; border: 1.5px dashed var(--color-cream-edge); border-radius: var(--radius-card); word-break: break-all; }
+  .station-media .placeholder { border-radius: 0; border: 0; }
+
+  .station-text { min-width: 0; }
+  .marke { margin: 0 0 6px; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--color-terracotta); }
+  .station h2 { margin: 0 0 14px; font-family: var(--font-display); font-weight: 600; font-size: clamp(24px, 3vw, 30px); line-height: 1.2; color: var(--color-ink); }
+  .yubuu { position: relative; display: inline-block; max-width: 100%; margin: 0 0 16px; padding: 12px 18px; background: #fff; color: var(--color-ink); font-family: var(--font-display); font-size: 18px; line-height: 1.4; border-radius: 22px; border-bottom-left-radius: 6px; box-shadow: 0 1px 0 rgba(43,42,40,.06), 0 6px 14px rgba(43,42,40,.06); }
+  .erklaerung { margin: 0; font-family: var(--font-body); font-size: 17px; line-height: 1.6; color: var(--color-ink-soft); }
+
+  .fach { padding: 8px 16px 96px; }
+  .fach-box { max-width: 760px; margin: 0 auto; padding: 32px; background: #fff; border: 1px solid var(--color-cream-edge); border-radius: var(--radius-card); box-shadow: var(--shadow-soft); }
+  .fach-box h2 { margin: 0 0 16px; font-family: var(--font-display); font-weight: 600; font-size: 26px; color: var(--color-ink); }
+  .fach-box ul { margin: 0 0 24px; padding-left: 20px; display: grid; gap: 8px; font-family: var(--font-body); font-size: 16px; line-height: 1.55; color: var(--color-ink-soft); }
+  .fach-media { margin: 0 0 24px; aspect-ratio: 4 / 3; border-radius: 16px; overflow: hidden; }
+  .fach-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .fach-cta { text-align: center; }
+  .p-cta { display: inline-block; text-decoration: none; background: var(--color-brand); color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: .8rem 1.7rem; border-radius: var(--radius-pill); transition: background .2s; }
+  .p-cta:hover { background: var(--color-brand-deep); }
+
+  /* Reveal nur mit JavaScript */
+  .js [data-station] { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .js [data-station].is-in { opacity: 1; transform: none; }
+
+  @media (max-width: 900px) {
+    .spiel-progress { display: none; }
+    .station { grid-template-columns: 1fr; gap: 20px; }
+    .station.is-flip .station-media { order: 0; }
+    .station-media { aspect-ratio: 4 / 3; }
+  }
+  @media (max-width: 480px) {
+    .stations { gap: 52px; padding-left: 16px; padding-right: 16px; }
+    .yubuu { font-size: 17px; }
+    .erklaerung { font-size: 16px; }
+    .fach-box { padding: 24px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .js [data-station] { opacity: 1; transform: none; transition: none; }
+    .spiel-progress a { transition: none; }
+  }
+</style>
