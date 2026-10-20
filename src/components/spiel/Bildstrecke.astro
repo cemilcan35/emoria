@@ -1,12 +1,13 @@
 ---
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { STATIONS, FACH_TITLE, FACH_POINTS, FACH_MATERIAL } from '../../data/spiel';
+import { getSpiel, FACH_MATERIAL } from '../../data/spiel';
 
 interface Props { lang?: string }
 const { lang = 'de' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const prefix = lang === 'de' ? base : `${base}${lang}/`;
+const C = getSpiel(lang);
 
 // Fehlt ein Bild, zeigt die Seite einen Platzhalter mit dem Dateinamen.
 const DIR = 'public/img/spielablauf';
@@ -15,7 +16,7 @@ const imageSrc = (file: string) =>
 const materialSrc = imageSrc(FACH_MATERIAL.image);
 ---
 
-<!-- TODO Übersetzung: vorerst deutscher Text, siehe src/data/spiel.ts -->
+<!-- Texte: src/data/spiel.ts (DE, EN). TODO Übersetzung: FR und TR zeigen vorerst Deutsch. -->
 <script is:inline>
   // Stationen nur verstecken, wenn JavaScript läuft und keine Bewegung reduziert ist
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
@@ -24,18 +25,18 @@ const materialSrc = imageSrc(FACH_MATERIAL.image);
 </script>
 
 <header class="spiel-intro">
-  <p class="eyebrow">Spielablauf</p>
-  <h1>So wird Yubuus Gefühlsrad gespielt</h1>
+  <p class="eyebrow">{C.eyebrow}</p>
+  <h1>{C.title}</h1>
 </header>
 
-<nav class="spiel-progress" aria-label="Stationen der Bildstrecke">
-  {STATIONS.map((s, i) => (
+<nav class="spiel-progress" aria-label={C.progressLabel}>
+  {C.stations.map((s, i) => (
     <a href={`#schritt-${i + 1}`} data-dot={i + 1} aria-label={`Station ${i + 1}: ${s.heading}`}></a>
   ))}
 </nav>
 
 <ol class="stations">
-  {STATIONS.map((s, i) => {
+  {C.stations.map((s, i) => {
     const src = imageSrc(s.image);
     return (
       <li class:list={['station', i % 2 === 1 && 'is-flip']} id={`schritt-${i + 1}`} data-station>
@@ -43,7 +44,7 @@ const materialSrc = imageSrc(FACH_MATERIAL.image);
           {src ? (
             <img src={src} alt={s.alt} width="1200" height="900" loading="lazy" decoding="async" />
           ) : (
-            <div class="placeholder" role="img" aria-label={`Platzhalter: ${s.image}`}>
+            <div class="placeholder" role="img" aria-label={`${C.placeholder}: ${s.image}`}>
               <span>{s.image}</span>
             </div>
           )}
@@ -61,21 +62,21 @@ const materialSrc = imageSrc(FACH_MATERIAL.image);
 
 <section class="fach" aria-labelledby="fach-titel">
   <div class="fach-box">
-    <h2 id="fach-titel">{FACH_TITLE}</h2>
+    <h2 id="fach-titel">{C.fachTitle}</h2>
     <ul>
-      {FACH_POINTS.map((p) => <li>{p}</li>)}
+      {C.fachPoints.map((p) => <li>{p}</li>)}
     </ul>
     {materialSrc ? (
       <figure class="fach-media">
         <img src={materialSrc} alt={FACH_MATERIAL.alt} width="1200" height="800" loading="lazy" decoding="async" />
       </figure>
     ) : (
-      <div class="placeholder fach-media" role="img" aria-label={`Platzhalter: ${FACH_MATERIAL.image}`}>
+      <div class="placeholder fach-media" role="img" aria-label={`${C.placeholder}: ${FACH_MATERIAL.image}`}>
         <span>{FACH_MATERIAL.image}</span>
       </div>
     )}
     <div class="fach-cta">
-      <a class="p-cta" href={`${prefix}contact`}>Kontakt aufnehmen</a>
+      <a class="p-cta" href={`${prefix}contact`}>{C.cta}</a>
     </div>
   </div>
 </section>
