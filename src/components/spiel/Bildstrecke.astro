@@ -66,14 +66,10 @@ const materialSrc = imageSrc(FACH_MATERIAL.image);
     <ul>
       {C.fachPoints.map((p) => <li>{p}</li>)}
     </ul>
-    {materialSrc ? (
+    {materialSrc && (
       <figure class="fach-media">
         <img src={materialSrc} alt={FACH_MATERIAL.alt} width="1200" height="800" loading="lazy" decoding="async" />
       </figure>
-    ) : (
-      <div class="placeholder fach-media" role="img" aria-label={`${C.placeholder}: ${FACH_MATERIAL.image}`}>
-        <span>{FACH_MATERIAL.image}</span>
-      </div>
     )}
     <div class="fach-cta">
       <a class="p-cta" href={`${prefix}contact`}>{C.cta}</a>
