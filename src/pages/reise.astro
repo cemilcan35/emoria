@@ -25,7 +25,7 @@ const base = import.meta.env.BASE_URL;
     </header>
 
     <div class="reise">
-      <section class="part part-wide" data-part data-label="Auf Lumora">
+      <section class="part part-lumora" data-part data-label="Auf Lumora">
         <figure class="photo"><img src={`${base}img/spielablauf/01-yubuu-lumora.webp`} alt="Yubuu steht auf dem Planeten Lumora und schaut in den Sternenhimmel." width="1200" height="650" decoding="async" /></figure>
         <div class="text">
           <p>Weit entfernt von der Erde liegt <strong>EMORIA</strong>, ein geheimnisvolles Universum voller unterschiedlicher Planeten. Einer davon heißt <strong>Lumora</strong>. Dort lebt Yubuu, ein kleines, neugieriges Wesen mit vier besonderen Antennen.</p>
@@ -88,7 +88,7 @@ const base = import.meta.env.BASE_URL;
   .story .part-wide { grid-template-columns: 1fr; gap: 28px; }
   .story .part-wide .text { max-width: 680px; margin: 0 auto; }
   .story .part-wide .photo { max-width: 720px; margin: 0 auto; width: 100%; }
-  .story .reise > .part-wide:first-child .photo { max-width: 520px; }
+  .story .part-lumora .photo img { aspect-ratio: 4 / 3; object-fit: cover; }
   .story .photo { margin: 0; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-soft); background: var(--color-cream-deep); }
   .story .photo img { display: block; width: 100%; height: auto; }
   .story .part-wide .photo:not(.photo-natural) img { aspect-ratio: 16 / 9; object-fit: cover; }
@@ -157,6 +157,7 @@ const base = import.meta.env.BASE_URL;
 
 
   @media (max-width: 800px) {
+    .story .part-lumora .photo { max-width: 320px; margin: 0 auto; }
     .story .part { grid-template-columns: 1fr; gap: 20px; }
     .story .part.is-flip .photo, .story .part.is-flip .art { order: 0; }
     .story .reise { gap: 56px; }
