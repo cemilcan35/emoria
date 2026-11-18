@@ -1,0 +1,129 @@
+---
+import Base from '../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base title="Yubuus Reise zur Erde — EMORIA"
+  description="Wie Yubuu von Lumora zur Erde kam und warum die Kinder Yubuu etwas über Gefühle beibringen können.">
+
+  <script is:inline>
+    // Abschnitte nur ausblenden, wenn JavaScript läuft und keine Bewegung reduziert ist
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      document.documentElement.classList.add('js');
+    }
+  </script>
+
+  <header class="reise-intro">
+    <p class="eyebrow">Yubuus Geschichte</p>
+    <h1>Yubuus Reise zur Erde 🚀</h1>
+  </header>
+
+  <div class="reise">
+
+    <section class="part part-wide" data-part>
+      <figure class="photo">
+        <img src={`${base}img/spielablauf/01-yubuu-lumora.webp`} alt="Yubuu steht auf dem Planeten Lumora und schaut in den Sternenhimmel." width="1200" height="650" decoding="async" />
+      </figure>
+      <div class="text">
+        <p>Weit entfernt von der Erde liegt <strong>EMORIA</strong>, ein geheimnisvolles Universum voller unterschiedlicher Planeten. Einer davon heißt <strong>Lumora</strong>. Dort lebt Yubuu, ein kleines, neugieriges Wesen mit vier besonderen Antennen.</p>
+        <p>Auf Lumora zeigen die Antennen, wie sich die Bewohner fühlen. Wenn sie glücklich, traurig, wütend oder ängstlich sind, beginnen ihre Antennen in unterschiedlichen Farben zu leuchten.</p>
+      </div>
+    </section>
+
+    <section class="part" data-part>
+      <figure class="art"><img src={`${base}img/yubuu-telescope.png`} alt="Yubuu schaut mit einem Fernrohr über Sternenkarten." width="445" height="355" loading="lazy" decoding="async" /></figure>
+      <div class="text">
+        <p>Doch eines Tages stellt sich Yubuu eine spannende Frage:</p>
+        <p class="frage">„Wie zeigen eigentlich andere Wesen ihre Gefühle?“</p>
+      </div>
+    </section>
+
+    <section class="part is-flip" data-part>
+      <figure class="art"><img src={`${base}img/yubuu-rocket.png`} alt="Yubuu fliegt in einer Rakete durchs Universum." width="710" height="480" loading="lazy" decoding="async" /></figure>
+      <div class="text">
+        <p>Neugierig steigt Yubuu allein in die Rakete und macht sich auf eine Reise durch das Universum. Aus weiter Ferne entdeckt Yubuu plötzlich einen Planeten namens Erde. Neugierig wird Yubuu immer schneller und fliegt direkt auf diesen Planeten zu. Schließlich landet Yubuu auf der Erde …</p>
+      </div>
+    </section>
+
+    <section class="part" data-part>
+      <figure class="art"><img src={`${base}img/yubuu-asteroid.png`} alt="Yubuu schwebt staunend über einem kleinen Asteroiden." width="318" height="244" loading="lazy" decoding="async" /></figure>
+      <div class="text">
+        <p>Dort entdeckt Yubuu etwas Erstaunliches: <strong>Die Menschen haben gar keine Antennen! Häää???</strong></p>
+        <p>Wie kann man dann erkennen, ob jemand glücklich, traurig, wütend oder ängstlich ist?</p>
+        <p>Yubuu beobachtet, dass Menschen lachen, weinen, sprechen oder manchmal ganz still oder ganz laut werden. Überall gibt es Unterschiede. Doch schnell merkt Yubuu: Nicht jeder Mensch zeigt seine Gefühle auf die gleiche Weise. Und manchmal kann man von außen gar nicht erkennen, wie sich jemand wirklich fühlt.</p>
+      </div>
+    </section>
+
+    <section class="part is-flip" data-part>
+      <figure class="photo">
+        <img src={`${base}img/spielablauf/03-einstieg-handpuppe.webp`} alt="Eine Fachkraft hält die Yubuu-Handpuppe, Kinder sitzen neugierig um einen Tisch." width="1200" height="670" loading="lazy" decoding="async" />
+      </figure>
+      <div class="text">
+        <p>Deshalb möchte Yubuu von den Kindern auf der Erde lernen, wie sie und andere Menschen ihre Gefühle ausdrücken. Gemeinsam mit ihnen will Yubuu Gefühle entdecken, darüber sprechen und herausfinden, was Menschen in unterschiedlichen Situationen brauchen.</p>
+      </div>
+    </section>
+
+    <aside class="finale" data-part>
+      <p><strong>Und genau hier beginnt das Abenteuer von EMORIA, denn jedes Kind hat etwas, das es Yubuu über Gefühle beibringen kann.</strong></p>
+      <a class="p-cta" href={`${base}spiel/`}>So wird Yubuus Gefühlsrad gespielt</a>
+    </aside>
+  </div>
+
+  <script is:inline>
+    (() => {
+      const parts = document.querySelectorAll('[data-part]');
+      if (!('IntersectionObserver' in window)) { parts.forEach((p) => p.classList.add('is-in')); return; }
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+      }, { threshold: 0.15 });
+      parts.forEach((p) => io.observe(p));
+    })();
+  </script>
+</Base>
+
+<style>
+  .reise-intro { text-align: center; padding: 56px 16px 12px; }
+  .reise-intro .eyebrow { margin: 0 0 8px; font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #02ae90; }
+  .reise-intro h1 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 5vw, 52px); line-height: 1.1; color: var(--color-ink); }
+
+  .reise { max-width: 980px; margin: 0 auto; padding: 24px 16px 96px; display: grid; gap: 72px; }
+
+  .part { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+  .part.is-flip .photo, .part.is-flip .art { order: 2; }
+  .part-wide { grid-template-columns: 1fr; gap: 28px; }
+  .part-wide .text { max-width: 680px; margin: 0 auto; }
+
+  .photo { margin: 0; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-soft); background: var(--color-cream-deep); }
+  .photo img { display: block; width: 100%; height: auto; }
+  .part-wide .photo img { aspect-ratio: 16 / 8.5; object-fit: cover; }
+
+  .art { margin: 0; display: grid; place-items: center; padding: 24px; border-radius: var(--radius-card); background: #eaf4ef; }
+  .art img { display: block; width: 100%; max-width: 360px; height: auto; filter: drop-shadow(0 14px 20px rgba(43, 42, 40, .16)); }
+
+  .text p { margin: 0 0 16px; font-family: var(--font-body); font-size: clamp(17px, 1.5vw, 19px); line-height: 1.7; color: var(--color-ink-soft); }
+  .text p:last-child { margin-bottom: 0; }
+  .text strong { color: var(--color-ink); font-weight: 600; }
+  .text .frage { font-family: var(--font-display); font-weight: 600; font-size: clamp(24px, 3vw, 32px); line-height: 1.2; color: var(--color-ink); }
+
+  .finale { text-align: center; max-width: 680px; margin: 0 auto; padding: 36px 28px; border-radius: var(--radius-card); background: #fff; border: 1px solid var(--color-cream-edge); box-shadow: var(--shadow-soft); }
+  .finale p { margin: 0 0 22px; font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); line-height: 1.35; color: var(--color-ink); }
+  .finale strong { font-weight: 600; }
+  .p-cta { display: inline-block; text-decoration: none; background: var(--color-brand); color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: .8rem 1.7rem; border-radius: var(--radius-pill); box-shadow: 0 6px 16px rgba(255, 118, 115, .3); transition: background .2s, transform .2s; }
+  .p-cta:hover { background: var(--color-brand-deep); transform: translateY(-2px); }
+
+  /* Einblenden nur mit JavaScript */
+  :global(.js) [data-part] { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  :global(.js) [data-part].is-in { opacity: 1; transform: none; }
+
+  @media (max-width: 800px) {
+    .part { grid-template-columns: 1fr; gap: 20px; }
+    .part.is-flip .photo, .part.is-flip .art { order: 0; }
+    .reise { gap: 56px; }
+    .art { padding: 16px; }
+    .art img { max-width: 280px; }
+    .finale { padding: 28px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(.js) [data-part] { opacity: 1; transform: none; transition: none; }
+    .p-cta { transition: none; }
+  }
+</style>
