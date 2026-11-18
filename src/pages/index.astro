@@ -20,7 +20,7 @@ const panels = [
     kind: 'story', storyMode: 'meet',
     beats: [
       'Hallo! Ich bin Yubuu.',
-      'Ich komme von Lumora, einem Planeten ganz weit weg. Bei uns haben alle Antennen, und die leuchten in einer anderen Farbe, je nachdem, wie man sich fühlt.',
+      'Ich komme von Lumoria, einem Planeten ganz weit weg. Bei uns haben alle Antennen, und die leuchten in einer anderen Farbe, je nachdem, wie man sich fühlt.',
       'Ich wollte wissen, ob das auf anderen Planeten auch so ist, und bin losgereist.',
       'Jetzt bin ich auf der Erde und staune: Ihr habt gar keine Antennen!',
       'Ich bin sehr neugierig, stelle viele Fragen und höre aufmerksam zu.',
@@ -159,7 +159,7 @@ const panels = [
         </video>
         </div>
         <div class="speech" aria-label="Yubuu spricht">
-          <p class="sb sb-1"><span>Ich komme von <b class="lumora">Lumora</b>, einem Planeten ganz weit weg. Bei uns haben alle Antennen, und die leuchten in einer anderen Farbe, je nachdem, wie man sich fühlt.</span></p>
+          <p class="sb sb-1"><span>Ich komme von <b class="lumora">Lumoria</b>, einem Planeten ganz weit weg. Bei uns haben alle Antennen, und die leuchten in einer anderen Farbe, je nachdem, wie man sich fühlt.</span></p>
           <p class="sb sb-2"><span>So sieht jeder sofort, wie es den anderen geht. Ich wollte wissen, ob das auf anderen Planeten auch so ist, und bin losgereist.</span></p>
           <p class="sb sb-3"><span>Jetzt bin ich auf der Erde und staune: Ihr habt gar keine Antennen!</span></p>
           <p class="sb sb-4"><span>Wie zeigt ihr denn eure Gefühle? Und wie heißen sie? Das möchte ich von euch lernen.</span></p>
@@ -173,7 +173,7 @@ const panels = [
     <div class="block-inner">
       <p class="eyebrow">Yubuus Gefühlsrad</p>
       <h2 class="block-title">Was ist eigentlich Yubuus Gefühlsrad?</h2>
-      <p class="block-body">Ein Rad, zwölf Gefühle und ein neugieriger Gast von Lumora. Schau dir an, wie es gespielt wird.</p>
+      <p class="block-body">Ein Rad, zwölf Gefühle und ein neugieriger Gast von Lumoria. Schau dir an, wie es gespielt wird.</p>
       <div class="block-cta-row">
         <a class="p-cta" href={`${base}spiel/`}>Spiel entdecken</a>
       </div>
@@ -224,9 +224,9 @@ const panels = [
         }, { threshold: 0.2 });
         io.observe(meetVid);
       }
-      meetVid?.addEventListener('canplay', () => { if (meetVid.paused && meetVid.getBoundingClientRect().top < innerHeight) meetVid.play().catch(() => {}); });
+      meetVid?.addEventListener('canplay', () => { if (meetVid.paused && !meetVid.ended && !meetVid.dataset.done && meetVid.currentTime === 0 && meetVid.getBoundingClientRect().top < innerHeight) meetVid.play().catch(() => {}); });
       document.querySelectorAll('[data-story-video]').forEach((vid) => {
-        vid.addEventListener('ended', () => vid.classList.add('is-idle'));
+        vid.addEventListener('ended', () => { vid.pause(); vid.dataset.done = '1'; });
       });
       // ---- Yubuu dialogues (Meet Yubuu + the Gefühlsrad intro): the bubble
       // stays hidden while Yubuu moves in; once it arrives, the first line
@@ -565,20 +565,8 @@ const panels = [
        nothing of him can fall outside it. */
     .story-video { position: absolute; left: 50%; bottom: calc(-100% * var(--bo) / var(--bh));
       height: calc(100% / var(--bh)); width: auto; max-width: none;
-      transform: translateX(calc(var(--cx) * -100%)); pointer-events: none; z-index: 1;
-      filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)); }
-    /* once the one-shot animation ends, Yubuu rests on the final frame —
-       this is the only "life" that continues, a quick soft blink every
-       few seconds, so nothing about the video itself replays or jumps */
-    .story-video.is-idle { animation: idleBlink 4.6s ease-in-out infinite; }
-    @keyframes idleBlink {
-      0%, 94%, 100% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(1); }
-      96% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(.82); }
-      98% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(1); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .story-video.is-idle { animation: none; }
-    }
+      transform: translateX(calc(var(--cx) * -100%)); pointer-events: none; z-index: 1; }
+    /* once the one-shot animation ends, Yubuu rests on the final frame and nothing else runs on the video */
     /* dialogue column sits high, near where Yubuu's (now lower) head is, so
        the bubble tail below it visually connects to him */
     .story-dialogue { display: flex; flex-direction: column; gap: 1.1rem;
