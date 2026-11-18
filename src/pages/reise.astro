@@ -88,7 +88,8 @@ const base = import.meta.env.BASE_URL;
 
   .photo { margin: 0; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-soft); background: var(--color-cream-deep); }
   .photo img { display: block; width: 100%; height: auto; }
-  .part-wide .photo img { aspect-ratio: 16 / 8.5; object-fit: cover; }
+  .part-wide .photo { max-width: 720px; margin: 0 auto; width: 100%; }
+  .part-wide .photo:not(.photo-natural) img { aspect-ratio: 16 / 9; object-fit: cover; }
   .part-wide .photo-natural img { aspect-ratio: auto; object-fit: initial; }
 
   .art { margin: 0; display: grid; place-items: center; padding: 24px; border-radius: var(--radius-card); background: #eaf4ef; }
