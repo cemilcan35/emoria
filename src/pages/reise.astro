@@ -89,6 +89,7 @@ const base = import.meta.env.BASE_URL;
   .photo { margin: 0; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-soft); background: var(--color-cream-deep); }
   .photo img { display: block; width: 100%; height: auto; }
   .part-wide .photo { max-width: 720px; margin: 0 auto; width: 100%; }
+  .reise > .part-wide:first-child .photo { max-width: 520px; }
   .part-wide .photo:not(.photo-natural) img { aspect-ratio: 16 / 9; object-fit: cover; }
   .part-wide .photo-natural img { aspect-ratio: auto; object-fit: initial; }
 
