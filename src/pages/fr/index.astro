@@ -21,7 +21,7 @@ const panels = [
     beats: [
       "Salut ! Je m'appelle Yubuu.",
       // TODO Übersetzung neue Geschichte
-      'Ich komme von Lumora, einem Planeten ganz weit weg. Bei uns haben alle Antennen, und die leuchten in einer anderen Farbe, je nachdem, wie man sich fühlt.',
+      'Ich komme von Lumoria, einem Planeten ganz weit weg. Bei uns haben alle Antennen, und die leuchten in einer anderen Farbe, je nachdem, wie man sich fühlt.',
       'Ich wollte wissen, ob das auf anderen Planeten auch so ist, und bin losgereist.',
       'Jetzt bin ich auf der Erde und staune: Ihr habt gar keine Antennen!',
       "Je suis très curieux, je pose beaucoup de questions et j'écoute attentivement.",
@@ -235,7 +235,7 @@ const panels = [
       // jumping back into it creates a visible seam). A light CSS "blink"
       // (see .story-video.is-idle) keeps Yubuu subtly alive from then on.
       document.querySelectorAll('[data-story-video]').forEach((vid) => {
-        vid.addEventListener('ended', () => vid.classList.add('is-idle'));
+        vid.addEventListener('ended', () => { vid.pause(); vid.dataset.done = '1'; });
       });
 
       // panels that carry a Yubuu dialogue video (Meet Yubuu, Yubuus Gefühlsrad
@@ -551,20 +551,8 @@ const panels = [
        nothing of him can fall outside it. */
     .story-video { position: absolute; left: 50%; bottom: calc(-100% * var(--bo) / var(--bh));
       height: calc(100% / var(--bh)); width: auto; max-width: none;
-      transform: translateX(calc(var(--cx) * -100%)); pointer-events: none; z-index: 1;
-      filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)); }
-    /* once the one-shot animation ends, Yubuu rests on the final frame —
-       this is the only "life" that continues, a quick soft blink every
-       few seconds, so nothing about the video itself replays or jumps */
-    .story-video.is-idle { animation: idleBlink 4.6s ease-in-out infinite; }
-    @keyframes idleBlink {
-      0%, 94%, 100% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(1); }
-      96% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(.82); }
-      98% { filter: drop-shadow(0 18px 30px rgba(43,42,40,.16)) brightness(1); }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .story-video.is-idle { animation: none; }
-    }
+      transform: translateX(calc(var(--cx) * -100%)); pointer-events: none; z-index: 1; }
+    /* once the one-shot animation ends, Yubuu rests on the final frame and nothing else runs on the video */
     /* dialogue column sits high, near where Yubuu's (now lower) head is, so
        the bubble tail below it visually connects to him */
     .story-dialogue { display: flex; flex-direction: column; gap: 1.1rem;

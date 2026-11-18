@@ -50,10 +50,10 @@ const DE: SpielContent = {
     {
       image: IMAGES[0],
       marke: 'Wer ist Yubuu?',
-      heading: 'Yubuu kommt von Lumora',
-      yubuu: '„Hallo! Ich bin Yubuu. Ich komme von Lumora, einem Planeten ganz weit weg.“',
+      heading: 'Yubuu kommt von Lumoria',
+      yubuu: '„Hallo! Ich bin Yubuu. Ich komme von Lumoria, einem Planeten ganz weit weg.“',
       text: 'Yubuu ist neugierig und möchte wissen, wie andere Lebewesen fühlen und wie sie einander verstehen. Deshalb hat sich Yubuu auf den Weg gemacht, um andere Planeten zu entdecken.',
-      alt: 'Yubuu steht auf dem Planeten Lumora und schaut in den Sternenhimmel.',
+      alt: 'Yubuu steht auf dem Planeten Lumoria und schaut in den Sternenhimmel.',
     },
     {
       image: IMAGES[1],
@@ -148,10 +148,10 @@ const EN: SpielContent = {
     {
       image: IMAGES[0],
       marke: 'Who is Yubuu?',
-      heading: 'Yubuu comes from Lumora',
+      heading: 'Yubuu comes from Lumoria',
       yubuu: '“Hello! I\'m Yubuu. I come from a planet far, far away.”',
       text: 'Yubuu is curious and wants to know how other living beings feel and how they understand each other. That\'s why Yubuu set off to discover other planets.',
-      alt: 'Yubuu stands on the planet Lumora and looks up at the starry sky.',
+      alt: 'Yubuu stands on the planet Lumoria and looks up at the starry sky.',
     },
     {
       image: IMAGES[1],
