@@ -18,7 +18,7 @@ const imageSrc = (file: string) =>
 <!-- Texte: src/data/spiel.ts (DE, EN). TODO Übersetzung: FR und TR zeigen vorerst Deutsch. -->
 <script is:inline>
   // Stationen nur verstecken, wenn JavaScript läuft und keine Bewegung reduziert ist
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(max-width: 640px)').matches) {
     document.documentElement.classList.add('js');
   }
 </script>
