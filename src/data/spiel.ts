@@ -18,15 +18,13 @@ export interface SpielContent {
   progressLabel: string;
   placeholder: string;
   stations: Station[];
-  fachTitle: string;
-  fachPoints: string[];
+  vorleseTitle: string;
+  vorleseText: string;
+  erlebTitle: string;
+  erlebIntro: string;
+  erlebItems: { marke: string; title: string; text: string }[];
   cta: string;
 }
-
-export const FACH_MATERIAL = {
-  image: '00-material.webp',
-  alt: 'Die Bedürfnistafel aus dem Material von Yubuus Gefühlsrad.',
-};
 
 const IMAGES = [
   '01-yubuu-lumora.webp',
@@ -128,13 +126,17 @@ const DE: SpielContent = {
       alt: 'Die Handpuppe freut sich mit zwei Kindern über das fertige Gefühlsbild auf dem Tisch.',
     },
   ],
-  fachTitle: 'Für pädagogische Fachkräfte',
-  fachPoints: [
-    'Für Kita (4 bis 6 Jahre) und Grundschule (6 bis 10 Jahre)',
-    'Kleingruppen von 2 bis 4 Kindern in der Kita, 2 bis 6 in der Grundschule, auch einzeln möglich',
-    'In der Kita macht jeder Schritt die Runde durch alle Kinder. In der Grundschule spielt ein Kind alle Schritte nacheinander.',
-    'In der Box: Gefühlsrad mit 12 Magnetköpfen, Fragekarten, Blitzkarten, Situationskarten, Bedürfniskreise und die Yubuu-Handpuppe',
-    'Es gibt keine richtigen oder falschen Gefühle. Yubuu fragt, staunt und lernt, bewertet aber nie.',
+  vorleseTitle: 'Bevor das Spiel beginnt',
+  vorleseText: 'Vor dem Spielen liest die pädagogische Fachkraft den Kindern aus dem kleinen Vorlesebuch „Yubuus Reise zur Erde“ vor, das zum Spielset gehören wird. Die Geschichte ist speziell dafür gestaltet, die Neugier der Kinder zu wecken, eine Verbindung zu Yubuu aufzubauen und ihre Freude darauf zu steigern, Yubuu beim Entdecken der menschlichen Gefühlswelt zu helfen. Das Vorlesen kann im Morgenkreis, in einer Kleingruppe oder einzeln stattfinden.',
+  erlebTitle: 'Was Kinder beim Spielen erleben',
+  erlebIntro: 'Hinter jedem Schritt steckt ein kleiner Moment, den Kinder selbst erleben.',
+  erlebItems: [
+    { marke: 'Schritt 1', title: 'Gespannt sein', text: 'Das Rad dreht sich, und alle fragen sich: Welches Gefühl bleibt wohl stehen? Schon das Drehen weckt Neugier und Vorfreude.' },
+    { marke: 'Schritt 2', title: 'Sich auskennen', text: 'Das Kind erklärt Yubuu sein Gefühl. Dabei merkt es: Ich weiß etwas, das Yubuu noch nicht weiß.' },
+    { marke: 'Schritt 3', title: 'Gehört werden', text: 'Das Kind erzählt von eigenen Erlebnissen und erlebt, dass jemand ehrlich zuhört und nichts bewertet.' },
+    { marke: 'Schritt 4', title: 'Aus dem Bauch entscheiden', text: 'Passt das Gefühl zur Karte oder nicht? Kinder lernen, auf ihr Gefühl zu hören und schnell zu entscheiden.' },
+    { marke: 'Schritt 5', title: 'Sich hineinversetzen', text: 'Das Kind sucht eine Situation, in der Yubuu sich so fühlen könnte, und entdeckt, dass ein Gefühl viele Gründe haben kann.' },
+    { marke: 'Schritt 6', title: 'Etwas finden, das hilft', text: 'Das Kind überlegt, was Yubuu jetzt guttun würde, und erfährt: Zu jedem Gefühl gibt es etwas, das helfen kann.' },
   ],
   cta: 'Kontakt aufnehmen',
 };
@@ -226,13 +228,17 @@ const EN: SpielContent = {
       alt: 'The hand puppet celebrates with two children over the finished feelings picture on the table.',
     },
   ],
-  fachTitle: 'For educators',
-  fachPoints: [
-    'For kindergarten (ages 4 to 6) and primary school (ages 6 to 10)',
-    'Small groups of 2 to 4 children in kindergarten, 2 to 6 in primary school, also possible one to one',
-    'In kindergarten, each step goes around all the children. In primary school, one child plays all the steps in a row.',
-    'In the box: Feeling Wheel with 12 magnetic heads, question cards, flash cards, situation cards, needs circles and the Yubuu hand puppet',
-    'There are no right or wrong feelings. Yubuu asks, wonders and learns, but never judges.',
+  vorleseTitle: 'Before the game begins',
+  vorleseText: 'Before playing, the educator reads the children a story from the small read-aloud book “Yubuu\'s Journey to Earth”, which will be part of the game set. The story is designed to awaken the children\'s curiosity, build a connection to Yubuu and increase their joy in helping Yubuu discover the world of human feelings. The reading can take place in morning circle, in a small group or one to one.',
+  erlebTitle: 'What children experience while playing',
+  erlebIntro: 'Behind every step is a small moment that children experience for themselves.',
+  erlebItems: [
+    { marke: 'Step 1', title: 'Getting excited', text: 'The wheel spins and everyone wonders: Which feeling will it stop on? Even the spinning wakes curiosity and anticipation.' },
+    { marke: 'Step 2', title: 'Knowing your way around', text: 'The child explains their feeling to Yubuu and notices: I know something Yubuu doesn\'t know yet.' },
+    { marke: 'Step 3', title: 'Being heard', text: 'The child talks about their own experiences and finds that someone listens honestly and judges nothing.' },
+    { marke: 'Step 4', title: 'Deciding from the gut', text: 'Does the feeling fit the card or not? Children learn to listen to their feelings and decide quickly.' },
+    { marke: 'Step 5', title: 'Putting yourself in someone\'s shoes', text: 'The child looks for a situation in which Yubuu might feel this way and discovers that one feeling can have many reasons.' },
+    { marke: 'Step 6', title: 'Finding something that helps', text: 'The child thinks about what would do Yubuu good right now and learns: for every feeling there is something that can help.' },
   ],
   cta: 'Get in touch',
 };
