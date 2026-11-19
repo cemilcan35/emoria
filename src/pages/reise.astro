@@ -5,7 +5,7 @@ const base = import.meta.env.BASE_URL;
 <Base title="Yubuus Reise zur Erde — EMORIA"
   description="Wie Yubuu von Lumoria zur Erde kam und warum die Kinder Yubuu etwas über Gefühle beibringen können.">
   <script is:inline>
-    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js');
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(max-width: 640px)').matches) document.documentElement.classList.add('js');
   </script>
 
   <div class="story v-a">
@@ -199,6 +199,9 @@ const base = import.meta.env.BASE_URL;
     .p-jupiter { top: 74%; right: -14px; width: 56px; height: 56px; opacity: .7; }
     .cosmos .p-mars, .cosmos .p-neptun, .cosmos .g2, .cosmos .t3, .cosmos .t5 { display: none; }
     .g1 { top: 46%; right: -14px; width: 64px; height: 64px; opacity: .5; }
+  }
+  @media (max-width: 640px) {
+    .cosmos *, .cosmos *::after { animation: none !important; }
   }
   @media (prefers-reduced-motion: reduce) {
     .cosmos *, .cosmos *::after { animation: none !important; }
