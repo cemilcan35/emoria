@@ -1,0 +1,216 @@
+---
+import Base from '../layouts/Base.astro';
+import { getReise } from '../data/reise';
+
+interface Props { lang?: string }
+const { lang = 'de' } = Astro.props;
+const T = getReise(lang);
+const base = import.meta.env.BASE_URL;
+const prefix = lang === 'de' ? base : `${base}${lang}/`;
+---
+<Base lang={T.lang} title={T.metaTitle}
+  description={T.metaDesc}>
+  <script is:inline>
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(max-width: 640px)').matches) document.documentElement.classList.add('js');
+  </script>
+
+  <div class="story v-a">
+    <div class="cosmos" aria-hidden="true">
+      <span class="sun"></span>
+      <span class="planet p-saturn"><b class="r-back"></b><b class="body"></b><b class="r-front"></b></span>
+      <span class="planet p-jupiter"></span>
+      <span class="planet p-mars"></span>
+      <span class="planet p-neptun"></span>
+      <span class="galaxy g1"></span>
+      <span class="galaxy g2"></span>
+      <span class="tw t1"></span><span class="tw t2"></span><span class="tw t3"></span><span class="tw t4"></span><span class="tw t5"></span><span class="tw t6"></span>
+    </div>
+
+    <header class="reise-intro">
+      <p class="eyebrow">{T.eyebrow}</p>
+      <h1>{T.h1}</h1>
+    </header>
+
+    <div class="reise">
+      <section class="part part-lumora is-flip" data-part data-label={T.labels[0]}>
+        <figure class="photo"><img src={`${base}img/spielablauf/01-yubuu-lumora.webp`} alt={T.alts[0]} width="1200" height="650" decoding="async" /></figure>
+        <div class="text">
+          <p set:html={T.p1} />
+          <p set:html={T.p2} />
+        </div>
+      </section>
+
+      <section class="part" data-part data-label={T.labels[1]}>
+        <figure class="art"><img src={`${base}img/yubuu-telescope.png`} alt={T.alts[1]} width="445" height="355" loading="lazy" decoding="async" /></figure>
+        <div class="text">
+          <p>{T.p3}</p>
+          <p class="frage">{T.frage}</p>
+        </div>
+      </section>
+
+      <section class="part is-flip" data-part data-label={T.labels[2]}>
+        <figure class="art"><img src={`${base}img/yubuu-rocket.png`} alt={T.alts[2]} width="710" height="480" loading="lazy" decoding="async" /></figure>
+        <div class="text">
+          <p>{T.p4}</p>
+        </div>
+      </section>
+
+      <section class="part part-wide" data-part data-label={T.labels[3]}>
+        <figure class="photo photo-natural"><img src={`${base}img/yubuu-universum.webp`} alt={T.alts[3]} width="1600" height="679" loading="lazy" decoding="async" /></figure>
+        <div class="text">
+          <p set:html={T.p5} />
+          <p>{T.p6}</p>
+          <p>{T.p7}</p>
+          <p>{T.p8}</p>
+        </div>
+      </section>
+
+      <aside class="finale" data-part>
+        <p set:html={T.finale} />
+        <a class="p-cta" href={`${prefix}spiel/`}>{T.cta}</a>
+      </aside>
+    </div>
+  </div>
+
+
+
+  <script is:inline>
+    (() => {
+      const parts = document.querySelectorAll('[data-part]');
+      if (!('IntersectionObserver' in window)) { parts.forEach((p) => p.classList.add('is-in')); return; }
+      const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }), { threshold: 0.15 });
+      parts.forEach((p) => io.observe(p));
+    })();
+  </script>
+</Base>
+
+<style is:global>
+  /* gemeinsam */
+  .story .reise-intro { text-align: center; padding: 56px 16px 12px; }
+  .story .reise-intro .eyebrow { margin: 0 0 8px; font-family: var(--font-body); font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: #02ae90; }
+  .story .reise-intro h1 { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: clamp(32px, 5vw, 52px); line-height: 1.1; color: var(--color-ink); }
+  .story .reise { max-width: 980px; margin: 0 auto; padding: 24px 16px 96px; display: grid; gap: 72px; }
+  .story .part { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+  .story .part.is-flip .photo, .story .part.is-flip .art { order: 2; }
+  .story .part-wide { grid-template-columns: 1fr; gap: 28px; }
+  .story .part-wide .text { max-width: 680px; margin: 0 auto; }
+  .story .part-wide .photo { max-width: 720px; margin: 0 auto; width: 100%; }
+  .story .part-lumora .photo img { aspect-ratio: 4 / 3; object-fit: cover; }
+  .story .photo { margin: 0; border-radius: var(--radius-card); overflow: hidden; box-shadow: var(--shadow-soft); background: var(--color-cream-deep); }
+  .story .photo img { display: block; width: 100%; height: auto; }
+  .story .part-wide .photo:not(.photo-natural) img { aspect-ratio: 16 / 9; object-fit: cover; }
+  .story .art { margin: 0; display: grid; place-items: center; padding: 24px; border-radius: var(--radius-card); background: #eaf4ef; }
+  .story .art img { display: block; width: 100%; max-width: 360px; height: auto; filter: drop-shadow(0 14px 20px rgba(43,42,40,.16)); }
+  .story .text p { margin: 0 0 16px; font-family: var(--font-body); font-size: clamp(17px, 1.5vw, 19px); line-height: 1.7; color: var(--color-ink-soft); }
+  .story .text p:last-child { margin-bottom: 0; }
+  .story .text strong { color: var(--color-ink); font-weight: 600; }
+  .story .text .frage { font-family: var(--font-display); font-weight: 600; font-size: clamp(24px, 3vw, 32px); line-height: 1.2; color: var(--color-ink); }
+  .story .finale { text-align: center; max-width: 680px; margin: 0 auto; padding: 36px 28px; border-radius: var(--radius-card); background: #fff; border: 1px solid var(--color-cream-edge); box-shadow: var(--shadow-soft); }
+  .story .finale p { margin: 0 0 22px; font-family: var(--font-display); font-size: clamp(20px, 2.4vw, 26px); line-height: 1.35; color: var(--color-ink); }
+  .story .finale strong { font-weight: 600; }
+  .story .p-cta { display: inline-block; text-decoration: none; background: var(--color-brand); color: #fff; font-family: var(--font-display); font-weight: 600; font-size: 16px; padding: .8rem 1.7rem; border-radius: var(--radius-pill); box-shadow: 0 6px 16px rgba(255,118,115,.3); transition: background .2s, transform .2s; }
+  .story .p-cta:hover { background: var(--color-brand-deep); transform: translateY(-2px); }
+  .js .story [data-part] { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .js .story [data-part].is-in { opacity: 1; transform: none; }
+
+  /* A: Zeitleiste */
+  .v-a .reise { position: relative; padding-left: 64px; }
+  .v-a .reise::before { content: ''; position: absolute; left: 31px; top: 30px; bottom: 120px; width: 3px; border-radius: 3px; background: linear-gradient(#02ae90, #ff7673); opacity: .5; }
+  .v-a .part, .v-a .finale { position: relative; }
+  .v-a .part::before { content: ''; position: absolute; left: -41px; top: 6px; width: 18px; height: 18px; border-radius: 50%; background: #fff1e4; border: 4px solid #02ae90; box-shadow: 0 0 0 5px #fff1e4; }
+  .v-a .part .text::before { content: attr(data-label); }
+  .v-a .part[data-label] .text::before { display: none; }
+  .v-a .part::after { content: attr(data-label); position: absolute; left: -64px; top: -26px; font: 600 12px var(--font-body); letter-spacing: .1em; text-transform: uppercase; color: #02ae90; }
+  .v-a .part { margin-top: 18px; }
+  .v-a .finale { margin-left: 0; }
+
+  /* Weltraum-Deko: kleine Planeten, Galaxien, Sonne. Das Licht ändert sich langsam. */
+  .story { position: relative; overflow: hidden; }
+  .story .reise, .story .reise-intro { position: relative; z-index: 1; }
+  .cosmos { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .cosmos > span { position: absolute; display: block; }
+  .sun { top: 84px; right: 4%; width: 112px; height: 112px; border-radius: 50%;
+    background: radial-gradient(circle at 38% 34%, #fffbe0 0%, #ffe27a 38%, #ffb347 72%, #ff9a3d 100%);
+    box-shadow: 0 0 44px 14px rgba(255, 200, 90, .5), 0 0 110px 40px rgba(255, 190, 90, .25);
+    animation: sunPulse 9s ease-in-out infinite; }
+  /* Planeten unseres Sonnensystems: Schattierung, Wolkenbänder, Ringe. Nur das Licht atmet langsam. */
+  .planet { border-radius: 50%; isolation: isolate; animation: haloBreath 14s ease-in-out infinite; --halo: 255, 200, 140; }
+  .planet::before { content: ''; position: absolute; inset: 0; border-radius: 50%; z-index: 3;
+    background: radial-gradient(circle at 30% 26%, rgba(255,255,255,.42) 0%, rgba(255,255,255,.08) 34%, transparent 52%),
+      radial-gradient(circle at 70% 74%, rgba(0,0,0,.5) 0%, rgba(0,0,0,.22) 38%, transparent 68%);
+    box-shadow: inset -7px -6px 16px rgba(0,0,0,.4), inset 3px 3px 8px rgba(255,255,255,.18); }
+
+  .p-jupiter { top: 70%; right: 3.5%; width: 86px; height: 86px; --halo: 230, 190, 140; animation-delay: -5s;
+    background:
+      radial-gradient(ellipse 16% 9% at 62% 67%, rgba(196,86,58,.95) 0, rgba(166,61,42,.8) 55%, transparent 100%),
+      linear-gradient(180deg, #8f6b50 0%, #c9a47c 8%, #e7d3b3 15%, #b3815a 24%, #e9d6b6 33%, #a6704a 42%, #ecd9ba 51%, #c18a5c 60%, #f0e1c6 68%, #a8714b 77%, #e2c8a2 86%, #9b7050 100%); }
+  .planet.p-saturn { top: 27%; right: 2%; width: 50px; height: 50px; background: none; --halo: 240, 210, 150; animation-delay: -2s; }
+  .planet.p-saturn::before { display: none; }
+  .p-saturn b { position: absolute; display: block; }
+  .p-saturn .body { inset: 0; border-radius: 50%; z-index: 1;
+    background: radial-gradient(circle at 30% 26%, rgba(255,255,255,.4) 0%, rgba(255,255,255,.06) 36%, transparent 54%),
+      radial-gradient(circle at 70% 74%, rgba(0,0,0,.45) 0%, rgba(0,0,0,.18) 40%, transparent 68%),
+      linear-gradient(180deg, #b69b66 0%, #e6d09b 14%, #d2b982 28%, #efdfb0 42%, #c9ad74 58%, #e9d6a3 74%, #bfa56f 100%);
+    box-shadow: inset -7px -6px 14px rgba(0,0,0,.38); }
+  .p-saturn .r-back, .p-saturn .r-front { left: -50%; top: 20%; width: 200%; height: 60%; border-radius: 50%; transform: rotate(-17deg);
+    background: radial-gradient(ellipse closest-side at center, transparent 0 54%, rgba(232,214,168,.92) 55% 74%, rgba(110,95,70,.4) 75% 78%, rgba(224,204,156,.94) 79% 96%, transparent 98%); }
+  .p-saturn .r-back { z-index: 0; }
+  .p-saturn .r-front { z-index: 2; clip-path: inset(50% 0 0 0); }
+  .p-mars { top: 47%; left: .8%; width: 38px; height: 38px; --halo: 255, 150, 110; animation-delay: -8s;
+    background:
+      radial-gradient(ellipse 30% 20% at 50% 5%, #fff 0, #f1ece8 55%, transparent 100%),
+      radial-gradient(circle 9px at 32% 56%, rgba(90,32,16,.55), transparent 100%),
+      radial-gradient(circle 7px at 62% 48%, rgba(80,28,14,.5), transparent 100%),
+      radial-gradient(circle 8px at 52% 76%, rgba(95,38,20,.45), transparent 100%),
+      radial-gradient(circle at 40% 40%, #d9632f, #b8431a 70%, #8c2f12); }
+  .p-neptun { top: 85%; left: 3%; width: 48px; height: 48px; --halo: 90, 140, 255; animation-delay: -11s;
+    background:
+      radial-gradient(ellipse 34% 6% at 44% 36%, rgba(255,255,255,.55), transparent 100%),
+      radial-gradient(ellipse 26% 5% at 58% 60%, rgba(255,255,255,.4), transparent 100%),
+      linear-gradient(180deg, #2c58c9 0 30%, #3a6fe0 30% 46%, #2349b3 46% 70%, #3563d4 70% 100%); }
+  .galaxy { width: 96px; height: 96px; border-radius: 50%; opacity: .75;
+    background: radial-gradient(circle, #fff6d0 0 7%, transparent 22%),
+      conic-gradient(from 0deg, rgba(190,170,240,0), rgba(190,170,240,.75), rgba(255,179,175,0), rgba(143,200,182,.7), rgba(190,170,240,0));
+    -webkit-mask-image: radial-gradient(circle, #000 28%, transparent 72%); mask-image: radial-gradient(circle, #000 28%, transparent 72%);
+    animation: galaxySpin 60s linear infinite, glowHue 20s ease-in-out infinite; }
+  .g1 { top: 38%; right: 9%; }
+  .g2 { top: 86%; left: 5%; width: 80px; height: 80px; animation-duration: 75s, 26s; animation-direction: reverse, normal; }
+  .tw { width: 6px; height: 6px; border-radius: 50%; background: radial-gradient(circle, #ea9f0e, transparent 70%); animation: twinkle 5s ease-in-out infinite; }
+  .t1 { top: 16%; left: 6%; } .t2 { top: 30%; right: 16%; animation-delay: -1.5s; } .t3 { top: 44%; left: 9%; animation-delay: -3s; }
+  .t4 { top: 62%; right: 13%; animation-delay: -2s; } .t5 { top: 80%; left: 12%; animation-delay: -4s; } .t6 { top: 92%; right: 20%; animation-delay: -.8s; }
+  @keyframes sunPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 44px 14px rgba(255,200,90,.5), 0 0 110px 40px rgba(255,190,90,.25); }
+    50% { transform: scale(1.06); box-shadow: 0 0 58px 20px rgba(255,170,90,.55), 0 0 130px 50px rgba(255,150,100,.28); } }
+  @keyframes haloBreath { 0%, 100% { box-shadow: 0 0 20px 3px rgba(var(--halo), .28); } 50% { box-shadow: 0 0 34px 9px rgba(var(--halo), .5); } }
+  @keyframes glowHue { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(50deg); } }
+  @keyframes galaxySpin { to { transform: rotate(360deg); } }
+  @keyframes twinkle { 0%, 100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.4); } }
+
+
+  @media (max-width: 800px) {
+    .story .part-lumora .photo { max-width: 320px; margin: 0 auto; }
+    .story .part { grid-template-columns: 1fr; gap: 20px; }
+    .story .part.is-flip .photo, .story .part.is-flip .art { order: 0; }
+    .story .reise { gap: 56px; }
+    .story .art { padding: 16px; }
+    .story .art img { max-width: 280px; }
+    .story .finale { padding: 28px 20px; }
+    .v-a .reise { padding-left: 36px; }
+    .v-a .reise::before { left: 15px; }
+    .v-a .part::before { left: -29px; width: 14px; height: 14px; border-width: 3px; box-shadow: 0 0 0 4px #fff1e4; }
+    .v-a .part::after { left: -36px; top: -24px; }
+  }
+  @media (max-width: 800px) {
+    .sun { top: 150px; right: -18px; width: 72px; height: 72px; opacity: .85; }
+    .planet.p-saturn { top: 25%; right: -6px; width: 34px; height: 34px; opacity: .7; }
+    .p-jupiter { top: 74%; right: -14px; width: 56px; height: 56px; opacity: .7; }
+    .cosmos .p-mars, .cosmos .p-neptun, .cosmos .g2, .cosmos .t3, .cosmos .t5 { display: none; }
+    .g1 { top: 46%; right: -14px; width: 64px; height: 64px; opacity: .5; }
+  }
+  @media (max-width: 640px) {
+    .cosmos *, .cosmos *::after { animation: none !important; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cosmos *, .cosmos *::after { animation: none !important; }
+    .js .story [data-part] { opacity: 1; transform: none; transition: none; }
+  }
+</style>
