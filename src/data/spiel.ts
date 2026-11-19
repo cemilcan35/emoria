@@ -27,18 +27,14 @@ export interface SpielContent {
   cta: string;
 }
 
-const IMAGES = [
-  '01-yubuu-lumora.webp',
-  '02-yubuu-erde.webp',
-  '03-einstieg-handpuppe.webp',
-  '04-gefuehlsrad.webp',
-  '05-gefuehl-zeigen.webp',
-  '06-fragekarten.webp',
-  '07-blitzkarten.webp',
-  '08-situationskarten.webp',
-  '09-beduerfniskreise.webp',
-  '10-abschluss.webp',
-];
+import { IMAGES } from './spielImages';
+import * as fr from './i18n/fr';
+import * as es from './i18n/es';
+import * as da from './i18n/da';
+import * as sv from './i18n/sv';
+import * as no from './i18n/no';
+import * as fi from './i18n/fi';
+const OTHER: Record<string, { spiel: SpielContent }> = { fr, es, da, sv, no, fi };
 
 const DE: SpielContent = {
   eyebrow: 'Spielablauf',
@@ -349,6 +345,7 @@ const TR: SpielContent = {
 export function getSpiel(lang: string): SpielContent {
   if (lang === 'en') return EN;
   if (lang === 'tr') return TR;
+  if (OTHER[lang]) return OTHER[lang].spiel;
   // TODO Übersetzung: FR und weitere Sprachen zeigen vorerst den deutschen Text.
   return DE;
 }

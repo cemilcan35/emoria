@@ -1,6 +1,13 @@
 // Texte der Seite "Yubuus Reise zur Erde". Deutsch, Englisch und Türkisch.
 // TODO Prüfung: Die türkischen Texte von einer Muttersprachlerin oder einem Muttersprachler gegenlesen lassen.
 
+import * as fr from './i18n/fr';
+import * as es from './i18n/es';
+import * as da from './i18n/da';
+import * as sv from './i18n/sv';
+import * as no from './i18n/no';
+import * as fi from './i18n/fi';
+
 export interface ReiseStrings {
   lang: string;
   metaTitle: string;
@@ -103,5 +110,7 @@ const TR: ReiseStrings = {
 export function getReise(lang: string): ReiseStrings {
   if (lang === 'en') return EN;
   if (lang === 'tr') return TR;
+  const O: Record<string, { reise: ReiseStrings }> = { fr, es, da, sv, no, fi };
+  if (O[lang]) return O[lang].reise;
   return DE;
 }
