@@ -1,7 +1,8 @@
 // Texte der Bildstrecke "So wird Yubuus Gefühlsrad gespielt".
-// Deutsch und Englisch sind gepflegt. Für alle anderen Sprachen (FR, TR, ...) gilt vorerst
+// Deutsch, Englisch und Türkisch sind gepflegt. Für alle anderen Sprachen (FR, ...) gilt vorerst
 // der deutsche Text.
-// TODO Übersetzung: FR und TR bitte übersetzen lassen, dann hier eigene Blöcke ergänzen.
+// TODO Prüfung: Türkisch von einer Muttersprachlerin oder einem Muttersprachler gegenlesen lassen.
+// TODO Übersetzung: FR bei Bedarf ergänzen.
 
 export interface Station {
   image: string; // Dateiname in public/img/spielablauf/
@@ -243,8 +244,111 @@ const EN: SpielContent = {
   cta: 'Get in touch',
 };
 
+const TR: SpielContent = {
+  eyebrow: 'Oyun akışı',
+  title: "Yubuu'nun Duygu Çarkı nasıl oynanır",
+  progressLabel: 'Görsel hikâyenin adımları',
+  placeholder: 'Yer tutucu',
+  stations: [
+    {
+      image: IMAGES[0],
+      marke: 'Yubuu kim?',
+      heading: "Yubuu Lumoria'dan geliyor",
+      yubuu: "“Merhaba! Ben Yubuu. Lumoria'dan geliyorum, çok ama çok uzakta bir gezegenden.”",
+      text: 'Yubuu meraklıdır ve diğer canlıların nasıl hissettiğini, birbirlerini nasıl anladıklarını bilmek ister. Bu yüzden Yubuu, başka gezegenleri keşfetmek için yola çıktı.',
+      alt: "Yubuu Lumoria gezegeninde duruyor ve yıldızlı gökyüzüne bakıyor.",
+    },
+    {
+      image: IMAGES[1],
+      marke: "Dünya'da",
+      heading: 'Yubuu duyguları anlamak istiyor',
+      yubuu: '“Siz insanların ne çok duygusu var! Adları ne ve onları nasıl gösteriyorsunuz?”',
+      text: "Dünya'da Yubuu insanların güldüğünü, ağladığını, şaşırdığını ve kızdığını görür. Bunların çoğu Yubuu için yenidir: duyguların adları, yüzde nasıl fark edildikleri ve onları hissederken neye ihtiyaç duyulduğu. Yubuu bunu öğrenmek ister, hem de çocuklardan.",
+      alt: "Yubuu, Dünya'nın üzerinde küçük bir asteroidde oturuyor; etrafında duygu yüzleri olan konuşma balonları var.",
+    },
+    {
+      image: IMAGES[2],
+      marke: 'Başlangıç',
+      heading: "Çocuklar Yubuu'ya yardım ediyor",
+      yubuu: '“Bana yardım edebilir misiniz? Yanımda bir oyun getirdim.”',
+      text: "Eğitimci, Yubuu'yu el kuklasıyla canlandırır. Yubuu kendini tanıtır ve çocuklardan yardım ister. Böylece roller netleşir: Çocuklar bir şey bilir, Yubuu öğrenir. Çekingen çocukların katılması da bu sayede kolaylaşır.",
+      alt: 'Bir eğitimci Yubuu el kuklasını tutuyor, çocuklar merakla bir masanın etrafında oturuyor.',
+    },
+    {
+      image: IMAGES[3],
+      marke: '1. adım',
+      heading: 'Duygu Çarkını çevirmek',
+      yubuu: '“Çevirmek ister misin? Bugün hangi duyguyu tanıyacağımızı merak ediyorum.”',
+      text: 'Çocuk Duygu Çarkını çevirir ve çarkın durduğu yerdeki mıknatıs kafayı alır. Bu duygu çocuğa tüm tur boyunca eşlik eder. O duyguyla oynamak istemeyen çocuk bir kez yeniden çevirebilir.',
+      alt: 'Bir çocuk eli, on iki mıknatıs kafalı Duygu Çarkını çeviriyor.',
+    },
+    {
+      image: IMAGES[4],
+      marke: '2. adım',
+      heading: 'Yubuu duyguyu tanıyor',
+      yubuu: '“Oh, ben böyle mi görünüyorum? Bu duygunun adı ne?”',
+      text: "Her mıknatıs kafa, Yubuu'nun bir duyguyla yüzünü gösterir. Çocuk Yubuu'ya duygunun adını söyler, yüzü taklit eder ve bedende nerede hissedildiğini gösterir. Burada çocuk Yubuu'ya ilk kez bir şey öğretir.",
+      alt: 'Bir çocuk mıknatıs kafayı yukarı tutuyor ve yüzü taklit ediyor, el kuklası şaşkınlıkla izliyor.',
+    },
+    {
+      image: IMAGES[5],
+      marke: '3. adım',
+      heading: 'Soru kartları',
+      yubuu: '“En son ne zaman böyle hissettin?”',
+      text: 'Çocuk bir soru kartı çeker; ilkokulda iki ya da üç tane. Sorular açıktır ve her duyguya uyar. Yubuu dinler, sorular sorar ve hiçbir şeyi değerlendirmez. Her çocuk her an şöyle diyebilir: “Bu konuda bir şey söylemek istemiyorum.”',
+      alt: 'Bir çocuk soru kartını tutuyor ve anlatıyor, el kuklası dikkatle dinliyor.',
+    },
+    {
+      image: IMAGES[6],
+      marke: '4. adım',
+      heading: 'Blitz kartları',
+      yubuu: '“Duygum bu karta uyuyor mu?”',
+      text: "Şimdi işler hızlanıyor. Her blitz kartı “Eğer …” ile başlar, örneğin “Dışarıda gök gürleyip şimşek çakarsa …”. Çocuk mıknatıs kafayı Yubuu'nun boş yüzüne koyar ve içinden gelerek karar verir: uyuyor ya da uymuyor. Uyan kartları sona kadar saklar. Anlatabilir, ama anlatmak zorunda değildir.",
+      alt: "Bir çocuk mıknatıs kafayı, üzerinde Yubuu'nun henüz yüzü olmayan bir blitz kartına koyuyor.",
+    },
+    {
+      image: IMAGES[7],
+      marke: '5. adım',
+      heading: 'Durum kartları',
+      yubuu: '“Hangi kartta ben böyle hissedebilirim?”',
+      text: "Masanın üzerinde dört durum kartı açık durur, örneğin: Yubuu'nun dondurması düşer. Çocuk, duygusuna en uygun kartı arar. Hiçbiri uymazsa dört yenisi eklenir. Sonra Yubuu karta uygun yüzünü alır ve herkes birlikte Yubuu'nun ne yaşadığını düşünür.",
+      alt: 'Dört durum kartı yan yana duruyor, bir çocuk üzgün bir mıknatıs kafayı dondurması düşen kartın üzerine koyuyor.',
+    },
+    {
+      image: IMAGES[8],
+      marke: '6. adım',
+      heading: 'İhtiyaç çemberleri',
+      yubuu: '“Şimdi neye ihtiyacım olabilir?”',
+      text: "Çocuk bir ihtiyaç çemberi seçer, örneğin teselli, huzur ya da arkadaşlık. Doğru bir cevap yoktur. Sonra herkes Yubuu'ya somut olarak neyin yardımcı olabileceğini düşünür, örneğin bir sarılma ya da dinleyen biri. İsteyen, böyle bir anda kendisine neyin iyi geldiğini anlatır.",
+      alt: "Bir çocuk, Yubuu'nun olduğu bir durum kartının yanına bir ihtiyaç çemberi koyuyor.",
+    },
+    {
+      image: IMAGES[9],
+      marke: 'Sonunda',
+      heading: 'Yubuu bugün ne öğrendi',
+      yubuu: '“Teşekkürler! Bu duygu hakkında artık çok daha fazla şey biliyorum.”',
+      text: "Çocuk her şeyi bir araya getirir: mıknatıs kafalı durum kartını, ihtiyaç çemberini ve sakladığı blitz kartlarını. Yubuu öğrendiklerini özetler ve teşekkür eder. Çocuklar Yubuu'ya yardım etti ve bunu yaparken kendi duyguları hakkında da konuştu.",
+      alt: 'El kuklası iki çocukla birlikte masadaki tamamlanmış duygu resmine seviniyor.',
+    },
+  ],
+  vorleseTitle: 'Oyun başlamadan önce',
+  vorleseText: "Oynamadan önce eğitimci, çocuklara oyun setinin bir parçası olacak küçük okuma kitabı “Yubuu'nun Dünya'ya Yolculuğu”ndan bir bölüm okur. Hikâye özellikle çocukların merakını uyandırmak, Yubuu ile bağ kurmalarını sağlamak ve Yubuu'ya insanların duygu dünyasını keşfetmede yardım etme sevinçlerini artırmak için tasarlanmıştır. Okuma, sabah çemberinde, küçük bir grupta ya da tek tek yapılabilir.",
+  erlebTitle: 'Çocuklar oynarken neler yaşar',
+  erlebIntro: 'Her adımın ardında, çocukların kendilerinin yaşadığı küçük bir an vardır.',
+  erlebItems: [
+    { marke: '1. adım', title: 'Heyecanlanmak', text: 'Çark döner ve herkes merak eder: Hangi duygu çıkacak? Çevirmek bile merak ve heyecan uyandırır.' },
+    { marke: '2. adım', title: 'Kendini bilen biri olmak', text: "Çocuk duygusunu Yubuu'ya anlatır ve fark eder: Yubuu'nun henüz bilmediği bir şeyi biliyorum." },
+    { marke: '3. adım', title: 'Dinlenmek', text: 'Çocuk kendi yaşadıklarını anlatır ve birinin samimiyetle dinlediğini, hiçbir şeyi değerlendirmediğini görür.' },
+    { marke: '4. adım', title: 'İçinden gelerek karar vermek', text: 'Duygu karta uyuyor mu, uymuyor mu? Çocuklar duygularına kulak vermeyi ve hızlı karar vermeyi öğrenir.' },
+    { marke: '5. adım', title: 'Kendini başkasının yerine koymak', text: "Çocuk, Yubuu'nun böyle hissedebileceği bir durum arar ve bir duygunun birçok nedeni olabileceğini keşfeder." },
+    { marke: '6. adım', title: 'Yardımcı olan bir şey bulmak', text: "Çocuk, Yubuu'ya şimdi neyin iyi geleceğini düşünür ve öğrenir: Her duygu için yardımcı olabilecek bir şey vardır." },
+  ],
+  cta: 'İletişime geçin',
+};
+
 export function getSpiel(lang: string): SpielContent {
   if (lang === 'en') return EN;
-  // TODO Übersetzung: FR, TR und weitere Sprachen zeigen vorerst den deutschen Text.
+  if (lang === 'tr') return TR;
+  // TODO Übersetzung: FR und weitere Sprachen zeigen vorerst den deutschen Text.
   return DE;
 }
