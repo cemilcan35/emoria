@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+---
+
+<Base lang="es" title="Sobre nosotros — EMORIA" current="Sobre nosotros"
+  description="El fundador de EMORIA ha reunido más de diez años de experiencia en distintos ámbitos sociales y pedagógicos.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Sobre nosotros</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">Sobre nosotros</h1>
+    </div>
+
+    <div class="mx-auto grid max-w-3xl items-start gap-10 px-6 pb-24 sm:grid-cols-[auto_1fr]">
+      <img src={`${base}img/yubuu-headshot.png`} alt="Yubuu" loading="lazy"
+        class="mx-auto h-40 w-auto drop-shadow-[0_16px_26px_rgba(43,42,40,0.16)] sm:h-52" />
+      <div class="space-y-6 text-lg text-[var(--color-ink-soft)]">
+        <p>El fundador de EMORIA ha reunido más de diez años de experiencia en distintos ámbitos sociales y pedagógicos: en escuelas infantiles de integración, en colegios como los de educación especial, en grupos residenciales intensivos, en servicios de orientación y en la ayuda a la juventud y a las familias.</p>
+        <p>De todas estas experiencias se fue haciendo cada vez más claro algo: las emociones determinan nuestra vida y nuestras decisiones mucho más de lo que a menudo somos conscientes. Influyen en cómo nos acercamos a los demás, cómo afrontamos los conflictos y cómo nos entendemos a nosotros mismos. Y, sin embargo, muchas personas adultas aprendieron a hablar de ello tarde o nunca. Es una laguna que a menudo se transmite sin darnos cuenta a la siguiente generación.</p>
+        <p>Justo por eso era importante para el fundador que niños y jóvenes aprendan pronto a reconocer sus emociones y a poder hablar de ellas. Cada niño debería tener en el sistema educativo la posibilidad de conocer sus emociones y poder hablar de ellas, con independencia del centro en el que crezca. Si los niños no lo aprenden en la guardería, en el colegio o en casa, ¿dónde entonces?</p>
+        <p class="italic text-[var(--color-ink)]">De esta convicción nació EMORIA.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-2xl px-6 pb-20 text-center">
+      <a href={`${base}es/ueber-emoria`} class="font-[var(--font-body)] font-semibold text-[var(--color-brand)] hover:text-[var(--color-brand-deep)]">Más sobre EMORIA →</a>
+    </div>
+  </article>
+</Base>

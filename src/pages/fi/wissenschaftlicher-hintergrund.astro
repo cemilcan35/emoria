@@ -1,0 +1,110 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+
+const sections = [
+  {
+    h: 'Sosiaalinen ja emotionaalinen oppiminen toimii, ja se on todistettu',
+    p: [
+      'Tähän mennessä vaikutusvaltaisin aihetta koskeva tutkimus on Durlakin, Weissbergin, Dymnickin, Taylorin ja Schellingerin, julkaistu vuonna 2011 Child Development -tiedelehdessä. Meta-analyysi arvioi 213 koulupohjaista sosiaalisen ja emotionaalisen oppimisen ohjelmaa, joiden aineisto käsitti 270 034 oppilasta päiväkodista lukion yläluokille. Verrokkiryhmiin verrattuna näiden ohjelmien lapsilla oli selvästi paremmat sosiaaliset ja emotionaaliset taidot, myönteisemmät asenteet ja parempi sosiaalinen käytös. Koulumenestyksessä ero vastasi yhdentoista prosenttipisteen parannusta, huomattava vaikutus ohjelmalle, joka tähtää oikeastaan tunteisiin eikä oppiaineisiin.',
+      'Kaksitoista vuotta myöhemmin Cipriano ja kollegat päivittivät tämän tutkimuksen. Heidän vuonna 2023 samoin Child Developmentissa julkaistu meta-analyysinsä kattaa 424 tutkimusta 53 maasta ja yli 575 000 oppilasta. Tulokset vahvistavat alkuperäiset löydökset ja laajentavat niitä: Sosiaalisen ja emotionaalisen oppimisen ohjelmat parantavat paitsi taitoja ja koulumenestystä myös luokan ilmapiiriä, koulun turvallisuutta ja ikätovereiden välisiä suhteita.',
+    ],
+  },
+  {
+    h: 'Miten hyvien ohjelmien tulee olla rakennettu',
+    p: [
+      'Durlak ja kollegat tunnistivat analyysissaan neljä yhteistä piirrettä erityisen tehokkaille ohjelmille, jotka tunnetaan ammattikielessä SAFE-mallina: Taidot rakennetaan askel askeleelta (Sequenced), lapset osallistuvat aktiivisesti pelkän kuuntelun sijaan (Active), sosiaaliset ja emotionaaliset taidot ovat kohdennetusti keskiössä (Focused), ja oppimistavoitteet on nimetty selkeästi (Explicit). Yubuun tunnepyörä on rakennettu juuri näiden neljän periaatteen mukaan: Pelin viisi vaihetta rakentuvat toisiinsa, lapset toimivat aktiivisesti kuuntelun sijaan, ja jokaisen kierroksen tavoite on muotoiltu selkeästi alusta alkaen.',
+    ],
+  },
+  {
+    h: 'Varhaisen tunnekasvatuksen taloudellinen hyöty',
+    p: [
+      'Belfield ja kollegat Teachers College, Columbia Universityn Center for Benefit-Cost Studies in Education -keskuksesta tutkivat vuonna 2015 kuutta tunnettua SEL-ohjelmaa Yhdysvalloissa niiden taloudellisen hyödyn kannalta. Huomioon otettiin kustannukset kuten materiaali ja henkilöstön aika sekä pitkäaikaiset hyödyt kuten pienemmät seurauskustannukset vähemmän koulukiusaamisen, vähemmän päihteiden väärinkäytön ja parempien koulutuspäätösten ansiosta. Kaikkien kuuden ohjelman keskiarvona saatiin kustannus-hyötysuhde noin 1:11: Jokainen sijoitettu dollari tuotti pitkällä aikavälillä noin yhdentoista dollarin yhteiskunnallisen lisäarvon.',
+    ],
+  },
+  {
+    h: 'Miksi tunteiden nimeäminen jo sellaisenaan vaikuttaa',
+    p: [
+      'Neurotieteilijä Matthew Lieberman ja hänen tiiminsä University of California, Los Angelesissa osoittivat vuonna 2007 Psychological Science -tiedelehdessä julkaistussa tutkimuksessa, että jo pelkällä tunteen nimeämisellä on mitattavia vaikutuksia aivoihin. Kun koehenkilöt pukivat tunteen sanoiksi, aktiivisuus väheni amygdalassa, aivojen osassa, joka vastaa tunteellisesta hälytysreaktiosta, kun taas oikean ventrolateraalisen prefrontaalisen aivokuoren, kielelliseen ja kognitiiviseen käsittelyyn vastaavan aivoalueen, aktiivisuus kasvoi. Tämä vaikutus tunnetaan tutkimuksessa nimellä affect labeling. Juuri tätä mekanismia jokainen tunnepyörän kierros harjoittaa, riippumatta siitä, löytyykö lopuksi ratkaisua.',
+    ],
+  },
+  {
+    h: 'Väkivallaton vuorovaikutus tarvepiirien perustana',
+    p: [
+      'Pelin viimeinen vaihe nojaa psykologi Marshall B. Rosenbergin väkivallattomaan vuorovaikutukseen. Tämän lähestymistavan perusoletus: Jokaisen tunteen takana on tarve, ja se, joka ymmärtää oman tarpeensa, osaa ilmaista sen selkeämmin sen sijaan, että näyttäisi sen riidan, vetäytymisen tai syytösten kautta. Tätä taitoa voi harjoitella, ja juuri sen tarvepiirit tekevät jokaisen pelikierroksen lopussa.',
+    ],
+  },
+  {
+    h: 'Oppiminen sosiaalisessa vuorovaikutuksessa',
+    p: [
+      'Psykologi Lev Vygotskin sosiokulttuurisen kehitysteorian mukaan oppiminen ei synny eristyksissä vaan vuorovaikutuksessa muiden ihmisten kanssa. Keskeinen on lähikehityksen vyöhykkeen käsite, alue sen välillä, minkä lapsi jo osaa yksin, ja sen, mihin hän yltää tuen avulla. Pelissä sekä Yubuu että muut lapset ottavat tämän tukevan roolin, lapset kuuntelevat toisiaan ja laajentavat siten omaa ymmärrystään tunteista.',
+    ],
+  },
+  {
+    h: 'Miksi materiaali on tarkoituksella fyysinen',
+    p: [
+      'Kehollisen kognition (embodied cognition) tutkimus, jota ovat muovanneet muun muassa Margaret Wilson ja Lawrence Barsalou, osoittaa, että ajattelu ja oppiminen ovat tiiviisti sidoksissa kehollisiin kokemuksiin, ihmiset ymmärtävät ja muistavat sisältöjä usein paremmin, kun he kokevat ne kehollaan sen sijaan, että vain kuulisivat tai lukisivat niistä. Siksi Yubuun tunnepyörä on tarkoituksella suunniteltu haptiseksi materiaaliksi: puuta kosketeltavaksi, magneetteja itse asetettaviksi, kortteja löydettäviksi, ei työarkkia eikä näyttöä.',
+    ],
+  },
+  {
+    h: 'Rehellinen huomautus tutkimuksen nykytilasta',
+    p: [
+      'Edellä mainitut tutkimukset osoittavat sosiaalisen ja emotionaalisen oppimisen sekä niiden yksittäisten periaatteiden tehokkuuden, joihin Yubuun tunnepyörä perustuu. Omaa vaikuttavuustutkimusta Yubuun tunnepyörästä itsestään ei vielä ole, se on suunniteltu osaksi pilottihankkeita vuodesta 2027 alkaen. Tämä avoimuus on meille tärkeää: Rakennamme vankan tutkimuksen varaan, mutta emme lupaa tuloksia, joita ei ole vielä erikseen tutkittu.',
+    ],
+  },
+];
+
+const base = import.meta.env.BASE_URL;
+
+const sources = [
+  { ref: 'Belfield, C., Bowden, B., Klapp, A., Levin, H., Shand, R., Zander, S. (2015). The Economic Value of Social and Emotional Learning. Center for Benefit-Cost Studies in Education, Teachers College, Columbia University.', href: 'https://wymancenter.org/wp-content/uploads/2020/11/Belfield-et-al-2015.pdf' },
+  { ref: 'Cipriano, C., Strambler, M. J., Naples, L. H., Ha, C., Kirk, M., Wood, M. et al. (2023). The State of Evidence for Social and Emotional Learning: A Contemporary Meta-Analysis of Universal School-Based SEL Interventions. Child Development, 94, 1181–1204.', href: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/cdev.13968', extra: { label: 'Vapaasti saatavilla oleva esijulkaisu', href: 'https://osf.io/wscgq/' } },
+  { ref: 'Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., Schellinger, K. B. (2011). The Impact of Enhancing Students’ Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions. Child Development, 82(1), 405–432.', href: 'https://srcd.onlinelibrary.wiley.com/doi/10.1111/j.1467-8624.2010.01564.x', extra: { label: 'Vapaasti saatavilla oleva PDF', href: 'https://casel.s3.us-east-2.amazonaws.com/meta-analysis-child-development-1.pdf' } },
+  { ref: 'Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., Way, B. M. (2007). Putting Feelings Into Words: Affect Labeling Disrupts Amygdala Activity in Response to Affective Stimuli. Psychological Science, 18(5), 421–428.', href: 'https://pubmed.ncbi.nlm.nih.gov/17576282/', extra: { label: 'Vapaasti saatavilla oleva PDF', href: 'https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2015/05/Lieberman_AL-2007.pdf' } },
+  { ref: 'Rosenberg, M. B. (2003). Nonviolent Communication: A Language of Life.', href: 'https://www.cnvc.org', label: 'Konseptista (Center for Nonviolent Communication)' },
+  { ref: 'Vygotsky, L. S. (1978). Mind in Society: The Development of Higher Psychological Processes.', href: 'https://archive.org/details/mindinsocietydev0000vygo', label: 'Vapaasti saatavilla oleva kokoteksti (Archive.org)' },
+];
+---
+<Base lang="fi" title="Tieteellinen tausta — EMORIA" current=""
+  description="Yubuun tunnepyörän takana oleva tutkimus: sosiaalinen ja emotionaalinen oppiminen, affect labeling, väkivallaton vuorovaikutus ja embodied cognition, ymmärrettävästi selitettynä.">
+
+  <article class="relative mx-auto max-w-2xl px-6 py-28 print:py-8">
+    <img src={`${base}img/yubuu-telescope.png`} alt="Yubuu ja kaukoputki tähtikarttojen päällä" loading="lazy"
+      class="pointer-events-none absolute left-full top-16 ml-8 hidden h-52 w-auto drop-shadow-[0_18px_28px_rgba(43,42,40,0.16)] xl:block print:hidden" />
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Tausta</p>
+    <h1 class="mt-3 font-serif-heading text-3xl sm:text-4xl">Tieteellinen tausta</h1>
+    <p class="mt-6 text-[var(--color-ink-soft)]">Yubuun tunnepyörä ei ole umpimähkään kasattu peli, vaan se seuraa tietoisesti useita tunnustettuja lähestymistapoja pedagogiikasta, kehityspsykologiasta, neurotieteestä ja viestintäteoriasta. Seuraavassa selitämme, mikä tutkimus on yksittäisten osien takana.</p>
+
+    <div class="mt-12 space-y-10">
+      {sections.map((s) => (
+        <section>
+          <h2 class="font-[var(--font-display)] text-xl font-semibold">{s.h}</h2>
+          {s.p.map((para) => <p class="mt-3 text-[var(--color-ink-soft)]">{para}</p>)}
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-16 border-t border-[var(--color-cream-edge)] pt-10">
+      <h2 class="font-[var(--font-display)] text-xl font-semibold">Lähdeluettelo</h2>
+      <ol class="mt-4 space-y-5">
+        {sources.map((s) => (
+          <li class="text-sm text-[var(--color-ink-soft)]">
+            {s.ref}
+            <br />
+            <a href={s.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+              {s.label ?? 'Zur Studie'}
+            </a>
+            {s.extra && (
+              <>
+                {' · '}
+                <a href={s.extra.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+                  {s.extra.label}
+                </a>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  </article>
+</Base>

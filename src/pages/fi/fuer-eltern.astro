@@ -1,0 +1,104 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fi" title="Vanhemmille — EMORIA" current="Vanhemmat"
+  description="Miten perheet voivat ottaa Yubuun tunnepyörän käyttöön kotona ja keskustella lasten kanssa tunteista.">
+
+  <AudienceHero
+    eyebrow="✦ Vanhemmille"
+    title="Lapset oppivat laskemaan ja lukemaan. Tunteista puhumisen he oppivat vain, jos joku ottaa siihen aikaa."
+    body="Joskus lapsi ei itse tiedä, mitä hänen sisällään tapahtuu. Hän vain huomaa, että jokin ei ole kohdallaan. Raivo, vetäytyminen tai kyyneleet ovat silloin usein ainoa tapa, jonka lapsi tuntee. Lapset, jotka oppivat varhain nimeämään tunteensa, tarvitsevat tätä kiertotietä harvemmin. He selviävät paremmin ristiriidoista, tuntevat olonsa turvallisemmaksi ja osaavat sanoa, mitä tarvitsevat. Siksi tunnekasvatus ei ole sivuseikka. Se alkaa päiväkodissa ja koulussa, ja sen vaikutus ulottuu kauas lapsuuden yli."
+    image="img/needs-circles.jpg"
+    imageAlt="Tarvepiirit Yubuun tunnepyörästä"
+  />
+
+  <ClickBoxes
+    title="Mitä lapsenne oppii pelissä"
+    items={[
+      { icon: '💬', title: 'Tunteiden nimeäminen', text: 'Tunteen kokeminen ja sen ilmaiseminen ovat kaksi eri asiaa. Juuri tähän peli tarttuu.' },
+      { icon: '👀', title: 'Muiden näkökulmien löytäminen', text: 'Yksi lapsi tuntee vihaa, toinen samassa tilanteessa pelkoa. Lapset kokevat, että tunteet ovat henkilökohtaisia.' },
+      { icon: '🌱', title: 'Taustalla olevan tarpeen tunnistaminen', text: 'Viha voi syntyä, kun lapsi ei tunne tulevansa kuulluksi. Lapset oppivat katsomaan uteliaasti sitä, mikä on heidän kokemuksensa takana.' },
+    ]}
+  />
+
+  <IconRow
+    title="Tunteesta ymmärrykseen"
+    items={[
+      { icon: '🎡', label: 'Löydä tunne' },
+      { icon: '💬', label: 'Ilmaise se' },
+      { icon: '🔍', label: 'Ymmärrä tilanne' },
+      { icon: '👀', label: 'Löydä näkökulma' },
+      { icon: '🌱', label: 'Tunnista tarve' },
+    ]}
+  />
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">Tarkoitus ei ole löytää oikeaa vastausta. Sellaista ei ole.</p>
+
+  <TwoCol
+    title="Viha on harvoin varsinainen ongelma"
+    body="Kun lapset eivät vielä osaa ilmaista tunteitaan hyvin, heidän kokemuksensa näkyy käytöksessä. Käytöksen näemme heti, tunnetta sen takana emme aina. Siksi EMORIA haluaa muuttaa katsetta. Ei vain kysyä: Mitä lapsi tekee juuri nyt? Vaan myös: Mitä lapsi voisi tuntea juuri nyt, ja mitä hän ehkä tarvitsee?"
+    image="img/situation-card.jpg"
+    imageAlt="Tilannekortti Yubuun tunnepyörästä"
+  />
+
+  <ColoredBand
+    tone="terracotta"
+    title="Ja mitä tällä on tekemistä minun kanssani vanhempana?"
+    body="Ehkä lapsenne kertoo kotona Yubuusta tai jostakin tunteesta. Ehkä ei. Molemmat ovat täysin hyviä. Teidän ei tarvitse toistaa peliä, eikä teillä tarvitse olla pedagogista koulutusta. Usein riittää kuunnella ja kysyä lisää: ”Millaista se oli sinulle?” Ratkaisevaa on, että lapsenne huomaa: Tunteillani on lupa olla. Minua kuunnellaan."
+  />
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Pieniä vinkkejä kotiin</h2>
+    <div class="mt-8 space-y-4">
+      {[
+        { t: 'Tunteiden nimeäminen', d: '”Vaikutat juuri nyt pettyneeltä.”' },
+        { t: 'Kysyminen arvaamisen sijaan', d: '”Haluatko kertoa, mitä tapahtui?”' },
+        { t: 'Ei ratkaista heti', d: 'Joskus lapsi tarvitsee ensin ymmärrystä, ei neuvoa.' },
+        { t: 'Esimerkkinä oleminen', d: 'Kun nimeätte omia tunteitanne, lapsenne oppii, että se on normaalia.' },
+      ].map((it) => (
+        <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
+          <p><strong class="text-[var(--color-ink)]">{it.t}:</strong> <span class="text-[var(--color-ink-soft)]">{it.d}</span></p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
+    <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Hyvä kysymys seuraavaan vanhempainkeskusteluun</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">”Oliko tänään tilannetta, joka painoi lastani erityisesti?”</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Tämä kysymys avaa usein enemmän kuin ”Meniko kaikki hyvin?”.</p>
+    </div>
+  </section>
+
+  <YubuuQuote quote="Joskus kauneimmat keskustelut alkavat yhdestä ainoasta kysymyksestä: Miltä sinusta tuntuu tänään?" image="yubuu-butterfly.png" imageAlt="Yubuu ja perhonen" />
+
+  <Accordion
+    items={[
+      {
+        title: 'Näin pelikierros etenee',
+        body: 'Lapsi pyöräyttää tunnepyörää ja paneutuu valittuun tunteeseen. Kysymysten ja arkitilanteiden kautta sitä tarkastellaan askel askeleelta tarkemmin, kunnes lopuksi kysytään: Mitä minä tarvitsen, kun minusta tuntuu tältä? Kierros kestää noin 25 ja 40 minuutin välillä, ja sitä ohjaa pedagoginen ammattilainen.',
+      },
+      {
+        title: 'Miksi tunnekasvatus on tärkeää',
+        body: 'Kyky havaita ja ilmaista omia tunteita liittyy läheisesti itsetuntemukseen, empatiaan ja myönteisten ihmissuhteiden rakentamiseen. Näitä alueita kuvataan sosioemotionaalisen oppimisen (Social Emotional Learning) tieteellisessä konseptissa. EMORIA nojaa näihin perusteisiin. Meille on tärkeää yksi erottelu: Tutkimus osoittaa sosioemotionaalisten oppimistapojen merkityksen kokonaisuutena, mutta EMORIAn varsinainen vaikuttavuus on vielä tutkittava järjestelmällisesti.',
+        linkHref: `${base}fi/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Lisää tieteellisestä taustasta',
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
+    <p class="text-[var(--color-ink-soft)]">Kun kotona syntyy pieni keskustelu, jotain tärkeää on jo tapahtunut: lapsi kertoo, aikuinen kuuntelee, ja molemmat yrittävät ymmärtää toisiaan paremmin.</p>
+    <a href={`${base}fi/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Kysyttävää? Kirjoittakaa meille</a>
+  </div>
+</Base>

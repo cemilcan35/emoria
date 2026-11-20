@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+---
+
+<Base lang="fi" title="Tietoa meistä — EMORIA" current="Tietoa meistä"
+  description="EMORIAn perustajalla on yli kymmenen vuoden kokemus erilaisilta sosiaalisilta ja pedagogisilta aloilta.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Tietoa meistä</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">Tietoa meistä</h1>
+    </div>
+
+    <div class="mx-auto grid max-w-3xl items-start gap-10 px-6 pb-24 sm:grid-cols-[auto_1fr]">
+      <img src={`${base}img/yubuu-headshot.png`} alt="Yubuu" loading="lazy"
+        class="mx-auto h-40 w-auto drop-shadow-[0_16px_26px_rgba(43,42,40,0.16)] sm:h-52" />
+      <div class="space-y-6 text-lg text-[var(--color-ink-soft)]">
+        <p>EMORIAn perustajalla on yli kymmenen vuoden kokemus erilaisilta sosiaalisilta ja pedagogisilta aloilta: integraatiopäiväkodeista, kouluista kuten erityiskouluista, tehostetuista asumisyksiköistä, neuvontapalveluista sekä lasten, nuorten ja perheiden avusta.</p>
+        <p>Kaikista näistä kokemuksista yksi asia kävi yhä selvemmäksi: Tunteet määräävät elämäämme ja päätöksiämme paljon enemmän kuin usein tiedostamme. Ne vaikuttavat siihen, miten lähestymme toisia, miten käsittelemme ristiriitoja ja miten ymmärrämme itseämme. Ja silti monet aikuiset ovat itse oppineet puhumaan siitä vasta myöhään tai eivät koskaan. Se on aukko, joka siirtyy usein huomaamatta seuraavalle sukupolvelle.</p>
+        <p>Juuri siksi perustajalle oli tärkeää, että lapset ja nuoret oppivat varhain tunnistamaan tunteensa ja pystymään puhumaan niistä. Jokaisella lapsella pitäisi olla koulutusjärjestelmässä mahdollisuus tutustua tunteisiinsa ja saada puhua niistä riippumatta siitä, missä toimipaikassa hän kasvaa. Jos lapset eivät opi sitä päiväkodissa, koulussa tai kotona, missä sitten?</p>
+        <p class="italic text-[var(--color-ink)]">Tästä vakaumuksesta EMORIA on syntynyt.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-2xl px-6 pb-20 text-center">
+      <a href={`${base}fi/ueber-emoria`} class="font-[var(--font-body)] font-semibold text-[var(--color-brand)] hover:text-[var(--color-brand-deep)]">Lisää EMORIAsta →</a>
+    </div>
+  </article>
+</Base>

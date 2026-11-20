@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="da" title="Til børnepsykologi — EMORIA" current="Børnepsykologi"
+  description="Yubuus følelseshjul i børnepsykologisk praksis: en lavtærskel og legende adgang til et barns følelsesverden.">
+
+  <AudienceHero
+    eyebrow="✦ Til børnepsykologi"
+    title="En lavtærskeladgang til et barns følelsesverden, legende, struktureret, uden pres."
+    body="Børn, der kommer i psykologisk behandling, taler ofte ikke let om det, der optager dem. Direkte spørgsmål skaber nogle gange netop det forsvar, man egentlig vil løse op. Yubuus følelseshjul skaber en legende omvej til det samme mål: Barnet taler om en følelse, der »tilfældigt« er dukket op på hjulet, ikke om sig selv, og netop det gør det lettere."
+    image="img/hero-kinderpsychologie.jpg"
+    imageAlt="Følelsesansigter på Yubuus følelseshjul"
+  />
+
+  <ClickBoxes
+    title="Hvorfor Yubuus følelseshjul?"
+    items={[
+      { icon: '🎯', title: 'En omvej, der fører til målet', text: 'Fordi følelserne vælges tilsyneladende tilfældigt ved at dreje på hjulet, føles samtalen for barnet mindre som en direkte konfrontation. Der opstår en afstand til en selv, lige nok til alligevel at forblive ærlig.' },
+      { icon: '🔍', title: 'Et struktureret observationsredskab', text: 'Hvilke følelser genkender barnet sikkert, og hvilke tøver det med? Hvordan tolker det hverdagssituationer, og hvilke behov benævner det? Disse observationer opstår undervejs, i legen, ikke i en testsituation.' },
+      { icon: '🕊️', title: 'Ingen rigtig, ingen forkert, intet pres', text: 'Yubuu vurderer ingenting. For børn, der i hverdagen ofte bliver talt til om deres adfærd, er det en mærkbart anderledes omgang, som opbygger tillid, før der overhovedet tales om det svære.' },
+    ]}
+  />
+
+  <IconRow
+    title="Sådan kan Yubuus følelseshjul bruges"
+    items={[
+      { icon: '🧑‍⚕️', label: 'Individuel terapi' },
+      { icon: '📋', label: 'Diagnostisk første samtale' },
+      { icon: '🕊️', label: 'Opfølgende samtale efter belastende situationer' },
+      { icon: '📈', label: 'Dokumentation af forløb' },
+      { icon: '👪', label: 'Forberedelse af en forældresamtale' },
+      { icon: '🌱', label: 'Ressourceorienterede samtaler' },
+    ]}
+  />
+
+  <TwoCol
+    title="Hvad gør Yubuus følelseshjul særligt?"
+    body="I centrum står ikke det rigtige svar, men at opdage sammen. Yubuu vurderer ingen svar, men spørger, undrer sig og lytter, det sænker tærsklen, især hos børn, der har lært at skjule eller kontrollere deres følelser. Følelser forbliver ikke abstrakte: Når man drejer på følelseshjulet, placerer magnethovederne og bruger lynkortene, situationskortene og behovscirklerne, bliver de synlige, håndgribelige og mulige at tale om, også for børn, der har svært ved at åbne sig verbalt."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Situationskort fra Yubuus følelseshjul"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Et vindue ind til dine små patienters indre verden"
+    body="For børnepsykologer er Yubuus følelseshjul mere end et spil, det er et struktureret observationsredskab. Hvordan reagerer et barn på bestemte situationskort? Hvilke behov benævner det, og hvilke mangler tydeligt? Disse observationer kan følges over flere sessioner og giver et solidt, forståeligt grundlag for diagnostik, terapiplanlægning og rapporter."
+  />
+
+  <YubuuQuote
+    quote="Hej! Du behøver ikke fortælle mig noget om dig selv, hvis du ikke vil. Men hvis du har lyst, så drej på hjulet, og så ser vi sammen, hvad der kommer ud af det."
+    image="yubuu-butterfly.png" imageAlt="Yubuu med en sommerfugl" />
+
+  <Chips
+    title="Hvem er spillet egnet til?"
+    items={['Børnepsykologer', 'Børne- og ungepsykoterapeuter', 'Fagpersoner i familie- og opdragelsesrådgivning', 'Socialpædiatriske centre', 'Børne- og ungdomspsykiatriske praksisser']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Sådan foregår en spillerunde',
+        body: 'En spillerunde følger fem trin, der bygger på hinanden. Barnet drejer på følelseshjulet og tager sit magnethoved, en bevidst tilfældighed, der også bringer følelser ind i spillet, som barnet ikke selv ville have valgt. Derefter trækker barnet et spørgekort og fortæller kort om følelsen. Så følger et lynkort: en kort hverdagssituation, hvor barnet blot siger, om følelsen passer eller ikke. I det fjerde trin lægger barnet sit magnethoved på et situationskort, som viser Yubuu uden ansigtsudtryk. Til sidst vælger barnet i behovscirklerne, hvad der ville hjælpe med den følelse. Med et eller to børn varer en hel runde omkring 10 til 20 minutter.',
+      },
+      {
+        title: 'Videnskabeligt grundlag',
+        body: 'Yubuus følelseshjul bygger på flere anerkendte tilgange fra udviklingspsykologi og følelsesmæssig dannelse. Metaanalysen af Durlak et al. med over 270.000 børn viser, at strukturerede programmer for social og følelsesmæssig læring tydeligt reducerer adfærdsproblemer og styrker selvværdet. Neurovidenskabsmanden Matthew Lieberman kunne vise, at det alene at benævne en følelse virker beroligende på barnets hjerne, og netop det øver hver runde ved følelseshjulet.',
+        linkHref: `${base}da/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mere om det videnskabelige grundlag',
+      },
+      {
+        title: 'Ofte stillede spørgsmål fra psykologisk praksis',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Egner spillet sig til børn med angst eller adfærdsproblemer?</strong><br />Ja, den legende, indirekte adgang egner sig især til børn, som har svært ved direkte spørgsmål.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kan jeg bruge spillet til diagnostik?</strong><br />Det erstatter ikke standardiserede diagnostiske metoder, men giver værdifulde, dokumenterbare observationer som supplement.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Fungerer spillet en til en?</strong><br />Ja, det er blevet udviklet med netop det for øje. Med et eller to børn varer en runde kun 10 til 20 minutter.</p>
+          <p><strong class="text-[var(--color-ink)]">Hvad hvis et barn ikke vil svare?</strong><br />Det er udtrykkeligt i orden. Tavshed er et gyldigt svar, ikke en manglende præstation.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}da/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Forespørg for din praksis</a>
+  </div>
+</Base>

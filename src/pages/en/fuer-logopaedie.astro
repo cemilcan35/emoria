@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="en" title="For Speech Therapy — EMORIA" current="Speech therapy"
+  description="Yubuu's Feeling Wheel in speech therapy practice: emotional vocabulary, spontaneous speech and reasons to talk that arise on their own.">
+
+  <AudienceHero
+    eyebrow="✦ For Speech Therapy"
+    title="Where language and feeling meet: playful, structured, ready to use right away."
+    body="Many children in speech therapy struggle not only with sounds and sentences, but also with putting into words what they feel. Emotional and linguistic vocabulary are closely connected: anyone without a word for a feeling will find it hard to express, however good their articulation. Yubuu's Feeling Wheel brings both together in a single, short exercise."
+    image="img/hero-logopaedie.jpg"
+    imageAlt="Question cards from Yubuu's Feeling Wheel, fanned out"
+  />
+
+  <ClickBoxes
+    title="Why Yubuu's Feeling Wheel?"
+    items={[
+      { icon: '🗣️', title: 'Emotional vocabulary as real language', text: 'The game deliberately practises feeling words, from simple basic feelings to more nuanced terms such as disappointment or pride. Unlike isolated word lists, these terms arise in a real context that matters to the child: not memorised, but experienced.' },
+      { icon: '🧑‍⚕️', title: 'Designed for one-to-one work', text: 'With one or two children, a round takes about 10 to 20 minutes and fits into a regular therapy session without preparation, as a stand-alone exercise or as a warm-up before the actual language support.' },
+      { icon: '🧩', title: 'Reasons to talk that arise on their own', text: 'Instead of prescribed practice sentences, real, spontaneous expressions emerge: the child describes a situation, explains a choice, tells about their own experiences. This kind of spontaneous speech is often harder to practise than guided sentences, and it is exactly what the game encourages.' },
+    ]}
+  />
+
+  <IconRow
+    title="How Yubuu's Feeling Wheel can be used"
+    items={[
+      { icon: '🗣️', label: 'Language support session' },
+      { icon: '🧑‍⚕️', label: 'Individual therapy' },
+      { icon: '🔤', label: 'Vocabulary work' },
+      { icon: '💬', label: 'Encouraging spontaneous speech' },
+      { icon: '📈', label: 'Documenting progress' },
+      { icon: '👪', label: 'Preparing a parent conversation' },
+    ]}
+  />
+
+  <TwoCol
+    title="What makes Yubuu's Feeling Wheel special?"
+    body="The focus is not on the right answer, but on discovering together. Yubuu judges nothing, but asks, wonders and listens, which takes away the pressure to perform that many children already know from speech training. Feelings do not stay abstract: spinning the Feeling Wheel, placing the magnetic heads, and working with the flash cards, situation cards and needs circles create concrete reasons to talk that feel natural rather than rehearsed."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Situation card from Yubuu's Feeling Wheel"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="A window into the language level of your young patients"
+    body="For speech therapists, Yubuu's Feeling Wheel is more than a game: it shows right away which emotional vocabulary a child already has and where gaps remain. Can the child name a feeling independently, or do they need support? Do they use simple or already nuanced terms? These observations can go straight into therapy planning and progress documentation."
+  />
+
+  <YubuuQuote
+    quote="Hello! I don't know all the words for feelings yet, so I'm asking you. What do you call what you are feeling right now?"
+    image="yubuu-crystal.png" imageAlt="Yubuu with a glowing crystal" />
+
+  <Chips
+    title="Who is the game suitable for?"
+    items={['Speech and language therapists', 'Language therapists', 'Professionals in early intervention services', 'Speech-language educators', 'Practices for speech, language and voice therapy']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'How a round of the game works',
+        body: 'A round of the game follows five steps that build on one another. The child spins the Feeling Wheel and takes their magnetic head, a deliberate element of chance that also brings feelings into the game that the child would not have chosen spontaneously. Next, the child draws a question card and talks briefly about the feeling. Then comes a flash card: a short everyday situation where the child only says whether the feeling fits or not. In the fourth step, the child places their magnetic head on a situation card that shows Yubuu with no facial expression. Finally, the child chooses from the needs circles what would help with this feeling. With one or two children, a complete round takes about 10 to 20 minutes.',
+      },
+      {
+        title: 'Scientific background',
+        body: 'Yubuu\'s Feeling Wheel is built on several recognised approaches from developmental psychology and emotional education. The meta-analysis by Durlak et al., covering over 270,000 children, shows that structured social and emotional learning programmes significantly reduce behavioural problems and strengthen self-esteem. Research on embodied learning also shows that children learn more deeply when they act physically rather than just listen, which is why the game material is deliberately physical.',
+        linkHref: `${base}en/wissenschaftlicher-hintergrund`,
+        linkLabel: 'More on the scientific background',
+      },
+      {
+        title: 'Frequently asked questions from speech therapy practice',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Is the game suitable for children with developmental language disorders?</strong><br />Yes, for these children in particular, the playful, pressure-free approach is especially valuable. The physical elements make expression possible even when the right words are still missing.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Does the game replace targeted vocabulary training?</strong><br />No, it complements it. Instead of isolated exercises, feeling words arise in a real, meaningful context.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Does the game work in one-to-one settings?</strong><br />Yes, it was designed with that in mind. With one or two children, a round takes only 10 to 20 minutes.</p>
+          <p><strong class="text-[var(--color-ink)]">Do I need training?</strong><br />No, the game can be used right away without any additional training.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}en/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Enquire for your practice</a>
+  </div>
+</Base>

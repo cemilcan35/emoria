@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+---
+
+<Base lang="fr" title="À propos d'EMORIA" current="À propos d'EMORIA"
+  description="EMORIA développe des outils pédagogiques scientifiquement fondés pour l'éducation émotionnelle. Notre premier produit : la roue des émotions de Yubuu.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ À propos d'EMORIA</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">À propos d'EMORIA</h1>
+    </div>
+
+    <div class="mx-auto max-w-2xl space-y-6 px-6 pb-20 text-lg text-[var(--color-ink-soft)]">
+      <p>EMORIA développe des outils pédagogiques scientifiquement fondés pour l'éducation émotionnelle. Notre premier produit, la roue des émotions de Yubuu, accompagne les enfants de quatre à dix ans pour reconnaître et nommer leurs émotions et comprendre ce qui se cache derrière. Au centre se trouve Yubuu, un être curieux qui ne juge jamais, mais pose des questions et écoute.</p>
+
+      <img src={`${base}img/yubuu-spaceship.png`} alt="Yubuu voyage à travers l'univers" loading="lazy"
+        class="mx-auto w-full max-w-md rounded-[1.75rem] shadow-[var(--shadow-lift)]" />
+
+      <p>La roue des émotions de Yubuu n'est qu'un début. EMORIA continue de grandir comme un univers, avec pour objectif que l'éducation émotionnelle devienne aussi naturelle que la lecture et le calcul.</p>
+    </div>
+
+    <div class="mx-auto max-w-3xl px-6 py-20 text-center">
+      <img src={`${base}img/yubuu-asteroid.png`} alt="Yubuu" class="mx-auto mb-4 h-28 w-auto drop-shadow-[0_14px_20px_rgba(43,42,40,0.16)]" />
+      <h2 class="text-3xl">Apportez EMORIA dans votre crèche</h2>
+      <p class="mx-auto mt-4 max-w-lg text-[var(--color-ink-soft)]">Si votre crèche ou votre cabinet souhaite être parmi les premiers à essayer EMORIA, Cemil se fera un plaisir d'en parler avec vous.</p>
+      <a href={`${base}fr/contact`} class="mt-7 inline-block rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">Prendre contact</a>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+---
+
+<Base lang="no" title="Om EMORIA" current="Om EMORIA"
+  description="EMORIA utvikler vitenskapelig funderte, pedagogiske verktøy for emosjonell danning. Vårt første produkt: Yubuus følelseshjul.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Om EMORIA</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">Om EMORIA</h1>
+    </div>
+
+    <div class="mx-auto max-w-2xl space-y-6 px-6 pb-20 text-lg text-[var(--color-ink-soft)]">
+      <p>EMORIA utvikler vitenskapelig funderte, pedagogiske verktøy for emosjonell danning. Vårt første produkt, Yubuus følelseshjul, følger barn mellom fire og ti år i å kjenne igjen og benevne følelser og forstå hva som ligger bak. I sentrum står Yubuu, et nysgjerrig vesen som aldri vurderer, men spør og lytter.</p>
+
+      <img src={`${base}img/yubuu-spaceship.png`} alt="Yubuu reiser gjennom universet" loading="lazy"
+        class="mx-auto w-full max-w-md rounded-[1.75rem] shadow-[var(--shadow-lift)]" />
+
+      <p>Yubuus følelseshjul er bare begynnelsen. EMORIA vokser videre som et univers, med målet om at emosjonell danning blir like selvsagt som å lese og regne.</p>
+    </div>
+
+    <div class="mx-auto max-w-3xl px-6 py-20 text-center">
+      <img src={`${base}img/yubuu-asteroid.png`} alt="Yubuu" class="mx-auto mb-4 h-28 w-auto drop-shadow-[0_14px_20px_rgba(43,42,40,0.16)]" />
+      <h2 class="text-3xl">Ta med EMORIA til barnehagen din</h2>
+      <p class="mx-auto mt-4 max-w-lg text-[var(--color-ink-soft)]">Hvis barnehagen eller praksisen din vil være blant de første som prøver EMORIA, snakker Cemil gjerne med deg.</p>
+      <a href={`${base}no/contact`} class="mt-7 inline-block rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">Ta kontakt</a>
+    </div>
+  </article>
+</Base>

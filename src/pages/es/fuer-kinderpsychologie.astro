@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="es" title="Para psicología infantil — EMORIA" current="Psicología infantil"
+  description="La rueda de las emociones de Yubuu en la consulta de psicología infantil: un acceso sencillo y lúdico al mundo emocional de un niño.">
+
+  <AudienceHero
+    eyebrow="✦ Para psicología infantil"
+    title="Un acceso sencillo al mundo emocional de un niño: con juego, estructurado y sin presión."
+    body="Los niños que llegan a una atención psicológica a menudo no hablan con facilidad de lo que les ocupa. Las preguntas directas generan a veces justo la defensa que en realidad se quiere disolver. La rueda de las emociones de Yubuu crea un rodeo lúdico hacia la misma meta: el niño habla de una emoción que ha aparecido «por casualidad» en la rueda, no de sí mismo, y justo eso lo hace más fácil."
+    image="img/hero-kinderpsychologie.jpg"
+    imageAlt="Caras de emociones en la rueda de las emociones de Yubuu"
+  />
+
+  <ClickBoxes
+    title="¿Por qué la rueda de las emociones de Yubuu?"
+    items={[
+      { icon: '🎯', title: 'Un rodeo que lleva a la meta', text: 'Como las emociones se eligen al girar la rueda de forma aparentemente casual, la conversación se siente para el niño menos como una confrontación directa. Surge una distancia con la propia persona, justo la suficiente para seguir siendo sincero.' },
+      { icon: '🔍', title: 'Un instrumento de observación estructurado', text: '¿Qué emociones reconoce el niño con seguridad y en cuáles duda? ¿Cómo interpreta las situaciones cotidianas y qué necesidades nombra? Estas observaciones surgen de paso, en el juego, no en una situación de prueba.' },
+      { icon: '🕊️', title: 'Sin correcto, sin incorrecto, sin presión', text: 'Yubuu no valora nada. Para los niños a quienes en el día a día se les habla a menudo de su comportamiento, es un trato claramente distinto, que genera confianza antes incluso de hablar de lo difícil.' },
+    ]}
+  />
+
+  <IconRow
+    title="Así se puede usar la rueda de las emociones de Yubuu"
+    items={[
+      { icon: '🧑‍⚕️', label: 'Terapia individual' },
+      { icon: '📋', label: 'Primera entrevista diagnóstica' },
+      { icon: '🕊️', label: 'Conversación posterior tras situaciones difíciles' },
+      { icon: '📈', label: 'Documentación de la evolución' },
+      { icon: '👪', label: 'Preparación de una conversación con la familia' },
+      { icon: '🌱', label: 'Conversaciones orientadas a los recursos' },
+    ]}
+  />
+
+  <TwoCol
+    title="¿Qué hace especial la rueda de las emociones de Yubuu?"
+    body="Lo central no es la respuesta correcta, sino descubrir juntos. Yubuu no valora ninguna respuesta, sino que pregunta, se asombra y escucha, y eso baja el umbral de inhibición, sobre todo en niños que han aprendido a esconder o controlar sus emociones. Las emociones no se quedan en lo abstracto: al girar la rueda de las emociones, colocar las cabezas magnéticas, con las tarjetas relámpago, las tarjetas de situación y los círculos de necesidades se hacen visibles, tangibles y se pueden hablar, también para niños a quienes les cuesta abrirse con palabras."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Tarjeta de situación de la rueda de las emociones de Yubuu"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Una ventana al mundo interior de sus pequeños pacientes"
+    body="Para las psicólogas y los psicólogos infantiles, la rueda de las emociones de Yubuu es más que un juego: es un instrumento de observación estructurado. ¿Cómo reacciona un niño ante determinadas tarjetas de situación? ¿Qué necesidades nombra y cuáles le faltan visiblemente? Estas observaciones se pueden seguir a lo largo de varias sesiones y ofrecen una base sólida y comprensible para el diagnóstico, la planificación de la terapia y los informes."
+  />
+
+  <YubuuQuote
+    quote="¡Hola! No tienes que contarme nada sobre ti si no quieres. Pero si te apetece, gira la rueda y miramos juntos qué sale."
+    image="yubuu-butterfly.png" imageAlt="Yubuu con una mariposa" />
+
+  <Chips
+    title="¿Para quién es adecuado el juego?"
+    items={['Psicólogas y psicólogos infantiles', 'Psicoterapeutas de niños y adolescentes', 'Profesionales de servicios de orientación educativa y familiar', 'Centros de pediatría social', 'Consultas de psiquiatría infantil y juvenil']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Cómo transcurre una ronda de juego',
+        body: 'Una ronda de juego sigue cinco pasos que se construyen unos sobre otros. El niño gira la rueda de las emociones y toma su cabeza magnética, un factor de azar buscado que también trae al juego emociones que el niño no habría elegido espontáneamente. Después saca una tarjeta de preguntas y habla brevemente de la emoción. A continuación viene una tarjeta relámpago: una breve situación cotidiana en la que el niño solo dice si la emoción encaja o no. En el cuarto paso, el niño coloca su cabeza magnética en una tarjeta de situación que muestra a Yubuu sin expresión en la cara. Para terminar, elige en los círculos de necesidades lo que le ayudaría con esa emoción. Con uno o dos niños, una ronda completa dura unos 10 a 20 minutos.',
+      },
+      {
+        title: 'Trasfondo científico',
+        body: 'La rueda de las emociones de Yubuu se basa en varios enfoques reconocidos de la psicología del desarrollo y la educación emocional. El metaanálisis de Durlak et al., con más de 270.000 niños, muestra que los programas estructurados de aprendizaje social y emocional reducen claramente los problemas de conducta y fortalecen la autoestima. El neurocientífico Matthew Lieberman pudo demostrar que el mero hecho de nombrar una emoción tiene un efecto calmante en el cerebro infantil, y eso es lo que practica cada ronda con la rueda de las emociones.',
+        linkHref: `${base}es/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Más sobre el trasfondo científico',
+      },
+      {
+        title: 'Preguntas frecuentes de la consulta psicológica',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Es adecuado el juego para niños con miedos o problemas de conducta?</strong><br />Sí, el acceso lúdico e indirecto es especialmente adecuado para niños a quienes les cuestan las preguntas directas.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Puedo usar el juego para el diagnóstico?</strong><br />No sustituye a los procedimientos diagnósticos estandarizados, pero ofrece observaciones valiosas y documentables como complemento.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Funciona el juego en el trabajo individual?</strong><br />Sí, se ha desarrollado también para eso. Con uno o dos niños, una ronda dura solo 10 a 20 minutos.</p>
+          <p><strong class="text-[var(--color-ink)]">¿Y si un niño no quiere responder?</strong><br />Eso está expresamente bien. El silencio es una respuesta válida, no una falta de rendimiento.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}es/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Solicitar información para su consulta</a>
+  </div>
+</Base>

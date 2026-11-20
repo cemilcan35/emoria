@@ -1,0 +1,104 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="es" title="Para familias — EMORIA" current="Familias"
+  description="Cómo pueden las familias retomar en casa la rueda de las emociones de Yubuu para hablar con los niños sobre las emociones.">
+
+  <AudienceHero
+    eyebrow="✦ Para familias"
+    title="Los niños aprenden a calcular y a leer. A hablar de las emociones solo aprenden si alguien se toma el tiempo para ello."
+    body="A veces un niño no sabe qué le pasa por dentro. Solo nota que algo no va bien. La rabia, el retraimiento o las lágrimas son entonces el único camino que conoce. Los niños que aprenden pronto a ponerle nombre a sus emociones necesitan menos este rodeo. Superan mejor los conflictos, se sienten más seguros y pueden decir lo que necesitan. Por eso la educación emocional no es algo secundario. Empieza en la escuela infantil y en el colegio, y su efecto llega mucho más allá de la infancia."
+    image="img/needs-circles.jpg"
+    imageAlt="Círculos de necesidades de la rueda de las emociones de Yubuu"
+  />
+
+  <ClickBoxes
+    title="Lo que aprende su hijo o hija con el juego"
+    items={[
+      { icon: '💬', title: 'Poner nombre a las emociones', text: 'Vivir una emoción y saber expresarla son dos cosas distintas. Justo ahí empieza el juego.' },
+      { icon: '👀', title: 'Descubrir otras perspectivas', text: 'Un niño siente rabia, otro, en la misma situación, siente miedo. Los niños comprueban que las emociones son personales.' },
+      { icon: '🌱', title: 'Reconocer la necesidad que hay detrás', text: 'La rabia puede surgir cuando un niño no se siente escuchado. Los niños aprenden a mirar con curiosidad lo que hay detrás de lo que viven.' },
+    ]}
+  />
+
+  <IconRow
+    title="De la emoción a la comprensión"
+    items={[
+      { icon: '🎡', label: 'Descubrir la emoción' },
+      { icon: '💬', label: 'Expresarla' },
+      { icon: '🔍', label: 'Entender la situación' },
+      { icon: '👀', label: 'Descubrir otra perspectiva' },
+      { icon: '🌱', label: 'Reconocer la necesidad' },
+    ]}
+  />
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">No se trata de encontrar una respuesta correcta. No la hay.</p>
+
+  <TwoCol
+    title="La rabia rara vez es el verdadero problema"
+    body="Cuando los niños todavía no saben expresar bien sus emociones, lo que viven se muestra a través de su comportamiento. El comportamiento lo vemos enseguida; la emoción que hay detrás, no siempre. Por eso EMORIA quiere cambiar la mirada. No solo preguntar: ¿Qué está haciendo el niño ahora? Sino también: ¿Qué podría estar sintiendo y qué necesita quizá?"
+    image="img/situation-card.jpg"
+    imageAlt="Tarjeta de situación de la rueda de las emociones de Yubuu"
+  />
+
+  <ColoredBand
+    tone="terracotta"
+    title="¿Y qué tiene esto que ver conmigo como madre o padre?"
+    body="Quizá su hijo o hija le cuente en casa algo de Yubuu o de una emoción. Quizá no. Ambas cosas están perfectamente bien. No tiene que repetir el juego ni necesita formación pedagógica. A menudo basta con escuchar y preguntar: «¿Cómo fue eso para ti?» Lo decisivo es que su hijo o hija note: Mis emociones pueden estar ahí. Me escuchan."
+  />
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Pequeños impulsos para casa</h2>
+    <div class="mt-8 space-y-4">
+      {[
+        { t: 'Poner nombre a las emociones', d: '«Parece que algo te ha decepcionado.»' },
+        { t: 'Preguntar en lugar de adivinar', d: '«¿Quieres contarme qué ha pasado?»' },
+        { t: 'No resolver enseguida', d: 'A veces un niño necesita primero comprensión, no un consejo.' },
+        { t: 'Ser un ejemplo', d: 'Si usted pone nombre a sus propias emociones, su hijo o hija aprende que es algo normal.' },
+      ].map((it) => (
+        <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
+          <p><strong class="text-[var(--color-ink)]">{it.t}:</strong> <span class="text-[var(--color-ink-soft)]">{it.d}</span></p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
+    <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Una buena pregunta para la próxima conversación con el centro educativo</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">«¿Hubo hoy alguna situación que ocupara especialmente a mi hijo o hija?»</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Esta pregunta suele abrir más que «¿Todo bien?».</p>
+    </div>
+  </section>
+
+  <YubuuQuote quote="A veces las conversaciones más bonitas empiezan con una sola pregunta: ¿Cómo te sientes hoy?" image="yubuu-butterfly.png" imageAlt="Yubuu con una mariposa" />
+
+  <Accordion
+    items={[
+      {
+        title: 'Cómo transcurre una ronda de juego',
+        body: 'El niño gira la rueda de las emociones y se ocupa de la emoción elegida. Con preguntas y situaciones cotidianas se observa paso a paso con más detalle, hasta que al final surge la pregunta: ¿Qué necesito cuando me siento así? Una ronda dura unos 25 a 40 minutos y la acompaña una persona educadora.',
+      },
+      {
+        title: 'Por qué es importante la educación emocional',
+        body: 'La capacidad de percibir y expresar las propias emociones está estrechamente ligada a la autopercepción, la empatía y la construcción de relaciones positivas. Estos ámbitos se describen en el concepto científico del Social Emotional Learning. EMORIA se orienta en estas bases. Para nosotros es importante una distinción: la investigación demuestra la importancia de los enfoques de aprendizaje socioemocional en su conjunto, pero la eficacia concreta de EMORIA todavía debe estudiarse de forma sistemática.',
+        linkHref: `${base}es/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Más sobre el trasfondo científico',
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
+    <p class="text-[var(--color-ink-soft)]">Si en casa surge una pequeña conversación, ya ha ocurrido algo importante: un niño cuenta, una persona adulta escucha, y ambos intentan entenderse mejor.</p>
+    <a href={`${base}es/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">¿Preguntas? Escríbanos</a>
+  </div>
+</Base>

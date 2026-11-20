@@ -1,0 +1,94 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="no" title="For barnehager — EMORIA" current="Barnehage"
+  description="Yubuus følelseshjul i barnehagehverdagen: enkelt å bruke, vitenskapelig fundert, utviklet for barnehagelærere og assistenter.">
+
+  <AudienceHero
+    eyebrow="✦ For barnehager"
+    title="Å oppdage følelser sammen, lekende, nær hverdagen og uten stor forberedelse."
+    body="Barn opplever utallige følelser hver dag: glede i leken, sinne etter en krangel, stolthet over en suksess eller sorg når de sier ha det til foreldrene. Men mange barn kan ennå ikke sette ord på hva som skjer inni dem. Yubuus følelseshjul hjelper pedagogiske fagpersoner med å følge barn lekende gjennom disse følelsesøyeblikkene, i et trygt rom, uten prestasjonspress og uten riktige eller gale svar."
+    image="img/wheel-hero.jpg"
+    imageAlt="Yubuus følelseshjul i barnehagehverdagen"
+  />
+
+  <ClickBoxes
+    title="Hvorfor Yubuus følelseshjul?"
+    items={[
+      { icon: '🧩', title: 'Enkelt å bruke i barnehagehverdagen', text: 'Spillet er utviklet spesielt for den pedagogiske hverdagen. Det kan brukes uten omfattende forberedelse i små grupper eller en til en, og tilpasses fleksibelt etter alder, gruppestørrelse og situasjon.' },
+      { icon: '💛', title: 'Styrk emosjonelle kompetanser gjennom lek', text: 'Barn lærer å oppfatte, benevne og forstå følelser. Samtidig oppdager de at ulike mennesker kan oppleve den samme situasjonen helt forskjellig. På den måten fremmes empati, perspektivtaking og språkutvikling på en naturlig måte.' },
+      { icon: '🤝', title: 'Følge barnet sammen med foreldrene', text: 'Spillet åpner for verdifulle samtaleanledninger som kan virke videre etter spillrunden. Observasjoner fra spillet kan tas opp i foreldresamtaler og hjelper til med å følge barnets emosjonelle utvikling sammen.' },
+    ]}
+  />
+
+  <IconRow
+    title="Slik kan Yubuus følelseshjul brukes"
+    items={[
+      { icon: '🌅', label: 'Samling om morgenen' },
+      { icon: '👥', label: 'Små grupper' },
+      { icon: '🧑‍🤝‍🧑', label: 'Oppfølging en til en' },
+      { icon: '🎒', label: 'Skolestartergrupper' },
+      { icon: '💬', label: 'Konfliktsamtaler' },
+      { icon: '🌱', label: 'Prosjekter om emosjonell danning' },
+      { icon: '🕊️', label: 'Et rolig samtaleinnspill etter belastende situasjoner' },
+    ]}
+  />
+
+  <TwoCol
+    title="Hva gjør Yubuus følelseshjul spesielt?"
+    body="I sentrum står ikke det riktige resultatet, men å oppdage sammen. Yubuu vurderer ingen svar. I stedet stiller Yubuu nysgjerrige spørsmål, lytter oppmerksomt og inviterer barna til å bli kjent med sin egen følelsesverden. Det skaper en stemning der barn føler seg tatt på alvor og kan utvikle tillit. Det spesielle: Følelser forblir ikke abstrakte. Når man snurrer på følelseshjulet, plasserer magnethodene og bruker lynkortene, situasjonskortene og behovssirklene, blir følelser synlige, håndgripelige og forståelige."
+    image="img/flash-card.jpg"
+    imageAlt="Lynkort fra Yubuus følelseshjul"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Et vindu inn til barnas følelsesverden"
+    body="For pedagogiske fagpersoner er Yubuus følelseshjul mer enn et spill, det er også et observasjonsverktøy. Under spillet viser det seg hvilke følelser som opptar et barn akkurat nå, hvordan barnet tolker situasjoner og hvor det kanskje er behov for samtale. Disse observasjonene hjelper til med å følge hvert barn mer individuelt og rette det pedagogiske arbeidet mer målrettet."
+  />
+
+  <YubuuQuote quote="Hei! Jeg er glad for at du er her. Sammen oppdager vi følelser, helt uten riktig eller galt. Jeg lytter, stiller spørsmål og lærer noe nytt hver dag. Blir du med på oppdagelsesreisen vår?" image="yubuu-vine.png" imageAlt="Yubuu oppdager en plante" />
+
+  <Chips
+    title="Hvem passer spillet for?"
+    items={['Barnehagelærere og assistenter', 'Integreringspedagoger', 'Spesialpedagoger', 'Språkstøttende fagpersoner', 'Barnehagestyrere', 'Skolestartergrupper', 'Familiesentre']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Slik foregår en spillrunde',
+        body: 'En spillrunde følger fem trinn som bygger på hverandre. Først snurrer barnet på følelseshjulet og tar magnethodet sitt, en bevisst tilfeldighet som også bringer følelser inn i spillet som barnet ikke selv ville ha valgt. Deretter trekker barnet et spørrekort og forteller kort om følelsen. Så følger et lynkort: en kort hverdagssituasjon der barnet bare sier om følelsen passer eller ikke. I det fjerde trinnet legger barnet magnethodet sitt på et situasjonskort som viser Yubuu uten ansiktsuttrykk. Til slutt velger barnet blant behovssirklene hva som ville hjelpe i den følelsen. En hel runde varer omtrent 25 til 40 minutter, avhengig av gruppen og samtalens dybde også lenger. Til slutt fører Yubuu en kort refleksjonssamtale: Hvordan har du det nå? Likte du spillet?',
+      },
+      {
+        title: 'Vitenskapelig grunnlag',
+        body: 'Yubuus følelseshjul bygger på flere anerkjente tilnærminger fra utviklingspsykologi og emosjonell danning. Metaanalysen av Durlak et al. med over 270 000 barn viser at strukturerte programmer for sosial og emosjonell læring tydelig reduserer atferdsproblemer og styrker selvfølelsen. Nevrovitenskapsmannen Matthew Lieberman kunne vise at det å bare benevne en følelse virker beroligende på barnets hjerne, og nettopp det øver hver runde ved følelseshjulet. Forskningen på embodied learning viser dessuten at barn lærer dypere når de handler med kroppen i stedet for bare å lytte, derfor er spillmaterialet bevisst fysisk utformet.',
+        linkHref: `${base}no/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mer om det vitenskapelige grunnlaget',
+      },
+      {
+        title: 'Vanlige spørsmål fra barnehagen',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Hvor lenge varer en spillrunde?</strong><br />Omtrent 25 til 40 minutter, avhengig av gruppestørrelse og samtalens dybde. Kortere varianter med bare enkelte deler er også mulig.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Trenger jeg kurs for å bruke spillet?</strong><br />Nei. Spillet er laget slik at det kan brukes med én gang uten tilleggsutdanning. En introduksjon er nyttig, men ingen forutsetning.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Hvilken alder passer spillet for?</strong><br />For barn fra fire til seks år, med et eget opplegg for yngre og et for eldre barn innenfor dette spennet.</p>
+          <p><strong class="text-[var(--color-ink)]">Kan jeg også bruke bare enkelte deler av spillet?</strong><br />Ja. Følelseshjulet og lynkortene fungerer også hver for seg, for eksempel når det bare er lite tid.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}no/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Forespørsel for din barnehage</a>
+  </div>
+</Base>

@@ -1,0 +1,110 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+
+const sections = [
+  {
+    h: 'Social og følelsesmæssig læring virker, og det er dokumenteret',
+    p: [
+      'Den hidtil mest indflydelsesrige undersøgelse af dette emne stammer fra Durlak, Weissberg, Dymnicki, Taylor og Schellinger, udgivet i 2011 i tidsskriftet Child Development. Metaanalysen vurderede 213 skolebaserede programmer for social og følelsesmæssig læring med data fra 270.034 elever fra børnehaveklasse til ungdomsuddannelse. Sammenlignet med kontrolgrupper viste børn i disse programmer tydeligt bedre sociale og følelsesmæssige færdigheder, mere positive holdninger og bedre social adfærd. Hvad angår de faglige resultater, svarede forskellen til en fremgang på elleve percentilpoint, en bemærkelsesværdig effekt for et program, der egentlig sigter mod følelser og ikke mod faglig viden.',
+      'Tolv år senere opdaterede Cipriano og kolleger denne forskning. Deres metaanalyse fra 2023, der ligeledes udkom i Child Development, omfatter 424 studier fra 53 lande med over 575.000 elever. Resultaterne bekræfter de oprindelige fund og udvider dem: Programmer for social og følelsesmæssig læring forbedrer ikke kun færdigheder og faglige resultater, men også klassemiljøet, sikkerheden på skolen og relationerne mellem jævnaldrende.',
+    ],
+  },
+  {
+    h: 'Hvordan gode programmer skal være bygget op',
+    p: [
+      'Durlak og kolleger identificerede i deres analyse fire fælles kendetegn ved særligt effektive programmer, i fagsproget kendt som SAFE-modellen: Kompetencerne opbygges trin for trin (Sequenced), børnene deltager aktivt i stedet for kun at lytte (Active), sociale og følelsesmæssige færdigheder står målrettet i centrum (Focused), og læringsmålene er klart angivet (Explicit). Yubuus følelseshjul er bygget op netop efter disse fire principper: De fem spiltrin bygger på hinanden, børn handler aktivt i stedet for at lytte, og målet med hver runde er klart formuleret fra begyndelsen.',
+    ],
+  },
+  {
+    h: 'Den økonomiske nytte af tidlig følelsesmæssig dannelse',
+    p: [
+      'Belfield og kolleger fra Center for Benefit-Cost Studies in Education ved Teachers College, Columbia University, undersøgte i 2015 seks kendte SEL-programmer i USA med hensyn til deres økonomiske nytte. Der blev taget hensyn til omkostninger som materiale og personaletid samt langsigtede gevinster som lavere følgeomkostninger på grund af mindre mobning, mindre stofmisbrug og bedre skoleafslutninger. I gennemsnit over alle seks programmer fik man et forhold mellem omkostninger og nytte på omkring 1 til 11: Hver investeret dollar skabte på langt sigt en samfundsmæssig merværdi på omkring elleve dollar.',
+    ],
+  },
+  {
+    h: 'Hvorfor det alene at benævne følelser allerede virker',
+    p: [
+      'Neurovidenskabsmanden Matthew Lieberman og hans hold ved University of California, Los Angeles, viste i 2007 i et studie udgivet i tidsskriftet Psychological Science, at det alene at benævne en følelse har målbare virkninger på hjernen. Når forsøgspersoner satte ord på en følelse, faldt aktiviteten i amygdala, den del af hjernen, der er ansvarlig for den følelsesmæssige alarmreaktion, mens aktiviteten i den højre ventrolaterale præfrontale cortex, en hjerneregion ansvarlig for sproglig og kognitiv bearbejdning, steg. Denne effekt er kendt i forskningen som affect labeling. Netop denne mekanisme øver hver runde ved følelseshjulet, uanset om der til sidst findes en løsning.',
+    ],
+  },
+  {
+    h: 'Ikkevoldelig kommunikation som grundlag for behovscirklerne',
+    p: [
+      'Det sidste spiltrin tager udgangspunkt i psykologen Marshall B. Rosenbergs ikkevoldelige kommunikation. Grundantagelsen i denne tilgang: Bag hver følelse ligger et behov, og den, der forstår sit eget behov, kan udtrykke det klarere i stedet for at vise det gennem skænderi, tilbagetrækning eller bebrejdelser. Denne evne kan trænes, og netop det gør behovscirklerne i slutningen af hver spillerunde.',
+    ],
+  },
+  {
+    h: 'At lære i socialt samvær',
+    p: [
+      'Ifølge psykologen Lev Vygotskys sociokulturelle udviklingsteori opstår læring ikke isoleret, men i udveksling med andre mennesker. Centralt er her begrebet den nærmeste udviklingszone, området mellem det, et barn allerede kan klare alene, og det, det kan nå med støtte. I spillet tager både Yubuu og de andre børn denne støttende rolle, børn lytter til hinanden og udvider dermed deres egen forståelse af følelser.',
+    ],
+  },
+  {
+    h: 'Hvorfor materialet bevidst er fysisk',
+    p: [
+      'Forskningen i embodied cognition, blandt andet præget af Margaret Wilson og Lawrence Barsalou, viser, at tænkning og læring hænger tæt sammen med kropslig erfaring, mennesker forstår og husker ofte indhold bedre, når de oplever det med kroppen i stedet for kun at høre eller læse om det. Derfor er Yubuus følelseshjul bevidst udformet som haptisk materiale: træ til at tage i, magneter til selv at lægge på, kort til at opdage, intet arbejdsark og ingen skærm.',
+    ],
+  },
+  {
+    h: 'En ærlig bemærkning om den aktuelle forskningsstatus',
+    p: [
+      'De ovennævnte studier dokumenterer effekten af social og følelsesmæssig læring samt af de enkelte principper, som Yubuus følelseshjul bygger på. Et eget effektstudie af Yubuus følelseshjul selv findes endnu ikke, det er planlagt som del af pilotprojekterne fra 2027. Denne gennemsigtighed er vigtig for os: Vi bygger på solid forskning, men lover ikke resultater, der endnu ikke er undersøgt specifikt.',
+    ],
+  },
+];
+
+const base = import.meta.env.BASE_URL;
+
+const sources = [
+  { ref: 'Belfield, C., Bowden, B., Klapp, A., Levin, H., Shand, R., Zander, S. (2015). The Economic Value of Social and Emotional Learning. Center for Benefit-Cost Studies in Education, Teachers College, Columbia University.', href: 'https://wymancenter.org/wp-content/uploads/2020/11/Belfield-et-al-2015.pdf' },
+  { ref: 'Cipriano, C., Strambler, M. J., Naples, L. H., Ha, C., Kirk, M., Wood, M. et al. (2023). The State of Evidence for Social and Emotional Learning: A Contemporary Meta-Analysis of Universal School-Based SEL Interventions. Child Development, 94, 1181–1204.', href: 'https://onlinelibrary.wiley.com/doi/abs/10.1111/cdev.13968', extra: { label: 'Frit tilgængelig preprint', href: 'https://osf.io/wscgq/' } },
+  { ref: 'Durlak, J. A., Weissberg, R. P., Dymnicki, A. B., Taylor, R. D., Schellinger, K. B. (2011). The Impact of Enhancing Students’ Social and Emotional Learning: A Meta-Analysis of School-Based Universal Interventions. Child Development, 82(1), 405–432.', href: 'https://srcd.onlinelibrary.wiley.com/doi/10.1111/j.1467-8624.2010.01564.x', extra: { label: 'Frit tilgængelig PDF', href: 'https://casel.s3.us-east-2.amazonaws.com/meta-analysis-child-development-1.pdf' } },
+  { ref: 'Lieberman, M. D., Eisenberger, N. I., Crockett, M. J., Tom, S. M., Pfeifer, J. H., Way, B. M. (2007). Putting Feelings Into Words: Affect Labeling Disrupts Amygdala Activity in Response to Affective Stimuli. Psychological Science, 18(5), 421–428.', href: 'https://pubmed.ncbi.nlm.nih.gov/17576282/', extra: { label: 'Frit tilgængelig PDF', href: 'https://sanlab.psych.ucla.edu/wp-content/uploads/sites/31/2015/05/Lieberman_AL-2007.pdf' } },
+  { ref: 'Rosenberg, M. B. (2003). Nonviolent Communication: A Language of Life.', href: 'https://www.cnvc.org', label: 'Om konceptet (Center for Nonviolent Communication)' },
+  { ref: 'Vygotsky, L. S. (1978). Mind in Society: The Development of Higher Psychological Processes.', href: 'https://archive.org/details/mindinsocietydev0000vygo', label: 'Frit tilgængelig fuldtekst (Archive.org)' },
+];
+---
+<Base lang="da" title="Videnskabeligt grundlag — EMORIA" current=""
+  description="Forskningen bag Yubuus følelseshjul: social og følelsesmæssig læring, affect labeling, ikkevoldelig kommunikation og embodied cognition, forklaret forståeligt.">
+
+  <article class="relative mx-auto max-w-2xl px-6 py-28 print:py-8">
+    <img src={`${base}img/yubuu-telescope.png`} alt="Yubuu med kikkert på stjernekort" loading="lazy"
+      class="pointer-events-none absolute left-full top-16 ml-8 hidden h-52 w-auto drop-shadow-[0_18px_28px_rgba(43,42,40,0.16)] xl:block print:hidden" />
+    <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Baggrund</p>
+    <h1 class="mt-3 font-serif-heading text-3xl sm:text-4xl">Videnskabeligt grundlag</h1>
+    <p class="mt-6 text-[var(--color-ink-soft)]">Yubuus følelseshjul er ikke et tilfældigt sammensat spil, men følger bevidst flere anerkendte tilgange fra pædagogik, udviklingspsykologi, neurovidenskab og kommunikationsteori. I det følgende forklarer vi, hvilken forskning der ligger bag de enkelte byggesten.</p>
+
+    <div class="mt-12 space-y-10">
+      {sections.map((s) => (
+        <section>
+          <h2 class="font-[var(--font-display)] text-xl font-semibold">{s.h}</h2>
+          {s.p.map((para) => <p class="mt-3 text-[var(--color-ink-soft)]">{para}</p>)}
+        </section>
+      ))}
+    </div>
+
+    <section class="mt-16 border-t border-[var(--color-cream-edge)] pt-10">
+      <h2 class="font-[var(--font-display)] text-xl font-semibold">Kildeliste</h2>
+      <ol class="mt-4 space-y-5">
+        {sources.map((s) => (
+          <li class="text-sm text-[var(--color-ink-soft)]">
+            {s.ref}
+            <br />
+            <a href={s.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+              {s.label ?? 'Zur Studie'}
+            </a>
+            {s.extra && (
+              <>
+                {' · '}
+                <a href={s.extra.href} target="_blank" rel="noopener" class="text-[var(--color-ink-faint)] underline decoration-dotted underline-offset-2 hover:text-[var(--color-terracotta)]">
+                  {s.extra.label}
+                </a>
+              </>
+            )}
+          </li>
+        ))}
+      </ol>
+    </section>
+  </article>
+</Base>

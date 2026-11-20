@@ -1,0 +1,94 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fi" title="Päiväkodeille — EMORIA" current="Päiväkoti"
+  description="Yubuun tunnepyörä päiväkodin arjessa: helppo ottaa käyttöön, tieteellisesti perusteltu, kehitetty kasvattajille.">
+
+  <AudienceHero
+    eyebrow="✦ Päiväkodeille"
+    title="Tunteiden löytäminen yhdessä, leikkien, arjen lähellä ja ilman suurta valmistelua."
+    body="Lapset kokevat joka päivä lukemattomia tunteita: iloa leikissä, vihaa riidan jälkeen, ylpeyttä onnistumisesta tai surua vanhemmista eroon jäädessä. Mutta moni lapsi ei vielä osaa pukea sanoiksi, mitä hänen sisällään tapahtuu. Yubuun tunnepyörä auttaa pedagogisia ammattilaisia kulkemaan lasten rinnalla näissä tunnehetkissä leikin kautta, turvallisessa tilassa, ilman suorituspainetta ja ilman oikeita tai vääriä vastauksia."
+    image="img/wheel-hero.jpg"
+    imageAlt="Yubuun tunnepyörä päiväkodin arjessa"
+  />
+
+  <ClickBoxes
+    title="Miksi Yubuun tunnepyörä?"
+    items={[
+      { icon: '🧩', title: 'Helppo käyttää päiväkodin arjessa', text: 'Peli on kehitetty erityisesti pedagogiseen arkeen. Sitä voi käyttää ilman suurta valmistelua pienryhmissä tai yksittäin, ja se mukautuu joustavasti ikään, ryhmän kokoon ja tilanteeseen.' },
+      { icon: '💛', title: 'Tunnetaitojen vahvistaminen leikin kautta', text: 'Lapset oppivat havaitsemaan, nimeämään ja ymmärtämään tunteita. Samalla he huomaavat, että eri ihmiset voivat kokea saman tilanteen aivan eri tavoin. Näin empatia, näkökulmanotto ja kielen kehitys vahvistuvat luontevasti.' },
+      { icon: '🤝', title: 'Lapsen tukeminen yhdessä vanhempien kanssa', text: 'Peli avaa arvokkaita keskustelunaiheita, jotka voivat vaikuttaa vielä pelikierroksen jälkeen. Pelin havaintoja voi ottaa puheeksi vanhempainkeskusteluissa, ja ne auttavat tukemaan lapsen tunne-elämän kehitystä yhdessä.' },
+    ]}
+  />
+
+  <IconRow
+    title="Näin Yubuun tunnepyörää voi käyttää"
+    items={[
+      { icon: '🌅', label: 'Aamupiiri' },
+      { icon: '👥', label: 'Pienryhmät' },
+      { icon: '🧑‍🤝‍🧑', label: 'Yksilöllinen tuki' },
+      { icon: '🎒', label: 'Esikouluryhmät' },
+      { icon: '💬', label: 'Ristiriitakeskustelut' },
+      { icon: '🌱', label: 'Tunnekasvatuksen projektit' },
+      { icon: '🕊️', label: 'Rauhallinen keskustelun avaus kuormittavien tilanteiden jälkeen' },
+    ]}
+  />
+
+  <TwoCol
+    title="Mikä tekee Yubuun tunnepyörästä erityisen?"
+    body="Keskiössä ei ole oikea lopputulos vaan yhdessä löytäminen. Yubuu ei arvioi vastauksia. Sen sijaan Yubuu esittää uteliaita kysymyksiä, kuuntelee tarkkaavaisesti ja kutsuu lapsia tutustumaan omaan tunnemaailmaansa. Näin syntyy ilmapiiri, jossa lapset tuntevat tulevansa otetuiksi vakavasti ja voivat kehittää luottamusta. Erityistä: Tunteet eivät jää abstrakteiksi. Tunnepyörää pyöräyttämällä, magneettipäitä asettelemalla sekä salamakorttien, tilannekorttien ja tarvepiirien avulla tunteet muuttuvat näkyviksi, kosketeltaviksi ja ymmärrettäviksi."
+    image="img/flash-card.jpg"
+    imageAlt="Salamakortti Yubuun tunnepyörästä"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ikkuna lasten tunnemaailmaan"
+    body="Pedagogisille ammattilaisille Yubuun tunnepyörä on enemmän kuin peli, se on myös havainnointiväline. Pelin aikana näkyy, mitkä tunteet lasta juuri nyt askarruttavat, miten hän tulkitsee tilanteita ja missä on mahdollisesti keskustelun tarve. Nämä havainnot auttavat tukemaan jokaista lasta yksilöllisemmin ja suuntaamaan omaa pedagogista työtä täsmällisemmin."
+  />
+
+  <YubuuQuote quote="Hei! Olen iloinen, että olet täällä. Yhdessä löydämme tunteita, aivan ilman oikeaa tai väärää. Kuuntelen, kysyn ja opin joka päivä jotain uutta. Tuletko mukaan löytöretkellemme?" image="yubuu-vine.png" imageAlt="Yubuu löytää kasvin" />
+
+  <Chips
+    title="Kenelle peli sopii?"
+    items={['Lastentarhanopettajat ja lastenhoitajat', 'Integraatiokasvattajat', 'Erityislastentarhanopettajat', 'Kielenkehitystä tukevat ammattilaiset', 'Päiväkodinjohtajat', 'Esikouluryhmät', 'Perhekeskukset']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Näin pelikierros etenee',
+        body: 'Pelikierros etenee viidessä toisiinsa rakentuvassa vaiheessa. Ensin lapsi pyöräyttää tunnepyörää ja ottaa magneettipäänsä, tietoisen satunnaisuuden, joka tuo peliin myös tunteita, joita lapsi ei olisi itse valinnut. Sen jälkeen lapsi nostaa kysymyskortin ja kertoo lyhyesti tunteesta. Seuraavaksi tulee salamakortti: lyhyt arkitilanne, jossa lapsi vain sanoo, sopiiko tunne siihen vai ei. Neljännessä vaiheessa lapsi asettaa magneettipäänsä tilannekortille, jossa Yubuulla ei ole kasvonilmettä. Lopuksi lapsi valitsee tarvepiireistä, mikä auttaisi hänelle tässä tunteessa. Täysi kierros kestää noin 25 ja 40 minuutin välillä, ryhmästä ja keskustelun syvyydestä riippuen pidempäänkin. Lopuksi Yubuu käy lyhyen pohdintakeskustelun: Miltä sinusta tuntuu nyt? Piditkö pelistä?',
+      },
+      {
+        title: 'Tieteellinen tausta',
+        body: 'Yubuun tunnepyörä perustuu useisiin tunnustettuihin lähestymistapoihin kehityspsykologiasta ja tunnekasvatuksesta. Durlakin ym. meta-analyysi yli 270 000 lapsen aineistolla osoittaa, että jäsennellyt sosiaalisen ja emotionaalisen oppimisen ohjelmat vähentävät selvästi käytösongelmia ja vahvistavat itsetuntoa. Neurotieteilijä Matthew Lieberman pystyi osoittamaan, että jo pelkkä tunteen nimeäminen rauhoittaa lapsen aivoja, ja juuri tätä jokainen tunnepyörän kierros harjoittaa. Lisäksi kehollisen oppimisen (embodied learning) tutkimus osoittaa, että lapset oppivat syvemmin, kun he toimivat kehollaan pelkän kuuntelun sijaan, siksi pelimateriaali on tarkoituksella fyysinen.',
+        linkHref: `${base}fi/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Lisää tieteellisestä taustasta',
+      },
+      {
+        title: 'Usein kysyttyä päiväkodista',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kuinka kauan pelikierros kestää?</strong><br />Noin 25 ja 40 minuutin välillä, ryhmän koosta ja keskustelun syvyydestä riippuen. Myös lyhyemmät versiot vain joillakin osilla ovat mahdollisia.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Tarvitsenko koulutusta pelin käyttöön?</strong><br />Ei. Peli on suunniteltu niin, että sen voi ottaa heti käyttöön ilman lisäkoulutusta. Perehdytys on hyödyksi, mutta ei edellytys.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Minkä ikäisille peli sopii?</strong><br />Neljän ja kuuden vuoden ikäisille lapsille, ja tällä ikävälillä on oma kulku nuoremmille ja oma vanhemmille lapsille.</p>
+          <p><strong class="text-[var(--color-ink)]">Voinko käyttää myös vain joitakin pelin osia?</strong><br />Kyllä. Tunnepyörä ja salamakortit toimivat myös yksinään, esimerkiksi kun aikaa on vain vähän.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}fi/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Tiedustelu päiväkotiinne</a>
+  </div>
+</Base>

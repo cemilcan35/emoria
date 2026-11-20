@@ -1,0 +1,104 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="sv" title="För föräldrar — EMORIA" current="Föräldrar"
+  description="Hur familjer kan ta upp Yubuus känslohjul hemma för att komma i samtal med barn om känslor.">
+
+  <AudienceHero
+    eyebrow="✦ För föräldrar"
+    title="Barn lär sig räkna och läsa. Att prata om känslor lär de sig bara om någon tar sig tid för det."
+    body="Ibland vet ett barn inte själv vad som pågår inuti. Det märker bara att något inte stämmer. Ilska, tillbakadragenhet eller tårar är då ofta den enda väg barnet känner till. Barn som tidigt lär sig att sätta ord på sina känslor behöver den omvägen mer sällan. De tar sig bättre igenom konflikter, känner sig tryggare och kan säga vad de behöver. Därför är emotionell bildning ingen bisak. Den börjar i förskolan och i skolan, och den verkar långt bortom barndomen."
+    image="img/needs-circles.jpg"
+    imageAlt="Behovscirklar från Yubuus känslohjul"
+  />
+
+  <ClickBoxes
+    title="Vad ditt barn lär sig på vägen"
+    items={[
+      { icon: '💬', title: 'Att sätta ord på känslor', text: 'Att uppleva en känsla och att kunna uttrycka den är två olika saker. Just här tar spelet vid.' },
+      { icon: '👀', title: 'Att upptäcka andra perspektiv', text: 'Ett barn känner ilska, ett annat känner rädsla i samma situation. Barn upplever att känslor är personliga.' },
+      { icon: '🌱', title: 'Att känna igen behovet bakom', text: 'Ilska kan uppstå när ett barn inte känner sig lyssnat på. Barn lär sig att nyfiket titta på det som ligger bakom deras upplevelse.' },
+    ]}
+  />
+
+  <IconRow
+    title="Från känsla till förståelse"
+    items={[
+      { icon: '🎡', label: 'Upptäck känslan' },
+      { icon: '💬', label: 'Uttryck den' },
+      { icon: '🔍', label: 'Förstå situationen' },
+      { icon: '👀', label: 'Upptäck ett perspektiv' },
+      { icon: '🌱', label: 'Känn igen behovet' },
+    ]}
+  />
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">Det handlar inte om att hitta ett rätt svar. Det finns inget.</p>
+
+  <TwoCol
+    title="Ilska är sällan det egentliga problemet"
+    body="När barn ännu inte kan uttrycka sina känslor så bra visar sig deras upplevelse genom deras beteende. Beteendet ser vi direkt, känslan bakom inte alltid. Därför vill EMORIA förändra blicken. Inte bara fråga: Vad gör barnet just nu? Utan också: Vad kan barnet känna just nu, och vad behöver det kanske?"
+    image="img/situation-card.jpg"
+    imageAlt="Situationskort från Yubuus känslohjul"
+  />
+
+  <ColoredBand
+    tone="terracotta"
+    title="Och vad har det med mig som förälder att göra?"
+    body="Kanske berättar ditt barn hemma om Yubuu eller om en känsla. Kanske inte. Båda delarna är helt okej. Du behöver inte spela efter spelet och behöver ingen pedagogisk utbildning. Ofta räcker det att lyssna och fråga: ”Hur var det för dig?” Det avgörande är att ditt barn märker: Mina känslor får finnas. Jag blir lyssnad på."
+  />
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Små impulser för hemma</h2>
+    <div class="mt-8 space-y-4">
+      {[
+        { t: 'Att sätta ord på känslor', d: '”Du verkar besviken just nu.”' },
+        { t: 'Att fråga i stället för att gissa', d: '”Vill du berätta vad som hände?”' },
+        { t: 'Inte lösa direkt', d: 'Ibland behöver ett barn först förståelse, inte ett råd.' },
+        { t: 'Att vara förebild', d: 'När du sätter ord på dina egna känslor lär sig ditt barn att det är normalt.' },
+      ].map((it) => (
+        <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
+          <p><strong class="text-[var(--color-ink)]">{it.t}:</strong> <span class="text-[var(--color-ink-soft)]">{it.d}</span></p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
+    <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">En bra fråga inför nästa föräldrasamtal</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">”Var det någon situation i dag som upptog mitt barn särskilt?”</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Den frågan öppnar ofta mer än ”Gick allt bra?”.</p>
+    </div>
+  </section>
+
+  <YubuuQuote quote="Ibland börjar de finaste samtalen med en enda fråga: Hur mår du i dag?" image="yubuu-butterfly.png" imageAlt="Yubuu med en fjäril" />
+
+  <Accordion
+    items={[
+      {
+        title: 'Så går en spelomgång till',
+        body: 'Barnet snurrar på känslohjulet och tar sig an den valda känslan. Genom frågor och vardagssituationer betraktas den steg för steg närmare, tills frågan till sist lyder: Vad behöver jag när jag känner så här? En omgång tar ungefär 25 till 40 minuter och följs av en pedagogisk fackperson.',
+      },
+      {
+        title: 'Varför emotionell bildning är viktig',
+        body: 'Förmågan att uppfatta och uttrycka egna känslor hänger nära ihop med självkännedom, empati och uppbyggnaden av positiva relationer. Dessa områden beskrivs i det vetenskapliga konceptet Social Emotional Learning. EMORIA utgår från denna grund. För oss är en skillnad viktig: Forskningen styrker betydelsen av social och emotionell inlärning som helhet, men den konkreta effekten av EMORIA själv måste ännu undersökas systematiskt.',
+        linkHref: `${base}sv/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mer om den vetenskapliga bakgrunden',
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
+    <p class="text-[var(--color-ink-soft)]">När ett litet samtal uppstår hemma har något viktigt redan hänt: Ett barn berättar, en vuxen lyssnar, och båda försöker förstå varandra bättre.</p>
+    <a href={`${base}sv/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Frågor? Skriv till oss</a>
+  </div>
+</Base>

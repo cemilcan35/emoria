@@ -9,11 +9,10 @@ const { lang = 'de' } = Astro.props;
 const T = getHome(lang);
 const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
 const prefix = lang === 'de' ? base : `${base}${lang}/`;
-// Über uns, Kontakt und Zielgruppen-Seiten gibt es nur in DE, EN, FR und TR; andere Sprachen verweisen auf Englisch
-const pagePrefix = ['de', 'en', 'fr', 'tr'].includes(lang) ? prefix : `${base}en/`;
+// Alle Unterseiten gibt es in allen Sprachen
+const pagePrefix = prefix;
 const deHref = lang === 'de' ? base : `${base}?nointro=1`;
-// Zielgruppen-Seiten gibt es nur auf Deutsch vollständig
-const audKeys = lang === 'de' ? ['kita', 'schule', 'logo', 'psych', 'eltern'] : ['kita', 'schule', 'eltern'];
+const audKeys = ['kita', 'schule', 'logo', 'psych', 'eltern'];
 const AUD = {
   kita: { href: 'fuer-kindergaerten', img: 'audience-kindergarten.png' },
   schule: { href: 'fuer-schulen', img: 'audience-schule.png' },
@@ -68,7 +67,7 @@ const AUD = {
           </ul>
         </div>
         <a href={`${pagePrefix}about`}>{T.about}</a>
-        {lang === 'de' && <a href={`${base}ueber-emoria`}>{T.emoria}</a>}
+        <a href={`${pagePrefix}ueber-emoria`}>{T.emoria}</a>
         <a href={`${pagePrefix}contact`}>{T.contact}</a>
         <div class="lang-switch">
           <button type="button" class="lang-trigger" aria-label={T.langAria}>🌐 {T.code}</button>

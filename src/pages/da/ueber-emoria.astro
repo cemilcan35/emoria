@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+---
+
+<Base lang="da" title="Om EMORIA" current="Om EMORIA"
+  description="EMORIA udvikler videnskabeligt funderede, pædagogiske værktøjer til følelsesmæssig dannelse. Vores første produkt: Yubuus følelseshjul.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Om EMORIA</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">Om EMORIA</h1>
+    </div>
+
+    <div class="mx-auto max-w-2xl space-y-6 px-6 pb-20 text-lg text-[var(--color-ink-soft)]">
+      <p>EMORIA udvikler videnskabeligt funderede, pædagogiske værktøjer til følelsesmæssig dannelse. Vores første produkt, Yubuus følelseshjul, følger børn fra fire til ti år i at genkende og benævne følelser og forstå, hvad der ligger bag dem. I centrum står Yubuu, et nysgerrigt væsen, som aldrig vurderer, men spørger og lytter.</p>
+
+      <img src={`${base}img/yubuu-spaceship.png`} alt="Yubuu rejser gennem universet" loading="lazy"
+        class="mx-auto w-full max-w-md rounded-[1.75rem] shadow-[var(--shadow-lift)]" />
+
+      <p>Yubuus følelseshjul er kun begyndelsen. EMORIA vokser videre som et univers, med det mål, at følelsesmæssig dannelse bliver lige så selvfølgelig som at læse og regne.</p>
+    </div>
+
+    <div class="mx-auto max-w-3xl px-6 py-20 text-center">
+      <img src={`${base}img/yubuu-asteroid.png`} alt="Yubuu" class="mx-auto mb-4 h-28 w-auto drop-shadow-[0_14px_20px_rgba(43,42,40,0.16)]" />
+      <h2 class="text-3xl">Tag EMORIA med ind i din børnehave</h2>
+      <p class="mx-auto mt-4 max-w-lg text-[var(--color-ink-soft)]">Hvis din børnehave eller praksis vil være blandt de første, der prøver EMORIA, taler Cemil gerne med dig.</p>
+      <a href={`${base}da/contact`} class="mt-7 inline-block rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">Tag kontakt</a>
+    </div>
+  </article>
+</Base>
