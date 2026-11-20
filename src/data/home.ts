@@ -1,6 +1,12 @@
 // Texte der Startseite. Deutsch, Englisch und Türkisch sind gepflegt.
 // TODO Prüfung: Die türkischen Texte wurden nicht von einer Muttersprachlerin oder einem Muttersprachler geprüft.
 
+import * as fr from './i18n/fr';
+import * as es from './i18n/es';
+import * as da from './i18n/da';
+import * as sv from './i18n/sv';
+import * as no from './i18n/no';
+import * as fi from './i18n/fi';
 export type AudienceKey = 'kita' | 'schule' | 'logo' | 'psych' | 'eltern';
 
 export interface HomeStrings {
@@ -14,10 +20,10 @@ export interface HomeStrings {
   brandAria: string;
   navAria: string;
   audience: string;
-  audLabels: Record<AudienceKey, string>;
-  audSubs: Record<AudienceKey, string>;
+  audLabels: Partial<Record<AudienceKey, string>>;
+  audSubs: Partial<Record<AudienceKey, string>>;
   about: string;
-  emoria: string;
+  emoria?: string;
   contact: string;
   langAria: string;
   prep: string;
@@ -198,5 +204,7 @@ const TR: HomeStrings = {
 export function getHome(lang: string): HomeStrings {
   if (lang === 'en') return EN;
   if (lang === 'tr') return TR;
+  const O: Record<string, { home: HomeStrings }> = { fr, es, da, sv, no, fi };
+  if (O[lang]) return O[lang].home;
   return DE;
 }

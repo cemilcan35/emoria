@@ -9,6 +9,8 @@ const { lang = 'de' } = Astro.props;
 const T = getHome(lang);
 const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
 const prefix = lang === 'de' ? base : `${base}${lang}/`;
+// Über uns, Kontakt und Zielgruppen-Seiten gibt es nur in DE, EN, FR und TR; andere Sprachen verweisen auf Englisch
+const pagePrefix = ['de', 'en', 'fr', 'tr'].includes(lang) ? prefix : `${base}en/`;
 const deHref = lang === 'de' ? base : `${base}?nointro=1`;
 // Zielgruppen-Seiten gibt es nur auf Deutsch vollständig
 const audKeys = lang === 'de' ? ['kita', 'schule', 'logo', 'psych', 'eltern'] : ['kita', 'schule', 'eltern'];
@@ -61,25 +63,25 @@ const AUD = {
           </button>
           <ul class="aud-menu">
             {audKeys.map((k) => (
-              <li><a href={`${prefix}${AUD[k].href}`}><img src={`${base}img/${AUD[k].img}`} alt="" aria-hidden="true" /><span>{T.audLabels[k]}</span></a></li>
+              <li><a href={`${pagePrefix}${AUD[k].href}`}><img src={`${base}img/${AUD[k].img}`} alt="" aria-hidden="true" /><span>{T.audLabels[k]}</span></a></li>
             ))}
           </ul>
         </div>
-        <a href={`${prefix}about`}>{T.about}</a>
+        <a href={`${pagePrefix}about`}>{T.about}</a>
         {lang === 'de' && <a href={`${base}ueber-emoria`}>{T.emoria}</a>}
-        <a href={`${prefix}contact`}>{T.contact}</a>
+        <a href={`${pagePrefix}contact`}>{T.contact}</a>
         <div class="lang-switch">
           <button type="button" class="lang-trigger" aria-label={T.langAria}>🌐 {T.code}</button>
           <ul class="lang-menu">
             <li><a href={deHref}>Deutsch <span>DE</span></a></li>
             <li><a href={`${base}en/`}>English <span>EN</span></a></li>
             <li><a href={`${base}fr/`}>Français <span>FR</span></a></li>
-            <li class="disabled" title={T.prep}>Español <span>ES</span></li>
+            <li><a href={`${base}es/`}>Español <span>ES</span></a></li>
             <li><a href={`${base}tr/`}>Türkçe <span>TR</span></a></li>
-            <li class="disabled" title={T.prep}>Dansk <span>DA</span></li>
-            <li class="disabled" title={T.prep}>Svenska <span>SV</span></li>
-            <li class="disabled" title={T.prep}>Norsk <span>NO</span></li>
-            <li class="disabled" title={T.prep}>Suomi <span>FI</span></li>
+            <li><a href={`${base}da/`}>Dansk <span>DA</span></a></li>
+            <li><a href={`${base}sv/`}>Svenska <span>SV</span></a></li>
+            <li><a href={`${base}no/`}>Norsk <span>NO</span></a></li>
+            <li><a href={`${base}fi/`}>Suomi <span>FI</span></a></li>
           </ul>
         </div>
       </nav>
@@ -161,8 +163,8 @@ const AUD = {
       <h2 class="block-title">{T.whyTitle}</h2>
       <p class="block-body">{T.whyBody}</p>
       <div class="why-links">
-        <a href={`${prefix}about`}>{T.whyAbout}</a>
-        <a href={`${prefix}contact`}>{T.whyContact}</a>
+        <a href={`${pagePrefix}about`}>{T.whyAbout}</a>
+        <a href={`${pagePrefix}contact`}>{T.whyContact}</a>
       </div>
     </div>
   </section>
@@ -173,7 +175,7 @@ const AUD = {
       <h2 class="block-title">{T.groupsTitle}</h2>
       <div class="group-grid" style={`--gcols:${audKeys.length}`}>
         {audKeys.map((k) => (
-          <a class="group-card" href={`${prefix}${AUD[k].href}`}><img src={`${base}img/${AUD[k].img}`} alt="" aria-hidden="true" /><b>{T.audLabels[k]}</b><span>{T.audSubs[k]}</span></a>
+          <a class="group-card" href={`${pagePrefix}${AUD[k].href}`}><img src={`${base}img/${AUD[k].img}`} alt="" aria-hidden="true" /><b>{T.audLabels[k]}</b><span>{T.audSubs[k]}</span></a>
         ))}
       </div>
     </div>
@@ -183,7 +185,7 @@ const AUD = {
     <div class="block-inner">
       <img class="end-yubuu" src={`${base}img/yubuu-asteroid.png`} alt="Yubuu" />
       <h2 class="block-title">{T.endTitle}</h2>
-      <a class="p-cta" href={`${prefix}contact`}>{T.endCta}</a>
+      <a class="p-cta" href={`${pagePrefix}contact`}>{T.endCta}</a>
     </div>
   </section>
 

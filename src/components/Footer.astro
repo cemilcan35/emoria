@@ -4,6 +4,7 @@ const { lang = 'de' } = Astro.props;
 const year = 2026;
 const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
 const prefix = lang === 'de' ? base : `${base}${lang}/`;
+const pagePrefix = ['de', 'en', 'fr', 'tr'].includes(lang) ? prefix : `${base}en/`;
 
 const FOOTER = {
   de: {
@@ -23,6 +24,36 @@ const FOOTER = {
     made: 'Conçu à Berlin · pour les crèches, écoles et familles',
     home: 'Accueil', about: 'À propos', contact: 'Contact', legal: 'Mentions légales',
     copy: (y: number) => `© ${y} EMORIA · Cemil Can Özkaya, Berlin. EMORIA sera lancé dans les crèches en avril 2027.`,
+  },
+  es: {
+    tagline: 'Una forma lúdica para que los niños reconozcan, nombren y hablen de sus emociones. La rueda de las emociones de Yubuu es el comienzo.',
+    made: 'Hecho en Berlín · para guarderías, colegios y familias',
+    home: 'Inicio', about: 'Sobre nosotros', contact: 'Contacto', legal: 'Aviso legal',
+    copy: (y: number) => `© ${y} EMORIA · Cemil Can Özkaya, Berlín. EMORIA llegará a las guarderías en abril de 2027.`,
+  },
+  da: {
+    tagline: 'En legende måde for børn at genkende, sætte ord på og tale om deres følelser. Yubuus følelseshjul er begyndelsen.',
+    made: 'Lavet i Berlin · til børnehaver, skoler og familier',
+    home: 'Forside', about: 'Om os', contact: 'Kontakt', legal: 'Juridisk information',
+    copy: (y: number) => `© ${y} EMORIA · Cemil Can Özkaya, Berlin. EMORIA lanceres i børnehaver i april 2027.`,
+  },
+  sv: {
+    tagline: 'Ett lekfullt sätt för barn att känna igen, sätta ord på och prata om sina känslor. Yubuus känslohjul är början.',
+    made: 'Gjort i Berlin · för förskolor, skolor och familjer',
+    home: 'Startsida', about: 'Om oss', contact: 'Kontakt', legal: 'Juridisk information',
+    copy: (y: number) => `© ${y} EMORIA · Cemil Can Özkaya, Berlin. EMORIA lanseras i förskolor i april 2027.`,
+  },
+  no: {
+    tagline: 'En lekende måte for barn å kjenne igjen, sette ord på og snakke om følelsene sine. Yubuus følelseshjul er starten.',
+    made: 'Laget i Berlin · for barnehager, skoler og familier',
+    home: 'Forside', about: 'Om oss', contact: 'Kontakt', legal: 'Juridisk informasjon',
+    copy: (y: number) => `© ${y} EMORIA · Cemil Can Özkaya, Berlin. EMORIA lanseres i barnehager i april 2027.`,
+  },
+  fi: {
+    tagline: 'Leikkisä tapa lapsille tunnistaa, nimetä ja puhua tunteistaan. Yubuun tunnepyörä on alku.',
+    made: 'Tehty Berliinissä · päiväkodeille, kouluille ja perheille',
+    home: 'Etusivu', about: 'Tietoa meistä', contact: 'Yhteystiedot', legal: 'Oikeudellinen huomautus',
+    copy: (y: number) => `© ${y} EMORIA · Cemil Can Özkaya, Berliini. EMORIA tulee päiväkoteihin huhtikuussa 2027.`,
   },
   tr: {
     tagline: 'Çocukların duygularını tanıması, adlandırması ve bunlar hakkında konuşması için oyun tabanlı bir yol. Yubuu\'nun Duygu Çarkı başlangıcı.',
@@ -45,10 +76,10 @@ const t = FOOTER[lang] ?? FOOTER.de;
 
       <nav class="flex flex-col gap-2 text-[var(--color-ink-soft)]">
         <a href={`${prefix}?nointro=1`} class="hover:text-[var(--color-ink)]">{t.home}</a>
-        <a href={`${prefix}about`} class="hover:text-[var(--color-ink)]">{t.about}</a>
+        <a href={`${pagePrefix}about`} class="hover:text-[var(--color-ink)]">{t.about}</a>
         {lang === 'de' && <a href={`${prefix}ueber-emoria`} class="hover:text-[var(--color-ink)]">Über EMORIA</a>}
-        <a href={`${prefix}contact`} class="hover:text-[var(--color-ink)]">{t.contact}</a>
-        <a href={`${prefix}legal`} class="hover:text-[var(--color-ink)]">{t.legal}</a>
+        <a href={`${pagePrefix}contact`} class="hover:text-[var(--color-ink)]">{t.contact}</a>
+        <a href={`${pagePrefix}legal`} class="hover:text-[var(--color-ink)]">{t.legal}</a>
       </nav>
     </div>
 
