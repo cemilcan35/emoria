@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fi" title="Lastenpsykologialle — EMORIA" current="Lastenpsykologia"
+  description="Yubuun tunnepyörä lastenpsykologin vastaanotolla: matalan kynnyksen, leikinomainen tie lapsen tunnemaailmaan.">
+
+  <AudienceHero
+    eyebrow="✦ Lastenpsykologialle"
+    title="Matalan kynnyksen pääsy lapsen tunnemaailmaan, leikinomaisesti, jäsennellysti, ilman painetta."
+    body="Psykologiseen tukeen tulevat lapset eivät usein puhu helposti siitä, mikä heitä askarruttaa. Suorat kysymykset herättävät joskus juuri sen puolustuksen, jota oikeastaan haluttaisiin purkaa. Yubuun tunnepyörä luo leikinomaisen kiertotien samaan päämäärään: Lapsi puhuu tunteesta, joka ”sattumalta” ilmestyi pyörään, ei itsestään, ja juuri se tekee siitä helpompaa."
+    image="img/hero-kinderpsychologie.jpg"
+    imageAlt="Tunnenaamoja Yubuun tunnepyörässä"
+  />
+
+  <ClickBoxes
+    title="Miksi Yubuun tunnepyörä?"
+    items={[
+      { icon: '🎯', title: 'Kiertotie, joka vie perille', text: 'Koska tunteet valitaan pyörää pyöräyttämällä näennäisen sattumanvaraisesti, keskustelu tuntuu lapsesta vähemmän suoralta kohtaamiselta. Syntyy etäisyys omaan itseen, juuri sen verran, että voi silti pysyä rehellisenä.' },
+      { icon: '🔍', title: 'Jäsennelty havainnointiväline', text: 'Mitkä tunteet lapsi tunnistaa varmasti, mitä hän epäröi? Miten hän tulkitsee arkitilanteita, mitä tarpeita hän nimeää? Nämä havainnot syntyvät sivussa, leikin lomassa, eivät koetilanteessa.' },
+      { icon: '🕊️', title: 'Ei oikeaa, ei väärää, ei painetta', text: 'Yubuu ei arvioi mitään. Lapsille, joiden käytöksestä arjessa usein puhutaan, tämä on tuntuvasti erilaista kohtaamista, joka rakentaa luottamusta ennen kuin vaikeasta asiasta edes puhutaan.' },
+    ]}
+  />
+
+  <IconRow
+    title="Näin Yubuun tunnepyörää voi käyttää"
+    items={[
+      { icon: '🧑‍⚕️', label: 'Yksilöterapia' },
+      { icon: '📋', label: 'Diagnostinen ensikeskustelu' },
+      { icon: '🕊️', label: 'Jälkipuinti kuormittavien tilanteiden jälkeen' },
+      { icon: '📈', label: 'Kulun dokumentointi' },
+      { icon: '👪', label: 'Vanhempainkeskustelun valmistelu' },
+      { icon: '🌱', label: 'Voimavaralähtöiset keskustelut' },
+    ]}
+  />
+
+  <TwoCol
+    title="Mikä tekee Yubuun tunnepyörästä erityisen?"
+    body="Keskiössä ei ole oikea vastaus vaan yhdessä löytäminen. Yubuu ei arvioi vastauksia vaan kysyy, ihmettelee ja kuuntelee, mikä madaltaa kynnystä erityisesti lapsilla, jotka ovat oppineet piilottamaan tai hallitsemaan tunteitaan. Tunteet eivät jää abstrakteiksi: Tunnepyörää pyöräyttämällä, magneettipäitä asettelemalla sekä salamakorttien, tilannekorttien ja tarvepiirien avulla ne muuttuvat näkyviksi, kosketeltaviksi ja puhuttaviksi, myös lapsille, joiden on vaikea avautua sanoin."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Tilannekortti Yubuun tunnepyörästä"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ikkuna pienten potilaidenne sisäiseen maailmaan"
+    body="Lastenpsykologeille Yubuun tunnepyörä on enemmän kuin peli, se on jäsennelty havainnointiväline. Miten lapsi reagoi tiettyihin tilannekortteihin? Mitä tarpeita hän nimeää, mitkä häneltä selvästi puuttuvat? Näitä havaintoja voi seurata usean tapaamisen ajan, ja ne antavat vankan, jäljitettävän pohjan diagnostiikalle, terapian suunnittelulle ja raporteille."
+  />
+
+  <YubuuQuote
+    quote="Hei! Sinun ei tarvitse kertoa minulle mitään itsestäsi, jos et halua. Mutta jos sinua huvittaa, pyöräytä pyörää, niin katsotaan yhdessä, mitä siitä tulee."
+    image="yubuu-butterfly.png" imageAlt="Yubuu ja perhonen" />
+
+  <Chips
+    title="Kenelle peli sopii?"
+    items={['Lastenpsykologit', 'Lasten ja nuorten psykoterapeutit', 'Kasvatus- ja perheneuvonnan ammattilaiset', 'Sosiaalipediatriset keskukset', 'Lasten- ja nuorisopsykiatriset vastaanotot']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Näin pelikierros etenee',
+        body: 'Pelikierros etenee viidessä toisiinsa rakentuvassa vaiheessa. Lapsi pyöräyttää tunnepyörää ja ottaa magneettipäänsä, tietoisen satunnaisuuden, joka tuo peliin myös tunteita, joita lapsi ei olisi itse valinnut. Sen jälkeen hän nostaa kysymyskortin ja kertoo lyhyesti tunteesta. Seuraavaksi tulee salamakortti: lyhyt arkitilanne, jossa lapsi vain sanoo, sopiiko tunne siihen vai ei. Neljännessä vaiheessa lapsi asettaa magneettipäänsä tilannekortille, jossa Yubuulla ei ole kasvonilmettä. Lopuksi hän valitsee tarvepiireistä, mikä auttaisi hänelle tässä tunteessa. Yhden tai kahden lapsen kanssa täysi kierros kestää noin 10 ja 20 minuutin välillä.',
+      },
+      {
+        title: 'Tieteellinen tausta',
+        body: 'Yubuun tunnepyörä perustuu useisiin tunnustettuihin lähestymistapoihin kehityspsykologiasta ja tunnekasvatuksesta. Durlakin ym. meta-analyysi yli 270 000 lapsen aineistolla osoittaa, että jäsennellyt sosiaalisen ja emotionaalisen oppimisen ohjelmat vähentävät selvästi käytösongelmia ja vahvistavat itsetuntoa. Neurotieteilijä Matthew Lieberman pystyi osoittamaan, että jo pelkkä tunteen nimeäminen rauhoittaa lapsen aivoja, ja juuri tätä jokainen tunnepyörän kierros harjoittaa.',
+        linkHref: `${base}fi/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Lisää tieteellisestä taustasta',
+      },
+      {
+        title: 'Usein kysyttyä psykologin vastaanotolta',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Sopiiko peli lapsille, joilla on pelkoja tai käytöshäiriöitä?</strong><br />Kyllä, leikinomainen, epäsuora lähestymistapa sopii erityisesti lapsille, joille suorat kysymykset ovat vaikeita.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Voinko käyttää peliä diagnostiikkaan?</strong><br />Se ei korvaa standardoituja diagnostisia menetelmiä, mutta tuottaa arvokkaita, dokumentoitavia havaintoja täydennykseksi.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Toimiiko peli yksilötyössä?</strong><br />Kyllä, se on kehitetty myös sitä varten. Yhden tai kahden lapsen kanssa kierros kestää vain 10 ja 20 minuutin välillä.</p>
+          <p><strong class="text-[var(--color-ink)]">Entä jos lapsi ei halua vastata?</strong><br />Se on nimenomaisesti ihan hyvä. Hiljaisuus on pätevä vastaus, ei suorituksen puute.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}fi/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Tiedustelu vastaanotollenne</a>
+  </div>
+</Base>

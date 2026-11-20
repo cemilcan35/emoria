@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+---
+
+<Base lang="da" title="Om os — EMORIA" current="Om os"
+  description="Grundlæggeren af EMORIA har mere end ti års erfaring fra forskellige sociale og pædagogiske områder.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Om os</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">Om os</h1>
+    </div>
+
+    <div class="mx-auto grid max-w-3xl items-start gap-10 px-6 pb-24 sm:grid-cols-[auto_1fr]">
+      <img src={`${base}img/yubuu-headshot.png`} alt="Yubuu" loading="lazy"
+        class="mx-auto h-40 w-auto drop-shadow-[0_16px_26px_rgba(43,42,40,0.16)] sm:h-52" />
+      <div class="space-y-6 text-lg text-[var(--color-ink-soft)]">
+        <p>Grundlæggeren af EMORIA har mere end ti års erfaring fra forskellige sociale og pædagogiske områder: fra integrationsbørnehaver, skoler som specialskoler, intensive bofællesskaber, rådgivningstilbud samt børne- og familiehjælp.</p>
+        <p>Af alle disse erfaringer blev én ting stadig tydeligere: Følelser bestemmer vores liv og vores beslutninger langt mere, end vi ofte er klar over. De påvirker, hvordan vi går hen til andre, hvordan vi håndterer konflikter, og hvordan vi forstår os selv. Og alligevel har mange voksne selv først sent eller aldrig lært at tale om det. Det er et hul, som ofte ubemærket gives videre til næste generation.</p>
+        <p>Netop derfor var det vigtigt for grundlæggeren, at børn og unge tidligt lærer at genkende deres følelser og kunne tale om dem. Hvert barn burde i uddannelsessystemet have mulighed for at lære sine følelser at kende og have lov til at tale om dem, uanset hvilken institution det vokser op i. Hvis børn ikke lærer det i børnehaven, i skolen eller derhjemme, hvor så?</p>
+        <p class="italic text-[var(--color-ink)]">Ud af denne overbevisning er EMORIA opstået.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-2xl px-6 pb-20 text-center">
+      <a href={`${base}da/ueber-emoria`} class="font-[var(--font-body)] font-semibold text-[var(--color-brand)] hover:text-[var(--color-brand-deep)]">Mere om EMORIA →</a>
+    </div>
+  </article>
+</Base>

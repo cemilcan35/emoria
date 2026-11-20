@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="sv" title="För logopedi — EMORIA" current="Logopedi"
+  description="Yubuus känslohjul i logopedisk praktik: emotionellt ordförråd, spontant tal och talanledningar som uppstår av sig själva.">
+
+  <AudienceHero
+    eyebrow="✦ För logopedi"
+    title="Där språk och känsla möts, lekfullt, strukturerat, direkt användbart."
+    body="Många barn i logopedisk praktik har inte bara svårt med ljud och meningar, utan också med att sätta ord på vad de känner. Emotionellt och språkligt ordförråd hänger nära ihop: Den som saknar ord för en känsla har svårt att uttrycka den, oavsett hur bra artikulationen är. Yubuus känslohjul förenar båda i en enda kort övning."
+    image="img/hero-logopaedie.jpg"
+    imageAlt="Frågekort från Yubuus känslohjul, utbredda som en solfjäder"
+  />
+
+  <ClickBoxes
+    title="Varför Yubuus känslohjul?"
+    items={[
+      { icon: '🗣️', title: 'Emotionellt ordförråd som verklig språkskatt', text: 'Spelet övar målinriktat känsloord, från enkla grundkänslor till mer nyanserade begrepp som besvikelse eller stolthet. Till skillnad från isolerade ordlistor uppstår dessa begrepp i ett verkligt sammanhang som är meningsfullt för barnet, inte inlärda utantill, utan upplevda.' },
+      { icon: '🧑‍⚕️', title: 'Utvecklat för enskilt arbete', text: 'Med ett eller två barn tar en omgång ungefär 10 till 20 minuter och kan integreras i en vanlig terapisession utan förberedelse, som en fristående övning eller som inledning före det egentliga språkstödet.' },
+      { icon: '🧩', title: 'Talanledningar som uppstår av sig själva', text: 'I stället för givna övningsmeningar uppstår verkliga, spontana yttranden: Barnet beskriver en situation, motiverar sitt val och berättar om egna upplevelser. Just detta spontana tal är ofta svårare att öva än styrda meningar, och just det sätter spelet igång.' },
+    ]}
+  />
+
+  <IconRow
+    title="Så kan Yubuus känslohjul användas"
+    items={[
+      { icon: '🗣️', label: 'Språkstödstimme' },
+      { icon: '🧑‍⚕️', label: 'Enskild terapi' },
+      { icon: '🔤', label: 'Ordförrådsarbete' },
+      { icon: '💬', label: 'Stimulera spontant tal' },
+      { icon: '📈', label: 'Dokumentation av förloppet' },
+      { icon: '👪', label: 'Förbereda ett föräldrasamtal' },
+    ]}
+  />
+
+  <TwoCol
+    title="Vad gör Yubuus känslohjul särskilt?"
+    body="I centrum står inte det rätta svaret, utan att upptäcka tillsammans. Yubuu värderar ingenting, utan frågar, förundras och lyssnar, det tar bort det prestationskrav som många barn redan känner från språkträning. Känslor förblir inte abstrakta: När man snurrar på känslohjulet, placerar magnethuvudena och använder blixtkorten, situationskorten och behovscirklarna uppstår konkreta talanledningar som känns naturliga i stället för inövade."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Situationskort från Yubuus känslohjul"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ett fönster in i språknivån hos dina små patienter"
+    body="För logopeder är Yubuus känslohjul mer än ett spel, det visar direkt vilket emotionellt ordförråd ett barn redan har och var det ännu finns luckor. Kan barnet själv benämna en känsla, eller behöver det hjälp? Använder det enkla eller redan nyanserade begrepp? Dessa observationer kan tas direkt in i terapiplaneringen och dokumentationen av förloppet."
+  />
+
+  <YubuuQuote
+    quote="Hej! Jag kan inte alla ord för känslor än, därför frågar jag dig. Vad kallar du det du känner just nu?"
+    image="yubuu-crystal.png" imageAlt="Yubuu med en lysande kristall" />
+
+  <Chips
+    title="Vem passar spelet för?"
+    items={['Logopeder', 'Språkterapeuter', 'Fackpersoner inom tidiga insatser', 'Språkpedagoger', 'Mottagningar för språk-, tal- och röstterapi']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Så går en spelomgång till',
+        body: 'En spelomgång följer fem steg som bygger på varandra. Barnet snurrar på känslohjulet och tar sitt magnethuvud, en medveten slumpfaktor som också för in känslor i spelet som barnet inte själv skulle ha valt. Därefter drar barnet ett frågekort och berättar kort om känslan. Sedan följer ett blixtkort: en kort vardagssituation där barnet bara säger om känslan passar eller inte. I det fjärde steget lägger barnet sitt magnethuvud på ett situationskort som visar Yubuu utan ansiktsuttryck. Till sist väljer barnet bland behovscirklarna vad som skulle hjälpa i den känslan. Med ett eller två barn tar en hel omgång ungefär 10 till 20 minuter.',
+      },
+      {
+        title: 'Vetenskaplig bakgrund',
+        body: 'Yubuus känslohjul bygger på flera erkända ansatser från utvecklingspsykologi och emotionell bildning. Metaanalysen av Durlak et al. med över 270 000 barn visar att strukturerade program för social och emotionell inlärning tydligt minskar beteendeproblem och stärker självkänslan. Forskningen om embodied learning visar dessutom att barn lär sig djupare när de agerar med kroppen i stället för att bara lyssna, därför är spelmaterialet medvetet fysiskt utformat.',
+        linkHref: `${base}sv/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mer om den vetenskapliga bakgrunden',
+      },
+      {
+        title: 'Vanliga frågor från logopedisk praktik',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Passar spelet för barn med språkutvecklingsstörning?</strong><br />Ja, just för dessa barn är den lekfulla, tryckfria vägen särskilt värdefull. De fysiska elementen möjliggör uttryck, även när de rätta orden ännu saknas.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Ersätter spelet målinriktad ordförrådsträning?</strong><br />Nej, det kompletterar den. I stället för isolerade övningar uppstår känsloord i ett verkligt, meningsfullt sammanhang.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Fungerar spelet i enskilt arbete?</strong><br />Ja, det har utvecklats med just det i åtanke. Med ett eller två barn tar en omgång bara 10 till 20 minuter.</p>
+          <p><strong class="text-[var(--color-ink)]">Behöver jag någon fortbildning?</strong><br />Nej, spelet kan användas direkt utan extra utbildning.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}sv/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Förfrågan för din mottagning</a>
+  </div>
+</Base>

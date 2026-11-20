@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="es" title="Para logopedia — EMORIA" current="Logopedia"
+  description="La rueda de las emociones de Yubuu en la consulta de logopedia: vocabulario emocional, lenguaje espontáneo y ocasiones de habla que surgen por sí solas.">
+
+  <AudienceHero
+    eyebrow="✦ Para logopedia"
+    title="Donde se encuentran lenguaje y emoción: con juego, estructurado y de uso inmediato."
+    body="A muchos niños en la consulta de logopedia no solo les cuestan los sonidos y las frases, sino también poner en palabras lo que sienten. El vocabulario emocional y el lingüístico están estrechamente unidos: quien no tiene una palabra para una emoción, difícilmente puede expresarla, por muy buena que sea la articulación. La rueda de las emociones de Yubuu une ambas cosas en un único ejercicio breve."
+    image="img/hero-logopaedie.jpg"
+    imageAlt="Tarjetas de preguntas de la rueda de las emociones de Yubuu, abiertas en abanico"
+  />
+
+  <ClickBoxes
+    title="¿Por qué la rueda de las emociones de Yubuu?"
+    items={[
+      { icon: '🗣️', title: 'El vocabulario emocional como verdadero caudal de lenguaje', text: 'El juego practica de forma específica las palabras de las emociones, desde emociones básicas sencillas hasta conceptos más matizados como decepción u orgullo. A diferencia de las listas de palabras aisladas, estos conceptos surgen en un contexto real y significativo para el niño: no se aprenden de memoria, se viven.' },
+      { icon: '🧑‍⚕️', title: 'Desarrollado para el trabajo individual', text: 'Con uno o dos niños, una ronda dura unos 10 a 20 minutos y se puede integrar sin preparación en una sesión de terapia habitual, como ejercicio independiente o como entrada antes del apoyo lingüístico propiamente dicho.' },
+      { icon: '🧩', title: 'Ocasiones de habla que surgen por sí solas', text: 'En lugar de frases de ejercicio ya dadas, surgen expresiones reales y espontáneas: el niño describe una situación, razona su elección, cuenta experiencias propias. Justo este lenguaje espontáneo suele ser más difícil de practicar que las frases guiadas, y justo ese es el que estimula el juego.' },
+    ]}
+  />
+
+  <IconRow
+    title="Así se puede usar la rueda de las emociones de Yubuu"
+    items={[
+      { icon: '🗣️', label: 'Sesión de apoyo al lenguaje' },
+      { icon: '🧑‍⚕️', label: 'Terapia individual' },
+      { icon: '🔤', label: 'Trabajo de vocabulario' },
+      { icon: '💬', label: 'Estimular el lenguaje espontáneo' },
+      { icon: '📈', label: 'Documentación de la evolución' },
+      { icon: '👪', label: 'Preparar una conversación con la familia' },
+    ]}
+  />
+
+  <TwoCol
+    title="¿Qué hace especial la rueda de las emociones de Yubuu?"
+    body="Lo central no es la respuesta correcta, sino descubrir juntos. Yubuu no valora nada, sino que pregunta, se asombra y escucha, y eso quita a los niños la presión por rendir que muchos ya conocen del entrenamiento del lenguaje. Las emociones no se quedan en lo abstracto: al girar la rueda de las emociones, colocar las cabezas magnéticas, con las tarjetas relámpago, las tarjetas de situación y los círculos de necesidades surgen ocasiones de habla concretas, que se sienten naturales en lugar de ensayadas."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Tarjeta de situación de la rueda de las emociones de Yubuu"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Una ventana al nivel de lenguaje de sus pequeños pacientes"
+    body="Para las logopedas y los logopedas, la rueda de las emociones de Yubuu es más que un juego: muestra de inmediato de qué vocabulario emocional dispone ya un niño y dónde aún hay lagunas. ¿Puede el niño nombrar una emoción por sí mismo o necesita ayuda? ¿Usa conceptos sencillos o ya matizados? Estas observaciones se pueden pasar directamente a la planificación de la terapia y a la documentación de la evolución."
+  />
+
+  <YubuuQuote
+    quote="¡Hola! Todavía no conozco todas las palabras para las emociones, por eso te pregunto. ¿Cómo llamas a lo que sientes ahora mismo?"
+    image="yubuu-crystal.png" imageAlt="Yubuu con un cristal luminoso" />
+
+  <Chips
+    title="¿Para quién es adecuado el juego?"
+    items={['Logopedas', 'Terapeutas del lenguaje', 'Profesionales de centros de atención temprana', 'Pedagogas y pedagogos del lenguaje', 'Consultas de terapia del lenguaje, del habla y de la voz']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Cómo transcurre una ronda de juego',
+        body: 'Una ronda de juego sigue cinco pasos que se construyen unos sobre otros. El niño gira la rueda de las emociones y toma su cabeza magnética, un factor de azar buscado que también trae al juego emociones que el niño no habría elegido espontáneamente. Después saca una tarjeta de preguntas y habla brevemente de la emoción. A continuación viene una tarjeta relámpago: una breve situación cotidiana en la que el niño solo dice si la emoción encaja o no. En el cuarto paso, el niño coloca su cabeza magnética en una tarjeta de situación que muestra a Yubuu sin expresión en la cara. Para terminar, elige en los círculos de necesidades lo que le ayudaría con esa emoción. Con uno o dos niños, una ronda completa dura unos 10 a 20 minutos.',
+      },
+      {
+        title: 'Trasfondo científico',
+        body: 'La rueda de las emociones de Yubuu se basa en varios enfoques reconocidos de la psicología del desarrollo y la educación emocional. El metaanálisis de Durlak et al., con más de 270.000 niños, muestra que los programas estructurados de aprendizaje social y emocional reducen claramente los problemas de conducta y fortalecen la autoestima. Además, la investigación sobre el aprendizaje corporeizado muestra que los niños aprenden más a fondo cuando actúan con el cuerpo en lugar de solo escuchar; por eso el material de juego es deliberadamente físico.',
+        linkHref: `${base}es/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Más sobre el trasfondo científico',
+      },
+      {
+        title: 'Preguntas frecuentes de la consulta de logopedia',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Es adecuado el juego para niños con trastornos del desarrollo del lenguaje?</strong><br />Sí, justo para estos niños el acceso con juego y sin presión es especialmente valioso. Los elementos físicos permiten expresarse incluso cuando aún faltan las palabras adecuadas.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Sustituye el juego al entrenamiento específico de vocabulario?</strong><br />No, lo complementa. En lugar de ejercicios aislados, las palabras de las emociones surgen en un contexto real y significativo.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Funciona el juego en el trabajo individual?</strong><br />Sí, se ha desarrollado también para eso. Con uno o dos niños, una ronda dura solo 10 a 20 minutos.</p>
+          <p><strong class="text-[var(--color-ink)]">¿Necesito una formación?</strong><br />No, el juego se puede usar enseguida, sin formación adicional.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}es/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Solicitar información para su consulta</a>
+  </div>
+</Base>

@@ -1,0 +1,94 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="sv" title="För förskolor — EMORIA" current="Förskola"
+  description="Yubuus känslohjul i förskolans vardag: enkelt att använda, vetenskapligt grundat, utvecklat för pedagoger.">
+
+  <AudienceHero
+    eyebrow="✦ För förskolor"
+    title="Att upptäcka känslor tillsammans, lekfullt, nära vardagen och utan stor förberedelse."
+    body="Barn upplever otaliga känslor varje dag: glädje när de leker, ilska efter ett bråk, stolthet över en framgång eller sorg när de säger hej då till föräldrarna. Men många barn kan ännu inte sätta ord på vad som pågår inom dem. Yubuus känslohjul hjälper pedagogiska fackpersoner att lekfullt följa barn genom dessa känslostunder, i ett tryggt rum, utan prestationskrav och utan rätta eller felaktiga svar."
+    image="img/wheel-hero.jpg"
+    imageAlt="Yubuus känslohjul i förskolans vardag"
+  />
+
+  <ClickBoxes
+    title="Varför Yubuus känslohjul?"
+    items={[
+      { icon: '🧩', title: 'Enkelt att använda i förskolans vardag', text: 'Spelet har utvecklats särskilt för den pedagogiska vardagen. Det kan användas utan omfattande förberedelse i små grupper eller enskilt och anpassas flexibelt efter ålder, gruppstorlek och situation.' },
+      { icon: '💛', title: 'Stärk emotionella kompetenser genom lek', text: 'Barn lär sig att uppfatta, benämna och förstå känslor. Samtidigt upptäcker de att olika människor kan uppleva samma situation helt olika. På så sätt främjas empati, perspektivtagande och språkutveckling på ett naturligt sätt.' },
+      { icon: '🤝', title: 'Följa barnet tillsammans med föräldrarna', text: 'Spelet öppnar för värdefulla samtalsämnen som kan verka vidare efter spelomgången. Observationer från spelet kan tas upp i föräldrasamtal och hjälper till att tillsammans följa barnets emotionella utveckling.' },
+    ]}
+  />
+
+  <IconRow
+    title="Så kan Yubuus känslohjul användas"
+    items={[
+      { icon: '🌅', label: 'Samling på morgonen' },
+      { icon: '👥', label: 'Små grupper' },
+      { icon: '🧑‍🤝‍🧑', label: 'Enskilt stöd' },
+      { icon: '🎒', label: 'Förskoleklassgrupper' },
+      { icon: '💬', label: 'Konfliktsamtal' },
+      { icon: '🌱', label: 'Projekt om emotionell bildning' },
+      { icon: '🕊️', label: 'Ett lugnt samtalsämne efter påfrestande situationer' },
+    ]}
+  />
+
+  <TwoCol
+    title="Vad gör Yubuus känslohjul särskilt?"
+    body="I centrum står inte det rätta resultatet, utan att upptäcka tillsammans. Yubuu värderar inga svar. I stället ställer Yubuu nyfikna frågor, lyssnar uppmärksamt och bjuder in barnen att lära känna sin egen känsloövärld. Det skapar en stämning där barn känner sig tagna på allvar och kan utveckla förtroende. Det särskilda: Känslor förblir inte abstrakta. När man snurrar på känslohjulet, placerar magnethuvudena och använder blixtkorten, situationskorten och behovscirklarna blir känslor synliga, greppbara och begripliga."
+    image="img/flash-card.jpg"
+    imageAlt="Blixtkort från Yubuus känslohjul"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ett fönster in i barnens känsloövärld"
+    body="För pedagogiska fackpersoner är Yubuus känslohjul mer än ett spel, det är också ett observationsverktyg. Under spelet visar sig vilka känslor som upptar ett barn just nu, hur barnet tolkar situationer och var det kanske finns behov av samtal. Dessa observationer hjälper till att följa varje barn mer individuellt och rikta det egna pedagogiska arbetet mer målinriktat."
+  />
+
+  <YubuuQuote quote="Hej! Jag är glad att du är här. Tillsammans upptäcker vi känslor, helt utan rätt eller fel. Jag lyssnar, ställer frågor och lär mig något nytt varje dag. Följer du med på vår upptäcktsresa?" image="yubuu-vine.png" imageAlt="Yubuu upptäcker en växt" />
+
+  <Chips
+    title="Vem passar spelet för?"
+    items={['Förskollärare och barnskötare', 'Integrationspedagoger', 'Specialpedagoger', 'Språkstödjande fackpersoner', 'Förskolechefer', 'Förskoleklassgrupper', 'Familjecentraler']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Så går en spelomgång till',
+        body: 'En spelomgång följer fem steg som bygger på varandra. Först snurrar barnet på känslohjulet och tar sitt magnethuvud, en medveten slumpfaktor som också för in känslor i spelet som barnet inte själv skulle ha valt. Därefter drar barnet ett frågekort och berättar kort om känslan. Sedan följer ett blixtkort: en kort vardagssituation där barnet bara säger om känslan passar eller inte. I det fjärde steget lägger barnet sitt magnethuvud på ett situationskort som visar Yubuu utan ansiktsuttryck. Till sist väljer barnet bland behovscirklarna vad som skulle hjälpa i den känslan. En hel omgång tar ungefär 25 till 40 minuter, beroende på grupp och samtalets djup också längre. Till slut leder Yubuu ett kort reflektionssamtal: Hur mår du nu? Gillade du spelet?',
+      },
+      {
+        title: 'Vetenskaplig bakgrund',
+        body: 'Yubuus känslohjul bygger på flera erkända ansatser från utvecklingspsykologi och emotionell bildning. Metaanalysen av Durlak et al. med över 270 000 barn visar att strukturerade program för social och emotionell inlärning tydligt minskar beteendeproblem och stärker självkänslan. Neurovetaren Matthew Lieberman kunde visa att det enbart att benämna en känsla verkar lugnande på barnets hjärna, och just det övar varje omgång vid känslohjulet. Forskningen om embodied learning visar dessutom att barn lär sig djupare när de agerar med kroppen i stället för att bara lyssna, därför är spelmaterialet medvetet fysiskt utformat.',
+        linkHref: `${base}sv/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mer om den vetenskapliga bakgrunden',
+      },
+      {
+        title: 'Vanliga frågor från förskolan',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Hur länge varar en spelomgång?</strong><br />Ungefär 25 till 40 minuter, beroende på gruppstorlek och samtalets djup. Kortare varianter med bara enstaka delar är också möjliga.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Behöver jag någon fortbildning för att använda spelet?</strong><br />Nej. Spelet är utformat så att det kan användas direkt utan extra utbildning. En introduktion är bra men ingen förutsättning.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Vilken ålder passar spelet för?</strong><br />För barn från fyra till sex år, med ett eget upplägg för yngre och ett för äldre barn inom det spannet.</p>
+          <p><strong class="text-[var(--color-ink)]">Kan jag också använda bara enstaka delar av spelet?</strong><br />Ja. Känslohjulet och blixtkorten fungerar också var för sig, till exempel när det bara finns lite tid.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}sv/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Förfrågan för din förskola</a>
+  </div>
+</Base>

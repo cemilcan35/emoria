@@ -1,0 +1,30 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+---
+
+<Base lang="fi" title="Tietoa EMORIAsta" current="Tietoa EMORIAsta"
+  description="EMORIA kehittää tieteellisesti perusteltuja pedagogisia työkaluja tunnekasvatukseen. Ensimmäinen tuotteemme: Yubuun tunnepyörä.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Tietoa EMORIAsta</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">Tietoa EMORIAsta</h1>
+    </div>
+
+    <div class="mx-auto max-w-2xl space-y-6 px-6 pb-20 text-lg text-[var(--color-ink-soft)]">
+      <p>EMORIA kehittää tieteellisesti perusteltuja pedagogisia työkaluja tunnekasvatukseen. Ensimmäinen tuotteemme, Yubuun tunnepyörä, saattaa neljän ja kymmenen vuoden ikäisiä lapsia tunnistamaan ja nimeämään tunteita ja ymmärtämään, mitä niiden takana on. Keskiössä on Yubuu, utelias olento, joka ei koskaan arvioi vaan kysyy ja kuuntelee.</p>
+
+      <img src={`${base}img/yubuu-spaceship.png`} alt="Yubuu matkustaa maailmankaikkeuden halki" loading="lazy"
+        class="mx-auto w-full max-w-md rounded-[1.75rem] shadow-[var(--shadow-lift)]" />
+
+      <p>Yubuun tunnepyörä on vasta alku. EMORIA kasvaa edelleen universumina, tavoitteena, että tunnekasvatuksesta tulee yhtä itsestään selvää kuin lukemisesta ja laskemisesta.</p>
+    </div>
+
+    <div class="mx-auto max-w-3xl px-6 py-20 text-center">
+      <img src={`${base}img/yubuu-asteroid.png`} alt="Yubuu" class="mx-auto mb-4 h-28 w-auto drop-shadow-[0_14px_20px_rgba(43,42,40,0.16)]" />
+      <h2 class="text-3xl">Tuo EMORIA päiväkotiinne</h2>
+      <p class="mx-auto mt-4 max-w-lg text-[var(--color-ink-soft)]">Jos päiväkotinne tai vastaanottonne haluaa olla yksi ensimmäisistä, jotka kokeilevat EMORIAa, Cemil keskustelee mielellään kanssanne.</p>
+      <a href={`${base}fi/contact`} class="mt-7 inline-block rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">Ota yhteyttä</a>
+    </div>
+  </article>
+</Base>

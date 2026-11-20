@@ -1,0 +1,103 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="sv" title="För skolor — EMORIA" current="Skola"
+  description="Yubuus känslohjul i grundskolans vardag: för klassråd, skolkuratorer och stödtimmar, vetenskapligt grundat.">
+
+  <AudienceHero
+    eyebrow="✦ För skolor"
+    title="Social och emotionell inlärning hör hemma i varje klass, inte vid sidan om, utan medvetet."
+    body="I grundskolan lär sig barn inte bara matematik och svenska. De lär sig också att knyta vänskaper, hantera konflikter och ta ansvar för sig själva och andra. Men att uppleva känslor och att kunna benämna dem är två olika saker. Yubuus känslohjul stöder lärare och skolkuratorer i att ge barn ett skyddat rum där de lekfullt kan upptäcka och förstå sin känsloövärld och prata om den."
+    image="img/wheel-wide.jpg"
+    imageAlt="Yubuus känslohjul i klassrådet"
+  />
+
+  <ClickBoxes
+    title="Varför Yubuus känslohjul?"
+    items={[
+      { icon: '🧩', title: 'Flexibelt i skolans vardag', text: 'Oavsett om det är klassråd, liten grupp, skolkuratorsarbete eller stödtimme tar en spelomgång ungefär 25 till 40 minuter och kan användas direkt utan extra utbildning.' },
+      { icon: '🕊️', title: 'Förstå konflikter i stället för att låta dem trappas upp', text: 'Barn som förstår sina känslor och behov bättre hittar lättare konstruktiva vägar i konflikter.' },
+      { icon: '💬', title: 'Insikter inför föräldrasamtal', text: 'Observationer från spelet visar vilka teman som upptar ett barn och är en värdefull grund för föräldrasamtal och individuellt stöd.' },
+    ]}
+  />
+
+  <IconRow
+    title="Var Yubuus känslohjul används"
+    items={[
+      { icon: '🗣️', label: 'Klassråd' },
+      { icon: '👥', label: 'Små grupper' },
+      { icon: '🤝', label: 'Skolkuratorsarbete' },
+      { icon: '📘', label: 'Stödtimmar' },
+      { icon: '🔁', label: 'Vikarietimmar' },
+      { icon: '💛', label: 'Efter konflikter i klassen' },
+      { icon: '🌱', label: 'Förebyggande projekt' },
+      { icon: '🌍', label: 'Inkluderande undervisning' },
+    ]}
+  />
+
+  <TwoCol
+    title="Vad gör Yubuus känslohjul särskilt?"
+    body="Också barn i grundskolan lär sig mer hållbart när de aktivt upptäcker, prövar och kommer i samtal med varandra. Yubuus känslohjul förenar lekfullt lärande med främjandet av sociala och emotionella kompetenser. Yubuu följer processen nyfiket och med uppskattning. I stället för att ge svar bjuder Yubuu in barnen att utveckla egna tankar och lära känna olika perspektiv. Barn mellan sju och tio år går igenom fem steg som bygger på varandra: De upptäcker en känsla, pratar om den, kopplar den till vardagssituationer och inser till sist vilket behov som ligger bakom."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Situationskort från Yubuus känslohjul"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ett starkare klassklimat börjar med samtal"
+    body="Ett gott klassklimat uppstår inte av sig självt. Barn måste lära sig att lyssna, förstå olika perspektiv och hantera konflikter med respekt. Yubuus känslohjul skapar en trygg ram där just dessa förmågor kan övas lekfullt. På så sätt stärks inte bara enskilda barn, utan också klassgemenskapen. För lärare och skolkuratorer ger spelet samtidigt värdefulla insikter i barnens känsloövärld, en gedigen grund för föräldrasamtal och individuellt stöd."
+  />
+
+  <YubuuQuote quote="I varje klass känner var och en något olika. Låt oss tillsammans ta reda på hur vi kan prata om det." image="yubuu-crystal.png" imageAlt="Yubuu med en lysande kristall" />
+
+  <Chips
+    title="Vem passar spelet för?"
+    items={['Grundskollärare', 'Skolkuratorer', 'Speciallärare', 'Studie- och yrkesvägledare', 'Fritidspedagoger', 'Klassföreståndare', 'Inkluderingspedagoger', 'Skolpsykologisk tjänst', 'alla som arbetar med grundskolebarn']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Så går en spelomgång till',
+        body: 'Grundskolebarn går igenom fem steg: Att upptäcka en känsla, prata om den, koppla den till en vardagssituation och till sist inse det underliggande behovet. En omgång tar ungefär 25 till 40 minuter, beroende på samtalets djup och gruppstorlek också längre eller kortare. Till slut leder Yubuu ett kort reflektionssamtal: Hur var spelet för er? Vem vill prata om det?',
+      },
+      {
+        title: 'Vetenskaplig bakgrund',
+        body: 'Yubuus känslohjul bygger på flera erkända ansatser från pedagogik och psykologi. Metaanalysen av Durlak et al. med över 270 000 barn visar att strukturerad social och emotionell inlärning förbättrar de skolmässiga resultaten med i genomsnitt elva procent och minskar konflikter. Det sista spelsteget utgår från icke-våldsam kommunikation enligt Marshall B. Rosenberg, det gemensamma lärandet i spelet från Lev Vygotskys utvecklingsteori. Dessutom visar forskningen om affect labeling att det enbart att benämna en känsla verkar lugnande på hjärnan, och just det övar varje omgång vid känslohjulet.',
+        linkHref: `${base}sv/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mer om den vetenskapliga bakgrunden',
+      },
+      {
+        title: 'Vanliga frågor från skolan',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Passar det in i vår läroplan, eller är det ett extra erbjudande?</strong><br />Yubuus känslohjul ersätter inget läroplansinnehåll, utan kompletterar det. Det kan integreras i klassrådet, vikarietimmar eller stödtimmar utan att det behöver avsättas extra undervisningstid.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Fungerar det också med en hel klass, inte bara i små grupper?</strong><br />Spelet är ursprungligen tänkt för små grupper på upp till sex barn. För användning med hela klassen rekommenderar vi att flera små grupper spelar parallellt eller att spelet används turvis i klassrådet.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kan jag också använda spelet i klassrådet?</strong><br />Ja. Klassrådet lämpar sig särskilt väl för att genomföra enstaka spelfaser eller hela spelomgångar tillsammans.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kan jag använda bara enstaka spelmaterial?</strong><br />Ja. Beroende på tid och mål kan känslohjulet, blixtkorten eller situationskorten också användas oberoende av varandra.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Passar spelet också för barn med särskilda stödbehov?</strong><br />Ja. Just för att det fungerar utan tidspress och utan rätta eller felaktiga svar används det ofta i specialskolan och i enskilt stöd.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Finns det vetenskapliga belägg för effekten?</strong><br />Konceptet bygger på erkänd forskning om social och emotionell inlärning, bland annat metaanalysen av Durlak et al. med över 270 000 barn. Egna effektstudier av Yubuus känslohjul självt är planerade för pilotfasen från 2027.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Vem står för kostnaderna, finns det finansieringsmöjligheter?</strong><br />Många skolor finansierar Yubuus känslohjul via befintliga materialbudgetar eller pedagogiska stödmedel. För skolor undersöker vi just nu lämpliga finansieringsprogram.</p>
+          <p><strong class="text-[var(--color-ink)]">Behöver jag någon fortbildning för att använda spelet?</strong><br />Nej, spelet kan användas direkt utan extra utbildning. Den som vill kan dessutom boka en introduktionsworkshop.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-8 text-center">
+    <p class="font-serif-heading text-xl italic text-[var(--color-ink)] sm:text-2xl">Barn minns inte bara vad de har lärt sig, utan också hur de mådde medan de gjorde det.</p>
+  </div>
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}sv/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Förfrågan för din skola</a>
+  </div>
+</Base>

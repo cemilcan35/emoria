@@ -1,0 +1,103 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="no" title="For skoler — EMORIA" current="Skole"
+  description="Yubuus følelseshjul i barneskolens hverdag: for klassens time, skolesosialt arbeid og støttetimer, vitenskapelig fundert.">
+
+  <AudienceHero
+    eyebrow="✦ For skoler"
+    title="Sosial og emosjonell læring hører hjemme i hver klasse, ikke ved siden av, men bevisst."
+    body="På barneskolen lærer barn ikke bare matematikk og norsk. De lærer også å skape vennskap, håndtere konflikter og ta ansvar for seg selv og andre. Men å oppleve følelser og å kunne benevne dem er to forskjellige ting. Yubuus følelseshjul støtter lærere og miljøarbeidere i å gi barn et beskyttet rom der de lekende kan oppdage og forstå følelsesverdenen sin og snakke om den."
+    image="img/wheel-wide.jpg"
+    imageAlt="Yubuus følelseshjul i klassens time"
+  />
+
+  <ClickBoxes
+    title="Hvorfor Yubuus følelseshjul?"
+    items={[
+      { icon: '🧩', title: 'Fleksibelt i skolehverdagen', text: 'Enten det er klassens time, liten gruppe, skolesosialt arbeid eller støttetime, varer en spillrunde omtrent 25 til 40 minutter og kan brukes med én gang uten tilleggsutdanning.' },
+      { icon: '🕊️', title: 'Forstå konflikter i stedet for å la dem eskalere', text: 'Barn som forstår følelsene og behovene sine bedre, finner lettere konstruktive veier i konflikter.' },
+      { icon: '💬', title: 'Innsikt til foreldresamtaler', text: 'Observasjoner fra spillet viser hvilke temaer som opptar et barn, og er et verdifullt grunnlag for foreldresamtaler og individuell støtte.' },
+    ]}
+  />
+
+  <IconRow
+    title="Hvor Yubuus følelseshjul brukes"
+    items={[
+      { icon: '🗣️', label: 'Klassens time' },
+      { icon: '👥', label: 'Små grupper' },
+      { icon: '🤝', label: 'Skolesosialt arbeid' },
+      { icon: '📘', label: 'Støttetimer' },
+      { icon: '🔁', label: 'Vikartimer' },
+      { icon: '💛', label: 'Etter konflikter i klassen' },
+      { icon: '🌱', label: 'Forebyggingsprosjekter' },
+      { icon: '🌍', label: 'Inkluderende undervisning' },
+    ]}
+  />
+
+  <TwoCol
+    title="Hva gjør Yubuus følelseshjul spesielt?"
+    body="Også barneskolebarn lærer mer varig når de aktivt oppdager, prøver ut og kommer i samtale med hverandre. Yubuus følelseshjul forener lekende læring med styrking av sosiale og emosjonelle kompetanser. Yubuu følger prosessen nysgjerrig og med anerkjennelse. I stedet for å gi svar inviterer Yubuu barna til å utvikle egne tanker og bli kjent med ulike perspektiver. Barn mellom sju og ti år går gjennom fem trinn som bygger på hverandre: De oppdager en følelse, snakker om den, knytter den til hverdagssituasjoner og innser til slutt hvilket behov som ligger bak."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Situasjonskort fra Yubuus følelseshjul"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Et sterkere klassemiljø begynner med samtaler"
+    body="Et godt klassemiljø oppstår ikke av seg selv. Barn må lære å lytte, forstå ulike perspektiver og håndtere konflikter med respekt. Yubuus følelseshjul skaper en trygg ramme der akkurat disse evnene kan øves lekende. Slik styrkes ikke bare enkeltbarn, men også klassefellesskapet. For lærere og miljøarbeidere gir spillet samtidig verdifull innsikt i barnas følelsesverden, et solid grunnlag for foreldresamtaler og individuell støtte."
+  />
+
+  <YubuuQuote quote="I hver klasse føler hver og en noe forskjellig. La oss sammen finne ut hvordan vi kan snakke om det." image="yubuu-crystal.png" imageAlt="Yubuu med en lysende krystall" />
+
+  <Chips
+    title="Hvem passer spillet for?"
+    items={['Barneskolelærere', 'Miljøarbeidere og skolesosialarbeidere', 'Spesialpedagoger', 'Rådgivere', 'Fritidsassistenter og SFO-ansatte', 'Kontaktlærere', 'Inkluderingspedagoger', 'Pedagogisk-psykologisk tjeneste', 'alle som arbeider med barneskolebarn']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Slik foregår en spillrunde',
+        body: 'Barneskolebarn går gjennom fem trinn: Å oppdage en følelse, snakke om den, knytte den til en hverdagssituasjon og til slutt innse behovet bak. En runde varer omtrent 25 til 40 minutter, avhengig av samtalens dybde og gruppestørrelse også lenger eller kortere. Til slutt fører Yubuu en kort refleksjonssamtale: Hvordan var spillet for dere? Hvem vil snakke om det?',
+      },
+      {
+        title: 'Vitenskapelig grunnlag',
+        body: 'Yubuus følelseshjul bygger på flere anerkjente tilnærminger fra pedagogikk og psykologi. Metaanalysen av Durlak et al. med over 270 000 barn viser at strukturert sosial og emosjonell læring forbedrer skoleprestasjonene med i gjennomsnitt elleve prosent og reduserer konflikter. Det siste spilltrinnet tar utgangspunkt i ikkevoldelig kommunikasjon etter Marshall B. Rosenberg, den felles læringen i spillet i Lev Vygotskys utviklingsteori. I tillegg viser forskningen på affect labeling at det å bare benevne en følelse virker beroligende på hjernen, og nettopp det øver hver runde ved følelseshjulet.',
+        linkHref: `${base}no/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mer om det vitenskapelige grunnlaget',
+      },
+      {
+        title: 'Vanlige spørsmål fra skolen',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Passer det inn i læreplanen vår, eller er det et ekstra tilbud?</strong><br />Yubuus følelseshjul erstatter ikke noe læreplaninnhold, men utfyller det. Det kan integreres i klassens time, vikartimer eller støttetimer uten at det må settes av ekstra undervisningstid.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Fungerer det også med en hel klasse, ikke bare i små grupper?</strong><br />Spillet er opprinnelig tenkt for små grupper på opptil seks barn. For bruk med hele klassen anbefaler vi at flere små grupper spiller parallelt, eller at spillet brukes på rundgang i klassens time.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kan jeg også bruke spillet i klassens time?</strong><br />Ja. Klassens time egner seg særlig godt til å gjennomføre enkelte spillfaser eller hele spillrunder sammen.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kan jeg bruke bare enkelte spillmaterialer?</strong><br />Ja. Avhengig av tid og mål kan følelseshjulet, lynkortene eller situasjonskortene også brukes uavhengig av hverandre.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Egner spillet seg også for barn med særskilte støttebehov?</strong><br />Ja. Nettopp fordi det fungerer uten tidspress og uten riktige eller gale svar, brukes det ofte på spesialskoler og i individuell oppfølging.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Finnes det vitenskapelig dokumentasjon på effekten?</strong><br />Konseptet bygger på anerkjent forskning på sosial og emosjonell læring, blant annet metaanalysen av Durlak et al. med over 270 000 barn. Egne effektstudier av Yubuus følelseshjul selv er planlagt for pilotfasen fra 2027.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Hvem betaler, og finnes det støttemuligheter?</strong><br />Mange skoler finansierer Yubuus følelseshjul over eksisterende materiellbudsjetter eller pedagogiske støttemidler. For skoler undersøker vi for tiden passende støtteprogrammer.</p>
+          <p><strong class="text-[var(--color-ink)]">Trenger jeg kurs for å bruke spillet?</strong><br />Nei, spillet kan brukes med én gang uten tilleggsutdanning. Den som ønsker det, kan i tillegg bestille en introduksjonsworkshop.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-8 text-center">
+    <p class="font-serif-heading text-xl italic text-[var(--color-ink)] sm:text-2xl">Barn husker ikke bare hva de har lært, men også hvordan de hadde det mens de gjorde det.</p>
+  </div>
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}no/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Forespørsel for din skole</a>
+  </div>
+</Base>

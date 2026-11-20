@@ -1,0 +1,29 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
+---
+
+<Base lang="sv" title="Om oss — EMORIA" current="Om oss"
+  description="Grundaren av EMORIA har samlat mer än tio års erfarenhet från olika sociala och pedagogiska områden.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="mx-auto max-w-3xl px-6 pb-14 pt-36 text-center">
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Om oss</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">Om oss</h1>
+    </div>
+
+    <div class="mx-auto grid max-w-3xl items-start gap-10 px-6 pb-24 sm:grid-cols-[auto_1fr]">
+      <img src={`${base}img/yubuu-headshot.png`} alt="Yubuu" loading="lazy"
+        class="mx-auto h-40 w-auto drop-shadow-[0_16px_26px_rgba(43,42,40,0.16)] sm:h-52" />
+      <div class="space-y-6 text-lg text-[var(--color-ink-soft)]">
+        <p>Grundaren av EMORIA har samlat mer än tio års erfarenhet från olika sociala och pedagogiska områden: i integrationsförskolor, skolor som specialskolor, intensiva boendegrupper, rådgivningsmottagningar samt barn- och familjehjälp.</p>
+        <p>Av alla dessa erfarenheter blev en sak allt tydligare: Känslor styr våra liv och våra beslut långt mer än vi ofta är medvetna om. De påverkar hur vi går på andra, hur vi hanterar konflikter och hur vi förstår oss själva. Och ändå har många vuxna själva först sent eller aldrig lärt sig att prata om det. Det är ett glapp som ofta obemärkt förs vidare till nästa generation.</p>
+        <p>Just därför var det viktigt för grundaren att barn och unga tidigt lär sig att känna igen sina känslor och kunna prata om dem. Varje barn borde i utbildningssystemet få möjlighet att lära känna sina känslor och få prata om dem, oavsett i vilken verksamhet det växer upp. Om barn inte lär sig det i förskolan, i skolan eller hemma, var då?</p>
+        <p class="italic text-[var(--color-ink)]">Ur denna övertygelse har EMORIA vuxit fram.</p>
+      </div>
+    </div>
+
+    <div class="mx-auto max-w-2xl px-6 pb-20 text-center">
+      <a href={`${base}sv/ueber-emoria`} class="font-[var(--font-body)] font-semibold text-[var(--color-brand)] hover:text-[var(--color-brand-deep)]">Mer om EMORIA →</a>
+    </div>
+  </article>
+</Base>

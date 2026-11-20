@@ -1,0 +1,94 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="es" title="Para guarderías — EMORIA" current="Guarderías"
+  description="La rueda de las emociones de Yubuu en el día a día de la escuela infantil: fácil de usar, con base científica, desarrollada para educadoras y educadores.">
+
+  <AudienceHero
+    eyebrow="✦ Para guarderías"
+    title="Descubrir las emociones juntos: con juego, cerca de lo cotidiano y sin mucha preparación."
+    body="Cada día los niños viven innumerables emociones: alegría jugando, rabia después de una pelea, orgullo por un logro o tristeza al despedirse de la familia. Pero muchos niños todavía no saben expresar con palabras lo que sienten. La rueda de las emociones de Yubuu ayuda a los profesionales de la educación a acompañar a los niños con juego en estos momentos emocionales, en un espacio seguro, sin presión por rendir y sin respuestas correctas o incorrectas."
+    image="img/wheel-hero.jpg"
+    imageAlt="La rueda de las emociones de Yubuu en el día a día de la escuela infantil"
+  />
+
+  <ClickBoxes
+    title="¿Por qué la rueda de las emociones de Yubuu?"
+    items={[
+      { icon: '🧩', title: 'Fácil de usar en el día a día', text: 'El juego se ha desarrollado específicamente para la práctica pedagógica. Se puede usar sin una preparación complicada en grupos pequeños o de forma individual, y se adapta con flexibilidad a la edad, al tamaño del grupo y a la situación.' },
+      { icon: '💛', title: 'Fomentar las competencias emocionales con juego', text: 'Los niños aprenden a percibir, nombrar y entender las emociones. Al mismo tiempo descubren que personas distintas pueden vivir la misma situación de maneras muy diferentes. Así se fomentan de forma natural la empatía, la toma de perspectiva y el desarrollo del lenguaje.' },
+      { icon: '🤝', title: 'Acompañar junto con las familias', text: 'El juego abre valiosas oportunidades de conversación que pueden seguir dando fruto después de la ronda. Las observaciones del juego se pueden retomar en las conversaciones con las familias y ayudan a acompañar juntos el desarrollo emocional del niño.' },
+    ]}
+  />
+
+  <IconRow
+    title="Así se puede usar la rueda de las emociones de Yubuu"
+    items={[
+      { icon: '🌅', label: 'Asamblea de la mañana' },
+      { icon: '👥', label: 'Grupos pequeños' },
+      { icon: '🧑‍🤝‍🧑', label: 'Acompañamiento individual' },
+      { icon: '🎒', label: 'Grupos de preescolar' },
+      { icon: '💬', label: 'Conversaciones sobre conflictos' },
+      { icon: '🌱', label: 'Proyectos de educación emocional' },
+      { icon: '🕊️', label: 'Un impulso tranquilo para conversar tras situaciones difíciles' },
+    ]}
+  />
+
+  <TwoCol
+    title="¿Qué hace especial la rueda de las emociones de Yubuu?"
+    body="Lo central no es el resultado correcto, sino descubrir juntos. Yubuu no valora ninguna respuesta. En cambio, Yubuu hace preguntas curiosas, escucha con atención e invita a los niños a conocer su propio mundo emocional. Así surge un ambiente en el que los niños se sienten tomados en serio y pueden desarrollar confianza. Lo especial: las emociones no se quedan en lo abstracto. Al girar la rueda de las emociones, colocar las cabezas magnéticas, con las tarjetas relámpago, las tarjetas de situación y los círculos de necesidades, las emociones se hacen visibles, tangibles y comprensibles."
+    image="img/flash-card.jpg"
+    imageAlt="Tarjeta relámpago de la rueda de las emociones de Yubuu"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Una ventana al mundo emocional de los niños"
+    body="Para los profesionales de la educación, la rueda de las emociones de Yubuu es más que un juego: también es un instrumento de observación. Durante el juego se ve qué emociones ocupan ahora a un niño, cómo interpreta las situaciones y dónde puede haber necesidad de conversar. Estas observaciones ayudan a acompañar a cada niño de forma más individual y a orientar mejor el propio trabajo pedagógico."
+  />
+
+  <YubuuQuote quote="¡Hola! Me alegra que estés aquí. Juntos descubrimos las emociones, sin correcto ni incorrecto. Escucho, hago preguntas y cada día aprendo algo nuevo. ¿Vienes con nosotros en nuestro viaje de descubrimiento?" image="yubuu-vine.png" imageAlt="Yubuu descubre una planta" />
+
+  <Chips
+    title="¿Para quién es adecuado el juego?"
+    items={['Educadoras y educadores', 'Educadoras y educadores de integración', 'Pedagogas y pedagogos terapéuticos', 'Profesionales de apoyo al lenguaje', 'Direcciones de centros infantiles', 'Grupos de preescolar', 'Centros de familias']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Cómo transcurre una ronda de juego',
+        body: 'Una ronda de juego sigue cinco pasos que se construyen unos sobre otros. Primero, el niño gira la rueda de las emociones y toma su cabeza magnética, un factor de azar buscado que también trae al juego emociones que el niño no habría elegido espontáneamente. Después, el niño saca una tarjeta de preguntas y habla brevemente de la emoción. A continuación viene una tarjeta relámpago: una breve situación cotidiana en la que el niño solo dice si la emoción encaja o no. En el cuarto paso, el niño coloca su cabeza magnética en una tarjeta de situación que muestra a Yubuu sin expresión en la cara. Para terminar, el niño elige en los círculos de necesidades lo que le ayudaría con esa emoción. Una ronda completa dura unos 25 a 40 minutos, y más según el grupo y la profundidad de la conversación. Al final, Yubuu dirige una breve conversación de reflexión: ¿Cómo te sientes ahora? ¿Te ha gustado el juego?',
+      },
+      {
+        title: 'Trasfondo científico',
+        body: 'La rueda de las emociones de Yubuu se basa en varios enfoques reconocidos de la psicología del desarrollo y la educación emocional. El metaanálisis de Durlak et al., con más de 270.000 niños, muestra que los programas estructurados de aprendizaje social y emocional reducen claramente los problemas de conducta y fortalecen la autoestima. El neurocientífico Matthew Lieberman pudo demostrar que el mero hecho de nombrar una emoción tiene un efecto calmante en el cerebro infantil, y eso es lo que practica cada ronda con la rueda de las emociones. Además, la investigación sobre el aprendizaje corporeizado muestra que los niños aprenden más a fondo cuando actúan con el cuerpo en lugar de solo escuchar; por eso el material de juego es deliberadamente físico.',
+        linkHref: `${base}es/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Más sobre el trasfondo científico',
+      },
+      {
+        title: 'Preguntas frecuentes de las guarderías',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Cuánto dura una ronda de juego?</strong><br />Unos 25 a 40 minutos, según el tamaño del grupo y la profundidad de la conversación. También son posibles variantes más cortas con solo algunos componentes.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Necesito una formación para usar el juego?</strong><br />No. El juego está diseñado para poder usarse enseguida, sin formación adicional. Una introducción es útil, pero no es un requisito.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Para qué edad es adecuado el juego?</strong><br />Para niños de cuatro a seis años, con un desarrollo propio para los más pequeños y otro para los mayores dentro de ese tramo.</p>
+          <p><strong class="text-[var(--color-ink)]">¿Puedo usar solo algunas partes del juego?</strong><br />Sí. La rueda de las emociones y las tarjetas relámpago también funcionan por separado, por ejemplo cuando hay poco tiempo.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}es/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Solicitar información para su guardería</a>
+  </div>
+</Base>

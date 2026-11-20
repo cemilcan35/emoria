@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<Base lang="sv" title="Kontakt — EMORIA" current="Kontakt"
+  description="Vill du ta med EMORIA till din förskola, eller vill du hållas uppdaterad? Skriv till Cemil.">
+  <article class="bg-[var(--color-cream)]">
+    <div class="relative mx-auto max-w-2xl px-6 pb-10 pt-36 text-center">
+      <img src={`${base}img/yubuu-wink-grass.png`} alt="Yubuu vinkar" loading="lazy"
+        class="pointer-events-none absolute left-full top-10 ml-6 hidden h-40 w-auto drop-shadow-[0_16px_26px_rgba(43,42,40,0.16)] xl:block" />
+      <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Kontakt</p>
+      <h1 class="mt-3 text-4xl sm:text-6xl">Säg hej.</h1>
+      <p class="mt-5 text-lg text-[var(--color-ink-soft)]">Oavsett om du som pedagogisk fackperson är nyfiken på att prova EMORIA i din förskola, eller som förälder vill följa med tills det startar, skriv en rad till oss. Cemil läser varje meddelande.</p>
+    </div>
+
+    <div class="mx-auto max-w-xl px-6 pb-24">
+      <form class="rounded-[2rem] border border-[var(--color-cream-edge)] bg-white/60 p-7 shadow-[var(--shadow-soft)] sm:p-9" data-contact>
+        <div class="grid gap-5">
+          <label class="block">
+            <span class="text-sm font-medium text-[var(--color-ink)]">Ditt namn</span>
+            <input type="text" name="name" required
+              class="mt-1.5 w-full rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-[var(--color-cream)] px-4 py-3 outline-none focus:border-[var(--color-brand)]" />
+          </label>
+
+          <label class="block">
+            <span class="text-sm font-medium text-[var(--color-ink)]">Förskola eller verksamhet <span class="font-normal text-[var(--color-ink-faint)]">(valfritt)</span></span>
+            <input type="text" name="organisation"
+              class="mt-1.5 w-full rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-[var(--color-cream)] px-4 py-3 outline-none focus:border-[var(--color-brand)]" />
+          </label>
+
+          <label class="block">
+            <span class="text-sm font-medium text-[var(--color-ink)]">E-post</span>
+            <input type="email" name="email" required
+              class="mt-1.5 w-full rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-[var(--color-cream)] px-4 py-3 outline-none focus:border-[var(--color-brand)]" />
+          </label>
+
+          <label class="block">
+            <span class="text-sm font-medium text-[var(--color-ink)]">Ditt meddelande</span>
+            <textarea name="message" rows="4"
+              class="mt-1.5 w-full rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-[var(--color-cream)] px-4 py-3 outline-none focus:border-[var(--color-brand)]"></textarea>
+          </label>
+
+          <button type="submit"
+            class="rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-7 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">Skicka meddelande</button>
+
+          <p class="text-center text-sm text-[var(--color-ink-faint)]">Hellre via e-post? Skriv till <a href="mailto:hello@emoria.de" class="underline decoration-[var(--color-cream-edge)] underline-offset-2 hover:text-[var(--color-ink)]">hello@emoria.de</a>
+          </p>
+        </div>
+      </form>
+      <p class="mt-4 text-center text-xs text-[var(--color-ink-faint)]">Observera: Det här formuläret är ännu inte kopplat till en backend, vi sätter upp en GDPR-förenlig koppling före start (och bekräftar den slutliga adressen).</p>
+    </div>
+  </article>
+</Base>

@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fr" title="Pour l'orthophonie — EMORIA" current="Orthophonie"
+  description="La roue des émotions de Yubuu en cabinet d'orthophonie : vocabulaire émotionnel, langage spontané et occasions de parler qui naissent d'elles-mêmes.">
+
+  <AudienceHero
+    eyebrow="✦ Pour l'orthophonie"
+    title="Là où le langage et l'émotion se rencontrent : ludique, structuré, utilisable tout de suite."
+    body="Beaucoup d'enfants en orthophonie ont du mal non seulement avec les sons et les phrases, mais aussi à mettre en mots ce qu'ils ressentent. Le vocabulaire émotionnel et le vocabulaire langagier sont étroitement liés : sans mot pour une émotion, il est difficile de l'exprimer, quelle que soit la qualité de l'articulation. La roue des émotions de Yubuu réunit les deux dans un seul exercice court."
+    image="img/hero-logopaedie.jpg"
+    imageAlt="Cartes questions de la roue des émotions de Yubuu, disposées en éventail"
+  />
+
+  <ClickBoxes
+    title="Pourquoi la roue des émotions de Yubuu ?"
+    items={[
+      { icon: '🗣️', title: 'Le vocabulaire émotionnel comme véritable richesse de langage', text: 'Le jeu fait travailler de façon ciblée les mots des émotions, des émotions de base simples jusqu\'à des notions plus nuancées comme la déception ou la fierté. Contrairement aux listes de mots isolées, ces notions naissent dans un contexte réel, qui a du sens pour l\'enfant : elles ne sont pas apprises par cœur, mais vécues.' },
+      { icon: '🧑‍⚕️', title: 'Conçu pour le travail individuel', text: 'Avec un ou deux enfants, une manche dure environ 10 à 20 minutes et s\'intègre sans préparation dans une séance de thérapie habituelle, comme exercice autonome ou comme entrée en matière avant le travail langagier proprement dit.' },
+      { icon: '🧩', title: 'Des occasions de parler qui naissent d\'elles-mêmes', text: 'Au lieu de phrases d\'exercice imposées, ce sont des propos réels et spontanés qui apparaissent : l\'enfant décrit une situation, justifie son choix, raconte ses propres expériences. Ce langage spontané est souvent plus difficile à travailler que des phrases guidées, et c\'est précisément ce que le jeu stimule.' },
+    ]}
+  />
+
+  <IconRow
+    title="Comment utiliser la roue des émotions de Yubuu"
+    items={[
+      { icon: '🗣️', label: 'Séance de soutien langagier' },
+      { icon: '🧑‍⚕️', label: 'Thérapie individuelle' },
+      { icon: '🔤', label: 'Travail sur le vocabulaire' },
+      { icon: '💬', label: 'Stimuler le langage spontané' },
+      { icon: '📈', label: 'Suivi de l\'évolution' },
+      { icon: '👪', label: 'Préparer un entretien avec les parents' },
+    ]}
+  />
+
+  <TwoCol
+    title="Qu'est-ce qui rend la roue des émotions de Yubuu particulière ?"
+    body="Ce qui compte, ce n'est pas la bonne réponse, mais la découverte en commun. Yubuu ne juge rien, mais pose des questions, s'émerveille et écoute, ce qui enlève aux enfants la pression de performance que beaucoup connaissent déjà de l'entraînement au langage. Les émotions ne restent pas abstraites : en faisant tourner la roue des émotions, en plaçant les têtes magnétiques, avec les cartes éclair, les cartes de situation et les cercles de besoins, naissent des occasions de parler concrètes, qui paraissent naturelles plutôt que répétées."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Carte de situation de la roue des émotions de Yubuu"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Une fenêtre sur le niveau de langage de vos jeunes patients"
+    body="Pour les orthophonistes, la roue des émotions de Yubuu est plus qu'un jeu : elle montre immédiatement de quel vocabulaire émotionnel un enfant dispose déjà et où il reste des lacunes. L'enfant peut-il nommer une émotion seul, ou a-t-il besoin d'aide ? Utilise-t-il des notions simples ou déjà nuancées ? Ces observations peuvent être reprises directement dans la planification de la thérapie et le suivi de l'évolution."
+  />
+
+  <YubuuQuote
+    quote="Bonjour ! Je ne connais pas encore tous les mots pour les émotions, alors je te demande. Comment appelles-tu ce que tu ressens en ce moment ?"
+    image="yubuu-crystal.png" imageAlt="Yubuu avec un cristal lumineux" />
+
+  <Chips
+    title="À qui s'adresse le jeu ?"
+    items={['Orthophonistes', 'Thérapeutes du langage', 'Professionnels des centres d\'action médico-sociale précoce', 'Pédagogues spécialisés en langage', 'Cabinets de thérapie du langage, de la parole et de la voix']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Comment se déroule une manche',
+        body: 'Une manche suit cinq étapes qui s\'appuient les unes sur les autres. L\'enfant fait tourner la roue des émotions et prend sa tête magnétique, un facteur de hasard voulu, qui amène aussi dans le jeu des émotions que l\'enfant n\'aurait pas choisies spontanément. Ensuite, il tire une carte question et parle brièvement de l\'émotion. Vient alors une carte éclair : une courte situation du quotidien où l\'enfant dit seulement si l\'émotion convient ou non. À la quatrième étape, l\'enfant pose sa tête magnétique sur une carte de situation qui montre Yubuu sans expression du visage. Pour finir, il choisit dans les cercles de besoins ce qui l\'aiderait avec cette émotion. Avec un ou deux enfants, une manche complète dure environ 10 à 20 minutes.',
+      },
+      {
+        title: 'Contexte scientifique',
+        body: 'La roue des émotions de Yubuu repose sur plusieurs approches reconnues de la psychologie du développement et de l\'éducation émotionnelle. La méta-analyse de Durlak et al., portant sur plus de 270 000 enfants, montre que les programmes structurés d\'apprentissage social et émotionnel réduisent nettement les troubles du comportement et renforcent l\'estime de soi. La recherche sur l\'apprentissage incarné (embodied learning) montre en outre que les enfants apprennent plus en profondeur lorsqu\'ils agissent avec leur corps au lieu de seulement écouter, c\'est pourquoi le matériel de jeu est volontairement physique.',
+        linkHref: `${base}fr/wissenschaftlicher-hintergrund`,
+        linkLabel: 'En savoir plus sur le contexte scientifique',
+      },
+      {
+        title: 'Questions fréquentes en cabinet d\'orthophonie',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Le jeu convient-il aux enfants présentant des troubles du développement du langage ?</strong><br />Oui, c'est justement pour ces enfants que l'approche ludique et sans pression est particulièrement précieuse. Les éléments physiques permettent de s'exprimer même quand les mots justes manquent encore.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Le jeu remplace-t-il un entraînement ciblé du vocabulaire ?</strong><br />Non, il le complète. Au lieu d'exercices isolés, les mots des émotions naissent dans un contexte réel et porteur de sens.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Le jeu fonctionne-t-il en séance individuelle ?</strong><br />Oui, il a aussi été conçu pour cela. Avec un ou deux enfants, une manche ne dure que 10 à 20 minutes.</p>
+          <p><strong class="text-[var(--color-ink)]">Ai-je besoin d'une formation ?</strong><br />Non, le jeu est utilisable tout de suite, sans formation complémentaire.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}fr/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Demander des informations pour votre cabinet</a>
+  </div>
+</Base>

@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="sv" title="För barnpsykologi — EMORIA" current="Barnpsykologi"
+  description="Yubuus känslohjul i barnpsykologisk praktik: en lågtröskelväg och lekfull ingång till ett barns känsloövärld.">
+
+  <AudienceHero
+    eyebrow="✦ För barnpsykologi"
+    title="En lågtröskelingång till ett barns känsloövärld, lekfull, strukturerad, utan tryck."
+    body="Barn som kommer i psykologisk vård pratar ofta inte lätt om det som upptar dem. Direkta frågor väcker ibland just det försvar som man egentligen vill lösa upp. Yubuus känslohjul skapar en lekfull omväg till samma mål: Barnet pratar om en känsla som ”av en slump” har dykt upp på hjulet, inte om sig självt, och just det gör det lättare."
+    image="img/hero-kinderpsychologie.jpg"
+    imageAlt="Känsloansikten på Yubuus känslohjul"
+  />
+
+  <ClickBoxes
+    title="Varför Yubuus känslohjul?"
+    items={[
+      { icon: '🎯', title: 'En omväg som leder till målet', text: 'Eftersom känslorna väljs till synes slumpmässigt genom att snurra på hjulet känns samtalet för barnet mindre som en direkt konfrontation. Det uppstår ett avstånd till den egna personen, precis tillräckligt för att ändå förbli ärlig.' },
+      { icon: '🔍', title: 'Ett strukturerat observationsverktyg', text: 'Vilka känslor känner barnet säkert igen, vid vilka tvekar det? Hur tolkar det vardagssituationer, vilka behov benämner det? Dessa observationer uppstår vid sidan om, i leken, inte i en testsituation.' },
+      { icon: '🕊️', title: 'Inget rätt, inget fel, inget tryck', text: 'Yubuu värderar ingenting. För barn som i vardagen ofta blir tilltalade om sitt beteende är det ett påtagligt annorlunda bemötande som bygger förtroende innan man ens pratar om det svåra.' },
+    ]}
+  />
+
+  <IconRow
+    title="Så kan Yubuus känslohjul användas"
+    items={[
+      { icon: '🧑‍⚕️', label: 'Enskild terapi' },
+      { icon: '📋', label: 'Diagnostiskt första samtal' },
+      { icon: '🕊️', label: 'Efterföljande samtal efter påfrestande situationer' },
+      { icon: '📈', label: 'Dokumentation av förloppet' },
+      { icon: '👪', label: 'Förberedelse av ett föräldrasamtal' },
+      { icon: '🌱', label: 'Resursorienterade samtal' },
+    ]}
+  />
+
+  <TwoCol
+    title="Vad gör Yubuus känslohjul särskilt?"
+    body="I centrum står inte det rätta svaret, utan att upptäcka tillsammans. Yubuu värderar inga svar, utan frågar, förundras och lyssnar, det sänker tröskeln, särskilt hos barn som har lärt sig att gömma eller kontrollera sina känslor. Känslor förblir inte abstrakta: När man snurrar på känslohjulet, placerar magnethuvudena och använder blixtkorten, situationskorten och behovscirklarna blir de synliga, greppbara och möjliga att prata om, även för barn som har svårt att öppna sig med ord."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Situationskort från Yubuus känslohjul"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ett fönster in i dina små patienters inre värld"
+    body="För barnpsykologer är Yubuus känslohjul mer än ett spel, det är ett strukturerat observationsverktyg. Hur reagerar ett barn på vissa situationskort? Vilka behov benämner det, vilka saknas tydligt? Dessa observationer kan följas över flera sessioner och ger en gedigen, begriplig grund för diagnostik, terapiplanering och rapporter."
+  />
+
+  <YubuuQuote
+    quote="Hej! Du behöver inte berätta något om dig själv om du inte vill. Men om du har lust, snurra på hjulet, så ser vi tillsammans vad som kommer ut av det."
+    image="yubuu-butterfly.png" imageAlt="Yubuu med en fjäril" />
+
+  <Chips
+    title="Vem passar spelet för?"
+    items={['Barnpsykologer', 'Barn- och ungdomspsykoterapeuter', 'Fackpersoner inom familje- och uppfostringsrådgivning', 'Socialpediatriska centra', 'Barn- och ungdomspsykiatriska mottagningar']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Så går en spelomgång till',
+        body: 'En spelomgång följer fem steg som bygger på varandra. Barnet snurrar på känslohjulet och tar sitt magnethuvud, en medveten slumpfaktor som också för in känslor i spelet som barnet inte själv skulle ha valt. Därefter drar barnet ett frågekort och berättar kort om känslan. Sedan följer ett blixtkort: en kort vardagssituation där barnet bara säger om känslan passar eller inte. I det fjärde steget lägger barnet sitt magnethuvud på ett situationskort som visar Yubuu utan ansiktsuttryck. Till sist väljer barnet bland behovscirklarna vad som skulle hjälpa i den känslan. Med ett eller två barn tar en hel omgång ungefär 10 till 20 minuter.',
+      },
+      {
+        title: 'Vetenskaplig bakgrund',
+        body: 'Yubuus känslohjul bygger på flera erkända ansatser från utvecklingspsykologi och emotionell bildning. Metaanalysen av Durlak et al. med över 270 000 barn visar att strukturerade program för social och emotionell inlärning tydligt minskar beteendeproblem och stärker självkänslan. Neurovetaren Matthew Lieberman kunde visa att det enbart att benämna en känsla verkar lugnande på barnets hjärna, och just det övar varje omgång vid känslohjulet.',
+        linkHref: `${base}sv/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mer om den vetenskapliga bakgrunden',
+      },
+      {
+        title: 'Vanliga frågor från psykologisk praktik',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Passar spelet för barn med ångest eller beteendeproblem?</strong><br />Ja, den lekfulla, indirekta ingången passar särskilt barn som har svårt för direkta frågor.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kan jag använda spelet för diagnostik?</strong><br />Det ersätter inga standardiserade diagnostiska metoder, men ger värdefulla, dokumenterbara observationer som komplement.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Fungerar spelet i enskilt arbete?</strong><br />Ja, det har utvecklats med just det i åtanke. Med ett eller två barn tar en omgång bara 10 till 20 minuter.</p>
+          <p><strong class="text-[var(--color-ink)]">Vad händer om ett barn inte vill svara?</strong><br />Det är uttryckligen okej. Tystnad är ett giltigt svar, inte en utebliven prestation.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}sv/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Förfrågan för din mottagning</a>
+  </div>
+</Base>

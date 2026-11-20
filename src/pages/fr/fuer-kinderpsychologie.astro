@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fr" title="Pour la psychologie de l'enfant — EMORIA" current="Psychologie de l'enfant"
+  description="La roue des émotions de Yubuu en cabinet de psychologie de l'enfant : un accès simple et ludique au monde émotionnel d'un enfant.">
+
+  <AudienceHero
+    eyebrow="✦ Pour la psychologie de l'enfant"
+    title="Un accès simple au monde émotionnel d'un enfant : ludique, structuré, sans pression."
+    body="Les enfants qui arrivent en suivi psychologique parlent souvent difficilement de ce qui les préoccupe. Les questions directes provoquent parfois justement la défense qu'on voudrait dissoudre. La roue des émotions de Yubuu crée un détour ludique vers le même but : l'enfant parle d'une émotion qui est « par hasard » apparue sur la roue, pas de lui-même, et c'est justement ce qui rend les choses plus faciles."
+    image="img/hero-kinderpsychologie.jpg"
+    imageAlt="Visages d'émotions sur la roue des émotions de Yubuu"
+  />
+
+  <ClickBoxes
+    title="Pourquoi la roue des émotions de Yubuu ?"
+    items={[
+      { icon: '🎯', title: 'Un détour qui mène au but', text: 'Comme les émotions sont choisies en faisant tourner la roue, en apparence au hasard, la conversation ressemble moins, pour l\'enfant, à une confrontation directe. Une distance avec soi-même s\'installe, juste assez pour rester honnête malgré tout.' },
+      { icon: '🔍', title: 'Un outil d\'observation structuré', text: 'Quelles émotions l\'enfant reconnaît-il avec assurance, lesquelles le font hésiter ? Comment interprète-t-il les situations du quotidien, quels besoins nomme-t-il ? Ces observations naissent en passant, dans le jeu, pas dans une situation de test.' },
+      { icon: '🕊️', title: 'Ni bon, ni mauvais, aucune pression', text: 'Yubuu ne juge rien. Pour des enfants à qui l\'on parle souvent de leur comportement au quotidien, c\'est une façon d\'être accueilli nettement différente, qui crée la confiance avant même qu\'on aborde ce qui est difficile.' },
+    ]}
+  />
+
+  <IconRow
+    title="Comment utiliser la roue des émotions de Yubuu"
+    items={[
+      { icon: '🧑‍⚕️', label: 'Thérapie individuelle' },
+      { icon: '📋', label: 'Premier entretien diagnostique' },
+      { icon: '🕊️', label: 'Entretien de suivi après des situations éprouvantes' },
+      { icon: '📈', label: 'Suivi de l\'évolution' },
+      { icon: '👪', label: 'Préparation d\'un entretien avec les parents' },
+      { icon: '🌱', label: 'Entretiens centrés sur les ressources' },
+    ]}
+  />
+
+  <TwoCol
+    title="Qu'est-ce qui rend la roue des émotions de Yubuu particulière ?"
+    body="Ce qui compte, ce n'est pas la bonne réponse, mais la découverte en commun. Yubuu ne juge aucune réponse, mais pose des questions, s'émerveille et écoute, ce qui abaisse le seuil d'inhibition, surtout chez les enfants qui ont appris à cacher ou à contrôler leurs émotions. Les émotions ne restent pas abstraites : en faisant tourner la roue des émotions, en plaçant les têtes magnétiques, avec les cartes éclair, les cartes de situation et les cercles de besoins, elles deviennent visibles, tangibles et peuvent être parlées, même pour les enfants qui ont du mal à s'ouvrir par la parole."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Carte de situation de la roue des émotions de Yubuu"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Une fenêtre sur le monde intérieur de vos jeunes patients"
+    body="Pour les psychologues de l'enfant, la roue des émotions de Yubuu est plus qu'un jeu : c'est un outil d'observation structuré. Comment un enfant réagit-il à certaines cartes de situation ? Quels besoins nomme-t-il, lesquels lui manquent visiblement ? Ces observations peuvent être suivies sur plusieurs séances et offrent une base solide et traçable pour le diagnostic, la planification de la thérapie et les comptes rendus."
+  />
+
+  <YubuuQuote
+    quote="Bonjour ! Tu n'as rien à me raconter sur toi si tu n'en as pas envie. Mais si tu veux, fais tourner la roue, et nous regarderons ensemble ce qui en sort."
+    image="yubuu-butterfly.png" imageAlt="Yubuu avec un papillon" />
+
+  <Chips
+    title="À qui s'adresse le jeu ?"
+    items={['Psychologues de l\'enfant', 'Psychothérapeutes pour enfants et adolescents', 'Professionnels des services de conseil éducatif et familial', 'Centres de pédiatrie sociale', 'Cabinets de pédopsychiatrie']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Comment se déroule une manche',
+        body: 'Une manche suit cinq étapes qui s\'appuient les unes sur les autres. L\'enfant fait tourner la roue des émotions et prend sa tête magnétique, un facteur de hasard voulu, qui amène aussi dans le jeu des émotions que l\'enfant n\'aurait pas choisies spontanément. Ensuite, il tire une carte question et parle brièvement de l\'émotion. Vient alors une carte éclair : une courte situation du quotidien où l\'enfant dit seulement si l\'émotion convient ou non. À la quatrième étape, l\'enfant pose sa tête magnétique sur une carte de situation qui montre Yubuu sans expression du visage. Pour finir, il choisit dans les cercles de besoins ce qui l\'aiderait avec cette émotion. Avec un ou deux enfants, une manche complète dure environ 10 à 20 minutes.',
+      },
+      {
+        title: 'Contexte scientifique',
+        body: 'La roue des émotions de Yubuu repose sur plusieurs approches reconnues de la psychologie du développement et de l\'éducation émotionnelle. La méta-analyse de Durlak et al., portant sur plus de 270 000 enfants, montre que les programmes structurés d\'apprentissage social et émotionnel réduisent nettement les troubles du comportement et renforcent l\'estime de soi. Le neuroscientifique Matthew Lieberman a pu montrer que le simple fait de nommer une émotion a un effet apaisant sur le cerveau de l\'enfant, et c\'est exactement ce que chaque manche autour de la roue des émotions fait travailler.',
+        linkHref: `${base}fr/wissenschaftlicher-hintergrund`,
+        linkLabel: 'En savoir plus sur le contexte scientifique',
+      },
+      {
+        title: 'Questions fréquentes en cabinet de psychologie',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Le jeu convient-il aux enfants qui ont des peurs ou des troubles du comportement ?</strong><br />Oui, l'approche ludique et indirecte convient particulièrement aux enfants pour qui les questions directes sont difficiles.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Puis-je utiliser le jeu pour le diagnostic ?</strong><br />Il ne remplace pas les procédures diagnostiques standardisées, mais fournit en complément des observations précieuses et documentables.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Le jeu fonctionne-t-il en séance individuelle ?</strong><br />Oui, il a aussi été conçu pour cela. Avec un ou deux enfants, une manche ne dure que 10 à 20 minutes.</p>
+          <p><strong class="text-[var(--color-ink)]">Et si un enfant ne souhaite pas répondre ?</strong><br />C'est expressément permis. Le silence est une réponse valable, pas un défaut de performance.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}fr/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Demander des informations pour votre cabinet</a>
+  </div>
+</Base>

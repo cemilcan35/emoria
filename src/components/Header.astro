@@ -6,46 +6,43 @@ interface Props { current?: string; lang?: string }
 const { current = '', lang = 'de' } = Astro.props;
 const base = import.meta.env.BASE_URL; // e.g. "/emoria/"
 const prefix = lang === 'de' ? base : `${base}${lang}/`;
-// Seiten wie Über uns, Kontakt, Zielgruppen gibt es nur in DE, EN, FR und TR; andere Sprachen verweisen auf Englisch
-const pagePrefix = ['de', 'en', 'fr', 'tr'].includes(lang) ? prefix : `${base}en/`;
+// Alle Seiten gibt es in allen Sprachen
+const pagePrefix = prefix;
 
 const NAV = {
   de: { home: 'Zur Startseite', about: 'Über uns', emoria: 'Über EMORIA', contact: 'Kontakt', langAria: 'Sprache wählen', prep: 'In Vorbereitung',
         groups: 'Zielgruppe', kita: 'Kindergarten', schule: 'Schule', logo: 'Logopädie', psych: 'Kinderpsychologie', eltern: 'Eltern' },
   en: { home: 'Go to homepage', about: 'About us', contact: 'Contact', langAria: 'Choose language', prep: 'Coming soon',
-        groups: 'Who it is for', kita: 'Kindergarten', schule: 'School', eltern: 'Parents' },
+        groups: 'Who it is for', kita: 'Kindergarten', schule: 'School', eltern: 'Parents', emoria: 'About EMORIA', logo: 'Speech therapy', psych: 'Child psychology' },
   fr: { home: "Aller à l'accueil", about: 'À propos', contact: 'Contact', langAria: 'Choisir la langue', prep: 'Bientôt disponible',
-        groups: 'Pour qui', kita: 'Crèches', schule: 'Écoles', eltern: 'Parents' },
+        groups: 'Pour qui', kita: 'Crèches', schule: 'Écoles', eltern: 'Parents', emoria: "À propos d'EMORIA", logo: 'Orthophonie', psych: "Psychologie de l'enfant" },
   es: { home: 'Ir al inicio', about: 'Sobre nosotros', contact: 'Contacto', langAria: 'Elegir idioma', prep: 'Próximamente',
-        groups: 'Para quién', kita: 'Guarderías', schule: 'Colegios', eltern: 'Familias' },
+        groups: 'Para quién', kita: 'Guarderías', schule: 'Colegios', eltern: 'Familias', emoria: 'Sobre EMORIA', logo: 'Logopedia', psych: 'Psicología infantil' },
   da: { home: 'Gå til forsiden', about: 'Om os', contact: 'Kontakt', langAria: 'Vælg sprog', prep: 'Kommer snart',
-        groups: 'Til hvem', kita: 'Børnehave', schule: 'Skole', eltern: 'Forældre' },
+        groups: 'Til hvem', kita: 'Børnehave', schule: 'Skole', eltern: 'Forældre', emoria: 'Om EMORIA', logo: 'Logopædi', psych: 'Børnepsykologi' },
   sv: { home: 'Till startsidan', about: 'Om oss', contact: 'Kontakt', langAria: 'Välj språk', prep: 'Kommer snart',
-        groups: 'För vem', kita: 'Förskola', schule: 'Skola', eltern: 'Föräldrar' },
+        groups: 'För vem', kita: 'Förskola', schule: 'Skola', eltern: 'Föräldrar', emoria: 'Om EMORIA', logo: 'Logopedi', psych: 'Barnpsykologi' },
   no: { home: 'Til forsiden', about: 'Om oss', contact: 'Kontakt', langAria: 'Velg språk', prep: 'Kommer snart',
-        groups: 'For hvem', kita: 'Barnehage', schule: 'Skole', eltern: 'Foreldre' },
+        groups: 'For hvem', kita: 'Barnehage', schule: 'Skole', eltern: 'Foreldre', emoria: 'Om EMORIA', logo: 'Logopedi', psych: 'Barnepsykologi' },
   fi: { home: 'Etusivulle', about: 'Tietoa meistä', contact: 'Yhteystiedot', langAria: 'Valitse kieli', prep: 'Tulossa pian',
-        groups: 'Kenelle', kita: 'Päiväkoti', schule: 'Koulu', eltern: 'Vanhemmat' },
+        groups: 'Kenelle', kita: 'Päiväkoti', schule: 'Koulu', eltern: 'Vanhemmat', emoria: 'Tietoa EMORIAsta', logo: 'Puheterapia', psych: 'Lastenpsykologia' },
   tr: { home: 'Ana sayfaya git', about: 'Hakkımızda', contact: 'İletişim', langAria: 'Dil seçin', prep: 'Yakında',
-        groups: 'Hedef kitle', kita: 'Anaokulu', schule: 'Okul', eltern: 'Aileler' },
+        groups: 'Hedef kitle', kita: 'Anaokulu', schule: 'Okul', eltern: 'Aileler', emoria: 'EMORIA Hakkında', logo: 'Konuşma terapisi', psych: 'Çocuk psikolojisi' },
 };
 const t = NAV[lang] ?? NAV.de;
 
-// the audience pages live behind one "Zielgruppe" entry now — Logopädie and
-// Kinderpsychologie exist in German only so far
+// the audience pages live behind one "Zielgruppe" entry
 const audience = [
   { href: `${pagePrefix}fuer-kindergaerten`, label: t.kita, icon: 'audience-kindergarten.png' },
   { href: `${pagePrefix}fuer-schulen`, label: t.schule, icon: 'audience-schule.png' },
-  ...(lang === 'de' ? [
-    { href: `${prefix}fuer-logopaedie`, label: t.logo, icon: 'audience-logopaedie.png' },
-    { href: `${prefix}fuer-kinderpsychologie`, label: t.psych, icon: 'audience-kinderpsychologie.png' },
-  ] : []),
+  { href: `${pagePrefix}fuer-logopaedie`, label: t.logo, icon: 'audience-logopaedie.png' },
+  { href: `${pagePrefix}fuer-kinderpsychologie`, label: t.psych, icon: 'audience-kinderpsychologie.png' },
   { href: `${pagePrefix}fuer-eltern`, label: t.eltern, icon: 'audience-eltern.png' },
 ];
 
 const links = [
   { href: `${pagePrefix}about`, label: t.about },
-  ...(lang === 'de' ? [{ href: `${prefix}ueber-emoria`, label: t.emoria }] : []),
+  { href: `${pagePrefix}ueber-emoria`, label: t.emoria },
   { href: `${pagePrefix}contact`, label: t.contact },
 ];
 

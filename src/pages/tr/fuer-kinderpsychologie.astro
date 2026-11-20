@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="tr" title="Çocuk Psikolojisi İçin — EMORIA" current="Çocuk psikolojisi"
+  description="Yubuu'nun Duygu Çarkı çocuk psikolojisi pratiğinde: bir çocuğun duygu dünyasına düşük eşikli, oyunla bir erişim.">
+
+  <AudienceHero
+    eyebrow="✦ Çocuk Psikolojisi İçin"
+    title="Bir çocuğun duygu dünyasına düşük eşikli bir erişim: oyunla, yapılandırılmış, baskısız."
+    body="Psikolojik desteğe gelen çocuklar, kendilerini meşgul eden şeyi çoğu zaman kolay anlatamaz. Doğrudan sorular bazen tam da çözülmek istenen savunmayı doğurur. Yubuu'nun Duygu Çarkı aynı hedefe oyunla bir dolambaç yol açar: Çocuk, çarkta &quot;tesadüfen&quot; belirmiş bir duygu hakkında konuşur, kendisi hakkında değil, ve tam da bu işi kolaylaştırır."
+    image="img/hero-kinderpsychologie.jpg"
+    imageAlt="Yubuu'nun Duygu Çarkı üzerindeki duygu yüzleri"
+  />
+
+  <ClickBoxes
+    title="Neden Yubuu'nun Duygu Çarkı?"
+    items={[
+      { icon: '🎯', title: 'Hedefe götüren bir dolambaç', text: 'Duygular çark çevrilerek görünürde rastlantısal biçimde seçildiği için sohbet, çocuğa doğrudan bir yüzleşme gibi gelmez. Çocukla kendisi arasında bir mesafe oluşur, yine de dürüst kalmaya yetecek kadar.' },
+      { icon: '🔍', title: 'Yapılandırılmış bir gözlem aracı', text: 'Çocuk hangi duyguları güvenle tanıyor, hangilerinde tereddüt ediyor? Gündelik durumları nasıl yorumluyor, hangi ihtiyaçları adlandırıyor? Bu gözlemler aralarda, oyunun içinde ortaya çıkar, bir test durumunda değil.' },
+      { icon: '🕊️', title: 'Doğru yok, yanlış yok, baskı yok', text: 'Yubuu hiçbir şeyi değerlendirmez. Gündelik hayatta sık sık davranışlarıyla muhatap edilen çocuklar için bu belirgin biçimde farklı bir ilişki biçimidir; zor olandan söz edilmeden önce güven oluşturur.' },
+    ]}
+  />
+
+  <IconRow
+    title="Yubuu'nun Duygu Çarkı nasıl kullanılabilir?"
+    items={[
+      { icon: '🧑‍⚕️', label: 'Bireysel terapi' },
+      { icon: '📋', label: 'Tanılayıcı ilk görüşme' },
+      { icon: '🕊️', label: 'Yıpratıcı durumlardan sonra takip görüşmesi' },
+      { icon: '📈', label: 'Süreç dokümantasyonu' },
+      { icon: '👪', label: 'Aile görüşmesine hazırlık' },
+      { icon: '🌱', label: 'Kaynak odaklı görüşmeler' },
+    ]}
+  />
+
+  <TwoCol
+    title="Yubuu'nun Duygu Çarkı'nı özel kılan nedir?"
+    body="Merkezde doğru cevap değil, birlikte keşfetmek vardır. Yubuu hiçbir cevabı değerlendirmez, sorar, hayret eder ve dinler; bu, özellikle duygularını saklamayı veya kontrol etmeyi öğrenmiş çocuklarda çekingenlik eşiğini düşürür. Duygular soyut kalmaz: Duygu çarkını çevirmek, mıknatıs kafaları yerleştirmek, blitz kartları, durum kartları ve ihtiyaç çemberleri sayesinde duygular görünür, somut ve konuşulabilir hale gelir; sözlü olarak kendini açmakta zorlanan çocuklar için de."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Yubuu'nun Duygu Çarkı'ndan durum kartı"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Küçük danışanlarınızın iç dünyasına açılan bir pencere"
+    body="Çocuk psikologları için Yubuu'nun Duygu Çarkı bir oyundan fazlasıdır: Yapılandırılmış bir gözlem aracıdır. Bir çocuk belirli durum kartlarına nasıl tepki veriyor? Hangi ihtiyaçları adlandırıyor, hangileri belirgin biçimde eksik? Bu gözlemler birkaç seans boyunca izlenebilir ve tanılama, terapi planlaması ve raporlar için sağlam, izlenebilir bir temel sunar."
+  />
+
+  <YubuuQuote
+    quote="Merhaba! İstemiyorsan bana kendinle ilgili hiçbir şey anlatmak zorunda değilsin. Ama istersen çarkı çevir, birlikte ne çıkacağına bakalım."
+    image="yubuu-butterfly.png" imageAlt="Yubuu bir kelebekle" />
+
+  <Chips
+    title="Oyun kimler için uygun?"
+    items={['Çocuk psikologları', 'Çocuk ve ergen psikoterapistleri', 'Eğitim ve aile danışma merkezlerindeki uzmanlar', 'Sosyal pediatri merkezleri', 'Çocuk ve ergen psikiyatrisi muayenehaneleri']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Bir oyun turu nasıl işler?',
+        body: 'Bir oyun turu, birbiri üzerine kurulan beş adımdan oluşur. Çocuk duygu çarkını çevirir ve mıknatıs kafasını alır; bu, çocuğun kendiliğinden seçmeyeceği duyguları da oyuna getiren bilinçli bir rastlantı unsurudur. Ardından çocuk bir soru kartı çeker ve duygu hakkında kısaca konuşur. Sonra bir blitz kartı gelir: Çocuğun yalnızca duygunun uyup uymadığını söylediği kısa bir gündelik durum. Dördüncü adımda çocuk, mıknatıs kafasını Yubuu\'yu yüz ifadesi olmadan gösteren bir durum kartının üzerine koyar. Sonunda çocuk, ihtiyaç çemberlerinden bu duyguda kendisine neyin yardımcı olacağını seçer. Bir veya iki çocukla tam bir tur yaklaşık 10 ile 20 dakika sürer.',
+      },
+      {
+        title: 'Bilimsel arka plan',
+        body: 'Yubuu\'nun Duygu Çarkı, gelişim psikolojisi ve duygusal eğitimden birkaç kabul görmüş yaklaşıma dayanır. Durlak ve arkadaşlarının 270.000\'den fazla çocuğu kapsayan meta-analizi, yapılandırılmış sosyal ve duygusal öğrenme programlarının davranış sorunlarını belirgin biçimde azalttığını ve benlik saygısını güçlendirdiğini gösterir. Sinirbilimci Matthew Lieberman, bir duyguyu yalnızca adlandırmanın çocuğun beynini sakinleştirdiğini gösterebildi; duygu çarkındaki her tur tam olarak bunu çalıştırır.',
+        linkHref: `${base}tr/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Bilimsel arka plan hakkında daha fazlası',
+      },
+      {
+        title: 'Psikolojik pratikten sık sorulan sorular',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun, kaygısı veya davranış sorunları olan çocuklar için uygun mu?</strong><br />Evet, oyunla ve dolaylı yaklaşım özellikle doğrudan sorularda zorlanan çocuklara uygundur.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyunu tanılama için kullanabilir miyim?</strong><br />Standart tanı yöntemlerinin yerini almaz, ancak tamamlayıcı olarak değerli, belgelenebilir gözlemler sunar.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun bireysel çalışmada işe yarar mı?</strong><br />Evet, bunun için de geliştirildi. Bir veya iki çocukla bir tur yalnızca 10 ile 20 dakika sürer.</p>
+          <p><strong class="text-[var(--color-ink)]">Bir çocuk cevap vermek istemezse ne olur?</strong><br />Bu açıkça sorun değil. Sessizlik geçerli bir cevaptır, bir performans eksikliği değil.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}tr/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Uygulamanız için bilgi talep edin</a>
+  </div>
+</Base>

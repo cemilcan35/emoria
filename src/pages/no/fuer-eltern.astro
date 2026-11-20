@@ -1,0 +1,104 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="no" title="For foreldre — EMORIA" current="Foreldre"
+  description="Hvordan familier kan ta opp Yubuus følelseshjul hjemme for å komme i samtale med barn om følelser.">
+
+  <AudienceHero
+    eyebrow="✦ For foreldre"
+    title="Barn lærer å regne og lese. Å snakke om følelser lærer de bare hvis noen tar seg tid til det."
+    body="Noen ganger vet ikke et barn selv hva som skjer inni. Det merker bare at noe ikke stemmer. Sinne, tilbaketrekning eller tårer er da ofte den eneste veien barnet kjenner. Barn som tidlig lærer å sette ord på følelsene sine, trenger denne omveien sjeldnere. De kommer bedre gjennom konflikter, føler seg tryggere og kan si hva de trenger. Derfor er emosjonell danning ingen bisak. Den begynner i barnehagen og på skolen, og den virker langt utover barndommen."
+    image="img/needs-circles.jpg"
+    imageAlt="Behovssirkler fra Yubuus følelseshjul"
+  />
+
+  <ClickBoxes
+    title="Hva barnet ditt lærer underveis"
+    items={[
+      { icon: '💬', title: 'Å sette ord på følelser', text: 'Å oppleve en følelse og å kunne uttrykke den er to forskjellige ting. Nettopp her tar spillet fatt.' },
+      { icon: '👀', title: 'Å oppdage andre perspektiver', text: 'Ett barn kjenner sinne, et annet kjenner redsel i den samme situasjonen. Barn opplever at følelser er personlige.' },
+      { icon: '🌱', title: 'Å kjenne igjen behovet bak', text: 'Sinne kan oppstå når et barn ikke føler seg hørt. Barn lærer å se nysgjerrig på det som ligger bak opplevelsen deres.' },
+    ]}
+  />
+
+  <IconRow
+    title="Fra følelse til forståelse"
+    items={[
+      { icon: '🎡', label: 'Oppdag følelsen' },
+      { icon: '💬', label: 'Uttrykk den' },
+      { icon: '🔍', label: 'Forstå situasjonen' },
+      { icon: '👀', label: 'Oppdag et perspektiv' },
+      { icon: '🌱', label: 'Kjenn igjen behovet' },
+    ]}
+  />
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">Det handler ikke om å finne et riktig svar. Det finnes ikke.</p>
+
+  <TwoCol
+    title="Sinne er sjelden det egentlige problemet"
+    body="Når barn ennå ikke kan uttrykke følelsene sine så godt, viser opplevelsen seg gjennom atferden. Atferden ser vi med én gang, følelsen bak ikke alltid. Derfor vil EMORIA endre blikket. Ikke bare spørre: Hva gjør barnet akkurat nå? Men også: Hva kan barnet føle akkurat nå, og hva trenger det kanskje?"
+    image="img/situation-card.jpg"
+    imageAlt="Situasjonskort fra Yubuus følelseshjul"
+  />
+
+  <ColoredBand
+    tone="terracotta"
+    title="Og hva har dette med meg som forelder å gjøre?"
+    body="Kanskje forteller barnet ditt hjemme om Yubuu eller om en følelse. Kanskje ikke. Begge deler er helt i orden. Du trenger ikke spille spillet etter og trenger ingen pedagogisk utdanning. Ofte er det nok å lytte og spørre videre: «Hvordan var det for deg?» Det avgjørende er at barnet ditt merker: Følelsene mine får være der. Jeg blir hørt."
+  />
+
+  <section class="mx-auto max-w-3xl px-6 py-16">
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Små impulser til hjemme</h2>
+    <div class="mt-8 space-y-4">
+      {[
+        { t: 'Å sette ord på følelser', d: '«Du virker skuffet akkurat nå.»' },
+        { t: 'Å spørre i stedet for å gjette', d: '«Har du lyst til å fortelle hva som skjedde?»' },
+        { t: 'Ikke løse med én gang', d: 'Noen ganger trenger et barn først forståelse, ikke et råd.' },
+        { t: 'Å være et forbilde', d: 'Når du setter ord på dine egne følelser, lærer barnet ditt at det er helt normalt.' },
+      ].map((it) => (
+        <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
+          <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
+          <p><strong class="text-[var(--color-ink)]">{it.t}:</strong> <span class="text-[var(--color-ink-soft)]">{it.d}</span></p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
+    <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Et godt spørsmål til neste foreldresamtale</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">«Var det en situasjon i dag som opptok barnet mitt spesielt?»</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Det spørsmålet åpner ofte mer enn «Gikk alt bra?».</p>
+    </div>
+  </section>
+
+  <YubuuQuote quote="Noen ganger begynner de fineste samtalene med ett eneste spørsmål: Hvordan har du det i dag?" image="yubuu-butterfly.png" imageAlt="Yubuu med en sommerfugl" />
+
+  <Accordion
+    items={[
+      {
+        title: 'Slik foregår en spillrunde',
+        body: 'Barnet snurrer på følelseshjulet og setter seg inn i den valgte følelsen. Gjennom spørsmål og hverdagssituasjoner blir den sett nærmere på, trinn for trinn, til spørsmålet til slutt lyder: Hva trenger jeg når jeg har det sånn? En runde varer omtrent 25 til 40 minutter og følges av en pedagogisk fagperson.',
+      },
+      {
+        title: 'Hvorfor emosjonell danning er viktig',
+        body: 'Evnen til å oppfatte og uttrykke egne følelser henger tett sammen med selvoppfatning, empati og oppbyggingen av positive relasjoner. Disse områdene er beskrevet i det vitenskapelige konseptet Social Emotional Learning. EMORIA tar utgangspunkt i dette grunnlaget. For oss er et skille viktig: Forskningen dokumenterer betydningen av sosial og emosjonell læring som helhet, men den konkrete effekten av EMORIA selv må fortsatt undersøkes systematisk.',
+        linkHref: `${base}no/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mer om det vitenskapelige grunnlaget',
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
+    <p class="text-[var(--color-ink-soft)]">Når det oppstår en liten samtale hjemme, har noe viktig allerede skjedd: Et barn forteller, en voksen lytter, og begge prøver å forstå hverandre bedre.</p>
+    <a href={`${base}no/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Spørsmål? Skriv til oss</a>
+  </div>
+</Base>

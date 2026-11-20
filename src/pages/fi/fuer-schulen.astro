@@ -1,0 +1,103 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fi" title="Kouluille — EMORIA" current="Koulu"
+  description="Yubuun tunnepyörä alakoulun arjessa: luokkakokoukseen, koulukuraattorin työhön ja tukitunneille, tieteellisesti perusteltu.">
+
+  <AudienceHero
+    eyebrow="✦ Kouluille"
+    title="Sosiaalinen ja emotionaalinen oppiminen kuuluu jokaiseen luokkaan, ei sivuseikkana vaan tietoisesti."
+    body="Alakoulussa lapset oppivat muutakin kuin matematiikkaa ja äidinkieltä. He oppivat myös solmimaan ystävyyssuhteita, selviämään ristiriidoista ja ottamaan vastuuta itsestään ja toisista. Mutta tunteiden kokeminen ja niiden nimeäminen ovat kaksi eri asiaa. Yubuun tunnepyörä auttaa opettajia ja koulukuraattoreita tarjoamaan lapsille suojatun tilan, jossa he voivat leikkien löytää ja ymmärtää tunnemaailmaansa ja puhua siitä."
+    image="img/wheel-wide.jpg"
+    imageAlt="Yubuun tunnepyörä luokkakokouksessa"
+  />
+
+  <ClickBoxes
+    title="Miksi Yubuun tunnepyörä?"
+    items={[
+      { icon: '🧩', title: 'Joustavasti käytettävissä koulun arjessa', text: 'Olipa kyse luokkakokouksesta, pienryhmästä, koulukuraattorin työstä tai tukitunnista, pelikierros kestää noin 25 ja 40 minuutin välillä ja sen voi ottaa heti käyttöön ilman lisäkoulutusta.' },
+      { icon: '🕊️', title: 'Ristiriitojen ymmärtäminen eskaloitumisen sijaan', text: 'Lapset, jotka ymmärtävät tunteitaan ja tarpeitaan paremmin, löytävät helpommin rakentavia tapoja käsitellä ristiriitoja.' },
+      { icon: '💬', title: 'Näkemyksiä vanhempainkeskusteluihin', text: 'Pelin havainnot osoittavat, mitkä asiat lasta askarruttavat, ja ovat arvokas pohja vanhempainkeskusteluille ja yksilölliselle tuelle.' },
+    ]}
+  />
+
+  <IconRow
+    title="Missä Yubuun tunnepyörää käytetään"
+    items={[
+      { icon: '🗣️', label: 'Luokkakokous' },
+      { icon: '👥', label: 'Pienryhmät' },
+      { icon: '🤝', label: 'Koulukuraattorin työ' },
+      { icon: '📘', label: 'Tukitunnit' },
+      { icon: '🔁', label: 'Sijaistunnit' },
+      { icon: '💛', label: 'Luokan ristiriitojen jälkeen' },
+      { icon: '🌱', label: 'Ennaltaehkäisevät hankkeet' },
+      { icon: '🌍', label: 'Inklusiivinen opetus' },
+    ]}
+  />
+
+  <TwoCol
+    title="Mikä tekee Yubuun tunnepyörästä erityisen?"
+    body="Myös alakoululaiset oppivat pysyvämmin, kun he aktiivisesti tutkivat, kokeilevat ja keskustelevat keskenään. Yubuun tunnepyörä yhdistää leikkivän oppimisen sosiaalisten ja emotionaalisten taitojen vahvistamiseen. Yubuu seuraa prosessia uteliaasti ja arvostavasti. Vastausten antamisen sijaan Yubuu kutsuu lapsia kehittämään omia ajatuksiaan ja tutustumaan erilaisiin näkökulmiin. Seitsemän ja kymmenen vuoden ikäiset alakoululaiset käyvät läpi viisi toisiinsa rakentuvaa vaihetta: he löytävät tunteen, puhuvat siitä, yhdistävät sen arkitilanteisiin ja tunnistavat lopuksi, mikä tarve sen takana on."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Tilannekortti Yubuun tunnepyörästä"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Vahvempi luokkailmapiiri alkaa keskusteluista"
+    body="Hyvä luokkailmapiiri ei synny itsestään. Lasten on opittava kuuntelemaan, ymmärtämään erilaisia näkökulmia ja selvittämään ristiriitoja kunnioittavasti. Yubuun tunnepyörä luo turvallisen kehyksen, jossa juuri näitä taitoja voi harjoitella leikin kautta. Näin vahvistuvat paitsi yksittäiset lapset myös luokkayhteisö. Opettajille ja koulukuraattoreille peli tarjoaa samalla arvokkaita näkemyksiä lasten tunnemaailmaan sekä vankan pohjan vanhempainkeskusteluille ja yksilölliselle tuelle."
+  />
+
+  <YubuuQuote quote="Jokaisessa luokassa jokainen tuntee eri tavalla. Selvitetään yhdessä, miten siitä voi puhua." image="yubuu-crystal.png" imageAlt="Yubuu ja hohtava kristalli" />
+
+  <Chips
+    title="Kenelle peli sopii?"
+    items={['Alakoulun opettajat', 'Koulukuraattorit', 'Erityisopettajat', 'Opinto-ohjaajat', 'Iltapäiväkerhon ohjaajat', 'Luokanvalvojat ja luokanopettajat', 'Inklusiivisen opetuksen ammattilaiset', 'Koulupsykologipalvelut', 'kaikki, jotka työskentelevät alakouluikäisten kanssa']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Näin pelikierros etenee',
+        body: 'Alakoululaiset käyvät läpi viisi vaihetta: tunteen löytäminen, siitä puhuminen, sen yhdistäminen arkitilanteeseen ja lopuksi taustalla olevan tarpeen tunnistaminen. Kierros kestää noin 25 ja 40 minuutin välillä, keskustelun syvyydestä ja ryhmän koosta riippuen pidempäänkin tai lyhyemmänkin. Lopuksi Yubuu käy lyhyen pohdintakeskustelun: Millainen peli oli teille? Kuka haluaa puhua siitä?',
+      },
+      {
+        title: 'Tieteellinen tausta',
+        body: 'Yubuun tunnepyörä perustuu useisiin tunnustettuihin lähestymistapoihin pedagogiikasta ja psykologiasta. Durlakin ym. meta-analyysi yli 270 000 lapsen aineistolla osoittaa, että jäsennelty sosiaalinen ja emotionaalinen oppiminen parantaa koulumenestystä keskimäärin yhdellätoista prosentilla ja vähentää ristiriitoja. Pelin viimeinen vaihe nojaa Marshall B. Rosenbergin väkivallattomaan vuorovaikutukseen, pelin yhteinen oppiminen Lev Vygotskin kehitysteoriaan. Lisäksi affect labeling -tutkimus osoittaa, että jo pelkkä tunteen nimeäminen rauhoittaa aivoja, ja juuri tätä jokainen tunnepyörän kierros harjoittaa.',
+        linkHref: `${base}fi/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Lisää tieteellisestä taustasta',
+      },
+      {
+        title: 'Usein kysyttyä koulusta',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Sopiiko tämä opetussuunnitelmaamme, vai onko se lisätarjonta?</strong><br />Yubuun tunnepyörä ei korvaa mitään opetussuunnitelman sisältöä vaan täydentää sitä. Sen voi liittää luokkakokoukseen, sijaistunteihin tai tukitunteihin ilman, että erillistä opetusaikaa tarvitsee varata.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Toimiiko tämä myös koko luokan kanssa, ei vain pienryhmissä?</strong><br />Peli on alun perin suunniteltu enintään kuuden lapsen pienryhmille. Koko luokan kanssa käytettäessä suosittelemme, että useampi pienryhmä pelaa rinnakkain tai että peliä käytetään vuorotellen luokkakokouksessa.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Voinko käyttää peliä myös luokkakokouksessa?</strong><br />Kyllä. Luokkakokous sopii erityisen hyvin yksittäisten pelivaiheiden tai kokonaisten pelikierrosten läpiviemiseen yhdessä.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Voinko käyttää vain yksittäisiä pelimateriaaleja?</strong><br />Kyllä. Ajasta ja tavoitteesta riippuen tunnepyörää, salamakortteja tai tilannekortteja voi käyttää myös toisistaan riippumatta.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Sopiiko peli myös lapsille, joilla on erityisen tuen tarve?</strong><br />Kyllä. Juuri koska se toimii ilman aikapainetta ja ilman oikeita tai vääriä vastauksia, sitä käytetään usein erityiskoulussa ja yksilöllisessä tuessa.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Onko vaikuttavuudesta tieteellistä näyttöä?</strong><br />Konsepti nojaa tunnustettuun sosiaalisen ja emotionaalisen oppimisen tutkimukseen, muun muassa Durlakin ym. meta-analyysiin yli 270 000 lapsen aineistolla. Yubuun tunnepyörän omat vaikuttavuustutkimukset on suunniteltu pilottivaiheeseen vuodesta 2027 alkaen.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Kuka maksaa kustannukset, onko rahoitusmahdollisuuksia?</strong><br />Moni koulu rahoittaa Yubuun tunnepyörän olemassa olevista materiaalimäärärahoista tai pedagogisista tukivaroista. Kouluille selvitämme parhaillaan sopivia tukiohjelmia.</p>
+          <p><strong class="text-[var(--color-ink)]">Tarvitsenko koulutusta pelin käyttöön?</strong><br />Ei, pelin voi ottaa heti käyttöön ilman lisäkoulutusta. Halutessaan voi lisäksi varata perehdytystyöpajan.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-8 text-center">
+    <p class="font-serif-heading text-xl italic text-[var(--color-ink)] sm:text-2xl">Lapset eivät muista vain sitä, mitä he ovat oppineet, vaan myös sen, miltä heistä tuntui samalla.</p>
+  </div>
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}fi/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Tiedustelu kouluunne</a>
+  </div>
+</Base>

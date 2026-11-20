@@ -1,0 +1,103 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="es" title="Para colegios — EMORIA" current="Colegios"
+  description="La rueda de las emociones de Yubuu en el día a día de primaria: para la asamblea de clase, el trabajo social escolar y las horas de apoyo, con base científica.">
+
+  <AudienceHero
+    eyebrow="✦ Para colegios"
+    title="El aprendizaje social y emocional tiene su sitio en cada clase: no de pasada, sino con intención."
+    body="En primaria los niños no solo aprenden matemáticas y lengua. También aprenden a hacer amistades, a afrontar conflictos y a asumir responsabilidad por sí mismos y por los demás. Pero vivir las emociones y saber ponerles nombre son dos cosas distintas. La rueda de las emociones de Yubuu acompaña al profesorado y al personal de trabajo social escolar para ofrecer a los niños un espacio protegido en el que descubrir, entender y hablar de su mundo emocional con juego."
+    image="img/wheel-wide.jpg"
+    imageAlt="La rueda de las emociones de Yubuu en la asamblea de clase"
+  />
+
+  <ClickBoxes
+    title="¿Por qué la rueda de las emociones de Yubuu?"
+    items={[
+      { icon: '🧩', title: 'Flexible en el día a día escolar', text: 'Ya sea en la asamblea de clase, en un grupo pequeño, en el trabajo social escolar o en una hora de apoyo, una ronda de juego dura unos 25 a 40 minutos y se puede usar enseguida, sin formación adicional.' },
+      { icon: '🕊️', title: 'Entender los conflictos en lugar de dejar que escalen', text: 'Los niños que entienden mejor sus emociones y necesidades encuentran con más facilidad formas constructivas de afrontar los conflictos.' },
+      { icon: '💬', title: 'Información para las conversaciones con las familias', text: 'Las observaciones del juego muestran qué temas ocupan a un niño y son una valiosa base para las conversaciones con las familias y para el apoyo individual.' },
+    ]}
+  />
+
+  <IconRow
+    title="Dónde se usa la rueda de las emociones de Yubuu"
+    items={[
+      { icon: '🗣️', label: 'Asamblea de clase' },
+      { icon: '👥', label: 'Grupos pequeños' },
+      { icon: '🤝', label: 'Trabajo social escolar' },
+      { icon: '📘', label: 'Horas de apoyo' },
+      { icon: '🔁', label: 'Horas de sustitución' },
+      { icon: '💛', label: 'Tras conflictos en la clase' },
+      { icon: '🌱', label: 'Proyectos de prevención' },
+      { icon: '🌍', label: 'Educación inclusiva' },
+    ]}
+  />
+
+  <TwoCol
+    title="¿Qué hace especial la rueda de las emociones de Yubuu?"
+    body="También los niños de primaria aprenden de forma más duradera cuando descubren, prueban y conversan activamente entre sí. La rueda de las emociones de Yubuu une el aprendizaje con juego y el fomento de las competencias sociales y emocionales. Yubuu acompaña este proceso con curiosidad y aprecio. En lugar de dar respuestas, Yubuu invita a los niños a desarrollar sus propias ideas y a conocer perspectivas distintas. Los niños de primaria, de siete a diez años, recorren cinco pasos que se construyen unos sobre otros: descubren una emoción, hablan de ella, la relacionan con situaciones cotidianas y reconocen al final qué necesidad hay detrás."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Tarjeta de situación de la rueda de las emociones de Yubuu"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Un mejor clima de clase empieza con conversaciones"
+    body="Un buen clima de clase no surge solo. Los niños tienen que aprender a escuchar, a entender perspectivas distintas y a resolver los conflictos con respeto. La rueda de las emociones de Yubuu crea un marco seguro en el que se pueden practicar justo estas capacidades con juego. Así no solo se fortalece a cada niño, también la comunidad de la clase se beneficia. Para el profesorado y el personal de trabajo social escolar, el juego ofrece además valiosas visiones del mundo emocional de los niños, una base sólida para las conversaciones con las familias y para el apoyo individual."
+  />
+
+  <YubuuQuote quote="En cada clase cada persona siente algo distinto. Descubramos juntos cómo podemos hablar de ello." image="yubuu-crystal.png" imageAlt="Yubuu con un cristal luminoso" />
+
+  <Chips
+    title="¿Para quién es adecuado el juego?"
+    items={['Profesorado de primaria', 'Trabajadoras y trabajadores sociales escolares', 'Profesorado de educación especial', 'Profesorado de orientación', 'Educadoras y educadores de centros de tiempo libre', 'Tutoras y tutores de clase', 'Pedagogas y pedagogos de educación inclusiva', 'Servicio psicopedagógico escolar', 'todas las personas que trabajan con niños de primaria']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Cómo transcurre una ronda de juego',
+        body: 'Los niños de primaria recorren cinco pasos: descubrir una emoción, hablar de ella, relacionarla con una situación cotidiana y, al final, reconocer la necesidad que hay detrás. Una ronda dura unos 25 a 40 minutos, y más o menos según la profundidad de la conversación y el tamaño del grupo. Al final, Yubuu dirige una breve conversación de reflexión: ¿Qué os ha parecido el juego? ¿Quién quiere hablar de ello?',
+      },
+      {
+        title: 'Trasfondo científico',
+        body: 'La rueda de las emociones de Yubuu se basa en varios enfoques reconocidos de la pedagogía y la psicología. El metaanálisis de Durlak et al., con más de 270.000 niños, muestra que el aprendizaje social y emocional estructurado mejora el rendimiento escolar en un promedio del once por ciento y reduce los conflictos. El último paso del juego se orienta en la comunicación no violenta de Marshall B. Rosenberg, y el aprendizaje conjunto en el juego, en la teoría del desarrollo de Lev Vygotsky. Además, la investigación sobre el Affect Labeling muestra que el mero hecho de nombrar una emoción tiene un efecto calmante en el cerebro, y eso es lo que practica cada ronda con la rueda de las emociones.',
+        linkHref: `${base}es/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Más sobre el trasfondo científico',
+      },
+      {
+        title: 'Preguntas frecuentes del colegio',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Encaja en nuestro currículo o es una oferta adicional?</strong><br />La rueda de las emociones de Yubuu no sustituye ningún contenido curricular, sino que lo complementa. Se puede integrar en la asamblea de clase, en las horas de sustitución o en las horas de apoyo, sin que haga falta reservar tiempo lectivo extra.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Funciona también con una clase entera, no solo en grupos pequeños?</strong><br />El juego está pensado originalmente para grupos pequeños de hasta seis niños. Para usarlo con toda la clase recomendamos que varios grupos pequeños jueguen en paralelo o usar el juego por turnos en la asamblea de clase.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Puedo usar el juego también en la asamblea de clase?</strong><br />Sí. La asamblea de clase es especialmente adecuada para realizar juntos fases sueltas del juego o rondas completas.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Puedo usar solo algunos de los materiales de juego?</strong><br />Sí. Según el tiempo y el objetivo, la rueda de las emociones, las tarjetas relámpago o las tarjetas de situación también se pueden usar por separado.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Es adecuado el juego también para niños con necesidades especiales de apoyo?</strong><br />Sí. Justo porque funciona sin presión de tiempo y sin respuestas correctas o incorrectas, se usa con frecuencia en la educación especial y en el acompañamiento individual.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Hay pruebas científicas de su eficacia?</strong><br />El concepto se apoya en investigación reconocida sobre el aprendizaje social y emocional, entre otras el metaanálisis de Durlak et al., con más de 270.000 niños. Los estudios propios de eficacia sobre la rueda de las emociones de Yubuu están previstos para la fase piloto a partir de 2027.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">¿Quién asume los costes? ¿Hay posibilidades de financiación?</strong><br />Muchos colegios financian la rueda de las emociones de Yubuu con sus presupuestos de material existentes o con fondos de apoyo pedagógico. Para los colegios estamos estudiando actualmente programas de financiación adecuados.</p>
+          <p><strong class="text-[var(--color-ink)]">¿Necesito una formación para usar el juego?</strong><br />No, el juego se puede usar enseguida, sin formación adicional. Quien lo desee puede reservar además un taller de introducción.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-8 text-center">
+    <p class="font-serif-heading text-xl italic text-[var(--color-ink)] sm:text-2xl">Los niños no solo recuerdan lo que han aprendido, sino también cómo se sintieron mientras tanto.</p>
+  </div>
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}es/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Solicitar información para su colegio</a>
+  </div>
+</Base>

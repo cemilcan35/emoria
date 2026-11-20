@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="fi" title="Puheterapialle — EMORIA" current="Puheterapia"
+  description="Yubuun tunnepyörä puheterapiavastaanotolla: tunnesanasto, spontaani puhe ja puheenaiheet, jotka syntyvät itsestään.">
+
+  <AudienceHero
+    eyebrow="✦ Puheterapialle"
+    title="Missä kieli ja tunteet kohtaavat, leikin kautta, jäsennellysti, heti käyttöön otettavissa."
+    body="Monelle lapselle puheterapiassa ei ole vaikeaa vain äänteet ja lauseet, vaan myös se, että tuntemansa saa pukea sanoiksi. Tunnesanasto ja kielellinen sanasto liittyvät läheisesti toisiinsa: Se, jolla ei ole sanaa jollekin tunteelle, ei voi helposti ilmaista sitä, vaikka ääntäminen olisi kuinka hyvä. Yubuun tunnepyörä yhdistää molemmat yhteen lyhyeen harjoitukseen."
+    image="img/hero-logopaedie.jpg"
+    imageAlt="Kysymyskortit Yubuun tunnepyörästä, viuhkaksi levitettyinä"
+  />
+
+  <ClickBoxes
+    title="Miksi Yubuun tunnepyörä?"
+    items={[
+      { icon: '🗣️', title: 'Tunnesanasto todellisena kielivarantona', text: 'Peli harjoittaa kohdennetusti tunnesanoja, yksinkertaisista perustunteista eriytyneempiin käsitteisiin kuten pettymys tai ylpeys. Toisin kuin irralliset sanalistat, nämä käsitteet syntyvät aidossa, lapselle merkityksellisessä yhteydessä, ei ulkoa opeteltuina vaan koettuina.' },
+      { icon: '🧑‍⚕️', title: 'Kehitetty yksilötyöhön', text: 'Yhden tai kahden lapsen kanssa kierros kestää noin 10 ja 20 minuutin välillä, ja sen voi liittää tavalliseen terapiatuokioon ilman valmistelua, itsenäisenä harjoituksena tai johdantona ennen varsinaista kielen tukemista.' },
+      { icon: '🧩', title: 'Puheenaiheet, jotka syntyvät itsestään', text: 'Valmiiden harjoituslauseiden sijaan syntyy aitoja, spontaaneja ilmauksia: Lapsi kuvaa tilannetta, perustelee valintansa ja kertoo omista kokemuksistaan. Juuri tätä spontaania puhetta on usein vaikeampi harjoitella kuin ohjattuja lauseita, ja juuri sitä peli herättää.' },
+    ]}
+  />
+
+  <IconRow
+    title="Näin Yubuun tunnepyörää voi käyttää"
+    items={[
+      { icon: '🗣️', label: 'Kielen tukituokio' },
+      { icon: '🧑‍⚕️', label: 'Yksilöterapia' },
+      { icon: '🔤', label: 'Sanastotyö' },
+      { icon: '💬', label: 'Spontaanin puheen herättely' },
+      { icon: '📈', label: 'Kulun dokumentointi' },
+      { icon: '👪', label: 'Vanhempainkeskustelun valmistelu' },
+    ]}
+  />
+
+  <TwoCol
+    title="Mikä tekee Yubuun tunnepyörästä erityisen?"
+    body="Keskiössä ei ole oikea vastaus vaan yhdessä löytäminen. Yubuu ei arvioi mitään vaan kysyy, ihmettelee ja kuuntelee, mikä poistaa lapsilta suorituspaineen, jonka monet tuntevat jo kielenharjoittelusta. Tunteet eivät jää abstrakteiksi: Tunnepyörää pyöräyttämällä, magneettipäitä asettelemalla sekä salamakorttien, tilannekorttien ja tarvepiirien avulla syntyy konkreettisia puheenaiheita, jotka tuntuvat luonnollisilta eivätkä harjoitelluilta."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Tilannekortti Yubuun tunnepyörästä"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Ikkuna pienten potilaidenne kielelliseen tasoon"
+    body="Puheterapeuteille Yubuun tunnepyörä on enemmän kuin peli, se osoittaa välittömästi, mikä tunnesanasto lapsella jo on ja missä on vielä aukkoja. Osaako lapsi nimetä tunteen itse, vai tarvitseeko hän apua? Käyttääkö hän yksinkertaisia vai jo eriytyneitä käsitteitä? Nämä havainnot voi siirtää suoraan terapian suunnitteluun ja kulun dokumentointiin."
+  />
+
+  <YubuuQuote
+    quote="Hei! En vielä tunne kaikkia tunteiden sanoja, siksi kysyn sinulta. Miksi kutsut sitä, mitä tunnet juuri nyt?"
+    image="yubuu-crystal.png" imageAlt="Yubuu ja hohtava kristalli" />
+
+  <Chips
+    title="Kenelle peli sopii?"
+    items={['Puheterapeutit', 'Kielenkehityksen terapeutit', 'Varhaiskuntoutuksen ammattilaiset', 'Kielipedagogit', 'Kieli-, puhe- ja äänenterapian vastaanotot']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Näin pelikierros etenee',
+        body: 'Pelikierros etenee viidessä toisiinsa rakentuvassa vaiheessa. Lapsi pyöräyttää tunnepyörää ja ottaa magneettipäänsä, tietoisen satunnaisuuden, joka tuo peliin myös tunteita, joita lapsi ei olisi itse valinnut. Sen jälkeen hän nostaa kysymyskortin ja kertoo lyhyesti tunteesta. Seuraavaksi tulee salamakortti: lyhyt arkitilanne, jossa lapsi vain sanoo, sopiiko tunne siihen vai ei. Neljännessä vaiheessa lapsi asettaa magneettipäänsä tilannekortille, jossa Yubuulla ei ole kasvonilmettä. Lopuksi hän valitsee tarvepiireistä, mikä auttaisi hänelle tässä tunteessa. Yhden tai kahden lapsen kanssa täysi kierros kestää noin 10 ja 20 minuutin välillä.',
+      },
+      {
+        title: 'Tieteellinen tausta',
+        body: 'Yubuun tunnepyörä perustuu useisiin tunnustettuihin lähestymistapoihin kehityspsykologiasta ja tunnekasvatuksesta. Durlakin ym. meta-analyysi yli 270 000 lapsen aineistolla osoittaa, että jäsennellyt sosiaalisen ja emotionaalisen oppimisen ohjelmat vähentävät selvästi käytösongelmia ja vahvistavat itsetuntoa. Lisäksi kehollisen oppimisen (embodied learning) tutkimus osoittaa, että lapset oppivat syvemmin, kun he toimivat kehollaan pelkän kuuntelun sijaan, siksi pelimateriaali on tarkoituksella fyysinen.',
+        linkHref: `${base}fi/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Lisää tieteellisestä taustasta',
+      },
+      {
+        title: 'Usein kysyttyä puheterapiavastaanotolta',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Sopiiko peli lapsille, joilla on kielellinen erityisvaikeus?</strong><br />Kyllä, juuri näille lapsille leikinomainen, paineeton lähestymistapa on erityisen arvokas. Fyysiset elementit mahdollistavat ilmaisun, vaikka sopivia sanoja ei vielä olisikaan.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Korvaako peli kohdennetun sanastoharjoittelun?</strong><br />Ei, se täydentää sitä. Irrallisten harjoitusten sijaan tunnesanat syntyvät aidossa, merkityksellisessä yhteydessä.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Toimiiko peli yksilötyössä?</strong><br />Kyllä, se on kehitetty myös sitä varten. Yhden tai kahden lapsen kanssa kierros kestää vain 10 ja 20 minuutin välillä.</p>
+          <p><strong class="text-[var(--color-ink)]">Tarvitsenko koulutusta?</strong><br />Ei, pelin voi ottaa heti käyttöön ilman lisäkoulutusta.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}fi/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Tiedustelu vastaanotollenne</a>
+  </div>
+</Base>

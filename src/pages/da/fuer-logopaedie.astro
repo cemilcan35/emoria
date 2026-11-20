@@ -1,0 +1,95 @@
+---
+import '@fontsource-variable/fraunces';
+import Base from '../../layouts/Base.astro';
+import AudienceHero from '../../components/audience/AudienceHero.astro';
+import ClickBoxes from '../../components/audience/ClickBoxes.astro';
+import IconRow from '../../components/audience/IconRow.astro';
+import TwoCol from '../../components/audience/TwoCol.astro';
+import ColoredBand from '../../components/audience/ColoredBand.astro';
+import YubuuQuote from '../../components/audience/YubuuQuote.astro';
+import Chips from '../../components/audience/Chips.astro';
+import Accordion from '../../components/audience/Accordion.astro';
+const base = import.meta.env.BASE_URL;
+---
+<Base lang="da" title="Til logopædi — EMORIA" current="Logopædi"
+  description="Yubuus følelseshjul i logopædisk praksis: følelsesordforråd, spontant sprog og anledninger til at tale, der opstår af sig selv.">
+
+  <AudienceHero
+    eyebrow="✦ Til logopædi"
+    title="Hvor sprog og følelser mødes, legende, struktureret og straks klar til brug."
+    body="Mange børn i logopædisk praksis har ikke kun svært ved lyde og sætninger, men også ved at sætte ord på, hvad de føler. Følelsesmæssigt og sprogligt ordforråd hænger tæt sammen: Den, der ikke har et ord for en følelse, har svært ved at udtrykke den, uanset hvor god artikulationen er. Yubuus følelseshjul forener begge dele i én kort øvelse."
+    image="img/hero-logopaedie.jpg"
+    imageAlt="Spørgekort fra Yubuus følelseshjul, bredt ud som en vifte"
+  />
+
+  <ClickBoxes
+    title="Hvorfor Yubuus følelseshjul?"
+    items={[
+      { icon: '🗣️', title: 'Følelsesordforråd som ægte sprogskat', text: 'Spillet øver målrettet følelsesord, fra enkle grundfølelser til mere nuancerede begreber som skuffelse eller stolthed. I modsætning til isolerede ordlister opstår disse begreber i en ægte sammenhæng, der er meningsfuld for barnet, ikke udenadslært, men oplevet.' },
+      { icon: '🧑‍⚕️', title: 'Udviklet til en til en', text: 'Med et eller to børn varer en runde omkring 10 til 20 minutter og kan indgå i en almindelig terapisession uden forberedelse, som en selvstændig øvelse eller som indledning før selve sprogstøtten.' },
+      { icon: '🧩', title: 'Anledninger til at tale, der opstår af sig selv', text: 'I stedet for foreskrevne øvelsessætninger opstår ægte, spontane ytringer: Barnet beskriver en situation, begrunder sit valg og fortæller om egne oplevelser. Netop dette spontane sprog er ofte sværere at øve end styrede sætninger, og netop det sætter spillet i gang.' },
+    ]}
+  />
+
+  <IconRow
+    title="Sådan kan Yubuus følelseshjul bruges"
+    items={[
+      { icon: '🗣️', label: 'Sprogstøttetime' },
+      { icon: '🧑‍⚕️', label: 'Individuel terapi' },
+      { icon: '🔤', label: 'Ordforrådsarbejde' },
+      { icon: '💬', label: 'Fremme spontant sprog' },
+      { icon: '📈', label: 'Dokumentation af forløb' },
+      { icon: '👪', label: 'Forberede en forældresamtale' },
+    ]}
+  />
+
+  <TwoCol
+    title="Hvad gør Yubuus følelseshjul særligt?"
+    body="I centrum står ikke det rigtige svar, men at opdage sammen. Yubuu vurderer ingenting, men spørger, undrer sig og lytter, og det tager præstationspresset fra børnene, som mange allerede kender fra sprogtræning. Følelser forbliver ikke abstrakte: Når man drejer på følelseshjulet, placerer magnethovederne og bruger lynkortene, situationskortene og behovscirklerne, opstår der konkrete anledninger til at tale, som føles naturlige i stedet for indøvede."
+    image="img/rocket-puzzle-card.jpg"
+    imageAlt="Situationskort fra Yubuus følelseshjul"
+  />
+
+  <ColoredBand
+    tone="petrol"
+    title="Et vindue ind til sprogniveauet hos dine små patienter"
+    body="For logopæder er Yubuus følelseshjul mere end et spil, det viser straks, hvilket følelsesordforråd et barn allerede har, og hvor der stadig er huller. Kan barnet selv benævne en følelse, eller har det brug for hjælp? Bruger det enkle eller allerede nuancerede begreber? Disse observationer kan overføres direkte til terapiplanlægning og dokumentation af forløbet."
+  />
+
+  <YubuuQuote
+    quote="Hej! Jeg kender ikke alle ord for følelser endnu, så jeg spørger dig. Hvad kalder du det, du føler lige nu?"
+    image="yubuu-crystal.png" imageAlt="Yubuu med en lysende krystal" />
+
+  <Chips
+    title="Hvem er spillet egnet til?"
+    items={['Logopæder', 'Sprogterapeuter', 'Fagpersoner i tidlig indsats', 'Sprogpædagoger', 'Praksis for sprog-, tale- og stemmeterapi']}
+  />
+
+  <Accordion
+    items={[
+      {
+        title: 'Sådan foregår en spillerunde',
+        body: 'En spillerunde følger fem trin, der bygger på hinanden. Barnet drejer på følelseshjulet og tager sit magnethoved, en bevidst tilfældighed, der også bringer følelser ind i spillet, som barnet ikke selv ville have valgt. Derefter trækker barnet et spørgekort og fortæller kort om følelsen. Så følger et lynkort: en kort hverdagssituation, hvor barnet blot siger, om følelsen passer eller ikke. I det fjerde trin lægger barnet sit magnethoved på et situationskort, som viser Yubuu uden ansigtsudtryk. Til sidst vælger barnet i behovscirklerne, hvad der ville hjælpe med den følelse. Med et eller to børn varer en hel runde omkring 10 til 20 minutter.',
+      },
+      {
+        title: 'Videnskabeligt grundlag',
+        body: 'Yubuus følelseshjul bygger på flere anerkendte tilgange fra udviklingspsykologi og følelsesmæssig dannelse. Metaanalysen af Durlak et al. med over 270.000 børn viser, at strukturerede programmer for social og følelsesmæssig læring tydeligt reducerer adfærdsproblemer og styrker selvværdet. Forskningen i embodied learning viser desuden, at børn lærer dybere, når de handler med kroppen i stedet for kun at lytte, derfor er spillematerialet bevidst fysisk.',
+        linkHref: `${base}da/wissenschaftlicher-hintergrund`,
+        linkLabel: 'Mere om det videnskabelige grundlag',
+      },
+      {
+        title: 'Ofte stillede spørgsmål fra logopædisk praksis',
+        body: `
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Egner spillet sig til børn med sprogudviklingsforstyrrelser?</strong><br />Ja, netop for disse børn er den legende, presfri adgang særligt værdifuld. De fysiske elementer giver mulighed for udtryk, også når de rigtige ord endnu mangler.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Erstatter spillet målrettet ordforrådstræning?</strong><br />Nej, det supplerer den. I stedet for isolerede øvelser opstår følelsesord i en ægte, meningsfuld sammenhæng.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Fungerer spillet en til en?</strong><br />Ja, det er blevet udviklet med netop det for øje. Med et eller to børn varer en runde kun 10 til 20 minutter.</p>
+          <p><strong class="text-[var(--color-ink)]">Har jeg brug for et kursus?</strong><br />Nej, spillet kan bruges med det samme uden ekstra uddannelse.</p>
+        `,
+      },
+    ]}
+  />
+
+  <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
+    <a href={`${base}da/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Forespørg for din praksis</a>
+  </div>
+</Base>
