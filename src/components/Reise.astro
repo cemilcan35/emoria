@@ -7,6 +7,23 @@ const { lang = 'de' } = Astro.props;
 const T = getReise(lang);
 const base = import.meta.env.BASE_URL;
 const prefix = lang === 'de' ? base : `${base}${lang}/`;
+
+// Sterne: feste Zufallswerte, damit jede Sprache und jeder Build gleich aussieht.
+let seed = 11;
+const rnd = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+const COLORS = ['#e8a317', '#e8a317', '#e8a317', '#f0b43a', '#ff7673', '#a58ae6', '#02ae90'];
+const STAR_COUNT = 62;
+const stars = Array.from({ length: STAR_COUNT }, (_, i) => {
+  const header = i >= 54; // ein paar Sterne um die Überschrift
+  const x = header ? (i % 2 === 0 ? 17 + rnd() * 12 : 71 + rnd() * 12) : (i % 2 === 0 ? 4 + rnd() * 12 : 84 + rnd() * 12);
+  const y = header ? 1.5 + rnd() * 5.5 : 1.5 + ((i + rnd() * 0.8) / 54) * 96;
+  const sparkle = rnd() < 0.34;
+  const size = sparkle ? 12 + rnd() * 8 : 4 + rnd() * 5;
+  return {
+    style: `top:${y.toFixed(1)}%;left:${x.toFixed(1)}%;--s:${size.toFixed(1)}px;--c:${COLORS[Math.floor(rnd() * COLORS.length)]};--dur:${(6 + rnd() * 7).toFixed(1)}s;--del:-${(rnd() * 12).toFixed(1)}s`,
+    cls: `tw${sparkle ? ' sp' : ''}${i % 4 === 0 && !header ? ' ph' : ''}`,
+  };
+});
 ---
 <Base lang={T.lang} title={T.metaTitle}
   description={T.metaDesc}>
@@ -16,14 +33,22 @@ const prefix = lang === 'de' ? base : `${base}${lang}/`;
 
   <div class="story v-a">
     <div class="cosmos" aria-hidden="true">
+      {stars.map((st) => <span class={st.cls} style={st.style}></span>)}
+      <span class="galaxy g1"></span>
+      <span class="galaxy g2"></span>
+      <span class="galaxy g3"></span>
+      <span class="galaxy g4"></span>
+      <span class="galaxy g5"></span>
       <span class="sun"></span>
+      <span class="planet p-venus"></span>
+      <span class="planet p-merkur"></span>
       <span class="planet p-saturn"><b class="r-back"></b><b class="body"></b><b class="r-front"></b></span>
+      <span class="planet p-uranus"></span>
       <span class="planet p-jupiter"></span>
       <span class="planet p-mars"></span>
       <span class="planet p-neptun"></span>
-      <span class="galaxy g1"></span>
-      <span class="galaxy g2"></span>
-      <span class="tw t1"></span><span class="tw t2"></span><span class="tw t3"></span><span class="tw t4"></span><span class="tw t5"></span><span class="tw t6"></span>
+      <span class="planet p-erde"></span>
+      <span class="planet p-mond"></span>
     </div>
 
     <header class="reise-intro">
@@ -174,16 +199,70 @@ const prefix = lang === 'de' ? base : `${base}${lang}/`;
     -webkit-mask-image: radial-gradient(circle, #000 28%, transparent 72%); mask-image: radial-gradient(circle, #000 28%, transparent 72%);
     animation: galaxySpin 60s linear infinite, glowHue 20s ease-in-out infinite; }
   .g1 { top: 38%; right: 9%; }
-  .g2 { top: 86%; left: 5%; width: 80px; height: 80px; animation-duration: 75s, 26s; animation-direction: reverse, normal; }
-  .tw { width: 6px; height: 6px; border-radius: 50%; background: radial-gradient(circle, #ea9f0e, transparent 70%); animation: twinkle 5s ease-in-out infinite; }
-  .t1 { top: 16%; left: 6%; } .t2 { top: 30%; right: 16%; animation-delay: -1.5s; } .t3 { top: 44%; left: 9%; animation-delay: -3s; }
-  .t4 { top: 62%; right: 13%; animation-delay: -2s; } .t5 { top: 80%; left: 12%; animation-delay: -4s; } .t6 { top: 92%; right: 20%; animation-delay: -.8s; }
+  .g2 { top: 73%; left: 6%; width: 80px; height: 80px; animation-duration: 75s, 26s; animation-direction: reverse, normal; }
+  /* weitere Planeten unseres Sonnensystems */
+  .p-venus { top: 12%; left: 2.4%; width: 46px; height: 46px; --halo: 255, 214, 140; animation-delay: -4s;
+    background:
+      radial-gradient(ellipse 70% 14% at 46% 30%, rgba(255,255,255,.34), transparent 100%),
+      radial-gradient(ellipse 60% 12% at 54% 52%, rgba(255,236,190,.4), transparent 100%),
+      radial-gradient(ellipse 66% 13% at 44% 72%, rgba(190,130,60,.32), transparent 100%),
+      radial-gradient(circle at 40% 38%, #f6dca4, #dcae63 68%, #b88540); }
+  .p-merkur { top: 34%; left: 3.4%; width: 24px; height: 24px; --halo: 200, 190, 180; animation-delay: -7s;
+    background:
+      radial-gradient(circle 3px at 34% 40%, rgba(70,62,56,.5), transparent 100%),
+      radial-gradient(circle 4px at 62% 58%, rgba(70,62,56,.45), transparent 100%),
+      radial-gradient(circle 2px at 52% 26%, rgba(70,62,56,.4), transparent 100%),
+      radial-gradient(circle at 36% 32%, #d4cdc5, #9f968e 64%, #6f6862); }
+  .p-uranus { top: 54%; right: 3.2%; width: 44px; height: 44px; --halo: 150, 225, 230; animation-delay: -9s;
+    background:
+      radial-gradient(ellipse 30% 5% at 48% 44%, rgba(255,255,255,.4), transparent 100%),
+      radial-gradient(circle at 36% 30%, #dcf7f5, #94d9de 56%, #5db3c3); }
+  .p-uranus::after { content: ''; position: absolute; left: -32%; top: 36%; width: 164%; height: 28%; border-radius: 50%; z-index: 4;
+    border: 2px solid rgba(214,240,246,.6); transform: rotate(-76deg); }
+  .p-erde { top: 93%; right: 4.5%; width: 58px; height: 58px; --halo: 140, 190, 255; animation-delay: -3s;
+    background:
+      radial-gradient(ellipse 36% 5% at 44% 28%, rgba(255,255,255,.75), transparent 100%),
+      radial-gradient(ellipse 30% 5% at 60% 66%, rgba(255,255,255,.6), transparent 100%),
+      radial-gradient(ellipse 22% 28% at 34% 42%, #58b06a 0, #3f9457 70%, transparent 100%),
+      radial-gradient(ellipse 16% 20% at 66% 62%, #6bbd72 0, #479b59 70%, transparent 100%),
+      radial-gradient(circle at 40% 36%, #5aa0ee, #2e66c8 66%, #1d4994); }
+  .p-mond { top: 91.6%; right: 11%; width: 15px; height: 15px; --halo: 220, 220, 220; animation-delay: -6s;
+    background:
+      radial-gradient(circle 2px at 36% 40%, rgba(80,80,80,.45), transparent 100%),
+      radial-gradient(circle 2.5px at 62% 60%, rgba(80,80,80,.4), transparent 100%),
+      radial-gradient(circle at 36% 32%, #efede8, #b9b6b0 66%, #868480); }
+  .p-mond::before { box-shadow: inset -3px -3px 6px rgba(0,0,0,.4); }
+
+  /* weitere Galaxien und ein Nebel */
+  .g3 { top: 22%; left: 4%; width: 130px; height: 46px; border-radius: 50%; opacity: .8; transform: rotate(-24deg);
+    background: radial-gradient(ellipse at center, #fff6d6 0 6%, rgba(255,222,150,.7) 14%, rgba(255,179,175,.4) 38%, transparent 72%);
+    -webkit-mask-image: none; mask-image: none; animation: galaxyGlow 13s ease-in-out infinite; }
+  .g3::after { content: ''; position: absolute; left: 8%; right: 8%; top: 44%; height: 14%; border-radius: 50%;
+    background: linear-gradient(90deg, transparent, rgba(110,80,60,.28), transparent); }
+  .g4 { top: 58%; left: 4%; width: 118px; height: 118px; border-radius: 50%; opacity: .7;
+    background:
+      radial-gradient(circle at 34% 40%, rgba(190,170,240,.85), transparent 52%),
+      radial-gradient(circle at 66% 36%, rgba(255,179,175,.7), transparent 50%),
+      radial-gradient(circle at 54% 70%, rgba(143,200,182,.7), transparent 52%);
+    -webkit-mask-image: radial-gradient(circle, #000 20%, transparent 70%); mask-image: radial-gradient(circle, #000 20%, transparent 70%);
+    animation: nebulaDrift 28s ease-in-out infinite, glowHue 24s ease-in-out infinite; }
+  .g5 { top: 79%; right: 9%; width: 70px; height: 70px; animation-duration: 90s, 30s;
+    background: radial-gradient(circle, #fffbe6 0 8%, transparent 24%),
+      conic-gradient(from 90deg, rgba(255,179,175,0), rgba(255,179,175,.8), rgba(190,170,240,0), rgba(255,214,140,.75), rgba(255,179,175,0)); }
+
+  /* Sterne: gehen langsam an und wieder aus */
+  .tw { width: var(--s, 5px); height: var(--s, 5px); border-radius: 50%; background: var(--c, #e8a317); opacity: .5;
+    box-shadow: 0 0 calc(var(--s, 5px) * 2) calc(var(--s, 5px) * .35) var(--c, #e8a317);
+    animation: starFade var(--dur, 8s) ease-in-out var(--del, 0s) infinite; }
+  .tw.sp { border-radius: 0; box-shadow: none; clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%); }
   @keyframes sunPulse { 0%, 100% { transform: scale(1); box-shadow: 0 0 44px 14px rgba(255,200,90,.5), 0 0 110px 40px rgba(255,190,90,.25); }
     50% { transform: scale(1.06); box-shadow: 0 0 58px 20px rgba(255,170,90,.55), 0 0 130px 50px rgba(255,150,100,.28); } }
   @keyframes haloBreath { 0%, 100% { box-shadow: 0 0 20px 3px rgba(var(--halo), .28); } 50% { box-shadow: 0 0 34px 9px rgba(var(--halo), .5); } }
   @keyframes glowHue { 0%, 100% { filter: hue-rotate(0deg); } 50% { filter: hue-rotate(50deg); } }
   @keyframes galaxySpin { to { transform: rotate(360deg); } }
-  @keyframes twinkle { 0%, 100% { opacity: .25; transform: scale(.7); } 50% { opacity: 1; transform: scale(1.4); } }
+  @keyframes starFade { 0%, 100% { opacity: .04; transform: scale(.55); } 50% { opacity: 1; transform: scale(1.15); } }
+  @keyframes galaxyGlow { 0%, 100% { opacity: .55; filter: hue-rotate(0deg); } 50% { opacity: .9; filter: hue-rotate(40deg); } }
+  @keyframes nebulaDrift { 0%, 100% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.08) rotate(14deg); } }
 
 
   @media (max-width: 800px) {
@@ -203,7 +282,11 @@ const prefix = lang === 'de' ? base : `${base}${lang}/`;
     .sun { top: 150px; right: -18px; width: 72px; height: 72px; opacity: .85; }
     .planet.p-saturn { top: 25%; right: -6px; width: 34px; height: 34px; opacity: .7; }
     .p-jupiter { top: 74%; right: -14px; width: 56px; height: 56px; opacity: .7; }
-    .cosmos .p-mars, .cosmos .p-neptun, .cosmos .g2, .cosmos .t3, .cosmos .t5 { display: none; }
+    .p-venus { top: 14%; left: -10px; width: 32px; height: 32px; opacity: .75; }
+    .p-erde { top: 95%; right: -10px; width: 40px; height: 40px; opacity: .8; }
+    .cosmos .p-mars, .cosmos .p-neptun, .cosmos .p-merkur, .cosmos .p-uranus, .cosmos .p-mond,
+    .cosmos .g2, .cosmos .g3, .cosmos .g4, .cosmos .g5, .cosmos .tw:not(.ph) { display: none; }
+    .cosmos .tw.ph { margin-left: -5%; opacity: .55; }
     .g1 { top: 46%; right: -14px; width: 64px; height: 64px; opacity: .5; }
   }
   @media (max-width: 640px) {
