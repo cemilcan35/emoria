@@ -12,85 +12,83 @@ import Accordion from '../../components/audience/Accordion.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Base lang="en" title="For Kindergartens — EMORIA" current="Kindergarten"
-  description="Yubuu's Feeling Wheel in everyday Kita life: easy to use, evidence-based, built for educators.">
+  description="Yubuu's Feeling Wheel in everyday kindergarten life: easy to use, grounded in research, made for early years educators.">
 
   <AudienceHero
     eyebrow="✦ For Kindergartens"
-    title="Discover feelings together — playful, part of everyday life, with no big preparation needed."
-    body="Children experience countless feelings every day: joy while playing, anger after an argument, pride in an achievement, or sadness when saying goodbye to their parents. But many children can't yet put into words what's going on inside them. Yubuu's Feeling Wheel helps educators guide children through these moments playfully, in a safe space, with no pressure to perform and no right or wrong answers."
+    title="Discover feelings together: playful, close to daily life and with hardly any preparation."
+    body="Every day, children go through countless feelings: joy while playing, anger after an argument, pride in something they have achieved, sadness at saying goodbye to their parents. But many children can't yet put into words what is happening inside them. Yubuu's Feeling Wheel helps educators guide children through these moments in a playful way, in a safe space, without pressure to perform and without right or wrong answers."
     image="img/wheel-hero.jpg"
-    imageAlt="Yubuu's Feeling Wheel in everyday Kita life"
+    imageAlt="Yubuu's Feeling Wheel in everyday kindergarten life"
   />
 
   <ClickBoxes
     title="Why Yubuu's Feeling Wheel?"
     items={[
-      { icon: '🧩', title: 'Easy to use in everyday Kita life', text: 'The game was designed specifically for everyday educational practice. It can be used in small groups or one-on-one without elaborate preparation, and flexibly adapted to age, group size and situation.' },
-      { icon: '💛', title: 'Builds emotional skills through play', text: 'Children learn to notice, name and understand feelings. At the same time, they discover that different people can experience the same situation very differently. This naturally fosters empathy, perspective-taking and language development.' },
-      { icon: '🤝', title: 'Bridges to parents', text: 'The game opens up valuable conversation starters that keep working long after the round is over. Observations from the game can be picked up in parent conversations, helping to support the child\'s emotional development together.' },
+      { icon: '🧩', title: 'Fits easily into the kindergarten day', text: 'The game was made for daily practice in early years settings. It needs little preparation, works in small groups or one to one, and adapts flexibly to age, group size and situation.' },
+      { icon: '💛', title: 'Building emotional skills through play', text: 'Children learn to notice, name and understand feelings. At the same time, they find out that different people can experience the same situation in very different ways. This naturally supports empathy, seeing things from another\'s point of view, and language development.' },
+      { icon: '🤝', title: 'Supporting children together with parents', text: 'The game gives you valuable things to talk about, long after the round is over. What you notice while playing can be picked up in parent conversations, so that you can support a child\'s emotional development together.' },
     ]}
   />
 
   <IconRow
-    title="How Yubuu's Feeling Wheel can be used"
+    title="Ways to use Yubuu's Feeling Wheel"
     items={[
       { icon: '🌅', label: 'Morning circle' },
       { icon: '👥', label: 'Small groups' },
-      { icon: '🧑‍🤝‍🧑', label: 'One-on-one support' },
-      { icon: '🎒', label: 'Preschool groups' },
-      { icon: '💬', label: 'Conflict conversations' },
-      { icon: '🌱', label: 'Emotional education projects' },
-      { icon: '🕊️', label: 'A calm prompt after a difficult moment' },
+      { icon: '🧑‍🤝‍🧑', label: 'One-to-one support' },
+      { icon: '🎒', label: 'Pre-school groups' },
+      { icon: '💬', label: 'Conversations after conflicts' },
+      { icon: '🌱', label: 'Projects on emotional learning' },
+      { icon: '🕊️', label: 'A calm way to talk after difficult moments' },
     ]}
   />
 
   <TwoCol
     title="What makes Yubuu's Feeling Wheel special?"
-    body="The focus isn't on finding the right answer, but on discovering together. Yubuu never judges an answer. Instead, Yubuu asks curious questions, listens closely, and invites children to get to know their own inner world of feelings. This creates an atmosphere where children feel taken seriously and can build trust. What makes it special: feelings never stay abstract. Spinning the wheel, matching the magnetic heads, the flash cards, the situation cards and the needs circles make feelings visible, tangible and understandable."
+    body="At the centre is not the right result but discovering together. Yubuu doesn't judge any answer. Instead, Yubuu asks curious questions, listens closely and invites children to get to know their own feelings. This creates an atmosphere where children feel taken seriously and can build trust. And feelings don't stay abstract: by spinning the Feeling Wheel, matching the magnetic heads, and working with the flash cards, situation cards and needs circles, children can see, touch and understand them."
     image="img/flash-card.jpg"
-    imageAlt="A flash card from Yubuu's Feeling Wheel"
+    imageAlt="Flash card from Yubuu's Feeling Wheel"
   />
 
   <ColoredBand
     tone="petrol"
-    title="A window into children's inner world"
-    body="For educators, Yubuu's Feeling Wheel is more than a game, it's also an observation tool. During play, it becomes visible which feelings currently occupy a child, how they interpret situations, and where there might be a need to talk. These observations help support each child more individually and sharpen your own educational work."
+    title="A window into children's feelings"
+    body="For educators, Yubuu's Feeling Wheel is more than a game. It is also a way of observing. While children play, you can see which feelings are on a child's mind, how they read different situations and where they might need a conversation. These observations help you support each child more individually and focus your own work more precisely."
   />
 
-  <YubuuQuote quote="Hello! I'm so glad you're here. Together we'll discover feelings, with no right or wrong. I listen, I ask questions, and I learn something new every day. Will you come along on our journey of discovery?" image="yubuu-vine.png" imageAlt="Yubuu entdeckt eine Pflanze" />
+  <YubuuQuote quote="Hello! I'm so glad you're here. Together we'll discover feelings, with no right or wrong. I listen, I ask questions, and I learn something new every day. Will you join us on our journey of discovery?" image="yubuu-vine.png" imageAlt="Yubuu discovers a plant" />
 
   <Chips
     title="Who is the game for?"
-    items={['Early-years educators', 'Integration/inclusion educators', 'Special-needs educators', 'Speech and language support staff', 'Kita directors', 'Preschool groups', 'Family centres']}
+    items={['Early years educators', 'Inclusion educators', 'Special needs educators', 'Language support staff', 'Kindergarten managers', 'Pre-school groups', 'Family centres']}
   />
 
   <Accordion
     items={[
       {
         title: 'How a round of the game works',
-        body: 'A round follows five steps that build on one another. First, the child spins the Feeling Wheel and takes its magnetic head, a deliberate element of chance that also brings feelings into play that the child wouldn\'t have chosen spontaneously. Next, the child draws a question card and talks briefly about the feeling. Then comes a flash card: a short everyday situation where the child simply says whether the feeling fits or not. In the fourth step, the child places their magnetic head on a situation card that shows Yubuu with no facial expression. Finally, the child chooses from the needs circles what would help them with this feeling. A full round takes about 25 to 40 minutes, depending on the group and depth of conversation, sometimes longer. At the end, Yubuu leads a short reflection: How do you feel now? Did you enjoy the game?',
+        body: 'A round follows five steps that build on one another. First, the child spins the Feeling Wheel and takes the magnetic head it lands on. This is a deliberate element of chance, and it brings in feelings the child might not have chosen. Next, the child draws a question card and says a few words about the feeling. Then comes a flash card: a short everyday situation where the child simply says whether the feeling fits or not. In the fourth step, the child places their magnetic head on a situation card that shows Yubuu with a blank face. Finally, the child picks from the needs circles what would help with this feeling. A full round takes about 25 to 40 minutes, sometimes longer, depending on the group and how deep the conversation goes. At the end, Yubuu leads a short reflection: how are you feeling now? Did you enjoy the game?',
       },
       {
-        title: 'Scientific background',
-        body: 'Yubuu\'s Feeling Wheel is built on several recognised approaches from developmental psychology and emotional education. The meta-analysis by Durlak et al., covering over 270,000 children, shows that structured social and emotional learning programmes significantly reduce behavioural problems and strengthen self-esteem. Neuroscientist Matthew Lieberman has shown that simply naming a feeling has a calming effect on a child\'s brain, exactly what every round of the wheel practises. Research on embodied learning also shows that children learn more deeply when they act physically rather than just listen, which is why the game material is deliberately designed to be physical.',
+        title: 'The science behind it',
+        body: 'Yubuu\'s Feeling Wheel draws on several well-established approaches from developmental psychology and emotional learning. A meta-analysis by Durlak et al., covering more than 270,000 children, shows that structured social and emotional learning programmes clearly reduce behavioural difficulties and strengthen self-esteem. Neuroscientist Matthew Lieberman showed that simply naming a feeling has a calming effect on a child\'s brain, which is exactly what every round with the Feeling Wheel practises. Research on embodied learning also shows that children learn more deeply when they do things with their bodies instead of just listening, which is why the game material is deliberately hands-on.',
         linkHref: `${base}en/wissenschaftlicher-hintergrund`,
-        linkLabel: 'More on the scientific background',
+        linkLabel: 'Read more about the science',
       },
       {
-        title: 'Frequently asked questions from Kitas',
+        title: 'Common questions from kindergartens',
         body: `
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">How long does a round take?</strong><br />About 25 to 40 minutes, depending on group size and depth of conversation. Shorter variants using only individual components are also possible.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Do I need training to use the game?</strong><br />No. The game is designed to be usable right away, with no extra training. An introduction is helpful, but not required.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">What age is the game suitable for?</strong><br />For children aged four to six, with its own flow for younger and older children within that range.</p>
-          <p><strong class="text-[var(--color-ink)]">Can I use only parts of the game?</strong><br />Yes. The Feeling Wheel and the flash cards work well on their own too, for example when only a little time is available.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">How long does a round take?</strong><br />About 25 to 40 minutes, depending on group size and how deep the conversation goes. Shorter versions using only some of the components are also possible.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Do I need training to use the game?</strong><br />No. The game is designed so that you can start right away, without any extra training. An introduction helps, but you don't need one.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">What age is the game suitable for?</strong><br />Children aged four to six, with one version for younger and one for older children within that range.</p>
+          <p><strong class="text-[var(--color-ink)]">Can I use just some parts of the game?</strong><br />Yes. The Feeling Wheel and the flash cards also work on their own, for example when time is short.</p>
         `,
       },
     ]}
   />
 
   <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
-    <a href={`${base}en/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
-      Get in touch for your Kita
-    </a>
+    <a href={`${base}en/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Enquire for your kindergarten</a>
   </div>
 </Base>

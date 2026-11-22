@@ -4,17 +4,14 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <Base lang="en" title="Contact — EMORIA" current="Contact"
-  description="Interested in bringing EMORIA to your kindergarten, or want to follow along? Get in touch with Cemil.">
+  description="Would you like to bring EMORIA to your kindergarten, or just stay in the loop? Write to Cemil.">
   <article class="bg-[var(--color-cream)]">
     <div class="relative mx-auto max-w-2xl px-6 pb-10 pt-36 text-center">
       <img src={`${base}img/yubuu-wink-grass.png`} alt="Yubuu waving" loading="lazy"
         class="pointer-events-none absolute left-full top-10 ml-6 hidden h-40 w-auto drop-shadow-[0_16px_26px_rgba(43,42,40,0.16)] xl:block" />
       <p class="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--color-brand)]">✦ Contact</p>
       <h1 class="mt-3 text-4xl sm:text-6xl">Say hello.</h1>
-      <p class="mt-5 text-lg text-[var(--color-ink-soft)]">
-        Whether you're an educator curious about trying EMORIA in your Kita, or a parent who
-        wants to follow along until it launches — write a line. Cemil reads every message.
-      </p>
+      <p class="mt-5 text-lg text-[var(--color-ink-soft)]">Whether you are an educator curious to try EMORIA in your kindergarten, or a parent who wants to follow along until it launches, drop us a line. Cemil reads every message.</p>
     </div>
 
     <div class="mx-auto max-w-xl px-6 pb-24">
@@ -45,19 +42,13 @@ const base = import.meta.env.BASE_URL;
           </label>
 
           <button type="submit"
-            class="rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-7 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">
-            Send message
-          </button>
+            class="rounded-[var(--radius-pill)] bg-[var(--color-brand)] px-7 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-brand-deep)]">Send message</button>
 
-          <p class="text-center text-sm text-[var(--color-ink-faint)]">
-            Prefer email? Write to <a href="mailto:hello@emoria.de" class="underline decoration-[var(--color-cream-edge)] underline-offset-2 hover:text-[var(--color-ink)]">hello@emoria.de</a>
+          <p class="text-center text-sm text-[var(--color-ink-faint)]">Prefer email? Write to <a href="mailto:hello@emoria.de" class="underline decoration-[var(--color-cream-edge)] underline-offset-2 hover:text-[var(--color-ink)]">hello@emoria.de</a>
           </p>
         </div>
       </form>
-      <p class="mt-4 text-center text-xs text-[var(--color-ink-faint)]">
-        Draft note: this form isn't wired to a backend yet — we'll connect it to a
-        GDPR-compliant handler (and confirm the real address) before launch.
-      </p>
+      <p class="mt-4 text-center text-xs text-[var(--color-ink-faint)]">Please note: this form isn't connected to a backend yet. Before launch we will set up a GDPR-compliant connection and confirm the final address.</p>
     </div>
   </article>
 </Base>

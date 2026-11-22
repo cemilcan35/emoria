@@ -12,34 +12,34 @@ import Accordion from '../../components/audience/Accordion.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Base lang="en" title="For Schools — EMORIA" current="School"
-  description="Yubuu's Feeling Wheel in everyday primary school life: for class council, school social work and support lessons, evidence-based.">
+  description="Yubuu's Feeling Wheel in primary school: for class meetings, school social work and support lessons, grounded in research.">
 
   <AudienceHero
     eyebrow="✦ For Schools"
-    title="Social and emotional learning belongs in every classroom, not as an afterthought, but on purpose."
-    body="In primary school, children learn more than maths and reading. They also learn to make friends, handle conflict, and take responsibility for themselves and others. But experiencing a feeling and being able to name it are two different things. Yubuu's Feeling Wheel helps teachers and school social workers pick up on exactly these moments, giving children a protected space in which to discover, understand and talk about their inner world of feelings, through play."
+    title="Social and emotional learning belongs in every classroom, not as an afterthought but on purpose."
+    body="In primary school, children learn more than maths and reading. They also learn to make friends, work through conflicts and take responsibility for themselves and others. But feeling something and being able to name it are two different things. Yubuu's Feeling Wheel helps teachers and school social workers give children a protected space where they can explore their feelings through play, understand them and talk about them."
     image="img/wheel-wide.jpg"
-    imageAlt="Yubuu's Feeling Wheel in the class council"
+    imageAlt="Yubuu's Feeling Wheel in a class meeting"
   />
 
   <ClickBoxes
     title="Why Yubuu's Feeling Wheel?"
     items={[
-      { icon: '🧩', title: 'Flexible for everyday school use', text: 'Whether in class council, small groups, school social work or a support lesson, a round takes about 25 to 40 minutes and can be used right away, with no extra training.' },
-      { icon: '🕊️', title: 'Understand conflict instead of letting it escalate', text: 'Children who understand their feelings and needs better find it easier to develop constructive ways of handling conflict.' },
-      { icon: '💬', title: 'Insights for parent conversations', text: 'Observations from the game show what\'s occupying a child, and form a valuable basis for parent conversations and individual support.' },
+      { icon: '🧩', title: 'Flexible in the school day', text: 'Whether in a class meeting, a small group, school social work or a support lesson, a round takes about 25 to 40 minutes and can be used straight away, with no extra training.' },
+      { icon: '🕊️', title: 'Understanding conflicts instead of letting them escalate', text: 'Children who understand their feelings and needs better find it easier to deal with conflicts in constructive ways.' },
+      { icon: '💬', title: 'Insights for parent conversations', text: 'What you notice during the game shows which topics are on a child\'s mind, and gives you a valuable starting point for parent conversations and individual support.' },
     ]}
   />
 
   <IconRow
     title="Where Yubuu's Feeling Wheel is used"
     items={[
-      { icon: '🗣️', label: 'Class council' },
+      { icon: '🗣️', label: 'Class meetings' },
       { icon: '👥', label: 'Small groups' },
       { icon: '🤝', label: 'School social work' },
       { icon: '📘', label: 'Support lessons' },
-      { icon: '🔁', label: 'Substitute lessons' },
-      { icon: '💛', label: 'After conflicts in class' },
+      { icon: '🔁', label: 'Cover lessons' },
+      { icon: '💛', label: 'After conflicts in the class' },
       { icon: '🌱', label: 'Prevention projects' },
       { icon: '🌍', label: 'Inclusive teaching' },
     ]}
@@ -47,61 +47,57 @@ const base = import.meta.env.BASE_URL;
 
   <TwoCol
     title="What makes Yubuu's Feeling Wheel special?"
-    body="Primary school children also learn more sustainably when they actively discover, try things out, and talk with one another. Yubuu's Feeling Wheel combines playful learning with building social and emotional skills. Yubuu accompanies this process with curiosity and appreciation. Instead of handing out answers, Yubuu invites children to develop their own thoughts and get to know different perspectives. Children aged seven to ten go through five steps that build on one another: they discover a feeling, talk about it, connect it to everyday situations, and finally recognise which need lies behind it."
+    body="Primary school children also learn more lastingly when they actively explore, try things out and talk with one another. Yubuu's Feeling Wheel combines learning through play with building social and emotional skills. Yubuu accompanies the process with curiosity and appreciation. Rather than giving answers, Yubuu invites children to develop their own thoughts and to meet different points of view. Children aged seven to ten work through five steps that build on one another: they discover a feeling, talk about it, connect it to everyday situations and finally recognise which need lies behind it."
     image="img/rocket-puzzle-card.jpg"
-    imageAlt="A situation card from Yubuu's Feeling Wheel"
+    imageAlt="Situation card from Yubuu's Feeling Wheel"
   />
 
   <ColoredBand
     tone="petrol"
-    title="A stronger class climate starts with conversations"
-    body="A good class climate doesn't happen on its own. Children need to learn to listen, understand different perspectives, and handle conflict respectfully. Yubuu's Feeling Wheel creates a safe frame in which exactly these skills can be practised through play. That strengthens not just individual children, the whole class community benefits too. For teachers and school social workers, the game also offers valuable insight into children's inner world of feelings, a foundation that supports daily educational work and informs parent conversations and individual support."
+    title="A stronger class climate starts with conversation"
+    body="A good atmosphere in class doesn't appear by itself. Children have to learn to listen, to understand different perspectives and to work through conflict respectfully. Yubuu's Feeling Wheel offers a safe setting in which exactly these skills can be practised through play. This doesn't only strengthen individual children; the whole class community benefits. For teachers and school social workers, the game also offers valuable insight into children's emotional world, and a solid basis for parent conversations and individual support."
   />
 
-  <YubuuQuote quote="In every class, everyone feels something different. Let's find out together how we can talk about it." image="yubuu-crystal.png" imageAlt="Yubuu mit einem leuchtenden Kristall" />
+  <YubuuQuote quote="In every class, everyone feels something different. Let's find out together how we can talk about it." image="yubuu-crystal.png" imageAlt="Yubuu with a glowing crystal" />
 
   <Chips
     title="Who is the game for?"
-    items={['Primary school teachers', 'School social workers', 'Special-needs teachers', 'Guidance counsellors', 'After-school care staff', 'Class teachers', 'Inclusion educators', 'School psychology services', 'anyone working with primary-age children']}
+    items={['Primary school teachers', 'School social workers', 'Special needs teachers', 'School counsellors', 'After-school care staff', 'Class teachers', 'Inclusion specialists', 'School psychologists', 'anyone who works with primary school children']}
   />
 
   <Accordion
     items={[
       {
         title: 'How a round of the game works',
-        body: 'Primary school children go through five steps: discovering a feeling, talking about it, connecting it to an everyday situation, and finally recognising the need behind it. A round takes about 25 to 40 minutes, depending on depth of conversation and group size, sometimes shorter or longer. At the end, Yubuu leads a short reflection: How was the game for you? Who\'d like to talk about it?',
+        body: 'Primary school children work through five steps: discovering a feeling, talking about it, linking it to an everyday situation and, finally, recognising the need behind it. A round takes about 25 to 40 minutes, a little more or less depending on how deep the conversation goes and the size of the group. At the end, Yubuu leads a short reflection: how was the game for you? Who would like to talk about it?',
       },
       {
-        title: 'Scientific background',
-        body: 'Yubuu\'s Feeling Wheel is built on several recognised approaches from education and psychology. The meta-analysis by Durlak et al., covering over 270,000 children, shows that structured social and emotional learning improves academic performance by an average of eleven percent and reduces conflict. The final step of the game draws on Nonviolent Communication as developed by Marshall B. Rosenberg, and the collaborative learning in the game on Lev Vygotsky\'s developmental theory. Research on affect labelling also shows that simply naming a feeling has a calming effect on the brain, exactly what every round of the wheel practises.',
+        title: 'The science behind it',
+        body: 'Yubuu\'s Feeling Wheel draws on several well-established approaches from education and psychology. A meta-analysis by Durlak et al., covering more than 270,000 children, shows that structured social and emotional learning improves academic performance by an average of eleven percent and reduces conflict. The final step of the game is based on Nonviolent Communication as developed by Marshall B. Rosenberg, and the shared learning in the game on the developmental theory of Lev Vygotsky. Research on affect labelling also shows that simply naming a feeling has a calming effect on the brain, which is exactly what every round with the Feeling Wheel practises.',
         linkHref: `${base}en/wissenschaftlicher-hintergrund`,
-        linkLabel: 'More on the scientific background',
+        linkLabel: 'Read more about the science',
       },
       {
-        title: 'Frequently asked questions from schools',
+        title: 'Common questions from schools',
         body: `
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Does this fit our curriculum, or is it an add-on?</strong><br />Yubuu's Feeling Wheel doesn't replace curriculum content, it complements it. It fits into class council, substitute lessons or support lessons without needing dedicated teaching time.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Does it work with a whole class, not just small groups?</strong><br />The game was originally designed for small groups of up to six children. For a whole class, we recommend running several small groups in parallel, or rotating the game through class council sessions.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Can I use it in class council?</strong><br />Yes. Class council is especially well suited to running individual game phases or full rounds together.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Can I use only some of the materials?</strong><br />Yes. Depending on time and goals, the Feeling Wheel, the flash cards or the situation cards can also be used independently of one another.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Is it suitable for children with additional support needs?</strong><br />Yes. Precisely because it works with no time pressure and no right or wrong answers, it's often used in special-needs education and one-on-one support.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Is there scientific evidence for its effectiveness?</strong><br />The concept builds on recognised research on social and emotional learning, including the Durlak et al. meta-analysis covering over 270,000 children. A dedicated effectiveness study of Yubuu's Feeling Wheel itself is planned as part of the pilot phase starting 2027.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Who covers the cost, are there funding options?</strong><br />Many schools fund Yubuu's Feeling Wheel through existing materials budgets or educational grants. We're currently reviewing suitable funding programmes for schools.</p>
-          <p><strong class="text-[var(--color-ink)]">Do I need training to use the game?</strong><br />No, the game can be used right away, with no extra training. Anyone who wants can also book an introductory workshop.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Does it fit our curriculum, or is it an extra?</strong><br />Yubuu's Feeling Wheel doesn't replace any curriculum content; it adds to it. It fits into class meetings, cover lessons or support lessons, so you don't need to set aside extra teaching time.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Does it work with a whole class, not just small groups?</strong><br />The game was originally designed for small groups of up to six children. With a whole class, we recommend letting several small groups play at the same time, or using the game in turns during class meetings.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Can I use the game in class meetings?</strong><br />Yes. Class meetings are a particularly good fit for playing individual phases or complete rounds together.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Can I use just some of the game materials?</strong><br />Yes. Depending on time and purpose, you can use the Feeling Wheel, the flash cards or the situation cards on their own.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Is the game also suitable for children with special educational needs?</strong><br />Yes. Because it works without time pressure and without right or wrong answers, it is often used in special schools and in one-to-one support.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Is there scientific evidence that it works?</strong><br />The concept builds on well-established research on social and emotional learning, including the Durlak et al. meta-analysis of more than 270,000 children. Our own studies of Yubuu's Feeling Wheel itself are planned for the pilot phase from 2027.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Who pays for it, and is funding available?</strong><br />Many schools pay for Yubuu's Feeling Wheel from existing materials budgets or educational funding. For schools, we are currently looking into suitable funding programmes.</p>
+          <p><strong class="text-[var(--color-ink)]">Do I need training to use the game?</strong><br />No, you can start right away without extra training. If you like, you can also book an introductory workshop.</p>
         `,
       },
     ]}
   />
 
   <div class="mx-auto max-w-3xl px-6 pb-8 text-center">
-    <p class="font-serif-heading text-xl italic text-[var(--color-ink)] sm:text-2xl">
-      Children don't just remember what they learned, they also remember how they felt while learning it.
-    </p>
+    <p class="font-serif-heading text-xl italic text-[var(--color-ink)] sm:text-2xl">Children remember not only what they learned, but also how they felt while learning it.</p>
   </div>
 
   <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
-    <a href={`${base}en/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
-      Get in touch for your school
-    </a>
+    <a href={`${base}en/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Enquire for your school</a>
   </div>
 </Base>

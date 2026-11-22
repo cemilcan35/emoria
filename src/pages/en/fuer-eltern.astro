@@ -11,12 +11,12 @@ import Accordion from '../../components/audience/Accordion.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Base lang="en" title="For Parents — EMORIA" current="Parents"
-  description="How families can use Yubuu's Feeling Wheel at home to start conversations with children about feelings.">
+  description="How families can bring Yubuu's Feeling Wheel into life at home and talk with their children about feelings.">
 
   <AudienceHero
     eyebrow="✦ For Parents"
-    title="Children learn to count and read. They only learn to talk about feelings when someone takes the time for it."
-    body="Sometimes a child doesn't even know what's going on inside them. They just notice that something is off. Anger, withdrawal or tears are then often the only path they know. Children who learn early to name their feelings need that detour less often. They get through conflict better, feel safer, and can say what they need. That's why emotional education isn't a side issue. It begins in Kita and school, and its effects reach far beyond childhood."
+    title="Children learn to read and count at school. Learning to talk about feelings takes someone who makes the time for it."
+    body="Sometimes a child doesn't know what is going on inside. They just sense that something is wrong, and anger, withdrawing or tears are the only ways they know to show it. Children who learn early to put their feelings into words need those detours less often. They get through conflicts more easily, feel safer and can say what they need. That is why emotional learning is not a nice extra. It starts in kindergarten and at school, and it reaches far beyond childhood."
     image="img/needs-circles.jpg"
     imageAlt="Needs circles from Yubuu's Feeling Wheel"
   />
@@ -24,47 +24,45 @@ const base = import.meta.env.BASE_URL;
   <ClickBoxes
     title="What your child learns"
     items={[
-      { icon: '💬', title: 'Naming feelings', text: 'Experiencing a feeling and being able to express it are two different things. This is exactly where the game comes in.' },
-      { icon: '👀', title: 'Discovering other perspectives', text: 'One child feels anger, another fear, in the very same situation. Children experience that feelings are personal.' },
-      { icon: '🌱', title: 'Recognising the need behind it', text: 'Anger can arise when a child doesn\'t feel heard. Children learn to stay curious about what lies behind their own experience.' },
+      { icon: '💬', title: 'Putting feelings into words', text: 'Feeling something and being able to say it are two different things. That is exactly where the game comes in.' },
+      { icon: '👀', title: 'Seeing through someone else\'s eyes', text: 'One child feels angry, another feels afraid in the very same situation. Children discover that feelings are personal.' },
+      { icon: '🌱', title: 'Finding the need behind a feeling', text: 'Anger can come up when a child doesn\'t feel heard. Children learn to look with curiosity at what lies behind what they feel.' },
     ]}
   />
 
   <IconRow
     title="From feeling to understanding"
     items={[
-      { icon: '🎡', label: 'Discover the feeling' },
-      { icon: '💬', label: 'Express it' },
+      { icon: '🎡', label: 'Find the feeling' },
+      { icon: '💬', label: 'Say it' },
       { icon: '🔍', label: 'Understand the situation' },
-      { icon: '👀', label: 'Discover a perspective' },
-      { icon: '🌱', label: 'Recognise the need' },
+      { icon: '👀', label: 'See another view' },
+      { icon: '🌱', label: 'Spot the need' },
     ]}
   />
-  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">
-    It's not about finding the right answer. There isn't one.
-  </p>
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">The aim is not to find the right answer. There isn't one.</p>
 
   <TwoCol
     title="Anger is rarely the real problem"
-    body="When children can't yet express their feelings well, their inner experience shows up in their behaviour. We see the behaviour right away, the feeling behind it not always. That's why EMORIA wants to shift the perspective. Not just asking: What is this child doing right now? But also: What might they be feeling, and what might they need?"
+    body="When children can't yet express their feelings well, what they feel shows up in what they do. We see the behaviour straight away, but not always the feeling behind it. That is why EMORIA wants to change the question. Not only &quot;What is this child doing?&quot; but also &quot;What might they be feeling, and what might they need?&quot;"
     image="img/situation-card.jpg"
-    imageAlt="A situation card from Yubuu's Feeling Wheel"
+    imageAlt="Situation card from Yubuu's Feeling Wheel"
   />
 
   <ColoredBand
     tone="terracotta"
     title="And what does this have to do with me as a parent?"
-    body="Maybe your child talks at home about Yubuu or a feeling. Maybe not. Both are completely fine. You don't have to replay the game and you don't need any educational training. Often it's enough to listen and ask: “What was that like for you?” What matters is that your child notices: my feelings are allowed to be here. I am heard."
+    body="Maybe your child will tell you about Yubuu or about a feeling at home. Maybe not. Either is perfectly fine. You don't need to replay the game, and you don't need any training in education. Often it is enough to listen and ask, &quot;How was that for you?&quot; What matters is that your child senses: my feelings are allowed to be here, and someone hears me."
   />
 
   <section class="mx-auto max-w-3xl px-6 py-16">
-    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Small prompts for home</h2>
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Small ideas for home</h2>
     <div class="mt-8 space-y-4">
       {[
         { t: 'Name the feeling', d: '"You seem disappointed right now."' },
         { t: 'Ask instead of guessing', d: '"Would you like to tell me what happened?"' },
-        { t: "Don't fix it right away", d: 'Sometimes a child first needs understanding, not advice.' },
-        { t: 'Be a role model', d: 'When you name your own feelings, your child learns that this is normal.' },
+        { t: 'Don\'t rush to fix it', d: 'Sometimes a child needs to feel understood first, not to be given advice.' },
+        { t: 'Lead by example', d: 'When you put your own feelings into words, your child learns that this is normal.' },
       ].map((it) => (
         <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
           <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
@@ -77,34 +75,30 @@ const base = import.meta.env.BASE_URL;
   <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
     <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
       <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">A good question for your next parent-teacher conversation</p>
-      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">"Was there a moment today that really stuck with my child?"</p>
-      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">This question often opens up more than "Was everything okay?".</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">"Was there a moment today that stayed with my child?"</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">A question like this often opens up more than "Was everything okay?"</p>
     </div>
   </section>
 
-  <YubuuQuote quote="Sometimes the loveliest conversations begin with a single question: How do you feel today?" image="yubuu-butterfly.png" imageAlt="Yubuu mit einem Schmetterling" />
+  <YubuuQuote quote="Some of the best conversations begin with a single question: how are you feeling today?" image="yubuu-butterfly.png" imageAlt="Yubuu with a butterfly" />
 
   <Accordion
     items={[
       {
         title: 'How a round of the game works',
-        body: 'The child spins the Feeling Wheel and engages with the chosen feeling. Through questions and everyday situations, it\'s explored step by step, until the final question: What do I need when I feel this way? A round takes about 25 to 40 minutes and is guided by an educator.',
+        body: 'The child spins the Feeling Wheel and takes a close look at the feeling it lands on. Through questions and everyday situations, they explore it step by step, until the final question: what do I need when I feel like this? A round takes about 25 to 40 minutes and is guided by an educator.',
       },
       {
-        title: 'Why emotional education matters',
-        body: 'The ability to notice and express one\'s own feelings is closely linked to self-awareness, empathy and building positive relationships. These areas are described in the scientific concept of Social Emotional Learning. EMORIA is grounded in these foundations. One distinction matters to us: research supports the value of social-emotional learning approaches overall, the concrete effectiveness of EMORIA itself still needs to be studied systematically.',
+        title: 'Why emotional learning matters',
+        body: 'Noticing and expressing your own feelings is closely tied to self-awareness, empathy and building good relationships. These areas are described in the research concept known as Social Emotional Learning, and EMORIA builds on it. One distinction matters to us: research supports the value of social and emotional learning in general, but how well EMORIA itself works still has to be studied systematically.',
         linkHref: `${base}en/wissenschaftlicher-hintergrund`,
-        linkLabel: 'More on the scientific background',
+        linkLabel: 'Read more about the science',
       },
     ]}
   />
 
   <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
-    <p class="text-[var(--color-ink-soft)]">
-      When a small conversation happens at home, something important has already occurred: a child tells, an adult listens, and both try to understand each other a little better.
-    </p>
-    <a href={`${base}en/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
-      Questions? Write to us
-    </a>
+    <p class="text-[var(--color-ink-soft)]">When a small conversation comes up at home, something important has already happened: a child talks, an adult listens, and both try to understand each other a little better.</p>
+    <a href={`${base}en/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Questions? Write to us</a>
   </div>
 </Base>
