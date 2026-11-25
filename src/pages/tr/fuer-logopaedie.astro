@@ -12,12 +12,12 @@ import Accordion from '../../components/audience/Accordion.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Base lang="tr" title="Dil ve Konuşma Terapisi İçin — EMORIA" current="Konuşma terapisi"
-  description="Yubuu'nun Duygu Çarkı dil ve konuşma terapisi pratiğinde: duygu sözcük dağarcığı, spontan konuşma ve kendiliğinden doğan konuşma fırsatları.">
+  description="Yubuu'nun Duygu Çarkı dil ve konuşma terapisinde: duygu sözcükleri, kendiliğinden konuşma ve doğal konuşma fırsatları.">
 
   <AudienceHero
     eyebrow="✦ Dil ve Konuşma Terapisi İçin"
-    title="Dilin ve duygunun buluştuğu yerde: oyunla, yapılandırılmış, hemen kullanılabilir."
-    body="Dil ve konuşma terapisine gelen birçok çocuk yalnızca seslerde ve cümlelerde değil, hissettiğini sözcüklere dökmekte de zorlanır. Duygusal ve dilsel sözcük dağarcığı birbirine sıkı sıkıya bağlıdır: Bir duygu için sözcüğü olmayan kişi, artikülasyonu ne kadar iyi olursa olsun, onu zor ifade eder. Yubuu'nun Duygu Çarkı ikisini tek bir kısa alıştırmada bir araya getirir."
+    title="Dil ile duygunun buluştuğu yerde: oyunla, yapılandırılmış ve hemen kullanıma hazır."
+    body="Dil ve konuşma terapisine gelen birçok çocuk yalnızca sesleri ve cümleleri kurmakta değil, hissettiklerini kelimelere dökmekte de zorlanır. Duygu sözcükleri ile genel sözcük dağarcığı birbirine sıkı sıkıya bağlıdır: Bir duygunun adını bilmeyen biri, sesleri ne kadar net çıkarırsa çıkarsın onu anlatmakta güçlük çeker. Yubuu'nun Duygu Çarkı ikisini tek bir kısa alıştırmada buluşturur."
     image="img/hero-logopaedie.jpg"
     imageAlt="Yubuu'nun Duygu Çarkı'ndan yelpaze gibi açılmış soru kartları"
   />
@@ -25,9 +25,9 @@ const base = import.meta.env.BASE_URL;
   <ClickBoxes
     title="Neden Yubuu'nun Duygu Çarkı?"
     items={[
-      { icon: '🗣️', title: 'Gerçek bir dil hazinesi olarak duygu sözcükleri', text: 'Oyun, duygu sözcüklerini hedefli biçimde çalıştırır: basit temel duygulardan hayal kırıklığı veya gurur gibi daha ayrıntılı kavramlara kadar. Tek tek kelime listelerinin aksine bu kavramlar, çocuk için anlamlı, gerçek bir bağlamda ortaya çıkar: ezberlenmez, yaşanır.' },
-      { icon: '🧑‍⚕️', title: 'Bireysel çalışma için geliştirildi', text: 'Bir veya iki çocukla bir tur yaklaşık 10 ile 20 dakika sürer ve hazırlık gerektirmeden olağan bir terapi seansına eklenebilir, ister bağımsız bir alıştırma olarak ister asıl dil desteğinden önce bir giriş olarak.' },
-      { icon: '🧩', title: 'Kendiliğinden doğan konuşma fırsatları', text: 'Hazır alıştırma cümleleri yerine gerçek, spontan ifadeler ortaya çıkar: Çocuk bir durumu anlatır, seçimini gerekçelendirir, kendi yaşadıklarını aktarır. Tam da bu spontan konuşma, yönlendirilmiş cümlelerden çoğu zaman daha zor çalıştırılır ve oyun tam olarak bunu harekete geçirir.' },
+      { icon: '🗣️', title: 'Duygu sözcükleri gerçek dilin bir parçası olarak', text: 'Oyun, basit temel duygulardan hayal kırıklığı ya da gurur gibi daha ince kavramlara kadar duygu sözcüklerini bilinçli biçimde çalıştırır. Tek tek sözcük listelerinden farklı olarak bu sözcükler, çocuk için anlamlı, gerçek bir bağlamda ortaya çıkar. Ezberlenmez, yaşanır.' },
+      { icon: '🧑‍⚕️', title: 'Bire bir çalışmaya göre geliştirildi', text: 'Bir ya da iki çocukla bir tur yaklaşık 10 ila 20 dakika sürer ve hazırlık gerektirmeden olağan bir terapi seansına eklenebilir: ister bağımsız bir alıştırma olarak, ister asıl dil çalışmasından önce bir ısınma olarak.' },
+      { icon: '🧩', title: 'Kendiliğinden doğan konuşma fırsatları', text: 'Hazır alıştırma cümleleri yerine gerçek, kendiliğinden ifadeler ortaya çıkar: Çocuk bir durumu anlatır, seçimini gerekçelendirir, kendi yaşadıklarından söz eder. Böyle serbest konuşmayı çalıştırmak, yönlendirilmiş cümlelerden çoğu zaman daha zordur. Oyun ise tam bunu kendiliğinden harekete geçirir.' },
     ]}
   />
 
@@ -37,15 +37,15 @@ const base = import.meta.env.BASE_URL;
       { icon: '🗣️', label: 'Dil destek seansı' },
       { icon: '🧑‍⚕️', label: 'Bireysel terapi' },
       { icon: '🔤', label: 'Sözcük dağarcığı çalışması' },
-      { icon: '💬', label: 'Spontan konuşmayı teşvik etme' },
-      { icon: '📈', label: 'Süreç dokümantasyonu' },
+      { icon: '💬', label: 'Kendiliğinden konuşmayı teşvik' },
+      { icon: '📈', label: 'Gelişimi izleme' },
       { icon: '👪', label: 'Aile görüşmesine hazırlık' },
     ]}
   />
 
   <TwoCol
     title="Yubuu'nun Duygu Çarkı'nı özel kılan nedir?"
-    body="Merkezde doğru cevap değil, birlikte keşfetmek vardır. Yubuu hiçbir şeyi değerlendirmez, sorar, hayret eder ve dinler; bu, birçok çocuğun dil eğitiminden zaten bildiği başarı baskısını ortadan kaldırır. Duygular soyut kalmaz: Duygu çarkını çevirmek, mıknatıs kafaları yerleştirmek, blitz kartları, durum kartları ve ihtiyaç çemberleri sayesinde, prova edilmiş değil doğal hissettiren somut konuşma fırsatları ortaya çıkar."
+    body="Merkezde doğru cevap değil, birlikte keşfetmek var. Yubuu hiçbir şeyi değerlendirmez; sorar, şaşırır ve dinler. Bu da pek çok çocuğun dil eğitiminden tanıdığı başarı baskısını ortadan kaldırır. Duygular soyut kalmaz: Duygu Çarkı'nı çevirmek, mıknatıs kafaları yerleştirmek, blitz kartları, durum kartları ve ihtiyaç çemberleriyle oynamak, prova edilmiş değil doğal hissettiren somut konuşma fırsatları yaratır."
     image="img/rocket-puzzle-card.jpg"
     imageAlt="Yubuu'nun Duygu Çarkı'ndan durum kartı"
   />
@@ -53,43 +53,43 @@ const base = import.meta.env.BASE_URL;
   <ColoredBand
     tone="petrol"
     title="Küçük danışanlarınızın dil düzeyine açılan bir pencere"
-    body="Dil ve konuşma terapistleri için Yubuu'nun Duygu Çarkı bir oyundan fazlasıdır: Bir çocuğun duygusal sözcük dağarcığının neleri kapsadığını ve nerede boşluklar olduğunu hemen gösterir. Çocuk bir duyguyu kendi başına adlandırabiliyor mu, yoksa yardıma mı ihtiyaç duyuyor? Basit mi, yoksa ayrıntılı kavramlar mı kullanıyor? Bu gözlemler doğrudan terapi planlamasına ve süreç dokümantasyonuna aktarılabilir."
+    body="Dil ve konuşma terapistleri için Yubuu'nun Duygu Çarkı bir oyundan fazlası: Bir çocuğun duygu sözcük dağarcığının neleri kapsadığını ve nerede boşluklar olduğunu hemen gösterir. Çocuk bir duyguyu kendi başına adlandırabiliyor mu, yoksa yardıma mı ihtiyaç duyuyor? Basit sözcükler mi kullanıyor, yoksa daha ince ayrımlar mı yapıyor? Bu gözlemleri doğrudan terapi planlamanıza ve gelişim notlarınıza aktarabilirsiniz."
   />
 
   <YubuuQuote
-    quote="Merhaba! Duygular için bütün sözcükleri henüz bilmiyorum, bu yüzden sana soruyorum. Şu an hissettiğin şeye ne diyorsun?"
+    quote="Merhaba! Duygular için bütün sözcükleri henüz bilmiyorum, o yüzden sana soruyorum. Şu an hissettiğin şeye ne diyorsun?"
     image="yubuu-crystal.png" imageAlt="Yubuu parlayan bir kristalle" />
 
   <Chips
     title="Oyun kimler için uygun?"
-    items={['Dil ve konuşma terapistleri', 'Dil terapistleri', 'Erken müdahale merkezlerindeki uzmanlar', 'Dil pedagogları', 'Dil, konuşma ve ses terapisi merkezleri']}
+    items={['Dil ve konuşma terapistleri', 'Dil terapistleri', 'Erken müdahale merkezlerindeki uzmanlar', 'Dil ve konuşma pedagogları', 'Dil, konuşma ve ses terapisi merkezleri']}
   />
 
   <Accordion
     items={[
       {
         title: 'Bir oyun turu nasıl işler?',
-        body: 'Bir oyun turu, birbiri üzerine kurulan beş adımdan oluşur. Çocuk duygu çarkını çevirir ve mıknatıs kafasını alır; bu, çocuğun kendiliğinden seçmeyeceği duyguları da oyuna getiren bilinçli bir rastlantı unsurudur. Ardından çocuk bir soru kartı çeker ve duygu hakkında kısaca konuşur. Sonra bir blitz kartı gelir: Çocuğun yalnızca duygunun uyup uymadığını söylediği kısa bir gündelik durum. Dördüncü adımda çocuk, mıknatıs kafasını Yubuu\'yu yüz ifadesi olmadan gösteren bir durum kartının üzerine koyar. Sonunda çocuk, ihtiyaç çemberlerinden bu duyguda kendisine neyin yardımcı olacağını seçer. Bir veya iki çocukla tam bir tur yaklaşık 10 ile 20 dakika sürer.',
+        body: 'Bir oyun turu, birbirini tamamlayan beş adımdan oluşur. Çocuk Duygu Çarkı\'nı çevirir ve çarkın durduğu yerdeki mıknatıs kafayı alır. Bu, bilinçli bir rastlantı unsurudur; çocuğun kendiliğinden seçmeyeceği duyguları da oyuna getirir. Sonra bir soru kartı çeker ve duygu hakkında kısaca konuşur. Ardından bir blitz kartı gelir: Çocuğun yalnızca duygunun uyup uymadığını söylediği kısa bir günlük hayat durumu. Dördüncü adımda çocuk, mıknatıs kafasını Yubuu\'yu ifadesiz bir yüzle gösteren bir durum kartının üzerine koyar. Son olarak ihtiyaç çemberlerinden bu duyguda kendisine neyin iyi geleceğini seçer. Bir ya da iki çocukla tam bir tur yaklaşık 10 ila 20 dakika sürer.',
       },
       {
         title: 'Bilimsel arka plan',
-        body: 'Yubuu\'nun Duygu Çarkı, gelişim psikolojisi ve duygusal eğitimden birkaç kabul görmüş yaklaşıma dayanır. Durlak ve arkadaşlarının 270.000\'den fazla çocuğu kapsayan meta-analizi, yapılandırılmış sosyal ve duygusal öğrenme programlarının davranış sorunlarını belirgin biçimde azalttığını ve benlik saygısını güçlendirdiğini gösterir. Bedensel öğrenme (embodied learning) araştırmaları ayrıca, çocukların yalnızca dinlemek yerine bedensel olarak harekete geçtiklerinde daha derin öğrendiklerini gösterir; bu nedenle oyun materyali bilinçli olarak fizikseldir.',
+        body: 'Yubuu\'nun Duygu Çarkı, gelişim psikolojisi ve duygusal eğitimdeki köklü yaklaşımlara dayanır. Durlak ve arkadaşlarının 270.000\'den fazla çocuğu kapsayan meta-analizi, yapılandırılmış sosyal ve duygusal öğrenme programlarının davranış sorunlarını belirgin biçimde azalttığını ve benlik saygısını güçlendirdiğini gösteriyor. Bedensel öğrenme (embodied learning) araştırmaları da çocukların yalnızca dinlemek yerine bedenleriyle hareket ettiklerinde daha derin öğrendiğini gösteriyor. Oyun materyalinin bilinçli olarak elle tutulur olmasının nedeni bu.',
         linkHref: `${base}tr/wissenschaftlicher-hintergrund`,
         linkLabel: 'Bilimsel arka plan hakkında daha fazlası',
       },
       {
         title: 'Dil ve konuşma terapisi pratiğinden sık sorulan sorular',
         body: `
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun, dil gelişimi bozukluğu olan çocuklar için uygun mu?</strong><br />Evet, tam da bu çocuklar için oyunla, baskısız yaklaşım özellikle değerlidir. Fiziksel öğeler, uygun sözcükler henüz eksik olsa bile ifade etmeyi mümkün kılar.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun, hedefli sözcük dağarcığı çalışmasının yerini alır mı?</strong><br />Hayır, onu tamamlar. Tek tek alıştırmalar yerine duygu sözcükleri gerçek, anlamlı bir bağlamda ortaya çıkar.</p>
-          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun bireysel çalışmada işe yarar mı?</strong><br />Evet, bunun için de geliştirildi. Bir veya iki çocukla bir tur yalnızca 10 ile 20 dakika sürer.</p>
-          <p><strong class="text-[var(--color-ink)]">Bir eğitime ihtiyacım var mı?</strong><br />Hayır, oyun ek bir eğitim olmadan hemen kullanılabilir.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun, dil gelişimi bozukluğu olan çocuklar için uygun mu?</strong><br />Evet, özellikle bu çocuklar için oyunla ve baskısız yaklaşım çok değerlidir. Elle tutulur öğeler, uygun sözcükler henüz yokken bile kendini ifade etmeye imkân tanır.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun, hedefli sözcük çalışmasının yerini alır mı?</strong><br />Hayır, onu tamamlar. Ayrı ayrı alıştırmalar yerine duygu sözcükleri gerçek ve anlamlı bir bağlamda ortaya çıkar.</p>
+          <p class="mb-4"><strong class="text-[var(--color-ink)]">Oyun bire bir çalışmada işe yarar mı?</strong><br />Evet, bunu düşünerek geliştirildi. Bir ya da iki çocukla bir tur yalnızca 10 ila 20 dakika sürer.</p>
+          <p><strong class="text-[var(--color-ink)]">Bir eğitime ihtiyacım var mı?</strong><br />Hayır, oyunu ek bir eğitim almadan hemen kullanabilirsiniz.</p>
         `,
       },
     ]}
   />
 
   <div class="mx-auto max-w-3xl px-6 pb-24 text-center">
-    <a href={`${base}tr/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Uygulamanız için bilgi talep edin</a>
+    <a href={`${base}tr/contact`} class="inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Merkeziniz için bilgi talep edin</a>
   </div>
 </Base>

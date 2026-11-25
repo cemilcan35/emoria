@@ -11,22 +11,22 @@ import Accordion from '../../components/audience/Accordion.astro';
 const base = import.meta.env.BASE_URL;
 ---
 <Base lang="tr" title="Aileler İçin — EMORIA" current="Aileler"
-  description="Ailelerin Yubuu'nun Duygu Çarkı'nı evde nasıl kullanarak çocuklarıyla duygular hakkında sohbet edebileceği.">
+  description="Aileler, Yubuu'nun Duygu Çarkı'nı evde nasıl kullanıp çocuklarıyla duygular üzerine sohbet edebilir?">
 
   <AudienceHero
     eyebrow="✦ Aileler İçin"
-    title="Çocuklar sayı saymayı ve okumayı öğrenir. Duyguları hakkında konuşmayı ise ancak biri buna zaman ayırırsa öğrenirler."
-    body="Bazen bir çocuk içinde neler olduğunu kendisi de bilmez. Sadece bir şeylerin yolunda gitmediğini hisseder. Öfke, geri çekilme ya da gözyaşları o an bildiği tek yol olur. Duygularını erken adlandırmayı öğrenen çocuklar bu dolambaçlı yola daha az ihtiyaç duyar. Çatışmalarla daha iyi başa çıkar, kendilerini daha güvende hisseder ve ihtiyaçlarını dile getirebilirler. Bu yüzden duygusal eğitim ikincil bir konu değildir. Anaokulunda ve okulda başlar, ve etkisi çocukluğun çok ötesine uzanır."
+    title="Çocuklar okumayı ve saymayı öğrenir. Duygularından söz etmeyi ise ancak biri buna zaman ayırırsa öğrenir."
+    body="Bazen çocuk, içinde neler olduğunu kendisi de bilemez. Yalnızca bir şeylerin yolunda gitmediğini hisseder. Öfke, içine kapanma ya da gözyaşı, o zaman bildiği tek yol olur. Duygularına erken yaşta isim koymayı öğrenen çocuklar bu dolambaçlı yola daha az ihtiyaç duyar. Çatışmaları daha kolay atlatır, kendini daha güvende hisseder ve neye ihtiyacı olduğunu söyleyebilir. Bu yüzden duygusal eğitim, olsa da olur olmasa da olur bir ek değildir. Anaokulunda ve okulda başlar, etkisi çocukluğun çok ötesine uzanır."
     image="img/needs-circles.jpg"
     imageAlt="Yubuu'nun Duygu Çarkı'ndan ihtiyaç çemberleri"
   />
 
   <ClickBoxes
-    title="Çocuğunuz bu sırada ne öğrenir"
+    title="Çocuğunuz oyunda neler öğrenir?"
     items={[
-      { icon: '💬', title: 'Duyguları adlandırmak', text: 'Bir duyguyu yaşamak ile onu ifade edebilmek iki farklı şeydir. Oyun tam da burada devreye girer.' },
-      { icon: '👀', title: 'Farklı bakış açılarını keşfetmek', text: 'Bir çocuk öfke duyarken, aynı durumda başka bir çocuk korku hissedebilir. Çocuklar duyguların kişisel olduğunu deneyimler.' },
-      { icon: '🌱', title: 'Arkasındaki ihtiyacı fark etmek', text: 'Öfke, bir çocuk kendini duyulmamış hissettiğinde ortaya çıkabilir. Çocuklar, yaşadıklarının arkasında yatana meraklı bir gözle bakmayı öğrenir.' },
+      { icon: '💬', title: 'Duygulara isim vermek', text: 'Bir duyguyu yaşamak ile onu ifade edebilmek ayrı şeylerdir. Oyun tam da bu noktada devreye girer.' },
+      { icon: '👀', title: 'Başka bakış açılarını keşfetmek', text: 'Bir çocuk öfkelenirken bir diğeri aynı durumda korku hisseder. Çocuklar, duyguların kişiye özgü olduğunu fark eder.' },
+      { icon: '🌱', title: 'Duygunun ardındaki ihtiyacı fark etmek', text: 'Öfke, çocuk kendini dinlenmemiş hissettiğinde ortaya çıkabilir. Çocuklar, yaşadıklarının ardında ne olduğuna merakla bakmayı öğrenir.' },
     ]}
   />
 
@@ -36,35 +36,33 @@ const base = import.meta.env.BASE_URL;
       { icon: '🎡', label: 'Duyguyu keşfet' },
       { icon: '💬', label: 'İfade et' },
       { icon: '🔍', label: 'Durumu anla' },
-      { icon: '👀', label: 'Bakış açısını keşfet' },
+      { icon: '👀', label: 'Başka bir bakış açısı bul' },
       { icon: '🌱', label: 'İhtiyacı fark et' },
     ]}
   />
-  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">
-    Burada amaç doğru bir cevap bulmak değildir. Zaten doğru cevap yoktur.
-  </p>
+  <p class="mx-auto -mt-8 max-w-lg px-6 pb-6 text-center text-sm text-[var(--color-ink-faint)]">Amaç, doğru cevabı bulmak değil. Zaten doğru cevap yok.</p>
 
   <TwoCol
-    title="Öfke nadiren gerçek sorundur"
-    body="Çocuklar duygularını henüz iyi ifade edemediğinde, yaşadıkları davranışlarına yansır. Davranışı hemen görürüz, ama arkasındaki duyguyu her zaman görmeyiz. Bu yüzden EMORIA bakış açısını değiştirmek istiyor. Sadece şunu sormak yerine: Çocuk şu an ne yapıyor? Ayrıca şunu da sormak: Şu an ne hissediyor olabilir, ve belki neye ihtiyacı var?"
+    title="Öfke çoğu zaman asıl sorun değildir"
+    body="Çocuklar duygularını henüz iyi ifade edemediğinde, yaşadıkları davranışlarına yansır. Davranışı hemen görürüz, ardındaki duyguyu ise her zaman göremeyiz. EMORIA bu yüzden bakışı değiştirmek istiyor. Yalnızca &quot;Çocuk şu an ne yapıyor?&quot; diye değil, &quot;Şu an ne hissediyor olabilir ve neye ihtiyacı olabilir?&quot; diye de sormak istiyor."
     image="img/situation-card.jpg"
     imageAlt="Yubuu'nun Duygu Çarkı'ndan durum kartı"
   />
 
   <ColoredBand
     tone="terracotta"
-    title="Peki bunun benimle ebeveyn olarak ne ilgisi var?"
-    body="Belki çocuğunuz evde Yubuu'dan ya da bir duygudan bahseder. Belki de bahsetmez. İkisi de tamamen normaldir. Oyunu yeniden oynamanıza ya da pedagojik bir eğitime sahip olmanıza gerek yok. Çoğu zaman dinlemek ve sormak yeterlidir: „Bu senin için nasıldı?“ Önemli olan, çocuğunuzun şunu hissetmesidir: Duygularım orada olabilir. Beni duyuyorlar."
+    title="Peki bunun bir ebeveyn olarak benimle ne ilgisi var?"
+    body="Belki çocuğunuz evde Yubuu'dan ya da bir duygudan söz eder, belki etmez. İkisi de gayet normal. Oyunu evde yeniden oynamanız gerekmez, pedagojik bir eğitiminiz olması da gerekmez. Çoğu zaman dinlemek ve &quot;Senin için nasıldı?&quot; diye sormak yeter. Önemli olan, çocuğunuzun şunu hissetmesi: Duygularımın var olmaya hakkı var. Beni dinliyorlar."
   />
 
   <section class="mx-auto max-w-3xl px-6 py-16">
-    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Evde küçük ipuçları</h2>
+    <h2 class="text-center font-serif-heading text-2xl sm:text-3xl">Evde uygulayabileceğiniz küçük ipuçları</h2>
     <div class="mt-8 space-y-4">
       {[
-        { t: 'Duyguları adlandırmak', d: '„Şu an hayal kırıklığına uğramış görünüyorsun.“' },
-        { t: 'Tahmin etmek yerine sormak', d: '„Ne olduğunu anlatmak ister misin?“' },
-        { t: 'Hemen çözüme koşmamak', d: 'Bazen bir çocuğun önce ihtiyacı olan şey öğüt değil, anlayıştır.' },
-        { t: 'Örnek olmak', d: 'Kendi duygularınızı adlandırdığınızda, çocuğunuz bunun normal olduğunu öğrenir.' },
+        { t: 'Duyguyu adlandırın', d: '"Şu an hayal kırıklığına uğramış gibisin."' },
+        { t: 'Tahmin etmek yerine sorun', d: '"Ne olduğunu anlatmak ister misin?"' },
+        { t: 'Hemen çözmeye çalışmayın', d: 'Bazen çocuğun önce anlaşılmaya ihtiyacı vardır, öğüde değil.' },
+        { t: 'Örnek olun', d: 'Kendi duygularınızı adlandırdığınızı gören çocuk, bunun doğal olduğunu öğrenir.' },
       ].map((it) => (
         <div class="flex gap-4 rounded-[var(--radius-card)] border border-[var(--color-cream-edge)] bg-white/70 p-5">
           <span class="mt-1 h-2 w-2 shrink-0 rounded-full bg-[var(--color-terracotta)]"></span>
@@ -77,22 +75,22 @@ const base = import.meta.env.BASE_URL;
   <section class="mx-auto max-w-2xl px-6 pb-16 text-center">
     <div class="rounded-[var(--radius-card)] border-2 border-[var(--color-gold)] bg-[var(--color-gold-soft)] px-8 py-10">
       <p class="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--color-terracotta)]">Bir sonraki veli görüşmesi için güzel bir soru</p>
-      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">„Bugün çocuğumu özellikle meşgul eden bir durum oldu mu?“</p>
-      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Bu soru genellikle „Her şey yolunda mıydı?“ sorusundan daha fazlasını açar.</p>
+      <p class="mt-4 font-serif-heading text-xl italic sm:text-2xl">"Bugün çocuğumu özellikle meşgul eden bir durum oldu mu?"</p>
+      <p class="mt-4 text-sm text-[var(--color-ink-soft)]">Bu soru, "Her şey yolunda mıydı?" sorusundan çoğu zaman daha fazlasını açar.</p>
     </div>
   </section>
 
-  <YubuuQuote quote="Bazen en güzel sohbetler tek bir soruyla başlar: Bugün nasıl hissediyorsun?" image="yubuu-butterfly.png" imageAlt="Yubuu mit einem Schmetterling" />
+  <YubuuQuote quote="Bazen en güzel sohbetler tek bir soruyla başlar: Bugün nasıl hissediyorsun?" image="yubuu-butterfly.png" imageAlt="Yubuu bir kelebekle" />
 
   <Accordion
     items={[
       {
-        title: 'Bir oyun turu nasıl işler',
-        body: 'Çocuk duygu çarkını çevirir ve seçilen duyguyla ilgilenir. Sorular ve günlük yaşam durumları aracılığıyla adım adım daha ayrıntılı incelenir, sonunda şu soruya varılır: Böyle hissettiğimde neye ihtiyacım var? Bir tur yaklaşık 25 ila 40 dakika sürer ve bir pedagojik uzman tarafından yürütülür.',
+        title: 'Bir oyun turu nasıl işler?',
+        body: 'Çocuk Duygu Çarkı\'nı çevirir ve çarkın gösterdiği duyguya yakından bakar. Sorular ve günlük yaşamdan durumlar eşliğinde bu duyguyu adım adım inceler; sonunda şu soruya gelir: Ben böyle hissettiğimde neye ihtiyaç duyarım? Bir tur yaklaşık 25 ila 40 dakika sürer ve bir eğitimci eşlik eder.',
       },
       {
-        title: 'Duygusal eğitim neden önemli',
-        body: 'Kendi duygularını fark etme ve ifade etme becerisi, öz farkındalık, empati ve olumlu ilişkiler kurmayla yakından bağlantılıdır. Bu alanlar, Sosyal Duygusal Öğrenme\'nin (Social Emotional Learning) bilimsel kavramında tanımlanır. EMORIA bu temellere dayanır. Bizim için önemli olan bir ayrım var: Araştırmalar sosyal-duygusal öğrenme yaklaşımlarının genel önemini kanıtlıyor, EMORIA\'nın kendisinin somut etkinliği ise henüz sistematik olarak incelenmemiştir.',
+        title: 'Duygusal eğitim neden önemli?',
+        body: 'Kendi duygularını fark etmek ve ifade edebilmek; öz farkındalık, empati ve olumlu ilişkiler kurmayla yakından bağlantılıdır. Bu alanlar, Sosyal ve Duygusal Öğrenme (Social Emotional Learning) adıyla bilinen bilimsel yaklaşımda ele alınır. EMORIA da bu temellere dayanır. Bizim için önemli bir ayrım var: Araştırmalar, sosyal ve duygusal öğrenme yaklaşımlarının genel olarak değerini ortaya koyuyor. EMORIA\'nın kendi etkisinin ise henüz sistematik biçimde incelenmesi gerekiyor.',
         linkHref: `${base}tr/wissenschaftlicher-hintergrund`,
         linkLabel: 'Bilimsel arka plan hakkında daha fazlası',
       },
@@ -100,11 +98,7 @@ const base = import.meta.env.BASE_URL;
   />
 
   <div class="mx-auto max-w-2xl px-6 pb-24 text-center">
-    <p class="text-[var(--color-ink-soft)]">
-      Evde küçük bir sohbet başladığında, aslında önemli bir şey olmuş demektir: Bir çocuk anlatır, bir yetişkin dinler, ve ikisi de birbirini daha iyi anlamaya çalışır.
-    </p>
-    <a href={`${base}tr/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">
-      Sorularınız mı var? Bize yazın
-    </a>
+    <p class="text-[var(--color-ink-soft)]">Evde küçük bir sohbet doğuyorsa, önemli bir şey zaten olmuştur: Bir çocuk anlatır, bir yetişkin dinler ve ikisi de birbirini biraz daha iyi anlamaya çalışır.</p>
+    <a href={`${base}tr/contact`} class="mt-8 inline-block rounded-[var(--radius-pill)] bg-[var(--color-terracotta)] px-8 py-3.5 font-[var(--font-body)] font-semibold text-white shadow-[var(--shadow-soft)] transition hover:bg-[var(--color-terracotta-deep)]">Sorularınız mı var? Bize yazın</a>
   </div>
 </Base>
