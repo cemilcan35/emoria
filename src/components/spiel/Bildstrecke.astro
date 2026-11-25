@@ -2,6 +2,7 @@
 import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { getSpiel } from '../../data/spiel';
+import BeduerfnisRing from './BeduerfnisRing.astro';
 
 interface Props { lang?: string }
 const { lang = 'de' } = Astro.props;
@@ -15,7 +16,7 @@ const imageSrc = (file: string) =>
   existsSync(join(process.cwd(), DIR, file)) ? `${base}img/spielablauf/${file}` : null;
 ---
 
-<!-- Texte: src/data/spiel.ts (DE, EN). TODO Übersetzung: FR und TR zeigen vorerst Deutsch. -->
+<!-- Texte: src/data/spiel.ts (DE, EN, TR) und src/data/i18n/*.ts -->
 <script is:inline>
   // Stationen nur verstecken, wenn JavaScript läuft und keine Bewegung reduziert ist
   if (!matchMedia('(prefers-reduced-motion: reduce)').matches && !matchMedia('(max-width: 640px)').matches) {
@@ -37,11 +38,14 @@ const imageSrc = (file: string) =>
 <ol class="stations">
   {C.stations.map((s, i) => {
     const src = imageSrc(s.image);
+    const isRing = i === 8; // Bedürfniskreise: drehender Ring auf dem Desktop
     return (
       <Fragment>
-      <li class:list={['station', i % 2 === 1 && 'is-flip']} id={`schritt-${i + 1}`} data-station>
+      <li class:list={['station', i % 2 === 1 && 'is-flip', isRing && 'station--ring']} id={`schritt-${i + 1}`} data-station>
         <figure class="station-media">
-          {src ? (
+          {isRing && src ? (
+            <BeduerfnisRing text={C.ring} staticSrc={src} staticAlt={s.alt} />
+          ) : src ? (
             <img src={src} alt={s.alt} width="1200" height="900" loading="lazy" decoding="async" />
           ) : (
             <div class="placeholder" role="img" aria-label={`${C.placeholder}: ${s.image}`}>
@@ -135,6 +139,11 @@ const imageSrc = (file: string) =>
   .placeholder { width: 100%; height: 100%; display: grid; place-items: center; padding: 16px; box-sizing: border-box; background: var(--color-cream-deep); color: var(--color-ink-faint); font-family: var(--font-body); font-size: 14px; text-align: center; border: 1.5px dashed var(--color-cream-edge); border-radius: var(--radius-card); word-break: break-all; }
   .station-media .placeholder { border-radius: 0; border: 0; }
 
+  /* Bedürfniskreise: Ring in voller Breite unter dem Text */
+  .station--ring { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .station--ring .station-media { order: 2; aspect-ratio: auto; border-radius: 0; box-shadow: none; background: none; overflow: visible; }
+  .station--ring .station-text { width: 100%; max-width: 720px; margin: 0 auto; }
+
   .station-text { min-width: 0; }
   .marke { margin: 0 0 6px; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--color-terracotta); }
   .station h2 { margin: 0 0 14px; font-family: var(--font-display); font-weight: 600; font-size: clamp(24px, 3vw, 30px); line-height: 1.2; color: var(--color-ink); }
@@ -171,6 +180,7 @@ const imageSrc = (file: string) =>
     .station { grid-template-columns: 1fr; gap: 20px; }
     .station.is-flip .station-media { order: 0; }
     .station-media { aspect-ratio: 4 / 3; }
+    .station--ring .station-media { order: 0; aspect-ratio: auto; }
   }
   @media (max-width: 560px) {
     .erleben-grid { grid-template-columns: 1fr; }
