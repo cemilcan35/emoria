@@ -13,6 +13,11 @@ export interface Station {
   alt: string;
 }
 
+export interface RingText {
+  title: string; sub: string; hint: string; pause: string; play: string; prev: string; next: string;
+  label: string; role: string; front: string;
+}
+
 export interface SpielContent {
   eyebrow: string;
   title: string;
@@ -25,6 +30,7 @@ export interface SpielContent {
   erlebIntro: string;
   erlebItems: { marke: string; title: string; text: string }[];
   cta: string;
+  ring: RingText;
 }
 
 import { IMAGES } from './spielImages';
@@ -88,7 +94,7 @@ const DE: SpielContent = {
       heading: 'Die Fragekarten',
       yubuu: '„Wann hast du dich zuletzt so gefühlt?“',
       text: 'Das Kind zieht eine Fragekarte, in der Grundschule zwei bis drei. Die Fragen sind offen und passen zu jedem Gefühl. Yubuu hört zu, fragt nach und bewertet nichts. Jedes Kind darf jederzeit sagen: „Dazu möchte ich nichts sagen.“',
-      alt: 'Ein Kind hält eine Fragekarte und erzählt, die Handpuppe hört aufmerksam zu.',
+      alt: "Sechs Fragekarten, auf jeder Yubuu mit einer Frage zum Gefühl.",
     },
     {
       image: IMAGES[6],
@@ -112,7 +118,7 @@ const DE: SpielContent = {
       heading: 'Die Bedürfniskreise',
       yubuu: '„Was könnte ich jetzt brauchen?“',
       text: 'Das Kind wählt einen Bedürfniskreis, zum Beispiel Trost, Ruhe oder Freundschaft. Eine richtige Antwort gibt es nicht. Dann überlegen alle, was Yubuu konkret helfen könnte, etwa eine Umarmung oder jemand, der zuhört. Wer möchte, erzählt, was ihm selbst in so einem Moment hilft.',
-      alt: 'Ein Kind legt einen Bedürfniskreis neben eine Situationskarte mit Yubuu.',
+      alt: "Vierzehn Bedürfniskreise mit kleinen Bildern, zum Beispiel Bewegen, Malen, Umarmung und Ruhe.",
     },
     {
       image: IMAGES[9],
@@ -120,7 +126,7 @@ const DE: SpielContent = {
       heading: 'Was Yubuu heute gelernt hat',
       yubuu: '„Danke! Jetzt weiß ich viel mehr über dieses Gefühl.“',
       text: 'Das Kind legt alles zusammen: die Situationskarte mit dem Magnetkopf, den Bedürfniskreis und die behaltenen Blitzkarten. Yubuu fasst zusammen, was es gelernt hat, und bedankt sich. Die Kinder haben Yubuu geholfen und dabei ganz nebenbei über ihre eigenen Gefühle gesprochen.',
-      alt: 'Die Handpuppe freut sich mit zwei Kindern über das fertige Gefühlsbild auf dem Tisch.',
+      alt: "Die magnetische Bedürfnistafel mit Platz für sechs Kinder.",
     },
   ],
   vorleseTitle: 'Bevor das Spiel beginnt',
@@ -136,6 +142,7 @@ const DE: SpielContent = {
     { marke: 'Schritt 6', title: 'Etwas finden, das hilft', text: 'Das Kind überlegt, was Yubuu jetzt guttun würde, und erfährt: Zu jedem Gefühl gibt es etwas, das helfen kann.' },
   ],
   cta: 'Kontakt aufnehmen',
+  ring: { title: "Was brauchst du gerade?", sub: "Jedes Bedürfnis darf da sein.", hint: "Zum Drehen ziehen · Kreis antippen, um ihn nach vorne zu holen", pause: "Pause", play: "Drehen", prev: "Zurückdrehen", next: "Weiterdrehen", label: "Bedürfniskreise", role: "Karussell", front: "Vorne: " },
 };
 
 const EN: SpielContent = {
@@ -190,7 +197,7 @@ const EN: SpielContent = {
       heading: 'The question cards',
       yubuu: '“When did you last feel like this?”',
       text: 'The child draws a question card, two to three in primary school. The questions are open and fit every feeling. Yubuu listens, asks follow-up questions and judges nothing. Any child may say at any time: “I\'d rather not say anything about that.”',
-      alt: 'A child holds a question card and tells a story while the hand puppet listens attentively.',
+      alt: "Six question cards, each showing Yubuu with a question about the feeling.",
     },
     {
       image: IMAGES[6],
@@ -214,7 +221,7 @@ const EN: SpielContent = {
       heading: 'The needs circles',
       yubuu: '“What might I need right now?”',
       text: 'The child chooses a needs circle, for example comfort, calm or friendship. There is no right answer. Then everyone thinks about what could really help Yubuu, such as a hug or someone who listens. Whoever wants to can share what helps them in such a moment.',
-      alt: 'A child places a needs circle next to a situation card with Yubuu.',
+      alt: "Fourteen needs circles with small pictures, for example moving, painting, a hug and quiet time.",
     },
     {
       image: IMAGES[9],
@@ -222,7 +229,7 @@ const EN: SpielContent = {
       heading: 'What Yubuu learned today',
       yubuu: '“Thank you! Now I know much more about this feeling.”',
       text: 'The child puts everything together: the situation card with the magnetic head, the needs circle and the kept flash cards. Yubuu sums up what they have learned and says thank you. The children have helped Yubuu and, without noticing, talked about their own feelings.',
-      alt: 'The hand puppet celebrates with two children over the finished feelings picture on the table.',
+      alt: "The magnetic needs board with space for six children.",
     },
   ],
   vorleseTitle: 'Before the game begins',
@@ -238,6 +245,7 @@ const EN: SpielContent = {
     { marke: 'Step 6', title: 'Finding something that helps', text: 'The child thinks about what would do Yubuu good right now and learns: for every feeling there is something that can help.' },
   ],
   cta: 'Get in touch',
+  ring: { title: "What do you need right now?", sub: "Every need is allowed to be here.", hint: "Drag to spin · tap a circle to bring it to the front", pause: "Pause", play: "Spin", prev: "Spin back", next: "Spin forward", label: "Needs circles", role: "Carousel", front: "In front: " },
 };
 
 const TR: SpielContent = {
@@ -292,7 +300,7 @@ const TR: SpielContent = {
       heading: 'Soru kartları',
       yubuu: '“En son ne zaman böyle hissettin?”',
       text: 'Çocuk bir soru kartı çeker; ilkokulda iki ya da üç tane. Sorular açıktır ve her duyguya uyar. Yubuu dinler, sorular sorar ve hiçbir şeyi değerlendirmez. Her çocuk her an şöyle diyebilir: “Bu konuda bir şey söylemek istemiyorum.”',
-      alt: 'Bir çocuk soru kartını tutuyor ve anlatıyor, el kuklası dikkatle dinliyor.',
+      alt: "Her birinde Yubuu ve duyguyla ilgili bir soru olan altı soru kartı.",
     },
     {
       image: IMAGES[6],
@@ -316,7 +324,7 @@ const TR: SpielContent = {
       heading: 'İhtiyaç çemberleri',
       yubuu: '“Şimdi neye ihtiyacım olabilir?”',
       text: "Çocuk bir ihtiyaç çemberi seçer, örneğin teselli, huzur ya da arkadaşlık. Doğru bir cevap yoktur. Sonra herkes Yubuu'ya somut olarak neyin yardımcı olabileceğini düşünür, örneğin bir sarılma ya da dinleyen biri. İsteyen, böyle bir anda kendisine neyin iyi geldiğini anlatır.",
-      alt: "Bir çocuk, Yubuu'nun olduğu bir durum kartının yanına bir ihtiyaç çemberi koyuyor.",
+      alt: "Üzerinde küçük resimler olan on dört ihtiyaç çemberi, örneğin hareket etmek, resim yapmak, sarılmak ve dinlenmek.",
     },
     {
       image: IMAGES[9],
@@ -324,7 +332,7 @@ const TR: SpielContent = {
       heading: 'Yubuu bugün ne öğrendi',
       yubuu: '“Teşekkürler! Bu duygu hakkında artık çok daha fazla şey biliyorum.”',
       text: "Çocuk her şeyi bir araya getirir: mıknatıs kafalı durum kartını, ihtiyaç çemberini ve sakladığı blitz kartlarını. Yubuu öğrendiklerini özetler ve teşekkür eder. Çocuklar Yubuu'ya yardım etti ve bunu yaparken kendi duyguları hakkında da konuştu.",
-      alt: 'El kuklası iki çocukla birlikte masadaki tamamlanmış duygu resmine seviniyor.',
+      alt: "Altı çocuk için yer olan mıknatıslı ihtiyaç tahtası.",
     },
   ],
   vorleseTitle: 'Oyun başlamadan önce',
@@ -340,6 +348,7 @@ const TR: SpielContent = {
     { marke: '6. adım', title: 'Yardımcı olan bir şey bulmak', text: "Çocuk, Yubuu'ya şimdi neyin iyi geleceğini düşünür ve öğrenir: Her duygu için yardımcı olabilecek bir şey vardır." },
   ],
   cta: 'İletişime geçin',
+  ring: { title: "Şu an neye ihtiyacın var?", sub: "Her ihtiyacın var olmaya hakkı var.", hint: "Döndürmek için sürükle · öne almak için bir çembere dokun", pause: "Duraklat", play: "Döndür", prev: "Geri çevir", next: "İleri çevir", label: "İhtiyaç çemberleri", role: "Karusel", front: "Önde: " },
 };
 
 export function getSpiel(lang: string): SpielContent {
