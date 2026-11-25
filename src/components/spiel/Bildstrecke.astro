@@ -139,10 +139,8 @@ const imageSrc = (file: string) =>
   .placeholder { width: 100%; height: 100%; display: grid; place-items: center; padding: 16px; box-sizing: border-box; background: var(--color-cream-deep); color: var(--color-ink-faint); font-family: var(--font-body); font-size: 14px; text-align: center; border: 1.5px dashed var(--color-cream-edge); border-radius: var(--radius-card); word-break: break-all; }
   .station-media .placeholder { border-radius: 0; border: 0; }
 
-  /* Bedürfniskreise: Ring in voller Breite unter dem Text */
-  .station--ring { grid-template-columns: minmax(0, 1fr); gap: 28px; }
-  .station--ring .station-media { order: 2; aspect-ratio: auto; border-radius: 0; box-shadow: none; background: none; overflow: visible; }
-  .station--ring .station-text { width: 100%; max-width: 720px; margin: 0 auto; }
+  /* Bedürfniskreise: der Ring ersetzt das Bild, bringt Rahmen und Schatten selbst mit */
+  .station--ring .station-media { aspect-ratio: auto; border-radius: 0; box-shadow: none; background: none; overflow: visible; }
 
   .station-text { min-width: 0; }
   .marke { margin: 0 0 6px; font-family: var(--font-body); font-size: 14px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--color-terracotta); }
@@ -180,7 +178,6 @@ const imageSrc = (file: string) =>
     .station { grid-template-columns: 1fr; gap: 20px; }
     .station.is-flip .station-media { order: 0; }
     .station-media { aspect-ratio: 4 / 3; }
-    .station--ring .station-media { order: 0; aspect-ratio: auto; }
   }
   @media (max-width: 560px) {
     .erleben-grid { grid-template-columns: 1fr; }
